@@ -1,0 +1,16 @@
+# Book settings
+title: F540 Interactive Book
+author: Varlei Rodrigues & Gustavo Wiederhecker
+logo: logo.png
+
+# Information about where the book exists on the web
+repository:
+  url                       : https://github.com/gwiederhecker/F540_jbook
+
+# Configure your Binder links, such as the URL of the BinderHub.
+launch_buttons:
+  binderhub_url             : https://mybinder.org
+
+latex:
+  latex_documents:
+    targetname: book.tex
