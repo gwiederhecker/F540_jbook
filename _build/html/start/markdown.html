@@ -179,10 +179,6 @@
             <a href="#adding-a-citation" class="nav-link">Adding a citation</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#executing-code-in-your-markdown-files" class="nav-link">Executing code in your markdown files</a>
-        </li>
-    
             </ul>
         </li>
     
@@ -260,11 +256,8 @@ role syntax <code class="docutils literal notranslate"><span class="pre">{doc}`i
 </div>
 <div class="section" id="adding-a-citation">
 <h3>Adding a citation<a class="headerlink" href="#adding-a-citation" title="Permalink to this headline">¶</a></h3>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span class="bibtex" id="id1">[holdgraf_evidence_2014]</span>.</p>
+<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,</p>
 <p>Moreoever, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
 render properly.
 For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
 then the bibliography is inserted with:</p>
@@ -273,30 +266,35 @@ then the bibliography is inserted with:</p>
 </pre></div>
 </div>
 <p>Resulting in a rendered bibliography that looks like:</p>
-<p id="bibtex-bibliography-start/markdown-0"></p>
-</div>
-<div class="section" id="executing-code-in-your-markdown-files">
-<h3>Executing code in your markdown files<a class="headerlink" href="#executing-code-in-your-markdown-files" title="Permalink to this headline">¶</a></h3>
-<p>If you’d like to include computational content inside these markdown files,
-you can use MyST Markdown to define cells that will be executed when your
-book is built. Jupyter Book uses <em>jupytext</em> to do this.</p>
-<p>First, add Jupytext metadata to the file. For example, to add Jupytext metadata
-to this markdown page, run this command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">markdown</span><span class="o">.</span><span class="n">md</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="c1">### Executing code in your markdown files</span>
+
+<span class="n">If</span> <span class="n">you</span><span class="s1">&#39;d like to include computational content inside these markdown files,</span>
+<span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">MyST</span> <span class="n">Markdown</span> <span class="n">to</span> <span class="n">define</span> <span class="n">cells</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">your</span>
+<span class="n">book</span> <span class="ow">is</span> <span class="n">built</span><span class="o">.</span> <span class="n">Jupyter</span> <span class="n">Book</span> <span class="n">uses</span> <span class="o">*</span><span class="n">jupytext</span><span class="o">*</span> <span class="n">to</span> <span class="n">do</span> <span class="n">this</span><span class="o">.</span>
+
+<span class="n">First</span><span class="p">,</span> <span class="n">add</span> <span class="n">Jupytext</span> <span class="n">metadata</span> <span class="n">to</span> <span class="n">the</span> <span class="n">file</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">to</span> <span class="n">add</span> <span class="n">Jupytext</span> <span class="n">metadata</span>
+<span class="n">to</span> <span class="n">this</span> <span class="n">markdown</span> <span class="n">page</span><span class="p">,</span> <span class="n">run</span> <span class="n">this</span> <span class="n">command</span><span class="p">:</span>
+
 </pre></div>
 </div>
-<p>Once a markdown file has Jupytext metadata in it, you can add the following
-directive to run the code at build time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{code-cell}
-print(&quot;Here is some code to execute&quot;)
-```
+<p>jupyter-book myst init markdown.md</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">Once</span> <span class="n">a</span> <span class="n">markdown</span> <span class="n">file</span> <span class="n">has</span> <span class="n">Jupytext</span> <span class="n">metadata</span> <span class="ow">in</span> <span class="n">it</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">the</span> <span class="n">following</span>
+<span class="n">directive</span> <span class="n">to</span> <span class="n">run</span> <span class="n">the</span> <span class="n">code</span> <span class="n">at</span> <span class="n">build</span> <span class="n">time</span><span class="p">:</span>
+
 </pre></div>
 </div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+When your book is built, the contents of any `{code-cell}` blocks will be
 executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<p>For more information about executing computational content with Jupyter Book,
-see <a class="reference external" href="https://myst-nb.readthedocs.io/">The MyST-NB documentation</a>.</p>
+in-line with the rest of your content.
+
+For more information about executing computational content with Jupyter Book,
+see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
+</pre></div>
+</div>
 </div>
 </div>
 </div>
