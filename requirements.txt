@@ -3,3 +3,4 @@ matplotlib
 numpy
 schemdraw
 ipywidgets
+jupyter_contrib_nbextensions
