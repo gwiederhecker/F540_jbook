@@ -1,11 +1,13 @@
-- file: README 
+- file: README
+- part: Get started
+  chapters:
+  - file: start/what_you_need_to_know
+  - file: start/markdown 
 
-- header: Get started
-- file: start/what_you_need_to_know
-- file: start/markdown 
-
-- header: Introduction to F540
-- file: intro/intro
-
-- header: Interactive examples
-- file: examples/kvl_graphic_solution
+- part: Introduction to F540
+  chapters:
+  - file: intro/intro
+- part: Interactive examples
+  chapters:
+  - file: examples/example
+  - file: examples/Fitting/exemplo_ajuste_rc
