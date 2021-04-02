@@ -7,6 +7,9 @@
 - part: Introduction to F540
   chapters:
   - file: intro/intro
+- part: Experiments
+  chapters:
+  - file: guides/exp1-rc_filters
 - part: Interactive examples
   chapters:
   - file: examples/example

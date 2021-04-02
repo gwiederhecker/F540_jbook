@@ -1,8 +1,11 @@
-# Fitting example
+# Fitting Filter Transfer Function
 
 <span style='color:red'>OBS:Antes de usar este notebook, faça-te um favor e instale o Python através da distribuição Anaconda. Deve ser utilizado o Python versão >3.</span>
 https://www.anaconda.com/download/
 
+
+## Loading python packages
+The following python packages will be necessary to execute this notebook
 
 '''importa as bibliotecas necessárias'''
 import matplotlib.pyplot as plt  # importar a bilioteca pyplot para fazer gráficos
@@ -16,28 +19,15 @@ from uncertainties import ufloat # pacote para lidar com incertezas
 #from scipy import optimize
 %matplotlib inline   
 
-folder_path=os.getcwd()
-print('pasta atual:',folder_path)        
-#O ARQUIVO DE DADOS DEVE ESTAR NESTA PASTA:
-file_name = 'exp_1a_dados_22_33_42.dat'
+## Loading data
+Carregando arquivos com o pacote PANDAS. O arquivo ```.csv``` deverá estar na mesma pasta que o seu arquivo Jupyter
+
+file_name = 'dados_sweep.csv'
+folder_path=os.getcwd()    
 file=os.path.join(folder_path,file_name)
-dados_bruto = pd.read_csv(file, sep='\t') #separador TAB
+dados = pd.read_csv(file, sep=',') #separador ,
 #ver o cabeçalho....
-dados_bruto.head()
-
-dados = dados_bruto.drop('Unnamed: 0',axis=1) #remove a primeira coluna
 dados.head()
-
-Note que na célula abaixo, estamos convertendo a estrutura de dados do PANDAS para vetores do Numpy. Para acessar as colunas do PANDAS, podemos usar o cabeçalho da coluna (veja acima), ou o índice da mesma (usando o método .iloc[] ), e.g.,
-```
-freq_vec = dados['frequencia (Hz)'] # primeira coluna, com nome 'frequencia (Hz)'
-freq_vec = dados.iloc[:,0] # primeira (0-ésima) coluna, o : indica que todas as linhas serão consideradas
-```
-
-Compare os resultados:
-
-print(dados['Vpp1 (V)'])
-print(dados.iloc[:,0])
 
 #*********************************************
 #atribuindo variáveis
@@ -45,8 +35,19 @@ print(dados.iloc[:,0])
 freq_vec =  np.array(dados['frequencia (Hz)'])
 vpp1_vec =  np.array(dados['Vpp1 (V)'] )
 vpp2_vec =  np.array(dados['Vpp2 (V)'] )
-fase_vec =  np.array(dados['fase (Ch1-Ch2) (graus)'])
+fase_vec =  np.array(dados['fase (rad)'])
 npt = len(vpp1_vec) # numero de pontos
+
+Em termos das amplitudes (pico-pico) medidas no osciloscópio, a transmitância é dada por 
+
+$$T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2$$(eq:trans_lin)
+
+Em decibéis, 
+
+$$T_{dB}=10\log_{10}(T)$$(eq:trans_db)
+
+As equações {eq}```(eq:trans_lin)``` e {eq}```{eq:trans_db}``` são calculadas a seguir:
+
 #*********************************************
 #calculando transmistancia a partir dos vetores de vpp
 #*********************************************

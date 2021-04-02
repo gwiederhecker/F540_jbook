@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitting example &#8212; F540 Interactive Book</title>
+    <title>Fitting Filter Transfer Function &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Example" href="../example.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -124,18 +123,25 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../guides/exp1-rc_filters.html">
+   Experiment 1: RC filters
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Interactive examples
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../example.html">
-   Example
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Fitting example
+   Fitting Filter Transfer Function
   </a>
  </li>
 </ul>
@@ -220,6 +226,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-python-packages">
+   Loading python packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-data">
+   Loading data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -228,10 +254,13 @@
         
               <div>
                 
-  <div class="section" id="fitting-example">
-<h1>Fitting example<a class="headerlink" href="#fitting-example" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fitting-filter-transfer-function">
+<h1>Fitting Filter Transfer Function<a class="headerlink" href="#fitting-filter-transfer-function" title="Permalink to this headline">¶</a></h1>
 <p><span style='color:red'>OBS:Antes de usar este notebook, faça-te um favor e instale o Python através da distribuição Anaconda. Deve ser utilizado o Python versão &gt;3.</span>
 <a class="reference external" href="https://www.anaconda.com/download/">https://www.anaconda.com/download/</a></p>
+<div class="section" id="loading-python-packages">
+<h2>Loading python packages<a class="headerlink" href="#loading-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>The following python packages will be necessary to execute this notebook</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;importa as bibliotecas necessárias&#39;&#39;&#39;</span>
@@ -248,123 +277,18 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b83b52ea018b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">scipy.io</span> <span class="c1">#pacote para carregar dados do matlab</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span> <span class="c1"># pacote para ajuste de curvas</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">ufloat</span> <span class="c1"># pacote para lidar com incertezas</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">#from scipy import optimize</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline   &#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;uncertainties&#39;
-</pre></div>
 </div>
 </div>
-</div>
+<div class="section" id="loading-data">
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>Carregando arquivos com o pacote PANDAS. O arquivo <code class="docutils literal notranslate"><span class="pre">.csv</span></code> deverá estar na mesma pasta que o seu arquivo Jupyter</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folder_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pasta atual:&#39;</span><span class="p">,</span><span class="n">folder_path</span><span class="p">)</span>        
-<span class="c1">#O ARQUIVO DE DADOS DEVE ESTAR NESTA PASTA:</span>
-<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;exp_1a_dados_22_33_42.dat&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;dados_sweep.csv&#39;</span>
+<span class="n">folder_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>    
 <span class="n">file</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span>
-<span class="n">dados_bruto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#separador TAB</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1">#separador ,</span>
 <span class="c1">#ver o cabeçalho....</span>
-<span class="n">dados_bruto</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540/Material suplementar
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>Vpp1 (V)</th>
-      <th>Vpp2 (V)</th>
-      <th>fase (Ch1-Ch2) (graus)</th>
-      <th>frequencia (Hz)</th>
-      <th>T</th>
-      <th>T_dB</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>10.131415</td>
-      <td>10.221927</td>
-      <td>1.800000</td>
-      <td>100.000000</td>
-      <td>1.008934</td>
-      <td>0.077253</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>10.131415</td>
-      <td>10.127982</td>
-      <td>-1.860465</td>
-      <td>215.443469</td>
-      <td>0.999661</td>
-      <td>-0.002944</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>2</td>
-      <td>10.068876</td>
-      <td>10.096416</td>
-      <td>-6.679036</td>
-      <td>464.158883</td>
-      <td>1.002735</td>
-      <td>0.023724</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>3</td>
-      <td>9.756178</td>
-      <td>9.328147</td>
-      <td>-15.808384</td>
-      <td>1000.000000</td>
-      <td>0.956127</td>
-      <td>-0.389687</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>4</td>
-      <td>8.818084</td>
-      <td>7.497087</td>
-      <td>-31.641535</td>
-      <td>2154.434690</td>
-      <td>0.850195</td>
-      <td>-1.409633</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dados</span> <span class="o">=</span> <span class="n">dados_bruto</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#remove a primeira coluna</span>
 <span class="n">dados</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -388,103 +312,57 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
       <th>Vpp1 (V)</th>
       <th>Vpp2 (V)</th>
-      <th>fase (Ch1-Ch2) (graus)</th>
-      <th>frequencia (Hz)</th>
-      <th>T</th>
-      <th>T_dB</th>
+      <th>fase (rad)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
       <td>0</td>
-      <td>10.131415</td>
-      <td>10.221927</td>
-      <td>1.800000</td>
-      <td>100.000000</td>
-      <td>1.008934</td>
-      <td>0.077253</td>
+      <td>10.000000</td>
+      <td>2.008803</td>
+      <td>1.999977</td>
+      <td>0.360000</td>
     </tr>
     <tr>
+      <th>1</th>
       <td>1</td>
-      <td>10.131415</td>
-      <td>10.127982</td>
-      <td>-1.860465</td>
-      <td>215.443469</td>
-      <td>0.999661</td>
-      <td>-0.002944</td>
+      <td>13.738238</td>
+      <td>2.021052</td>
+      <td>1.993670</td>
+      <td>-0.494505</td>
     </tr>
     <tr>
+      <th>2</th>
       <td>2</td>
-      <td>10.068876</td>
-      <td>10.096416</td>
-      <td>-6.679036</td>
-      <td>464.158883</td>
-      <td>1.002735</td>
-      <td>0.023724</td>
+      <td>18.873918</td>
+      <td>1.996554</td>
+      <td>1.987532</td>
+      <td>-0.271903</td>
     </tr>
     <tr>
+      <th>3</th>
       <td>3</td>
-      <td>9.756178</td>
-      <td>9.328147</td>
-      <td>-15.808384</td>
-      <td>1000.000000</td>
-      <td>0.956127</td>
-      <td>-0.389687</td>
+      <td>25.929438</td>
+      <td>1.996554</td>
+      <td>1.993721</td>
+      <td>-1.867220</td>
     </tr>
     <tr>
+      <th>4</th>
       <td>4</td>
-      <td>8.818084</td>
-      <td>7.497087</td>
-      <td>-31.641535</td>
-      <td>2154.434690</td>
-      <td>0.850195</td>
-      <td>-1.409633</td>
+      <td>35.622479</td>
+      <td>1.996554</td>
+      <td>1.987511</td>
+      <td>-1.538462</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
-</div>
-<p>Note que na célula abaixo, estamos convertendo a estrutura de dados do PANDAS para vetores do Numpy. Para acessar as colunas do PANDAS, podemos usar o cabeçalho da coluna (veja acima), ou o índice da mesma (usando o método .iloc[] ), e.g.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freq_vec</span> <span class="o">=</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">]</span> <span class="c1"># primeira coluna, com nome &#39;frequencia (Hz)&#39;</span>
-<span class="n">freq_vec</span> <span class="o">=</span> <span class="n">dados</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># primeira (0-ésima) coluna, o : indica que todas as linhas serão consideradas</span>
-</pre></div>
-</div>
-<p>Compare os resultados:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dados</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    10.131415
-1    10.131415
-2    10.068876
-3     9.756178
-4     8.818084
-5     7.629831
-6     7.066975
-7     6.879356
-8     6.816816
-9     6.879356
-Name: Vpp1 (V), dtype: float64
-0    10.131415
-1    10.131415
-2    10.068876
-3     9.756178
-4     8.818084
-5     7.629831
-6     7.066975
-7     6.879356
-8     6.816816
-9     6.879356
-Name: Vpp1 (V), dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -494,9 +372,22 @@ Name: Vpp1 (V), dtype: float64
 <span class="n">freq_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">])</span>
 <span class="n">vpp1_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span> <span class="p">)</span>
 <span class="n">vpp2_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">fase_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (Ch1-Ch2) (graus)&#39;</span><span class="p">])</span>
+<span class="n">fase_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">])</span>
 <span class="n">npt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vpp1_vec</span><span class="p">)</span> <span class="c1"># numero de pontos</span>
-<span class="c1">#*********************************************</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Em termos das amplitudes (pico-pico) medidas no osciloscópio, a transmitância é dada por</p>
+<div class="math notranslate nohighlight" id="equation-eq-trans-lin">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
+<p>Em decibéis,</p>
+<div class="math notranslate nohighlight" id="equation-eq-trans-db">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
+<p>As equações <code class="xref eq docutils literal notranslate"><span class="pre">(eq:trans_lin)</span></code> e <code class="xref eq docutils literal notranslate"><span class="pre">{eq:trans_db}</span></code> são calculadas a seguir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
 <span class="c1">#calculando transmistancia a partir dos vetores de vpp</span>
 <span class="c1">#*********************************************</span>
 <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">vpp2_vec</span><span class="o">/</span><span class="n">vpp1_vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
@@ -542,7 +433,7 @@ Name: Vpp1 (V), dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/exemplo_ajuste_rc_8_1.png" src="../../_images/exemplo_ajuste_rc_8_1.png" />
+<img alt="../../_images/exemplo_ajuste_rc_9_1.png" src="../../_images/exemplo_ajuste_rc_9_1.png" />
 </div>
 </div>
 <p>Na célula abaixo, definimos funções para calcular a função de transferência complexa para um circuito <span class="math notranslate nohighlight">\(RC\)</span>, a transmitância e a fase de função de transferência
@@ -615,14 +506,10 @@ e a fase da função de transferência \)</span><span class="math notranslate no
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
-pfit =  [1.54625625e+02 2.57179870e-07]
+pfit =  [1.75694792e+02 7.81201677e-07]
 
 Erros estimados pela função curve_fit:
-perr =  [inf inf]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/miniconda3/lib/python3.6/site-packages/scipy/optimize/minpack.py:795: OptimizeWarning: Covariance of the parameters could not be estimated
-  category=OptimizeWarning)
+perr =  [4.59981698e+07 2.04524262e-01]
 </pre></div>
 </div>
 </div>
@@ -684,10 +571,10 @@ perr =  [inf inf]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
-pfit = 3.976664e-05 
+pfit = 1.372531e-04 
 
 Erros estimados pela função curve_fit:
-σ = 9.253811e-07 
+σ = 6.992647e-07 
 </pre></div>
 </div>
 </div>
@@ -701,8 +588,8 @@ Erros estimados pela função curve_fit:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>τ (com uma casa décimal)= (39.8+/-0.9) μs
-τ (com duas casa décimal)= (39.77+/-0.93) μs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>τ (com uma casa décimal)= (137.3+/-0.7) μs
+τ (com duas casa décimal)= (137.25+/-0.70) μs
 </pre></div>
 </div>
 </div>
@@ -730,7 +617,7 @@ Erros estimados pela função curve_fit:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exemplo_ajuste_rc_18_0.png" src="../../_images/exemplo_ajuste_rc_18_0.png" />
+<img alt="../../_images/exemplo_ajuste_rc_19_0.png" src="../../_images/exemplo_ajuste_rc_19_0.png" />
 </div>
 </div>
 <p><span style='color:red'>OBS:</span>Abaixo, usamos a notação <code class="docutils literal notranslate"><span class="pre">Tfit</span> <span class="pre">=</span> <span class="pre">funcT(freq_t,</span> <span class="pre">*pfit)</span></code> para passar o argumento <code class="docutils literal notranslate"><span class="pre">pfit</span></code>. Esta notação, que inlcui um asterísco, significa que <code class="docutils literal notranslate"><span class="pre">pfit</span></code> pode ser um escalar ou um vetor. No caso de ser um vetor, a sua função deverá receber tantos argumentos (após o argumento <code class="docutils literal notranslate"><span class="pre">freq_t</span></code>) quanto elementos no vetor <code class="docutils literal notranslate"><span class="pre">pfit</span></code></p>
@@ -764,7 +651,7 @@ Erros estimados pela função curve_fit:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exemplo_ajuste_rc_20_0.png" src="../../_images/exemplo_ajuste_rc_20_0.png" />
+<img alt="../../_images/exemplo_ajuste_rc_21_0.png" src="../../_images/exemplo_ajuste_rc_21_0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -784,9 +671,12 @@ Erros estimados pela função curve_fit:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540/Material suplementar
-arquivo salvo: /Users/gsw/Documents/GitHub/F540/Material suplementar/bode_rc_dados.pdf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540_jbook/examples/Fitting
 </pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/examples/Fitting/bode_rc_dados.pdf
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -817,7 +707,6 @@ arquivo salvo: /Users/gsw/Documents/GitHub/F540/Material suplementar/bode_rc_dad
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../example.html" title="previous page">Example</a>
 
         </div>
         

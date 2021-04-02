@@ -17,28 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-'''importa as bibliotecas necessárias'''
-import matplotlib.pyplot as plt  # importar a bilioteca pyplot para fazer gráficos
-import numpy as np   # importar a biblioteca Numpy para lidar com matrizes
-import time          # importar a bilioteca para funções temporais
-import pandas as pd   # importa bilioteca pandas para  lidar com processamento de dados
-import os            # biblioteca para lidar com diretórios
-import scipy.io #pacote para carregar dados do matlab
-from scipy.optimize import curve_fit # pacote para ajuste de curvas
-from uncertainties import ufloat # pacote para lidar com incertezas
-#from scipy import optimize
-%matplotlib inline   
+file_name = 'dados_sweep.csv'
+folder_path=os.getcwd()    
+file=os.path.join(folder_path,file_name)
+dados = pd.read_csv(file, sep=',') #separador ,
+#ver o cabeçalho....
+dados_bruto.head()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-b83b52ea018b>[0m in [0;36m<module>[0;34m[0m
-[1;32m      7[0m [0;32mimport[0m [0mscipy[0m[0;34m.[0m[0mio[0m [0;31m#pacote para carregar dados do matlab[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      8[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0moptimize[0m [0;32mimport[0m [0mcurve_fit[0m [0;31m# pacote para ajuste de curvas[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 9[0;31m [0;32mfrom[0m [0muncertainties[0m [0;32mimport[0m [0mufloat[0m [0;31m# pacote para lidar com incertezas[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     10[0m [0;31m#from scipy import optimize[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     11[0m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline   '[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mModuleNotFoundError[0m: No module named 'uncertainties'
-ModuleNotFoundError: No module named 'uncertainties'
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-74d89ff1b893>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0mdados[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mfile[0m[0;34m,[0m [0msep[0m[0;34m=[0m[0;34m','[0m[0;34m)[0m [0;31m#separador ,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;31m#ver o cabeçalho....[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mdados_bruto[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'dados_bruto' is not defined
+NameError: name 'dados_bruto' is not defined
 

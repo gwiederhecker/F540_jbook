@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[[sec:filtros]]{#sec:filtros label=”sec:filtros”} Experimento I - Filtros &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   F540_jbook
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/what_you_need_to_know.html">
+   What do you need to know about this interactive book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/markdown.html">
+   Markdown Files
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Bem-vindo às notas digitais de F540.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exp1-rc_filters.html">
+   Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exp1-rc_filters.html#itens-para-inlcuir-no-relatorio">
+   Itens para inlcuir no relatório
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Interactive examples
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/example.html">
+   Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/Fitting/exemplo_ajuste_rc.html">
+   Fitting example
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/guides/experimento_1a.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtros-rc-passa-alta-e-passa-baixa">
+   Filtros RC passa-alta e passa-baixa
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objetivos">
+     Objetivos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teoria">
+     Teoria
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#divisor-de-tensao">
+       Divisor de tensão
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filtros-contendo-apenas-um-componente-reativo">
+       Filtros contendo apenas um componente reativo
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#passa-altas">
+         Passa-altas.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sec-filtros-sec-filtros-label-sec-filtros-experimento-i-filtros">
+<h1>[[sec:filtros]]{#sec:filtros label=”sec:filtros”} Experimento I - Filtros<a class="headerlink" href="#sec-filtros-sec-filtros-label-sec-filtros-experimento-i-filtros" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="filtros-rc-passa-alta-e-passa-baixa">
+<h2>Filtros RC passa-alta e passa-baixa<a class="headerlink" href="#filtros-rc-passa-alta-e-passa-baixa" title="Permalink to this headline">¶</a></h2>
+<p>Neste experimento serão investigados circuitos contento um capacitor e
+um resistor. Estes circuitos nos permitem medir a corrente elétrica
+(resistor) ou a carga elétrica (capacitor) que fluem nos circuitos. A
+amplitude e a fase da corrente ou carga elétrica, em relação a tensão de
+excitação do circuito, dependem da frequência e esta dependência é que
+motiva e denominação desses circuitos como filtros de frequência dos
+tipos passa-baixas ou passa-altas.</p>
+<p>Para compreender este comportamento é fundamental revisar o conceito de
+resposta em frequência, ou seja, como a resposta de um dado sistema
+linear se comporta como função da frequência de excitação, portanto, é
+recomendado que o aluno revise o assunto no livro de sua preferência. O
+capítulo 2 do livro do Brophy (Eletrônica básica) [&#64;Bro90] é uma boa
+opção, ou mesmo um livro sobre equações diferenciais ordinárias
+[&#64;BoyDiP09].</p>
+<div class="section" id="objetivos">
+<h3>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Compreender as relações entre tensões e correntes senoidais em
+circuitos contendo resistores, capacitores e indutores.</p></li>
+<li><p>Compreender como estes circuitos podem ser utilizados como filtros
+de sinais elétricos.</p></li>
+<li><p>Determinar a resposta em frequência da amplitude e fase de filtros
+RC, RL e RLC; passa-baixas, passa-altas, passa-bandas,
+rejeita-bandas.</p></li>
+<li><p>Descrever o comportamento de filtros através de gráficos de
+transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
+</ul>
+</div>
+<div class="section" id="teoria">
+<h3>Teoria<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="divisor-de-tensao">
+<h4>Divisor de tensão<a class="headerlink" href="#divisor-de-tensao" title="Permalink to this headline">¶</a></h4>
+<p>Seguindo o teorema de Thevenin [&#64;Bro90], podemos representar todos os
+componentes internos do nosso gerador de corrente alternada (AC) por uma
+fonte ideal associada a uma resistência (ou impedância) equivalente,
+como na b. Podemos tratar o circuito da b da mesma forma que trataríamos
+um circuito de corrente contínua. Para o circuito mostrado na , podemos
+escrever a Lei das malhas de Kirchoff:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\label{eq:exp0_1}\epsilon-R_g i -R_1 i - R_2 i=0\text{ (em relação à tensão de circuito aberto $\epsilon$),}\\
+\label{eq:exp0_2}V_1-R_1 i - R_2 i=0\text{ (em relação à tensão medida $V_1$).}\end{aligned}\end{split}\]</div>
+<p>Com a Eq. <a class="reference external" href="#eq:exp0_2">[eq:exp0_2]</a>{reference-type=”ref”
+reference=”eq:exp0_2”} concluímos que a corrente é dada por
+<span class="math notranslate nohighlight">\(i=\epsilon/(R_g+R_1+R_2)=V_1/(R_1+R_2)\)</span>. Pela lei de Ohm, sabemos que
+<span class="math notranslate nohighlight">\(V=Ri\)</span>, portanto, <span class="math notranslate nohighlight">\(V_2=V_1 R/(R_1+R_2)\)</span>. Logo, a resposta do divisor de
+tensão é dada por,
+$<span class="math notranslate nohighlight">\(\label{eq:exp0_4}\boxed{H\equiv \frac{\text{Tensão de saída}}{\text{Tensão de entrada}}=\frac{V_2}{V_1}=\frac{R_2}{R_1+R_2},}\)</span><span class="math notranslate nohighlight">\(
+e não depende da frequência, ou seja o **divisor de tensão** é um
+**filtro passa-todas**, e.g., todas as frequências são transmitidas (da
+entrada para a saída) sem sofrer qualquer distorção. Note também que a
+função de transferência \)</span>H$ não depende da resistência interna do
+gerador, ela é uma propriedade do circuito!</p>
+<p>Definindo <span class="math notranslate nohighlight">\(x=V_1/V_2\)</span>, obtemos a seguinte expressão,
+$<span class="math notranslate nohighlight">\(\label{eq:exp0_3}\boxed{R_1=R_2(x-1)}\)</span><span class="math notranslate nohighlight">\( O comportamento da relação
+dada pela é mostrado na . Note que quando \)</span>R_2=R_1<span class="math notranslate nohighlight">\(, a tensão é dividida
+simetricamente entre os dois resistores, i.e., \)</span>V_2/V_1=0.5$.</p>
+</div>
+<div class="section" id="filtros-contendo-apenas-um-componente-reativo">
+<h4>Filtros contendo apenas um componente reativo<a class="headerlink" href="#filtros-contendo-apenas-um-componente-reativo" title="Permalink to this headline">¶</a></h4>
+<p>A resposta em frequência dos filtros RC e RL é exatamente análoga à
+resposta do divisor de tensão, no caso dos filtros mostrados na Fig.
+<a class="reference external" href="#fig:rc">[fig:rc]</a>{reference-type=”ref” reference=”fig:rc”} a função
+de transferência é dada por <a class="footnote-reference brackets" href="#id2" id="id1">1</a>, $<span class="math notranslate nohighlight">\(H(\omega)=\frac{Z_2}{Z_1+Z_2}
+\label{eq:h_rc};\)</span><span class="math notranslate nohighlight">\( sendo que \)</span>Z_{2}<span class="math notranslate nohighlight">\( é a impedância complexa do
+componente que esta conectado à saída do circuito; \)</span>Z_1+Z_2<span class="math notranslate nohighlight">\( é a
+impedância complexa total do circuito. No caso da Fig.
+[\[fig:rc\]](#fig:rc){reference-type=&quot;ref&quot; reference=&quot;fig:rc&quot;}(b) o
+numerador da Eq. [\[eq:h_rc\]](#eq:h_rc){reference-type=&quot;ref&quot;
+reference=&quot;eq:h_rc&quot;}. seria \)</span>Z_R<span class="math notranslate nohighlight">\(, enquanto que no caso da o numerador
+seria \)</span>Z_C<span class="math notranslate nohighlight">\(. É fácil mostrar que \)</span>Z_R=R<span class="math notranslate nohighlight">\( e \)</span>Z_C=-j/(\omega C)<span class="math notranslate nohighlight">\(,
+portanto, a fase e a amplitude de \)</span>H(\omega)<span class="math notranslate nohighlight">\( dependem da frequência, em
+contraste com o divisor de tensão formado apenas por resistores.
+Definimos a transmitância (ou ganho) do filtro a partir de \)</span>H(\omega)<span class="math notranslate nohighlight">\(,
+\)</span><span class="math notranslate nohighlight">\(\label{eq:t_Rc}\boxed{T=|H(\omega)|^2}.\)</span><span class="math notranslate nohighlight">\( É mais comum utilizar a
+versão logarítmica (em decibels - dB) desta quantidade, que é definida
+da seguinte forma,
+\)</span><span class="math notranslate nohighlight">\(\label{eq:tdb_Rc}\boxed{T_{dB}=10\log_{10}T=20\log_{10}|H(\omega)|}.\)</span>$</p>
+<div class="section" id="passa-altas">
+<h5>Passa-altas.<a class="headerlink" href="#passa-altas" title="Permalink to this headline">¶</a></h5>
+<p>Para o filtro passa-altas a tensão de saída é medida no resistor, como
+mostrado na <a class="reference external" href="#fig:rc">[fig:rc]</a>{reference-type=”ref”
+reference=”fig:rc”}, portanto, a função de transferência é
+<span class="math notranslate nohighlight">\(H(\omega)=j \omega R C/(1+j\omega R C)\)</span>. A transmitância e a fase serão
+dadas por,
+$<span class="math notranslate nohighlight">\(\label{eq:h_t_rc}\boxed{T=\frac{\omega^2 R^2 C^2}{1+\omega^2 R^2 C^2}}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\label{eq:h_fase_rc}\boxed{\phi=\arg H(\omega)=\arctan\left(\frac{1}{\omega R C}\right)}\)</span><span class="math notranslate nohighlight">\(
+Os comportamentos da transmitância e da fase do circuito passa-altas,
+como função da frequência, são ilustrados na
+[1.1](#fig:rc_bode){reference-type=&quot;ref&quot; reference=&quot;fig:rc_bode&quot;}(a,b).
+Estes dois gráficos representam o **diagrama de Bode** do circuito da
+[\[fig:rc\]](#fig:rc){reference-type=&quot;ref&quot; reference=&quot;fig:rc&quot;}(a). É de
+extrema importância entender como as funções dadas pelas
+[\[eq:h_t\_rc,eq:h_fase_rc\]](#eq:h_t_rc,eq:h_fase_rc){reference-type=&quot;ref&quot;
+reference=&quot;eq:h_t_rc,eq:h_fase_rc&quot;} comportam-se como nas
+[1.1](#fig:rc_bode){reference-type=&quot;ref&quot; reference=&quot;fig:rc_bode&quot;}(a,b).
+Para compreender isto basta tomar o logarítmo da
+[\[eq:h_t\_rc\]](#eq:h_t_rc){reference-type=&quot;ref&quot;
+reference=&quot;eq:h_t_rc&quot;}, \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+    T_{dB}\equiv 10\log(T) &amp; =10\log (\omega^2 R^2 C^2) -10 \log (1+\omega^2 R^2 C^2),\\
+    T_{dB} &amp;=20\log (\omega/\omega_c) -10 \log (1+\omega^2/\omega_c^2),\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+sendo que \)</span>\omega_c=1/RC<span class="math notranslate nohighlight">\(. Se \)</span>\omega\gg\omega_c<span class="math notranslate nohighlight">\( ou [^2] podemos
+aproximar assintoticamente a expressão anterior, \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+    T_{dB}(\omega\gg \omega_c)&amp;\approx 10\log (\omega^2 R^2 C^2) -10 \log (\omega^2 R^2 C^2)=0,\\
+    T_{dB}(\omega\ll \omega_c)&amp;\approx 20\log (\omega/\omega_c) -10 \log (1)=20\log (\omega/\omega_c).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Note que as expansões acima nos revelam que, para frequências pequenas,
+a transmitância (em dB) cresce linearmente com derivada 20 como função
+do logarítmo da freqûencia. Ou seja, a cada vez que \)</span>\omega/\omega_c<span class="math notranslate nohighlight">\(
+cresce por um fator 10 (o logarítmo cresce de uma unidade), a
+transmitância aumenta em 20 decibels. A maneira compacta de dizer isto é
+que o a transmitância aumenta em 20 dB/dec nesta faixa de frequência
+(\)</span>\omega\ll\omega_c<span class="math notranslate nohighlight">\(). Já na faixa de frequências altas
+(\)</span>\omega\gg\omega_c<span class="math notranslate nohighlight">\() a transmitância tem o valor assintótico constante
+de 0 dB. O significado disto é que a transmitância (linear) é
+\)</span>T\approx1<span class="math notranslate nohighlight">\(. Nesta faixa de frequências o sinal de saída do filtro tem,
+aproximadamente, a mesma amplitude do sinal de entrada e a fase da
+saída, em relação à entrada, também se aproxima de 0 grau. Fica óbvia a
+denominação deste filtro como **passa-altas**, ou seja, os sinal de alta
+frequência (\)</span>\omega\gg\omega_c$) são transmitidos integralmente pelo
+filtro, com a mesma amplitude e fase da entrada. <strong>Repita esta
+demonstração para o circuito da
+<a class="reference external" href="#fig:rc">[fig:rc]</a>{reference-type=”ref” reference=”fig:rc”}(b) e se
+convença de que tal filtro é o passa-baixas.</strong></p>
+<p><img alt="[[fig:rc_bode]]{#fig:rc_bode label=&quot;fig:rc_bode&quot;}Resposta emfrequência de um filtro RC passa-altas. (a,b) Diagrama de Bode dofiltro, em (a) é mostrada a transmitância, em (b) a resposta de fase.(c) Formas de onda dos canais 1 (entrada) 2 (saída) correspondentes aospontos vermelhos marcados em (a,b), . (d) Representação defasores dos canais 1 e 2 nas mesmas condições de (c). Em todas as curvaso canal 2 é representado em vermelho, o canal 1 emazul." src="guides/rc.pdf" />{#fig:rc_bode width=”\textwidth”}</p>
+<p>Para visualizar o significado do diagrama de Bode, note os pontos
+vermelhos nas Figs. <a class="reference external" href="#fig:rc_bode">1.1</a>{reference-type=”ref”
+reference=”fig:rc_bode”}(a,b) que indicam a denominada frequência de
+corte do circuito, <span class="math notranslate nohighlight">\(\omega_c=2\pi f_c =1/(RC)\)</span>. As formas de onda
+medidas na entrada (<span class="math notranslate nohighlight">\(V_1\)</span>) e saída (<span class="math notranslate nohighlight">\(V_2\)</span>) do circuito passa-altas são
+mostradas na <a class="reference external" href="#fig:rc_bode">1.1</a>{reference-type=”ref”
+reference=”fig:rc_bode”}(c) (exatamente na frequência de corte). Note
+que como a fase é positiva neste ponto (<span class="math notranslate nohighlight">\(\phi=45^{\circ}\)</span>), a tensão no
+canal 2 (saída) está adiantada em relação ao canal 1 (entrada). A Fig.
+<a class="reference external" href="#fig:rc_bode">1.1</a>{reference-type=”ref” reference=”fig:rc_bode”}(d)
+indica a representação das duas ondas no plano complexo. Nesta
+representação escolhemos como referência a onda de entrada (azul) que é
+alinhada ao longo do eixo real, enquanto a onda de saída (vermelha) está
+adiantada de (<span class="math notranslate nohighlight">\(\phi=45^{\circ}\)</span>); a amplitude das ondas corresponde ao
+módulo dos vetores indicados.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Demonstre esta relação partindo da Lei de Kirchoff e utilizando a
+impedância complexa dos componentes do circuito.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

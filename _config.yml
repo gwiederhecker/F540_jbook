@@ -16,3 +16,8 @@ latex:
     targetname: book.tex
 
 theme: jekyll-theme-minimal
+
+number_equations: true
+
+bibtex_bibfiles:
+   - references.bib
