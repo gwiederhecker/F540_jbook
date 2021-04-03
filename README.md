@@ -26,7 +26,7 @@ Syllabus
   - Feedback.
   - Amplifier topologies and applications
   - Comparators and oscillators. 
-- Basic Analog Systems
+<!-- - Basic Analog Systems
   - Voltage regulators
   - PID controllers
-  - Phase-lock loops
+  - Phase-lock loops -->

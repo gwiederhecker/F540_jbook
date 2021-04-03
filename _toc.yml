@@ -1,16 +1,20 @@
 - file: README
-- part: Get started
-  chapters:
-  - file: start/what_you_need_to_know
-  - file: start/markdown 
+# - part: Get started
+#   chapters:
+#   - file: start/what_you_need_to_know
+#   - file: start/markdown 
 
 - part: Introduction to F540
   chapters:
   - file: intro/intro
-- part: Experiments
+- part: Experiment 1
   chapters:
-  - file: guides/exp1-rc_filters
-- part: Interactive examples
+  - file: guides/exp1/complex_impedance
+  - file: guides/exp1/exp1-guide
+  - file: guides/exp1/exemplo_ajuste_rc
+- part: Python examples
   chapters:
-  - file: examples/example
-  - file: examples/Fitting/exemplo_ajuste_rc
+  - file: examples/Plotting - AC wave plots
+  - file: examples/Basics - Python
+  - file: examples/Sympy - symbolic manipulation
+  - file: examples/Data aquisition - pyLEF basics

@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+##### Pré-aquisição
+# mude a onda para uma senóide! O que acontece se usarmos a onda triângular?
+func_gen.ch1.set_function('sine')
+## ajuste o trigger externo
+# func_gen.ch1.sync_on()   # ligar o sync reference ao canal 1
+# scope.trigger.set_source('ext')  # ajusta o trigger para externo no osciloscópio
+## ajusta média nos canais
+scope.set_average_number(4)  # ajusta o número de médias
+scope.set_average()    # turn average ON
+#scope.set_sample()       # turn average OFF
+## parametros de varredura
+PATH = 'exemplo-pylef/passa-baixas/'  # pasta onde salvar todos os arquivos
+Vpp = 2.0   # Tensão pico-a-pico na saida do gerador
+freq0, freq1, Nfreq = 10, 100e3, 30  # frequências inicial, final e número de pontos
+## parâmetros inicias do gerador
+func_gen.ch1.set_frequency(freq0) 
+func_gen.ch1.set_Vpp(Vpp)
+func_gen.ch1.set_offset(0.0)
+func_gen.ch1.set_phase(0.0)
+## tenha certeza que o gerador está ligado e que o canal 1 está na escala certa
+func_gen.ch1.turn_on()   # liga o canal 1
+scope.set_horizontal_scale((1/freq0)/4.)  # escala horizontal = 1/4 período (2.5 oscilações em tela)
+scope.ch1.set_smart_scale()  # rescala o canal 1
+scope.ch2.set_smart_scale()  # rescala o canal 2
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-7-0ac5f2c90767>[0m in [0;36m<module>[0;34m[0m
+[1;32m     21[0m [0mfunc_gen[0m[0;34m.[0m[0mch1[0m[0;34m.[0m[0mturn_on[0m[0;34m([0m[0;34m)[0m   [0;31m# liga o canal 1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m [0mscope[0m[0;34m.[0m[0mset_horizontal_scale[0m[0;34m([0m[0;34m([0m[0;36m1[0m[0;34m/[0m[0mfreq0[0m[0;34m)[0m[0;34m/[0m[0;36m4.[0m[0;34m)[0m  [0;31m# escala horizontal = 1/4 período (2.5 oscilações em tela)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 23[0;31m [0mscope[0m[0;34m.[0m[0mch1[0m[0;34m.[0m[0mset_smart_scale[0m[0;34m([0m[0;34m)[0m  [0;31m# rescala o canal 1[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     24[0m [0mscope[0m[0;34m.[0m[0mch2[0m[0;34m.[0m[0mset_smart_scale[0m[0;34m([0m[0;34m)[0m  [0;31m# rescala o canal 2[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py[0m in [0;36mset_smart_scale[0;34m(self, log_step, Vmax, D)[0m
+[1;32m    395[0m         [0;31m#test whether channel is on[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    396[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mstate[0m[0;34m([0m[0;34m)[0m [0;34m==[0m [0;34m'off'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 397[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'O canal %s do osciloscópio está desligado!'[0m [0;34m%[0m [0mself[0m[0;34m.[0m[0mchannel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    398[0m         [0mkeep_loop[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    399[0m         [0mself[0m[0;34m.[0m[0minstr[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'ACQuire:MODe SAMPle'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: O canal CH1 do osciloscópio está desligado!
+ValueError: O canal CH1 do osciloscópio está desligado!
+

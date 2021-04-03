@@ -19,5 +19,8 @@ theme: jekyll-theme-minimal
 
 number_equations: true
 
+sphinx:
+  extra_extensions:
+    - sphinx_exercise
 bibtex_bibfiles:
    - references.bib
