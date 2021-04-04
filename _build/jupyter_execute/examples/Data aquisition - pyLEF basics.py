@@ -37,7 +37,12 @@ scope = pylef.TektronixTBS1062()   # definição do osciloscópio
 
 scope.instr.query('HARDCOPY?')
 
-screenshot('circuito_rc_fases')
+screenshot('fft_exemplo_experimental_pa')
+
+scope.save_channels('fft_exemplo_experimental_pa')  
+
+(t1, V1) = scope.ch1.read_channel()  # mede o canal 1
+(t2, V2) = scope.ch2.read_channel()  # mede o canal 2
 
 ##### Pré-aquisição
 # mude a onda para uma senóide! O que acontece se usarmos a onda triângular?
