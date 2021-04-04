@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varredura &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Solving Kirchhoff’s law ordinary differential equation" href="Sympy%20-%20symbolic%20manipulation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   F540_jbook
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Bem-vindo às notas digitais de F540.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Experiment 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/complex_impedance.html">
+   Complex impendances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
+   Fitting Filter Transfer Function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python examples
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Here we explore basic aspects of plots of sinusoids and related stuff.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
+   Importa as bibliotecas numpy e matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#aula-1">
+   Aula 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html#python-arrays">
+   Python arrays - []
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html#flow-control">
+   Flow control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html#loading-data-google-colab">
+   Loading data (Google colab)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Varredura
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#varredura-salvando-tracos-temporais">
+   Varredura salvando traços temporais
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/examples/Data aquisition - pyLEF basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/examples/Data aquisition - pyLEF basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Varredura
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plots">
+     Plots
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varredura-salvando-tracos-temporais">
+   Varredura salvando traços temporais
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pylef</span>   <span class="c1"># importar pylef </span>
+<span class="kn">import</span> <span class="nn">visa</span>    <span class="c1"># importar a bilioteca pyVISA para lidar com virtualização de instrumentos</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># importar a biblioteca Numpy para lidar com matrizes</span>
+<span class="kn">import</span> <span class="nn">time</span>          <span class="c1"># importar a bilioteca para funções temporais</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># importa bilioteca pandas para  lidar com processamento de dados</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/visa.py:23: FutureWarning: The visa module provided by PyVISA is being deprecated. You can replace `import visa` by `import pyvisa as visa` to achieve the same effect.
+
+The reason for the deprecation is the possible conflict with the visa package provided by the https://github.com/visa-sdk/visa-python which can result in hard to debug situations.
+  FutureWarning,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="c1">#function to capture screenshots from oscilloscope</span>
+    <span class="c1">#setting up hardcopy</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">20000</span> <span class="c1"># set timeout to 10 seconds</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;jpeg&#39;</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SAVE:IMAGE:FILEFORMAT &#39;</span><span class="o">+</span><span class="n">form</span><span class="p">,</span>
+               <span class="s1">&#39;HARDCOPY:BUTTON PRINTS&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;HARDCopy:PORT&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="c1">#screen shot</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;HARDCOPY START&#39;</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">read_raw</span><span class="p">()</span> 
+    <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">newFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="o">+</span><span class="n">form</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="n">newFileByteArray</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newFileByteArray</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="o">+</span><span class="n">form</span><span class="o">+</span> <span class="s1">&#39; saved!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instrumentos conectados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imprime os recursos para ter certeza que os instrumentos estão conectados</span>
+<span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">list_resources</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;USB0::0x0699::0x03B0::C010160::INSTR&#39;,
+ &#39;USB0::0xF4ED::0xEE3A::388C14117::INSTR&#39;,
+ &#39;ASRL1::INSTR&#39;,
+ &#39;ASRL2::INSTR&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">VisaIOError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">9492673</span><span class="n">a926d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span> <span class="o">=</span> <span class="s1">&#39;0xF4ED&#39;</span><span class="p">;</span> <span class="c1"># identificador do fabricante BK</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># time to wait after write and query - BK BUG!</span>
+<span class="ne">--&gt; </span><span class="mi">104</span>         <span class="n">interface_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_interface</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="c1"># instrument initialization</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>   <span class="c1">## resource name</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>             <span class="n">fab_id</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">if</span> <span class="n">fab_id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">125</span>                 <span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>                 <span class="n">instr</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># set timeout to 10 seconds</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>                 <span class="n">bk_str</span> <span class="o">=</span> <span class="n">instr</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span><span class="p">)</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">open_resource</span><span class="nt">(self, resource_name, access_mode, open_timeout, resource_pyclass, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3302</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3303</span> 
+<span class="ne">-&gt; </span><span class="mi">3304</span>         <span class="n">res</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">access_mode</span><span class="p">,</span> <span class="n">open_timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3305</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3306</span>         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/resources/resource.py</span> in <span class="ni">open</span><span class="nt">(self, access_mode, open_timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>             <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_manager</span><span class="o">.</span><span class="n">open_bare_resource</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_resource_name</span><span class="p">,</span> <span class="n">access_mode</span><span class="p">,</span> <span class="n">open_timeout</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">open_bare_resource</span><span class="nt">(self, resource_name, access_mode, open_timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3230</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3231</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3232</span><span class="s2">         return self.visalib.open(self.session, resource_name, access_mode, open_timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3233</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3234</span><span class="s2">     def open_resource(</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/ctwrapper/functions.py</span> in <span class="ni">open</span><span class="nt">(library, session, resource_name, access_mode, open_timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1850</span><span class="s2">     # ViRsrc converts from (str, unicode, bytes) to bytes</span>
+<span class="g g-Whitespace">   </span><span class="mi">1851</span><span class="s2">     ret = library.viOpen(</span>
+<span class="ne">-&gt; </span><span class="mi">1852</span><span class="s2">         session, resource_name, access_mode, open_timeout, byref(out_session)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span><span class="s2">     )</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span><span class="s2">     return out_session.value, ret</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/ctwrapper/highlevel.py</span> in <span class="ni">_return_handler</span><span class="nt">(self, ret_value, func, arguments)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="s2">                 session = None</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         return self.handle_return_value(session, ret_value)  # type: ignore</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2">     def list_resources(</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">handle_return_value</span><span class="nt">(self, session, status_code)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span><span class="s2">         if rv &lt; 0:</span>
+<span class="ne">--&gt; </span><span class="mi">251</span><span class="s2">             raise errors.VisaIOError(rv)</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span><span class="s2">         if rv in self.issue_warning_on:</span>
+
+<span class="ne">VisaIOError</span>: VI_ERROR_RSRC_BUSY (-1073807246): The resource is valid, but VISA cannot currently access it.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;HARDCOPY?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;:HARDCOPY:BUTTON PRINTS;FORMAT JPEG;PORT USB;LAYOUT PORTRAIT;INKSAVER ON\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">screenshot</span><span class="p">(</span><span class="s1">&#39;fft_exemplo_experimental_pa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;fft_exemplo_experimental_pa.jpeg saved!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scope</span><span class="o">.</span><span class="n">save_channels</span><span class="p">(</span><span class="s1">&#39;fft_exemplo_experimental_pa&#39;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; 2021_04_04/fft_exemplo_experimental_pa_00_34_22 saved !!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.01252, -0.01251, -0.0125 , ...,  0.01245,  0.01246,  0.01247]),
+ array([ 0.28,  0.16,  0.12, ..., -0.12, -0.26, -0.36]),
+ array([-0.34, -0.42, -0.48, ...,  0.08, -0.04, -0.16]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">V1</span><span class="p">)</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">read_channel</span><span class="p">()</span>  <span class="c1"># mede o canal 1</span>
+<span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">V2</span><span class="p">)</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">read_channel</span><span class="p">()</span>  <span class="c1"># mede o canal 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Pré-aquisição</span>
+<span class="c1"># mude a onda para uma senóide! O que acontece se usarmos a onda triângular?</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_function</span><span class="p">(</span><span class="s1">&#39;sine&#39;</span><span class="p">)</span>
+<span class="c1">## ajuste o trigger externo</span>
+<span class="c1"># func_gen.ch1.sync_on()   # ligar o sync reference ao canal 1</span>
+<span class="c1"># scope.trigger.set_source(&#39;ext&#39;)  # ajusta o trigger para externo no osciloscópio</span>
+<span class="c1">## ajusta média nos canais</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average_number</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># ajusta o número de médias</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average</span><span class="p">()</span>    <span class="c1"># turn average ON</span>
+<span class="c1">#scope.set_sample()       # turn average OFF</span>
+<span class="c1">## parametros de varredura</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;exemplo-pylef/passa-baixas/&#39;</span>  <span class="c1"># pasta onde salvar todos os arquivos</span>
+<span class="n">Vpp</span> <span class="o">=</span> <span class="mf">2.0</span>   <span class="c1"># Tensão pico-a-pico na saida do gerador</span>
+<span class="n">freq0</span><span class="p">,</span> <span class="n">freq1</span><span class="p">,</span> <span class="n">Nfreq</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">100e3</span><span class="p">,</span> <span class="mi">30</span>  <span class="c1"># frequências inicial, final e número de pontos</span>
+<span class="c1">## parâmetros inicias do gerador</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freq0</span><span class="p">)</span> 
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_Vpp</span><span class="p">(</span><span class="n">Vpp</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_phase</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1">## tenha certeza que o gerador está ligado e que o canal 1 está na escala certa</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>   <span class="c1"># liga o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="varredura">
+<h1>Varredura<a class="headerlink" href="#varredura" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="c1">#setting up hardcopy</span>
+<span class="c1">#     scope.instr.timeout = 20000 # set timeout to 10 seconds</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SAVE:IMAGE:FILEFORMAT BMP&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;HARDCOPY:BUTTON PRINTS&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;HARDCopy:PORT&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="c1">#screen shot</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;HARDCOPY START&#39;</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">read_raw</span><span class="p">()</span> 
+    <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">newFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="n">newFileByteArray</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newFileByteArray</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="o">+</span> <span class="s1">&#39; saved!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq1</span><span class="p">),</span> <span class="n">Nfreq</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="n">phase1</span><span class="p">,</span> <span class="n">phase2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">freqP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">freq</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freqP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">periodP</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">freqP</span>   <span class="c1"># período da onda</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">periodP</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># referência para a escala do gráfico</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">(</span><span class="n">periodP</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+    <span class="n">phase1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 1    </span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="n">phase2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 2</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+<span class="c1">#     file_sweep_name = &#39;sweep_freq_{:03g}_{:2.2f}_Hz&#39;.format(m,freqP).replace(&#39;.&#39;,&#39;p&#39;)  # nome dos arquivos de sweep</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;sweep_freq_</span><span class="si">{:03g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="c1">#-----</span>
+    <span class="n">screenshot</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH</span><span class="p">,</span><span class="s1">&#39;traços-temporal-imagens&#39;</span><span class="p">,</span><span class="n">file_sweep_name</span><span class="p">))</span>
+<span class="c1">#     scope.save_channels(file_sweep_name, PATH = PATH)    </span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>      <span class="c1"># impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase2</span><span class="p">)</span>  <span class="c1"># convete a lista em arra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">Vpp2</span><span class="o">/</span><span class="n">Vpp1</span>   <span class="c1"># cálculo da transmissão </span>
+<span class="n">T_dB</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># transmissão em dB</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">freq</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">phase1</span>
+
+<span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T_dB</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TdB&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#segundo eixo</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">phase1</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fase(graus)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;bode_diag.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>  <span class="c1"># salva figura na pasta de trabalho</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;dados_sweep.csv&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_13_0.png" src="../_images/Data aquisition - pyLEF basics_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ajsutando fontes padrão dos gráficos</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:8: MatplotlibDeprecationWarning: MaxNLocator.set_params got an unexpected parameter: nticks
+  
+</pre></div>
+</div>
+<img alt="../_images/Data aquisition - pyLEF basics_14_1.png" src="../_images/Data aquisition - pyLEF basics_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq1</span><span class="p">),</span> <span class="n">Nfreq</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="n">phase1</span><span class="p">,</span> <span class="n">phase2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">freqP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">freq</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freqP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">periodP</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">freqP</span>   <span class="c1"># período da onda</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">periodP</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># referência para a escala do gráfico</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">(</span><span class="n">periodP</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+    <span class="n">phase1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 1    </span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="n">phase2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 2</span>
+    <span class="c1">### leitura dos traços temporais</span>
+    <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">V1</span><span class="p">)</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">read_channel</span><span class="p">()</span>  <span class="c1"># mede o canal 1</span>
+    <span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">V2</span><span class="p">)</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">read_channel</span><span class="p">()</span>  <span class="c1"># mede o canal 2</span>
+    <span class="c1">### produção das figuras</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>  <span class="c1"># definição da figura</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>  <span class="c1"># definição do eixo</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">num</span><span class="p">),</span> <span class="n">V1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Vin&#39;</span><span class="p">)</span>   <span class="c1"># plota canal 1</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">num</span><span class="p">),</span> <span class="n">V2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Vout&#39;</span><span class="p">)</span>   <span class="c1"># plota canal 2</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="o">*</span><span class="n">Vpp</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.1</span><span class="o">*</span><span class="n">Vpp</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># ajusta os máximos e mínimos dos gráficos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensões (V)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># imprime as legendas no gráfico</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (s)&#39;</span><span class="p">)</span>    
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (us)&#39;</span><span class="p">)</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;freq_sweep&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">save_channels</span><span class="p">(</span><span class="n">file_sweep_name</span><span class="p">,</span> <span class="n">PATH</span> <span class="o">=</span> <span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;traços-temporal-imagens&#39;</span><span class="p">)</span>    
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;traços-temporal-imagens/&#39;</span> <span class="o">+</span> <span class="n">file_sweep_name</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>      <span class="c1"># impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase2</span><span class="p">)</span>  <span class="c1"># convete a lista em arra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:634: FutureWarning: query_values is deprecated and will be removed in 1.10, use query_ascii_values or quey_binary_values instead.
+  &#39;instead.&#39;, FutureWarning)
+/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:107: FutureWarning: values_format is deprecated and will be removed in 1.10
+  &#39;1.10&#39;, FutureWarning)
+/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:634: FutureWarning: query_values is deprecated and will be removed in 1.10, use query_ascii_values or quey_binary_values instead.
+  &#39;instead.&#39;, FutureWarning)
+/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:107: FutureWarning: values_format is deprecated and will be removed in 1.10
+  &#39;1.10&#39;, FutureWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; exemplo-pylef/passa-altas/traços-temporal-imagens/2021_03_31/freq_sweep1_16_29_08 saved !!
+</pre></div>
+</div>
+<img alt="../_images/Data aquisition - pyLEF basics_15_2.png" src="../_images/Data aquisition - pyLEF basics_15_2.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:634: FutureWarning: query_values is deprecated and will be removed in 1.10, use query_ascii_values or quey_binary_values instead.
+  &#39;instead.&#39;, FutureWarning)
+/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:107: FutureWarning: values_format is deprecated and will be removed in 1.10
+  &#39;1.10&#39;, FutureWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; exemplo-pylef/passa-altas/traços-temporal-imagens/2021_03_31/freq_sweep2_16_29_21 saved !!
+</pre></div>
+</div>
+<img alt="../_images/Data aquisition - pyLEF basics_15_5.png" src="../_images/Data aquisition - pyLEF basics_15_5.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">70</span><span class="o">-</span><span class="mi">7527262080</span><span class="n">ca</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">(</span><span class="n">periodP</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="c1">### aquisição de dados</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pylef-0.1.1-py3.7.egg/pylef/scope.py</span> in <span class="ni">set_smart_scale</span><span class="nt">(self, log_step, Vmax, D)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span>         <span class="sd">&quot;&quot;&quot; dynamically scales the oscilloscope to the measurement. &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>         <span class="c1">#test whether channel is on</span>
+<span class="ne">--&gt; </span><span class="mi">395</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;off&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O canal </span><span class="si">%s</span><span class="s1"> do osciloscópio está desligado!&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>         <span class="n">keep_loop</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pylef-0.1.1-py3.7.egg/pylef/scope.py</span> in <span class="ni">state</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>         <span class="sd">&quot;&quot;&quot; check whether channel is on&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">274</span>         <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">state_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;SELECT:&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="o">+</span><span class="s1">&#39;?&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span> <span class="c1">#</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py</span> in <span class="ni">query</span><span class="nt">(self, message, delay)</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span>         <span class="k">if</span> <span class="n">delay</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span>             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">613</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">614</span> 
+<span class="g g-Whitespace">    </span><span class="mi">615</span>     <span class="k">def</span> <span class="nf">ask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py</span> in <span class="ni">read</span><span class="nt">(self, termination, encoding)</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span>         <span class="k">if</span> <span class="n">termination</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span>             <span class="n">termination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_termination</span>
+<span class="ne">--&gt; </span><span class="mi">427</span>             <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_raw</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">enco</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_termination_context</span><span class="p">(</span><span class="n">termination</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py</span> in <span class="ni">_read_raw</span><span class="nt">(self, size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> - reading </span><span class="si">%d</span><span class="s1"> bytes (last status </span><span class="si">%r</span><span class="s1">)&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>                                  <span class="bp">self</span><span class="o">.</span><span class="n">_resource_name</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>                     <span class="n">chunk</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visalib</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>                     <span class="n">ret</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>             <span class="k">except</span> <span class="n">errors</span><span class="o">.</span><span class="n">VisaIOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pyvisa/ctwrapper/functions.py</span> in <span class="ni">read</span><span class="nt">(library, session, count)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1582</span>     <span class="n">buffer</span> <span class="o">=</span> <span class="n">create_string_buffer</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1583</span>     <span class="n">return_count</span> <span class="o">=</span> <span class="n">ViUInt32</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1584</span>     <span class="n">ret</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">viRead</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">byref</span><span class="p">(</span><span class="n">return_count</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1585</span>     <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">raw</span><span class="p">[:</span><span class="n">return_count</span><span class="o">.</span><span class="n">value</span><span class="p">],</span> <span class="n">ret</span>
+<span class="g g-Whitespace">   </span><span class="mi">1586</span> 
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pyvisa/ctwrapper/highlevel.py</span> in <span class="ni">_return_handler</span><span class="nt">(self, ret_value, func, arguments)</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lib</span><span class="p">,</span> <span class="n">method_name</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span> 
+<span class="ne">--&gt; </span><span class="mi">154</span>     <span class="k">def</span> <span class="nf">_return_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ret_value</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>         <span class="sd">&quot;&quot;&quot;Check return values for errors and warnings.</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="sd">         &quot;&quot;&quot;</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">Vpp2</span><span class="o">/</span><span class="n">Vpp1</span>   <span class="c1"># cálculo da transmissão </span>
+<span class="n">T_dB</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># transmissão em dB</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">freq</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">phase1</span>
+
+<span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T_dB</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TdB&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#segundo eixo</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">phase1</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fase(graus)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;bode_diag.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>  <span class="c1"># salva figura na pasta de trabalho</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;dados_sweep.csv&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_16_0.png" src="../_images/Data aquisition - pyLEF basics_16_0.png" />
+</div>
+</div>
+<div class="section" id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>  <span class="c1"># define um eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">Vpp1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">Vpp2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;vpp1,vpp2 (V)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_19_0.png" src="../_images/Data aquisition - pyLEF basics_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vpp2</span><span class="o">/</span><span class="n">Vpp1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>   <span class="c1"># cálculo da transmissão </span>
+<span class="n">T_dB</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># transmissão em dB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>  <span class="c1"># define um eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Transmitância (dB)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_21_0.png" src="../_images/Data aquisition - pyLEF basics_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>  <span class="c1"># define um eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T_dB</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Transmitância (dB)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_22_0.png" src="../_images/Data aquisition - pyLEF basics_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T_dB</span><span class="p">,</span> <span class="s1">&#39;ko-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TdB&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#segundo eixo</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">phase1</span><span class="p">,</span> <span class="s1">&#39;ko-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fase(graus)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data aquisition - pyLEF basics_23_0.png" src="../_images/Data aquisition - pyLEF basics_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">phase1</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">]</span>
+<span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;bode_diag.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>  <span class="c1"># salva figura na pasta de trabalho</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;dados_sweep.csv&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="varredura-salvando-tracos-temporais">
+<h1>Varredura salvando traços temporais<a class="headerlink" href="#varredura-salvando-tracos-temporais" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq1</span><span class="p">),</span> <span class="n">Nfreq</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="n">phase1</span><span class="p">,</span> <span class="n">phase2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">freqP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">freq</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freqP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">periodP</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">freqP</span>   <span class="c1"># período da onda</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">periodP</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># referência para a escala do gráfico</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">(</span><span class="n">periodP</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+    <span class="n">phase1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 1    </span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="n">phase2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 2</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;freq_sweep&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">save_channels</span><span class="p">(</span><span class="n">file_sweep_name</span><span class="p">,</span> <span class="n">PATH</span> <span class="o">=</span> <span class="n">PATH</span><span class="p">)</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>      <span class="c1"># impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase2</span><span class="p">)</span>  <span class="c1"># convete a lista em arra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:634: FutureWarning: query_values is deprecated and will be removed in 1.10, use query_ascii_values or quey_binary_values instead.
+  &#39;instead.&#39;, FutureWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; exemplo-pylef/2021_03_31/freq_sweep1_13_54_50 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep2_13_55_01 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep3_13_55_13 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep4_13_55_25 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep5_13_55_37 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep6_13_55_49 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep7_13_56_01 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep8_13_56_13 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep9_13_56_25 saved !!
+... file =&gt; exemplo-pylef/2021_03_31/freq_sweep10_13_56_36 saved !!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Sympy%20-%20symbolic%20manipulation.html" title="previous page">Solving Kirchhoff’s law ordinary differential equation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
