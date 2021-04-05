@@ -46,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -313,16 +311,15 @@
 <img alt="../_images/Sympy - symbolic manipulation_3_0.png" src="../_images/Sympy - symbolic manipulation_3_0.png" />
 </div>
 </div>
-<p>Escrevendo a lei de Kirchhoff para o circuito da figura acima,
-$<span class="math notranslate nohighlight">\(
-\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.
-\)</span>$ (eq:kvl)</p>
+<p>Escrevendo a lei de Kirchhoff para o circuito da figura acima,</p>
+<div class="math notranslate nohighlight" id="equation-eq-kvl">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-kvl" title="Permalink to this equation">¶</a></span>\[\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.\]</div>
 <p>Exploraremos o pacote <code class="docutils literal notranslate"><span class="pre">sympy</span></code> para nos ajudar a resolver esta equação diferencial ordinária.</p>
 <div class="section" id="defining-symbols-and-equation-to-be-solved">
 <h2>Defining <strong>symbols</strong> and equation to be solved<a class="headerlink" href="#defining-symbols-and-equation-to-be-solved" title="Permalink to this headline">¶</a></h2>
-<p>A solução tentantiva será na forma,
-$<span class="math notranslate nohighlight">\( q(t)=A \cos(\omega t)+B*\sin(\omega t)
-\)</span>$ (eq:trial)</p>
+<p>A solução tentantiva será na forma,</p>
+<div class="math notranslate nohighlight" id="equation-eq-trial">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trial" title="Permalink to this equation">¶</a></span>\[ q(t)=A \cos(\omega t)+B*\sin(\omega t)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B omega t tau&#39;</span><span class="p">)</span>
@@ -490,18 +487,6 @@ Equivalently we could solve directly for the electric current <span class="math 
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle \frac{\omega \tau v_{0} \left(\omega \tau \sin{\left(\omega t \right)} - \cos{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_latex</span><span class="p">(</span><span class="n">simplify</span><span class="p">(</span><span class="n">sol</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\frac{\omega \tau v_{0} \left(\omega \tau \sin{\left(\omega t \right)} - \cos{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}
-</pre></div>
-</div>
 </div>
 </div>
 </div>

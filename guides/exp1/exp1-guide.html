@@ -446,7 +446,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <h2>Measuring amplitude and phase-shifts<a class="headerlink" href="#measuring-amplitude-and-phase-shifts" title="Permalink to this headline">¶</a></h2>
 <p>Any electrical circuit whose response depends on the frequency introduces a lag in the output signal relative to the input signal. The low-pass and high-pass filters studied below are two typical examples. The figure below illustrates the input (<span class="math notranslate nohighlight">\( V_ {in} \)</span>) and output (<span class="math notranslate nohighlight">\( V_ {out} \)</span>) signals associated with a high-pass filter. Note that the signals are not in phase. The value of the <span class="math notranslate nohighlight">\( \phi \)</span> lag can be obtained by measuring the time difference <span class="math notranslate nohighlight">\( \Delta t \)</span> between their zero-crossing voltages.</p>
 <div class="math notranslate nohighlight" id="equation-eq-phase">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2e-3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
@@ -482,7 +482,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <img alt="../../_images/exp1-guide_10_1.png" src="../../_images/exp1-guide_10_1.png" />
 </div>
 </div>
-<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
+<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(3)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
 <div class="figure align-center" id="fig-example-phase" style="width: 400px">
 <div class="cell_output docutils container">
 <img alt="../../_images/exp1-guide_10_0.png" src="../../_images/exp1-guide_10_0.png" />
@@ -537,7 +537,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <div class="solution admonition" id="exs:fase_delta1">
 <p class="admonition-title">Solution to <a class="reference external" href="#ex:fase_delta1"><span>Exercise 2</span></a></p>
 <div class="section" id="solution-content">
-<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> to find the phase difference.</p>
+<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(3)</a> to find the phase difference.</p>
 </div>
 </div>
 <div class="exercise admonition" id="ex:fase_delta2">
@@ -589,19 +589,19 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 </div>
 <p>The transfer function<span class="math notranslate nohighlight">\( H (\omega) \)</span>  or voltage gain <span class="math notranslate nohighlight">\( G (\omega) \)</span> are defined as,</p>
 <div class="math notranslate nohighlight" id="equation-eq-gain">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\( v_{out, in} \)</span> represents the amplitudes and <span class="math notranslate nohighlight">\( \phi \equiv \phi_ {out} - \phi_ {in} \)</span> the phase difference.</p>
-<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
+<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
 One for the amplitude,</p>
 <div class="math notranslate nohighlight" id="equation-eq-bode-gdb-experimental">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
 G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_{in}^{(pp)}}\right)
 \]</div>
 <p>and the other for the phase difference,</p>
 <div class="math notranslate nohighlight" id="equation-eq-bode-phi-experimental">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
 \phi = \arg(G(\omega))=\arg\left(\cfrac{v_{out}}{v_{in}}\exp(j\phi)\right)=\phi
 \]</div>
 <div class="section" id="preparation-for-the-experiment">
@@ -822,8 +822,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="76e02ddc-6396-4d3c-a7d8-723d8fbc9e05" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
-</input><label class="tabbed-label" for="76e02ddc-6396-4d3c-a7d8-723d8fbc9e05">
+<input checked="checked" id="cf7fe77e-7b92-4943-8899-a6c0df85667b" name="c3d691db-472f-4ce6-9441-68fc3e47392b" type="radio">
+</input><label class="tabbed-label" for="cf7fe77e-7b92-4943-8899-a6c0df85667b">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -899,16 +899,16 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="0e87c7a7-1300-4d25-a792-252b2c038579" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
-</input><label class="tabbed-label" for="0e87c7a7-1300-4d25-a792-252b2c038579">
+<input id="bafcee93-59f4-4632-9845-5911233a5aa8" name="c3d691db-472f-4ce6-9441-68fc3e47392b" type="radio">
+</input><label class="tabbed-label" for="bafcee93-59f4-4632-9845-5911233a5aa8">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot of the oscilloscope for the high-pass with <span class="math notranslate nohighlight">\( f = 10 \)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="fa5e8818-e29f-4da8-ba35-f6936a1a7c6c" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
-</input><label class="tabbed-label" for="fa5e8818-e29f-4da8-ba35-f6936a1a7c6c">
+<input id="1591e6af-a88d-4e30-b7b2-e30220475458" name="c3d691db-472f-4ce6-9441-68fc3e47392b" type="radio">
+</input><label class="tabbed-label" for="1591e6af-a88d-4e30-b7b2-e30220475458">
 Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="id2" style="width: 600px">
 <div class="cell_output docutils container">
@@ -1020,7 +1020,7 @@ f0 = (f1+f2)/2 = 750.0 Hz
 </div>
 <p>A very important real application of filters is to eliminate an undesired frequency component of an electrical signal. For example, it could a residue from the AC-line frequency (60 Hz) that could be contaminating an audio output from your stereo system. Let’s assume a given signal has only two frequencies componentes,</p>
 <div class="math notranslate nohighlight" id="equation-eq-soma-tensao">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
 <p>In the time domain this signal can be viewed as shown in the figure below.</p>
 <div class="figure align-center" id="fig-dois-sinais" style="width: 450px">
 <div class="cell_output docutils container">
@@ -1031,17 +1031,17 @@ f0 = (f1+f2)/2 = 750.0 Hz
 <!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ --></div>
 <div class="section" id="effect-of-the-filter-on-the-signal-fourier-decomposition">
 <h3>Effect of the filter on the signal: Fourier decomposition<a class="headerlink" href="#effect-of-the-filter-on-the-signal-fourier-decomposition" title="Permalink to this headline">¶</a></h3>
-<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(2)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(5)</a> has two frequencies, making it impossible to use the eq. <code class="xref eq docutils literal notranslate"> <span class="pre">eq:gain</span></code> equation immediately. So how we proceed?</p>
+<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(4)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(7)</a> has two frequencies, making it impossible to use the eq. <code class="xref eq docutils literal notranslate"> <span class="pre">eq:gain</span></code> equation immediately. So how we proceed?</p>
 <p>Well, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Fourier’s theorem</a>, any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function <span class="math notranslate nohighlight">\( t \)</span> such that <span class="math notranslate nohighlight">\( F (t) = F (t + T) \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the period of the function. <span class="math notranslate nohighlight">\( F (t) \)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
-<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
+<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
 <p>where the relation betwenn the coeffiecient <span class="math notranslate nohighlight">\(c_n\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> is the following, <span class="math notranslate nohighlight">\(c_0=a_0/2\)</span> and <span class="math notranslate nohighlight">\(c_n=(a_n-jb_n)/2\)</span>, for <span class="math notranslate nohighlight">\(n\neq 0\)</span></p>
 <p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
 <p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id3">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
 <!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><!---
 Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
@@ -1172,8 +1172,8 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4cfa0df6-3d5e-4f3b-9987-8ef7b7a5a291" name="bebc9482-b8b0-4695-8811-ade93b852d02" type="radio">
-</input><label class="tabbed-label" for="4cfa0df6-3d5e-4f3b-9987-8ef7b7a5a291">
+<input checked="checked" id="01419a9f-b4eb-498d-bf69-d84840f34aab" name="29b3f424-258f-457e-a17a-a8dc069a03e1" type="radio">
+</input><label class="tabbed-label" for="01419a9f-b4eb-498d-bf69-d84840f34aab">
 Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="id4" style="width: 600px">
 <div class="cell_output docutils container">
