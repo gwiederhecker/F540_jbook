@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to F540 Jupyter book &#8212; F540 Interactive Book</title>
+    <title>&lt;no title&gt; &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python basics" href="../examples/Basics%20-%20Python.html" />
-    <link rel="prev" title="Syllabus" href="../README.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,9 +98,9 @@
   Introduction to F540
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
    Welcome to F540 Jupyter book
   </a>
  </li>
@@ -114,17 +112,17 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples/Basics%20-%20Python.html">
+  <a class="reference internal" href="Basics%20-%20Python.html">
    Python basics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples/Plotting%20-%20AC%20wave%20plots.html">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
    Basics of AC waves
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../examples/Sympy%20-%20symbolic%20manipulation.html">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
@@ -202,9 +200,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/intro/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/examples/Data acquisition - simple.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -222,11 +220,46 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/examples/Data acquisition - simple.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Data acquisition - simple.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="simple nav section-nav flex-column">
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -235,10 +268,52 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-f540-jupyter-book">
-<h1>Welcome to F540 Jupyter book<a class="headerlink" href="#welcome-to-f540-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>====================================</p>
-<p>Check out the content pages bundled with this sample book to get started.</p>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pylef</span>   <span class="c1"># importar pylef </span>
+<span class="kn">import</span> <span class="nn">visa</span>    <span class="c1"># importar a bilioteca pyVISA para lidar com virtualização de instrumentos</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># importar a biblioteca Numpy para lidar com matrizes</span>
+<span class="kn">import</span> <span class="nn">time</span>          <span class="c1"># importar a bilioteca para funções temporais</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># importa bilioteca pandas para  lidar com processamento de dados</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># próxima linha faz plotar o gráfico dentro do notebook</span>
+<span class="c1"># %matplotlib inline   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/visa.py:23: FutureWarning: The visa module provided by PyVISA is being deprecated. You can replace `import visa` by `import pyvisa as visa` to achieve the same effect.
+
+The reason for the deprecation is the possible conflict with the visa package provided by the https://github.com/visa-sdk/visa-python which can result in hard to debug situations.
+  FutureWarning,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="c1">#setting up hardcopy</span>
+<span class="c1">#     scope.instr.timeout = 20000 # set timeout to 10 seconds</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SAVE:IMAGE:FILEFORMAT BMP&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;HARDCOPY:BUTTON PRINTS&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;HARDCopy:PORT&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="c1">#screen shot</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;HARDCOPY START&#39;</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">read_raw</span><span class="p">()</span> 
+    <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">newFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="n">newFileByteArray</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newFileByteArray</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="o">+</span> <span class="s1">&#39; saved!&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -254,7 +329,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./intro"
+            path: "./examples"
         },
         predefinedOutput: true
     }
@@ -266,8 +341,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">Syllabus</a>
-    <a class='right-next' id="next-link" href="../examples/Basics%20-%20Python.html" title="next page">Python basics</a>
 
         </div>
         
