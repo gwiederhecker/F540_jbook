@@ -822,8 +822,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="04b096cc-4a77-4f2a-a842-be9c567c2cbf" name="e84290b6-d695-41a6-8af5-b77b5e0c7cc9" type="radio">
-</input><label class="tabbed-label" for="04b096cc-4a77-4f2a-a842-be9c567c2cbf">
+<input checked="checked" id="76e02ddc-6396-4d3c-a7d8-723d8fbc9e05" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
+</input><label class="tabbed-label" for="76e02ddc-6396-4d3c-a7d8-723d8fbc9e05">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -899,16 +899,16 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="837d5577-79a0-41e1-8c37-2b3a4705c30a" name="e84290b6-d695-41a6-8af5-b77b5e0c7cc9" type="radio">
-</input><label class="tabbed-label" for="837d5577-79a0-41e1-8c37-2b3a4705c30a">
+<input id="0e87c7a7-1300-4d25-a792-252b2c038579" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
+</input><label class="tabbed-label" for="0e87c7a7-1300-4d25-a792-252b2c038579">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot of the oscilloscope for the high-pass with <span class="math notranslate nohighlight">\( f = 10 \)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="3e596654-a24e-4794-bae4-0ae63d8d74c1" name="e84290b6-d695-41a6-8af5-b77b5e0c7cc9" type="radio">
-</input><label class="tabbed-label" for="3e596654-a24e-4794-bae4-0ae63d8d74c1">
+<input id="fa5e8818-e29f-4da8-ba35-f6936a1a7c6c" name="1f62bf9c-df35-4ace-9412-9ababf15a79b" type="radio">
+</input><label class="tabbed-label" for="fa5e8818-e29f-4da8-ba35-f6936a1a7c6c">
 Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="id2" style="width: 600px">
 <div class="cell_output docutils container">
@@ -1138,7 +1138,7 @@ print((f2-f1)/2)
 <span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span><span class="s1">&#39;r*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
-<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;|Y(freq)|&#39;</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
@@ -1172,8 +1172,8 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="af0481e3-1205-43c5-8334-db7789f92ed9" name="43c3655e-24fb-485e-babf-29f501a1d1c0" type="radio">
-</input><label class="tabbed-label" for="af0481e3-1205-43c5-8334-db7789f92ed9">
+<input checked="checked" id="4cfa0df6-3d5e-4f3b-9987-8ef7b7a5a291" name="bebc9482-b8b0-4695-8811-ade93b852d02" type="radio">
+</input><label class="tabbed-label" for="4cfa0df6-3d5e-4f3b-9987-8ef7b7a5a291">
 Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="id4" style="width: 600px">
 <div class="cell_output docutils container">
