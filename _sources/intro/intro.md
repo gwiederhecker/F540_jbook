@@ -1,5 +1,4 @@
 # Welcome to F540 Jupyter book 
-====================================
 
 This is the interactive Jupyter book  supporting the F540 electronics lab course (5th semester) tought at the Gleb Wataghin Physics Institute (IFGW), University of Campinas. 
 ## What is it about?
