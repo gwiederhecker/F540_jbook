@@ -19,17 +19,16 @@ d.add(e.DOT_OPEN,label ='$V_{out}$')
 d.draw()
 
 Escrevendo a lei de Kirchhoff para o circuito da figura acima,
-$$
-\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.
-$$ (eq:kvl)
 
-Exploraremos o pacote ```sympy``` para nos ajudar a resolver esta equação diferencial ordinária.
+$$\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.$$(eq:kvl)
+
+Exploraremos o pacote `sympy` para nos ajudar a resolver esta equação diferencial ordinária.
 
 ## Defining **symbols** and equation to be solved
 
 A solução tentantiva será na forma,
-$$ q(t)=A \cos(\omega t)+B*\sin(\omega t)
-$$ (eq:trial)
+
+$$ q(t)=A \cos(\omega t)+B*\sin(\omega t)$$(eq:trial)
 
 A,B,omega,t, tau = symbols('A B omega t tau')
 qtrial= A*cos(omega*t)+B*sin(omega*t)
@@ -87,6 +86,3 @@ solution, = linsolve(eq2,(A,B))
 
 sol = solution[0]*terms[0] + solution[1]*terms[1]
 simplify(sol)
-
-print_latex(simplify(sol))
-

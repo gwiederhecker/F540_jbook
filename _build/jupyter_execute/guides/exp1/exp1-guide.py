@@ -211,13 +211,13 @@ To solve this problem, first calculate the time difference between the waves, th
 
 Considering the oscilloscope screen that was captured using an RC circuit:
 
-```{image} figs / sweep_freq_PA_000.png
+```{image} figs/sweep_freq_PA_000.png
 :alt: oscilloscope traces
 :width: 400px
 :align: center
 ```
 * The amplitude $ v_j \pm \delta v_j $ ([V]) of each signal;
-* The frequency $ f $ [1 / s] (and $ \omega $ [rad / s]) of the signals;
+* The frequency $ f $ [1/s] and angular frequency $ \omega $ [rad/s] of the signals;
 * The phase difference between the signals, $ \phi = \phi_2- \phi_1 $, consider the phase signal!
 * Based on the calculated phase, indicate whether is it a low-pass or high-pass filter? Justify.
 ```` 
@@ -251,12 +251,12 @@ name: fig:filter_pb_scheme
 Schematic of a low-pass filter.
 ```
 
-The transfer function$ H (\ omega) $  or voltage gain $ G (\ omega) $ are defined as,
+The transfer function$ H (\omega) $  or voltage gain $ G (\omega) $ are defined as,
 
 $$
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
 $$(eq:gain)
-where $ v_ {out, in} $ represents the amplitudes and $ \ phi \ equiv \ phi_ {out} - \ phi_ {in} $ the phase difference.
+where $ v_{out, in} $ represents the amplitudes and $ \phi \equiv \phi_ {out} - \phi_ {in} $ the phase difference.
 
 Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise {numref}`ex:fase_delta2`. As the eq. {eq}`eq:gain` contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
 One for the amplitude,
@@ -426,7 +426,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 * calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
 -->
 
-When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients known as the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT.
+When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.
 
 from scipy.signal import blackman
 
@@ -509,7 +509,7 @@ ax0.set_title('(c)')
 ax0 = ax[1,1]
 ax0.plot(freq*1e-3, 2*np.abs(Y),'r*-') # plotting the spectrum
 ax0.set_xlabel('Freq (kHz)')
-ax0.set_ylabel('2|Y(freq)|')
+ax0.set_ylabel('|Y(freq)|')
 ax0.set_xlim([0,1.1])
 ax0.axvline(0,ls='--',c='gray')
 ax0.axvline(1.1,ls='--',c='gray')

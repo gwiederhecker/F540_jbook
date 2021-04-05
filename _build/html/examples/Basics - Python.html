@@ -46,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -229,7 +227,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/examples/Basics - Python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/examples/Basics - Python.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -237,7 +235,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Basics - Python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/examples/Basics - Python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -499,7 +497,9 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 1
 1
-2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 2
 3
 </pre></div>
@@ -641,7 +641,7 @@ others are also great
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff09bb5b490&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb72a285d50&gt;]
 </pre></div>
 </div>
 <img alt="../_images/Basics - Python_32_1.png" src="../_images/Basics - Python_32_1.png" />
@@ -662,43 +662,8 @@ others are also great
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
 <span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">c0c524b1c9f2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ni">locator_params</span><span class="nt">(axis, tight, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2742</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">locator_params</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2743</span> <span class="k">def</span> <span class="nf">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">2744</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="n">tight</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2745</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2746</span> 
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">locator_params</span><span class="nt">(self, axis, tight, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3006</span>         <span class="n">update_y</span> <span class="o">=</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3007</span>         <span class="k">if</span> <span class="n">update_x</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3008</span>             <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3009</span>         <span class="k">if</span> <span class="n">update_y</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3010</span>             <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">set_params</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2210</span>             <span class="n">key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2211</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">2212</span>                 <span class="sa">f</span><span class="s2">&quot;set_params() got an unexpected keyword argument &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2213</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2214</span>     <span class="k">def</span> <span class="nf">_raw_ticks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
-
-<span class="ne">TypeError</span>: set_params() got an unexpected keyword argument &#39;nticks&#39;
-</pre></div>
-</div>
-<img alt="../_images/Basics - Python_34_1.png" src="../_images/Basics - Python_34_1.png" />
 </div>
 </div>
 </div>
@@ -721,7 +686,14 @@ others are also great
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="n">c2bf9b53f311</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Para usuários do Google Cola</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
 </pre></div>
 </div>
 </div>
@@ -827,7 +799,7 @@ others are also great
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3241589fd0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_42_1.png" src="../_images/Basics - Python_42_1.png" />
+<img alt="../_images/Basics - Python_41_1.png" src="../_images/Basics - Python_41_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -840,7 +812,7 @@ others are also great
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3241516190&gt;]
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_43_1.png" src="../_images/Basics - Python_43_1.png" />
+<img alt="../_images/Basics - Python_42_1.png" src="../_images/Basics - Python_42_1.png" />
 </div>
 </div>
 </div>
@@ -851,7 +823,7 @@ others are also great
         requestKernel: true,
         binderOptions: {
             repo: "gwiederhecker/F540_jbook",
-            ref: "master",
+            ref: "2021_1s",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -882,7 +854,7 @@ others are also great
     <div class="container">
       <p>
         
-          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
         
             &copy; Copyright 2020.<br/>
       </p>

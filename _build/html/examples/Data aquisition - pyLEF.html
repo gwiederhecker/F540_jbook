@@ -46,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -225,7 +223,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/examples/Data aquisition - pyLEF.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/examples/Data aquisition - pyLEF.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -233,7 +231,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Data aquisition - pyLEF.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/examples/Data aquisition - pyLEF.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -317,7 +315,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ASRL1::INSTR&#39;, &#39;ASRL2::INSTR&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;USB0::0xF4ED::0xEE3A::388C14117::INSTR&#39;, &#39;ASRL1::INSTR&#39;, &#39;ASRL2::INSTR&#39;)
 </pre></div>
 </div>
 </div>
@@ -330,31 +328,34 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gerador de Funções conectado! Id = *IDN BK Precision,4052,388C14117,1.01.01.31R1,02-00-00-22-26
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">9492673</span><span class="n">a926d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span> <span class="o">=</span> <span class="s1">&#39;0xF4ED&#39;</span><span class="p">;</span> <span class="c1"># identificador do fabricante BK</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># time to wait after write and query - BK BUG!</span>
-<span class="ne">--&gt; </span><span class="mi">104</span>         <span class="n">interface_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_interface</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="c1"># instrument initialization</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>   <span class="c1">## resource name</span>
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span><span class="s2">         self.id_tek = &#39;0x0699&#39;; # identificador do fabricante TEK</span>
+<span class="ne">---&gt; </span><span class="mi">45</span><span class="s2">         interface_name = self.find_interface()</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span><span class="s2">         self.instr = visa.ResourceManager().open_resource(interface_name)   ## resource name</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span><span class="s2">         self.delay_time = 0.1 # time to wait after write and query - BK BUG!</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span>                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gerador de Funções conectado! Id = &quot;</span> <span class="o">+</span> <span class="n">bk_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="k">if</span> <span class="n">bk_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">134</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O osciloscopio BK scope nao foi identificado:</span><span class="se">\n</span><span class="s1">&#39;</span>\
-<span class="g g-Whitespace">    </span><span class="mi">135</span>                          <span class="s1">&#39;Verique se o equipamento está ligado e se o cabo USB </span><span class="se">\n</span><span class="s1">&#39;</span>\
-<span class="g g-Whitespace">    </span><span class="mi">136</span>                          <span class="s1">&#39;foi conectado. Se o problema persistir, </span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="s2">                 print(&quot;Osciloscópio conectado! Id = &quot; + tek_str[:-1])</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">         if tek_str == &#39;&#39;:</span>
+<span class="ne">---&gt; </span><span class="mi">84</span><span class="s2">             raise ValueError(&#39;O osciloscopio TEK 1062 nao foi identificado:</span><span class="se">\n</span><span class="s2">&#39;</span><span class="se">\</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2">                          &#39;Verique se o equipamento está ligado e se o cabo USB </span><span class="se">\n</span><span class="s2">&#39;</span><span class="se">\</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="s2">                          &#39;foi conectado. Se o problema persistir, </span><span class="se">\n</span><span class="s2">&#39;</span><span class="se">\</span>
 
-<span class="ne">ValueError</span>: O osciloscopio BK scope nao foi identificado:
-<span class="n">Verique</span> <span class="n">se</span> <span class="n">o</span> <span class="n">equipamento</span> <span class="n">está</span> <span class="n">ligado</span> <span class="n">e</span> <span class="n">se</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span> 
-<span class="n">foi</span> <span class="n">conectado</span><span class="o">.</span> <span class="n">Se</span> <span class="n">o</span> <span class="n">problema</span> <span class="n">persistir</span><span class="p">,</span> 
-<span class="n">desconecte</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span><span class="p">,</span> <span class="n">aguarde</span> <span class="mi">20</span> <span class="n">segundos</span> 
-<span class="n">e</span> <span class="n">conecte</span> <span class="n">novamente</span><span class="o">.</span>
+<span class="ne">ValueError</span>: O osciloscopio TEK 1062 nao foi identificado:
+<span class="s2">Verique se o equipamento está ligado e se o cabo USB </span>
+<span class="s2">foi conectado. Se o problema persistir, </span>
+<span class="s2">desconecte o cabo USB, aguarde 20 segundos </span>
+<span class="s2">e conecte novamente.</span>
 </pre></div>
 </div>
 </div>
@@ -861,7 +862,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
         requestKernel: true,
         binderOptions: {
             repo: "gwiederhecker/F540_jbook",
-            ref: "master",
+            ref: "2021_1s",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -890,7 +891,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
     <div class="container">
       <p>
         
-          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
         
             &copy; Copyright 2020.<br/>
       </p>

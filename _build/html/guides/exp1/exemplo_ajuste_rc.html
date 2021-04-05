@@ -46,8 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -229,7 +227,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -237,7 +235,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -414,11 +412,11 @@
 </div>
 <p>Em termos das amplitudes (pico-pico) medidas no osciloscópio, a transmitância é dada por</p>
 <div class="math notranslate nohighlight" id="equation-eq-trans-lin">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
 <p>Em decibéis,</p>
 <div class="math notranslate nohighlight" id="equation-eq-trans-db">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
-<p>As equações <a class="reference internal" href="#equation-eq-trans-lin">(9)</a> e <a class="reference internal" href="#equation-eq-trans-db">(10)</a> são calculadas a seguir:</p>
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
+<p>As equações <a class="reference internal" href="#equation-eq-trans-lin">(11)</a> e <a class="reference internal" href="#equation-eq-trans-db">(12)</a> são calculadas a seguir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
@@ -721,7 +719,7 @@ Erros estimados pela função curve_fit:
         requestKernel: true,
         binderOptions: {
             repo: "gwiederhecker/F540_jbook",
-            ref: "master",
+            ref: "2021_1s",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -752,7 +750,7 @@ Erros estimados pela função curve_fit:
     <div class="container">
       <p>
         
-          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
