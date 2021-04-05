@@ -46,8 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -350,27 +348,13 @@
                 
   <div class="section" id="background-complex-impedances">
 <h1>Background: Complex impedances<a class="headerlink" href="#background-complex-impedances" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">admonition</span><span class="p">}</span> <span class="n">Goals</span>
-<span class="p">:</span><span class="n">class</span><span class="p">:</span> <span class="n">tip</span>
-<span class="o">-</span>  <span class="n">Familiarizar</span> <span class="n">com</span> <span class="n">ondas</span> <span class="n">senoidais</span> <span class="n">e</span> <span class="n">suas</span> <span class="n">propriedades</span><span class="p">:</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">fase</span><span class="p">,</span> <span class="n">frequência</span> <span class="n">e</span> <span class="n">período</span>
-
-<span class="o">-</span>  <span class="n">Entender</span> <span class="n">os</span> <span class="n">casos</span> <span class="n">mais</span> <span class="n">comuns</span> <span class="n">de</span> <span class="n">controle</span> <span class="n">de</span> <span class="n">fluxo</span> <span class="n">em</span> <span class="n">programas</span> <span class="n">em</span> <span class="n">Python</span>
-
-<span class="o">-</span>  <span class="n">Fazer</span> <span class="n">gráficos</span> <span class="n">elementares</span> <span class="n">utilizando</span> <span class="n">o</span> <span class="n">pacote</span> <span class="n">Matplotlib</span>
-<span class="p">:::</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-6e012bbdc6f4&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="p">:::{</span><span class="n">admonition</span><span class="p">}</span> <span class="n">Goals</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Familiarizar com ondas senoidais e suas propriedades: amplitude, fase, frequência e período</p></li>
+<li><p>Entender os casos mais comuns de controle de fluxo em programas em Python</p></li>
+<li><p>Fazer gráficos elementares utilizando o pacote Matplotlib</p></li>
+</ul>
 </div>
 <div class="section" id="loading-packages">
 <h2>Loading packages<a class="headerlink" href="#loading-packages" title="Permalink to this headline">¶</a></h2>
@@ -401,8 +385,35 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: MaxNLocator.set_params got an unexpected parameter: nticks
-  # This is added back by InteractiveShellApp.init_path()
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">ca101b692973</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ni">locator_params</span><span class="nt">(axis, tight, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2742</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">locator_params</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2743</span> <span class="k">def</span> <span class="nf">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2744</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="n">tight</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2745</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2746</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">locator_params</span><span class="nt">(self, axis, tight, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3006</span>         <span class="n">update_y</span> <span class="o">=</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">3007</span>         <span class="k">if</span> <span class="n">update_x</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3008</span>             <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3009</span>         <span class="k">if</span> <span class="n">update_y</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3010</span>             <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">set_params</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2210</span>             <span class="n">key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2211</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">2212</span>                 <span class="sa">f</span><span class="s2">&quot;set_params() got an unexpected keyword argument &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2213</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2214</span>     <span class="k">def</span> <span class="nf">_raw_ticks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+
+<span class="ne">TypeError</span>: set_params() got an unexpected keyword argument &#39;nticks&#39;
 </pre></div>
 </div>
 <img alt="../../_images/complex_impedance_5_1.png" src="../../_images/complex_impedance_5_1.png" />
