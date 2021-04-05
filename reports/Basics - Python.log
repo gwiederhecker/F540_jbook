@@ -34,7 +34,7 @@ plt.locator_params(nticks=4)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-16-c0c524b1c9f2>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-18-c0c524b1c9f2>[0m in [0;36m<module>[0;34m[0m
 [1;32m     11[0m [0;31m#Ajsutando espessura das linhas padrão dos gráficos[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     12[0m [0mplt[0m[0;34m.[0m[0mrcParams[0m[0;34m[[0m[0;34m'lines.linewidth'[0m[0;34m][0m [0;34m=[0m [0;36m2[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 13[0;31m [0mplt[0m[0;34m.[0m[0mlocator_params[0m[0;34m([0m[0mnticks[0m[0;34m=[0m[0;36m4[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

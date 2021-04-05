@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Varredura &#8212; F540 Interactive Book</title>
+    <title>Data aquisition with pyLEF &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -46,16 +46,17 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Solving Kirchhoff’s law ordinary differential equation" href="Sympy%20-%20symbolic%20manipulation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -88,7 +89,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -100,19 +101,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -122,69 +145,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -260,6 +233,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Data aquisition - pyLEF basics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -275,19 +256,19 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varredura">
    Varredura
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plots">
      Plots
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#varredura-salvando-tracos-temporais">
    Varredura salvando traços temporais
   </a>
@@ -304,7 +285,15 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="data-aquisition-with-pylef">
+<h1>Data aquisition with pyLEF<a class="headerlink" href="#data-aquisition-with-pylef" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Demonstrate the usage of the package pyLEF to control BK-4052 function generator and Tektronic TBS1062 oscilloscopes</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pylef</span>   <span class="c1"># importar pylef </span>
 <span class="kn">import</span> <span class="nn">visa</span>    <span class="c1"># importar a bilioteca pyVISA para lidar com virtualização de instrumentos</span>
@@ -360,10 +349,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;USB0::0x0699::0x03B0::C010160::INSTR&#39;,
- &#39;USB0::0xF4ED::0xEE3A::388C14117::INSTR&#39;,
- &#39;ASRL1::INSTR&#39;,
- &#39;ASRL2::INSTR&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ASRL1::INSTR&#39;, &#39;ASRL2::INSTR&#39;)
 </pre></div>
 </div>
 </div>
@@ -377,7 +363,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">VisaIOError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">9492673</span><span class="n">a926d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
@@ -390,55 +376,17 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>   <span class="c1">## resource name</span>
 
 <span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>             <span class="n">fab_id</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">if</span> <span class="n">fab_id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">125</span>                 <span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>                 <span class="n">instr</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1"># set timeout to 10 seconds</span>
-<span class="g g-Whitespace">    </span><span class="mi">127</span>                 <span class="n">bk_str</span> <span class="o">=</span> <span class="n">instr</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;*IDN?&#39;</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gerador de Funções conectado! Id = &quot;</span> <span class="o">+</span> <span class="n">bk_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="k">if</span> <span class="n">bk_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">134</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O osciloscopio BK scope nao foi identificado:</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">135</span>                          <span class="s1">&#39;Verique se o equipamento está ligado e se o cabo USB </span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">136</span>                          <span class="s1">&#39;foi conectado. Se o problema persistir, </span><span class="se">\n</span><span class="s1">&#39;</span>\
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">open_resource</span><span class="nt">(self, resource_name, access_mode, open_timeout, resource_pyclass, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3302</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3303</span> 
-<span class="ne">-&gt; </span><span class="mi">3304</span>         <span class="n">res</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">access_mode</span><span class="p">,</span> <span class="n">open_timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3305</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3306</span>         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/resources/resource.py</span> in <span class="ni">open</span><span class="nt">(self, access_mode, open_timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span>             <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_manager</span><span class="o">.</span><span class="n">open_bare_resource</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">298</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_resource_name</span><span class="p">,</span> <span class="n">access_mode</span><span class="p">,</span> <span class="n">open_timeout</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span> 
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">open_bare_resource</span><span class="nt">(self, resource_name, access_mode, open_timeout)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3230</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3231</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">3232</span><span class="s2">         return self.visalib.open(self.session, resource_name, access_mode, open_timeout)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3233</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">3234</span><span class="s2">     def open_resource(</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/ctwrapper/functions.py</span> in <span class="ni">open</span><span class="nt">(library, session, resource_name, access_mode, open_timeout)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1850</span><span class="s2">     # ViRsrc converts from (str, unicode, bytes) to bytes</span>
-<span class="g g-Whitespace">   </span><span class="mi">1851</span><span class="s2">     ret = library.viOpen(</span>
-<span class="ne">-&gt; </span><span class="mi">1852</span><span class="s2">         session, resource_name, access_mode, open_timeout, byref(out_session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1853</span><span class="s2">     )</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span><span class="s2">     return out_session.value, ret</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/ctwrapper/highlevel.py</span> in <span class="ni">_return_handler</span><span class="nt">(self, ret_value, func, arguments)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="s2">                 session = None</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">222</span><span class="s2">         return self.handle_return_value(session, ret_value)  # type: ignore</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="s2">     def list_resources(</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyvisa/highlevel.py</span> in <span class="ni">handle_return_value</span><span class="nt">(self, session, status_code)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span><span class="s2">         if rv &lt; 0:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span><span class="s2">             raise errors.VisaIOError(rv)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span><span class="s2">         if rv in self.issue_warning_on:</span>
-
-<span class="ne">VisaIOError</span>: VI_ERROR_RSRC_BUSY (-1073807246): The resource is valid, but VISA cannot currently access it.
+<span class="ne">ValueError</span>: O osciloscopio BK scope nao foi identificado:
+<span class="n">Verique</span> <span class="n">se</span> <span class="n">o</span> <span class="n">equipamento</span> <span class="n">está</span> <span class="n">ligado</span> <span class="n">e</span> <span class="n">se</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span> 
+<span class="n">foi</span> <span class="n">conectado</span><span class="o">.</span> <span class="n">Se</span> <span class="n">o</span> <span class="n">problema</span> <span class="n">persistir</span><span class="p">,</span> 
+<span class="n">desconecte</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span><span class="p">,</span> <span class="n">aguarde</span> <span class="mi">20</span> <span class="n">segundos</span> 
+<span class="n">e</span> <span class="n">conecte</span> <span class="n">novamente</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -523,7 +471,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="section" id="varredura">
-<h1>Varredura<a class="headerlink" href="#varredura" title="Permalink to this headline">¶</a></h1>
+<h2>Varredura<a class="headerlink" href="#varredura" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -617,7 +565,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_13_0.png" src="../_images/Data aquisition - pyLEF basics_13_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_15_0.png" src="../_images/Data aquisition - pyLEF basics_15_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -638,7 +586,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
   
 </pre></div>
 </div>
-<img alt="../_images/Data aquisition - pyLEF basics_14_1.png" src="../_images/Data aquisition - pyLEF basics_14_1.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_16_1.png" src="../_images/Data aquisition - pyLEF basics_16_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -703,7 +651,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; exemplo-pylef/passa-altas/traços-temporal-imagens/2021_03_31/freq_sweep1_16_29_08 saved !!
 </pre></div>
 </div>
-<img alt="../_images/Data aquisition - pyLEF basics_15_2.png" src="../_images/Data aquisition - pyLEF basics_15_2.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_17_2.png" src="../_images/Data aquisition - pyLEF basics_17_2.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:634: FutureWarning: query_values is deprecated and will be removed in 1.10, use query_ascii_values or quey_binary_values instead.
   &#39;instead.&#39;, FutureWarning)
 /usr/local/lib/python3.7/site-packages/pyvisa/resources/messagebased.py:107: FutureWarning: values_format is deprecated and will be removed in 1.10
@@ -713,7 +661,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; exemplo-pylef/passa-altas/traços-temporal-imagens/2021_03_31/freq_sweep2_16_29_21 saved !!
 </pre></div>
 </div>
-<img alt="../_images/Data aquisition - pyLEF basics_15_5.png" src="../_images/Data aquisition - pyLEF basics_15_5.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_17_5.png" src="../_images/Data aquisition - pyLEF basics_17_5.png" />
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">70</span><span class="o">-</span><span class="mi">7527262080</span><span class="n">ca</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
@@ -810,11 +758,11 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_16_0.png" src="../_images/Data aquisition - pyLEF basics_16_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_18_0.png" src="../_images/Data aquisition - pyLEF basics_18_0.png" />
 </div>
 </div>
 <div class="section" id="plots">
-<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h2>
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>   <span class="c1"># define uma figura</span>
@@ -831,7 +779,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_19_0.png" src="../_images/Data aquisition - pyLEF basics_19_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_21_0.png" src="../_images/Data aquisition - pyLEF basics_21_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -857,7 +805,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_21_0.png" src="../_images/Data aquisition - pyLEF basics_21_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_23_0.png" src="../_images/Data aquisition - pyLEF basics_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -874,7 +822,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_22_0.png" src="../_images/Data aquisition - pyLEF basics_22_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_24_0.png" src="../_images/Data aquisition - pyLEF basics_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -898,7 +846,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Data aquisition - pyLEF basics_23_0.png" src="../_images/Data aquisition - pyLEF basics_23_0.png" />
+<img alt="../_images/Data aquisition - pyLEF basics_25_0.png" src="../_images/Data aquisition - pyLEF basics_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -919,7 +867,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="section" id="varredura-salvando-tracos-temporais">
-<h1>Varredura salvando traços temporais<a class="headerlink" href="#varredura-salvando-tracos-temporais" title="Permalink to this headline">¶</a></h1>
+<h2>Varredura salvando traços temporais<a class="headerlink" href="#varredura-salvando-tracos-temporais" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
@@ -972,12 +920,13 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -998,7 +947,6 @@ The reason for the deprecation is the possible conflict with the visa package pr
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Sympy%20-%20symbolic%20manipulation.html" title="previous page">Solving Kirchhoff’s law ordinary differential equation</a>
 
         </div>
         

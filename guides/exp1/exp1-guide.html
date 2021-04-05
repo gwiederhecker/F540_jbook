@@ -48,17 +48,17 @@
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Fitting Filter Transfer Function" href="exemplo_ajuste_rc.html" />
-    <link rel="prev" title="Complex impendances" href="complex_impedance.html" />
+    <link rel="next" title="Data analysis: Fitting the filter transfer function" href="exemplo_ajuste_rc.html" />
+    <link rel="prev" title="Background: Complex impedances" href="complex_impedance.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,7 +91,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -103,19 +103,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -125,69 +147,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -263,6 +235,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/exp1-guide.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -284,52 +264,43 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amplitude-and-phase-shifts-amplitude-e-deslocamento-de-fase">
-   Amplitude and phase-shifts (amplitude e deslocamento de fase)
+  <a class="reference internal nav-link" href="#measuring-amplitude-and-phase-shifts">
+   Measuring amplitude and phase-shifts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtros-rc-passa-altas-pa-e-passa-baixas-pb">
-   Filtros RC: passa-altas (PA) e passa-baixas (PB)
+  <a class="reference internal nav-link" href="#rc-filters-high-pass-hp-and-low-pass-lp">
+   RC filters: high-pass (HP) and low-pass (LP)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#preparacao-para-o-experimento">
-     Preparação para o experimento
+    <a class="reference internal nav-link" href="#preparation-for-the-experiment">
+     Preparation for the experiment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adquirindo-os-dados-experimentais">
-     Adquirindo os dados experimentais
+    <a class="reference internal nav-link" href="#acquiring-experimental-data">
+     Acquiring experimental data
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dados-disponibilizados">
-     Dados disponibilizados
+    <a class="reference internal nav-link" href="#downloadable-dataset-1">
+     Downloadable dataset 1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aplicacao-do-filtro-passa-alta">
-     Aplicação do filtro passa-alta
+    <a class="reference internal nav-link" href="#an-application-of-a-high-pass-filter">
+     An application of a high-pass filter
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#efeito-do-filtro-sobre-o-sinal-decomposicao-de-fourier">
-     Efeito do filtro sobre o sinal: Decomposição de Fourier
+    <a class="reference internal nav-link" href="#effect-of-the-filter-on-the-signal-fourier-decomposition">
+     Effect of the filter on the signal: Fourier decomposition
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#itens-para-incluir-no-relatorio">
-   <strong>
-    Itens para incluir no relatório
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#propriedades-do-gerador-de-rf">
-     Propriedades do gerador de RF
+    <a class="reference internal nav-link" href="#downloadable-dataset-2">
+     Downloadable dataset 2
     </a>
    </li>
   </ul>
@@ -355,9 +326,46 @@
 <h1>Guide to Experiment 1: RC filters<a class="headerlink" href="#guide-to-experiment-1-rc-filters" title="Permalink to this headline">¶</a></h1>
 <p>Métodos da Físcia Experimental I: (F540 2s2020)</p>
 <ul class="simple">
-<li><p>Texto base: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues</p></li>
-<li><p>Adaptação Jupyter: Gustavo Wiederhecker</p></li>
+<li><p>JupyterBook: Gustavo Wiederhecker</p></li>
+<li><p>Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues</p></li>
 </ul>
+<p>In this experiment, circuits  containing a capacitor and
+a resistor will be investigated. These circuits allow us to measure the electric current
+(resistor) or the electrical charge (capacitor) that flows in the circuits. The
+amplitude and phase of the current or electric charge depend on the frequency. This dependency
+motivates their usage and their application as frequency filters, such as
+low-pass or high-pass filters.</p>
+<p>To understand this behavior, it is essential to review the concept of
+frequency response, that is, as the response of a given system
+linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Understand the relationships between sinusoidal voltages and currents in circuits containing resistors, capacitors and inductors.</p></li>
+<li><p>Understand how these circuits can be used as filters of     electrical signals.</p></li>
+<li><p>Determine the frequency response of the amplitude and phase of
+RC filters; low-pass, high-pass</p></li>
+<li><p>Describe the behavior of filters through graphs of
+transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Items to include in your lab report</p>
+<ol class="simple">
+<li><p>Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in <a class="reference internal" href="#sec-dataset1"><span class="std std-ref">Downloadable dataset 1</span></a>.</p></li>
+<li><p>In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in <span class="xref std std-doc">example_ajuste_rc</span></p>
+<ul class="simple">
+<li><p>Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade?</p></li>
+</ul>
+</li>
+<li><p>Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided <a class="reference internal" href="#sec-dataset2"><span class="std std-ref">Downloadable dataset 2</span></a>.</p>
+<ul class="simple">
+<li><p>The difference between the two signals is that the channel 2 signal was filtered by an RC circuit. Determine whether the circuit used was a high-pass or low-pass.</p></li>
+</ul>
+</li>
+<li><p>Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.</p></li>
+</ol>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-----------------------------</span>
@@ -391,36 +399,9 @@
 </div>
 </div>
 </div>
-<p>Neste experimento serão investigados circuitos contento um capacitor e
-um resistor. Estes circuitos nos permitem medir a corrente elétrica
-(resistor) ou a carga elétrica (capacitor) que fluem nos circuitos. A
-amplitude e a fase da corrente ou carga elétrica dependem da frequência. Esta dependência é que
-motiva e denominação desses circuitos como filtros de frequência, pois eles modificam como cada frequência é transmitida pelo mesmo. dos
-tipos passa-baixas ou passa-altas.</p>
-<p>Para compreender este comportamento é fundamental revisar o conceito de
-resposta em frequência, ou seja, como a resposta de um dado sistema
-linear se comporta como função da frequência de excitação, portanto, é
-recomendado que o aluno revise o assunto no livro de sua preferência. O
-capítulo 2 do livro do Brophy (Eletrônica básica)  é uma boa
-opção, ou mesmo um livro sobre equações diferenciais ordinárias.
-<span id="id1">[<a class="reference internal" href="#id5"><span>1</span></a>]</span></p>
-<div class="tip admonition">
-<p class="admonition-title">Objetivos</p>
-<ul class="simple">
-<li><p>Compreender as relações entre tensões e correntes senoidais em
-circuitos contendo resistores, capacitores e indutores.</p></li>
-<li><p>Compreender como estes circuitos podem ser utilizados como filtros
-de sinais elétricos.</p></li>
-<li><p>Determinar a resposta em frequência da amplitude e fase de filtros
-RC, RL e RLC; passa-baixas, passa-altas, passa-bandas,
-rejeita-bandas.</p></li>
-<li><p>Descrever o comportamento de filtros através de gráficos de
-transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
-</ul>
-</div>
 <div class="section" id="frequency-response-of-filters">
 <h2>Frequency response of filters<a class="headerlink" href="#frequency-response-of-filters" title="Permalink to this headline">¶</a></h2>
-<p>Considere os diagrama dos  circuitos mostrados na figura abaixo. Todos são exemplos de divisores de tensão AC que comportam-se como filtros de frequência.</p>
+<p>Consider the circuit diagrams shown in the figure below. All are examples of AC voltage dividers that behave as frequency filters.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,)</span>
@@ -447,27 +428,25 @@ transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_5_0.png" src="../../_images/exp1-guide_5_0.png" />
+<img alt="../../_images/exp1-guide_6_0.png" src="../../_images/exp1-guide_6_0.png" />
 </div>
 </div>
-<p>No laboratório, uma possível implementação de um desses circuito tem o aspecto da <a class="reference internal" href="#foto-filtro-pa"><span class="std std-ref">Filtro passa-altas montado em uma protoboard.</span></a>:</p>
+<p>In the laboratory, a possible implementation of one of these circuits has the aspect of <a class="reference internal" href="#foto-filtro-pa"><span class="std std-numref">Fig. 1</span></a>:</p>
 <div class="figure align-default" id="foto-filtro-pa">
-<a class="reference internal image-reference" href="../../_images/foto_passa_altas.jpg"><img alt="../../_images/foto_passa_altas.jpg" src="../../_images/foto_passa_altas.jpg" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../../_images/foto_passa_altas_small.jpg"><img alt="../../_images/foto_passa_altas_small.jpg" src="../../_images/foto_passa_altas_small.jpg" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Filtro passa-altas montado em uma protoboard.</span><a class="headerlink" href="#foto-filtro-pa" title="Permalink to this image">¶</a></p>
 </div>
-<p>O efeito da filtragem desses circuitos pode ser notado observando o comportamento do sinal com um osciloscópio. Por exemplo, o filtro passa-altas RC se manifesta como na figura <a class="reference internal" href="#highpass-scope"><span class="std std-ref">Filtro passa-altas RC (R=300,C=470 nF), frequência 10 Hz. O sinal em azul representa o sinal de entrada, enquanto o laranja representa o sinal de saída.</span></a>.</p>
+<p>The filtering effect of these circuits can be seen by observing the behavior of the signal with an oscilloscope. For example, the RC high-pass filter  behavior manifests as in the <a class="reference internal" href="#highpass-scope"><span class="std std-numref">Fig. 2</span></a>.</p>
 <div class="figure align-default" id="highpass-scope">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Filtro passa-altas RC (R=300,C=470 nF), frequência 10 Hz. O sinal em azul representa o sinal de entrada, enquanto o laranja representa o sinal de saída.</span><a class="headerlink" href="#highpass-scope" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">High-pass RC filter (R = 300, C = 470 nF), frequency 10 Hz. The blue trace represents the input signal, while the orange trace represents the output signal.</span><a class="headerlink" href="#highpass-scope" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<div class="section" id="amplitude-and-phase-shifts-amplitude-e-deslocamento-de-fase">
-<h2>Amplitude and phase-shifts (amplitude e deslocamento de fase)<a class="headerlink" href="#amplitude-and-phase-shifts-amplitude-e-deslocamento-de-fase" title="Permalink to this headline">¶</a></h2>
-<p>Todo circuito elétrico cuja resposta depende da frequência introduz uma defasagem no sinal de saída em relação ao sinal de entrada. Os filtros passa-baixa e passa-alta estudados são dois exemplos típicos. A figura abaixo ilustra o sinal de entrada (<span class="math notranslate nohighlight">\(V_{in}\)</span>) e saída (<span class="math notranslate nohighlight">\(V_{out}\)</span>) de um filtro passa-alta atuando em um sinal de baixa frequência. Notem que os sinais não estão em fase. O valor da defasagem <span class="math notranslate nohighlight">\(\phi\)</span> pode ser obtido medindo-se a diferença de tempo <span class="math notranslate nohighlight">\(\Delta t\)</span> entre os instantes que elas cruzam 0 Volts ou entre dois máximos das funções senoidais de entrada e saída e o período <span class="math notranslate nohighlight">\(T\)</span>.</p>
-<div class="math notranslate nohighlight" id="equation-eq-fase">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-fase" title="Permalink to this equation">¶</a></span>\[ 
-\phi = 2\ \pi\ \cfrac{\Delta t}{T}
-\]</div>
+<div class="section" id="measuring-amplitude-and-phase-shifts">
+<h2>Measuring amplitude and phase-shifts<a class="headerlink" href="#measuring-amplitude-and-phase-shifts" title="Permalink to this headline">¶</a></h2>
+<p>Any electrical circuit whose response depends on the frequency introduces a lag in the output signal relative to the input signal. The low-pass and high-pass filters studied below are two typical examples. The figure below illustrates the input (<span class="math notranslate nohighlight">\( V_ {in} \)</span>) and output (<span class="math notranslate nohighlight">\( V_ {out} \)</span>) signals associated with a high-pass filter. Note that the signals are not in phase. The value of the <span class="math notranslate nohighlight">\( \phi \)</span> lag can be obtained by measuring the time difference <span class="math notranslate nohighlight">\( \Delta t \)</span> between their zero-crossing voltages.</p>
+<div class="math notranslate nohighlight" id="equation-eq-phase">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2e-3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
@@ -500,15 +479,15 @@ transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_9_1.png" src="../../_images/exp1-guide_9_1.png" />
+<img alt="../../_images/exp1-guide_10_1.png" src="../../_images/exp1-guide_10_1.png" />
 </div>
 </div>
-<p>Notem que a <a class="reference internal" href="#equation-eq-fase">(1)</a> permite-nos relacionar a medida no osciloscópio (diferença de tempo) com a diferença de fase, como ilustrado na <span class="xref std std-ref">fig:exemplo_fase</span></p>
-<div class="figure align-center" id="fig-fase-exemplo" style="width: 400px">
+<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
+<div class="figure align-center" id="fig-example-phase" style="width: 400px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_9_0.png" src="../../_images/exp1-guide_9_0.png" />
+<img alt="../../_images/exp1-guide_10_0.png" src="../../_images/exp1-guide_10_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Exemplo de diferença de fase entre dois sinais. A fase aqui é do sinal 2 em relação ao 1, <span class="math notranslate nohighlight">\(\phi=\phi_2-\phi_1\)</span>, portanto, o sinal 2 está <strong>adiantado</strong> em relação ao 1.</span><a class="headerlink" href="#fig-fase-exemplo" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Example of phase difference between two signals. The phase here is of signal 2 relative to 1, <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>, therefore, signal 2 is ** ahead ** of 1.</span><a class="headerlink" href="#fig-example-phase" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -541,42 +520,42 @@ transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_11_0.png" src="../../_images/exp1-guide_11_0.png" />
+<img alt="../../_images/exp1-guide_12_0.png" src="../../_images/exp1-guide_12_0.png" />
 </div>
 </div>
 <div class="exercise admonition" id="ex:fase_delta1">
-<p class="admonition-title"><span class="caption-number">Exercise 1 </span>(Diferença de fase entre sinais)</p>
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span>(Phase difference between signals)</p>
 <div class="section" id="exercise-content">
-<p>Considere a figura a seguir e determine:</p>
+<p>Consider the following figure and determine:</p>
 <a class="reference internal image-reference" href="../../_images/ex_delta_fase.png"><img alt="circuit picture" class="align-center" src="../../_images/ex_delta_fase.png" style="width: 400px;" /></a>
 <ul class="simple">
-<li><p>a frequência dos sinais</p></li>
-<li><p>a diferença de fase entre os sinais</p></li>
+<li><p>the frequency of the signals</p></li>
+<li><p>the phase difference between the signals</p></li>
 </ul>
 </div>
 </div>
 <div class="solution admonition" id="exs:fase_delta1">
-<p class="admonition-title">Solution to <a class="reference external" href="#ex:fase_delta1"><span>Exercise 1</span></a></p>
+<p class="admonition-title">Solution to <a class="reference external" href="#ex:fase_delta1"><span>Exercise 2</span></a></p>
 <div class="section" id="solution-content">
-<p>Para resolver esse resolver este exercício, primeiro calcule a diferente de tempo entre as ondas, depois utilize a equação <a class="reference internal" href="#equation-eq-fase">(1)</a> encontrar a diferença de fase.</p>
+<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> to find the phase difference.</p>
 </div>
 </div>
 <div class="exercise admonition" id="ex:fase_delta2">
-<p class="admonition-title"><span class="caption-number">Exercise 2 </span>(Diferença de fase entres sinais no osciloscópio)</p>
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span>(Phase difference between signals on the oscilloscope)</p>
 <div class="section" id="exercise-content">
-<p>Considerando  a tela do osciloscópio que foi capturada utilizando um circuito RC:</p>
+<p>Considering the oscilloscope screen that was captured using an RC circuit:</p>
 <a class="reference internal image-reference" href="../../_images/sweep_freq_PA_000.png"><img alt="oscilloscope traces" class="align-center" src="../../_images/sweep_freq_PA_000.png" style="width: 400px;" /></a>
 <ul class="simple">
-<li><p>A amplitude <span class="math notranslate nohighlight">\(v_j\pm\delta v_j\)</span>([V]) de cada sinal;</p></li>
-<li><p>A frequência <span class="math notranslate nohighlight">\(f\)</span> [1/s] (e <span class="math notranslate nohighlight">\(\omega\)</span> [rad/s])  dos sinais ;</p></li>
-<li><p>A diferença de fase entre os sinais, <span class="math notranslate nohighlight">\(\phi=\phi_2-\phi_1\)</span>, considere o sinal da fase!</p></li>
-<li><p>Com base na fase calculada, trata-se de um filtro passa-baixas ou passa-altas? Justifique.</p></li>
+<li><p>The amplitude <span class="math notranslate nohighlight">\( v_j \pm \delta v_j \)</span> ([V]) of each signal;</p></li>
+<li><p>The frequency <span class="math notranslate nohighlight">\( f \)</span> [1 / s] (and <span class="math notranslate nohighlight">\( \omega \)</span> [rad / s]) of the signals;</p></li>
+<li><p>The phase difference between the signals, <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>, consider the phase signal!</p></li>
+<li><p>Based on the calculated phase, indicate whether is it a low-pass or high-pass filter? Justify.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="section" id="filtros-rc-passa-altas-pa-e-passa-baixas-pb">
-<h2>Filtros RC: passa-altas (PA) e passa-baixas (PB)<a class="headerlink" href="#filtros-rc-passa-altas-pa-e-passa-baixas-pb" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rc-filters-high-pass-hp-and-low-pass-lp">
+<h2>RC filters: high-pass (HP) and low-pass (LP)<a class="headerlink" href="#rc-filters-high-pass-hp-and-low-pass-lp" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
@@ -600,77 +579,81 @@ transmitância e fase em escala logarítmica (diagramas de Bode).</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_16_0.png" src="../../_images/exp1-guide_16_0.png" />
+<img alt="../../_images/exp1-guide_17_0.png" src="../../_images/exp1-guide_17_0.png" />
 </div>
 </div>
-<p>O circuito abaixo ilustra um caso de filtro onde os sinais de baixa frequência têm suas amplitudes atenuadas, enquanto sinais de alta frequência são transmitidos quase sem atenuação. Monte o filtro passa-alta usando R = 300 <span class="math notranslate nohighlight">\(\Omega\)</span>, C = 470 nF.</p>
-<div class="figure align-default" id="fig-filtro-pb-esquema">
+<p>The circuit below illustrates a filter case where the low frequency signals have their amplitudes attenuated, while high frequency signals are transmitted almost without attenuation. Mount the high-pass filter using <span class="math notranslate nohighlight">\(R = 300 \)</span> \Omega <span class="math notranslate nohighlight">\(, \)</span>C = 470$ nF.</p>
+<div class="figure align-default" id="fig-filter-pb-scheme">
 <a class="reference internal image-reference" href="../../_images/filtro_pb_esquema.png"><img alt="../../_images/filtro_pb_esquema.png" src="../../_images/filtro_pb_esquema.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Esquemático de um filtro passa-baixas.</span><a class="headerlink" href="#fig-filtro-pb-esquema" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Schematic of a low-pass filter.</span><a class="headerlink" href="#fig-filter-pb-scheme" title="Permalink to this image">¶</a></p>
 </div>
-<p>A função de transferência <span class="math notranslate nohighlight">\(H(\omega)\)</span> ou ganho do circuito <span class="math notranslate nohighlight">\(G(\omega)\)</span> são definidos como,</p>
-<div class="math notranslate nohighlight" id="equation-eq-ganho">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-ganho" title="Permalink to this equation">¶</a></span>\[
+<p>The transfer function<span class="math notranslate nohighlight">\( H (\ omega) \)</span>  or voltage gain <span class="math notranslate nohighlight">\( G (\ omega) \)</span> are defined as,</p>
+<div class="math notranslate nohighlight" id="equation-eq-gain">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
 \]</div>
-<p>sendo que <span class="math notranslate nohighlight">\(v_{out,in}\)</span> representam as amplitudes  e <span class="math notranslate nohighlight">\(\phi\equiv \phi_{out}-\phi_{in}\)</span> a diferença de fase.</p>
-<p>Experimentalmente, as amplitudes e diferença de fase são medidas separadamente, como feito no exercício <a class="reference internal" href="#ex:fase_delta2"><span class="std std-ref">Diferença de fase entres sinais no osciloscópio</span></a>. Como a <span class="xref std std-ref">eq:ganho</span> contém informações sobre amplitude e fase dos sinais, ela será representada através de dois gráficos (diagrama de Bode).
-Um gráfico para a amplitude transmitida pelo filtro,
-$<span class="math notranslate nohighlight">\(
+<p>where <span class="math notranslate nohighlight">\( v_ {out, in} \)</span> represents the amplitudes and <span class="math notranslate nohighlight">\( \ phi \ equiv \ phi_ {out} - \ phi_ {in} \)</span> the phase difference.</p>
+<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
+One for the amplitude,</p>
+<div class="math notranslate nohighlight" id="equation-eq-bode-gdb-experimental">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
 G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_{in}^{(pp)}}\right)
-\)</span><span class="math notranslate nohighlight">\( (eq:bode_gdb_experimental)
-e outra para a diferença de fase,
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and the other for the phase difference,</p>
+<div class="math notranslate nohighlight" id="equation-eq-bode-phi-experimental">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
 \phi = \arg(G(\omega))=\arg\left(\cfrac{v_{out}}{v_{in}}\exp(j\phi)\right)=\phi
-\)</span>$ (eq:bode_phi_experimental)</p>
-<div class="section" id="preparacao-para-o-experimento">
-<h3>Preparação para o experimento<a class="headerlink" href="#preparacao-para-o-experimento" title="Permalink to this headline">¶</a></h3>
+\]</div>
+<div class="section" id="preparation-for-the-experiment">
+<h3>Preparation for the experiment<a class="headerlink" href="#preparation-for-the-experiment" title="Permalink to this headline">¶</a></h3>
 <div class="exercise admonition" id="ex:prep_exp1">
-<p class="admonition-title"><span class="caption-number">Exercise 3 </span>(Preparação para experimento)</p>
+<p class="admonition-title"><span class="caption-number">Exercise 4 </span>(Preparação para experimento)</p>
 <div class="section" id="exercise-content">
 <ul class="simple">
-<li><p>Demonstre a função de transferência (Ganho de tensão) para este circuito. Utilize as impedâncias complexas para isto.</p></li>
-<li><p>Qual a frequência de corte do circuito?.</p></li>
-<li><p>Como ele se comporta (impedância total e tensão de saída).</p></li>
-<li><p>Com o mínimo de matemática, tente visualizar como a fase do sinal <span class="math notranslate nohighlight">\(V_{out}\)</span> se altera em relação à <span class="math notranslate nohighlight">\(V_{in}\)</span>.</p></li>
-<li><p>Qual efeito de <span class="math notranslate nohighlight">\(R_{Th}\)</span> na resposta do circuito? Ele altera a medida de <span class="math notranslate nohighlight">\(V_{out}(f)\)</span>, <span class="math notranslate nohighlight">\(V_{in}(f)\)</span> e <span class="math notranslate nohighlight">\(V_{out}(f)/V_{in}(f)\)</span> ?</p></li>
+<li><p>Demonstrate the transfer function (voltage gain) for this circuit. Use complex impedances for this.</p></li>
+<li><p>What is the circuit cutoff frequency ?.</p></li>
+<li><p>How it behaves (total impedance and output voltage).</p></li>
+<li><p>With a minimum of math, try to see how the phase of the <span class="math notranslate nohighlight">\( V_ {out} \)</span> signal changes from <span class="math notranslate nohighlight">\( V_ {in} \)</span>.</p></li>
+<li><p>What effect does <span class="math notranslate nohighlight">\( R_ {th} \)</span> have on the circuit response? Does it change the measure of <span class="math notranslate nohighlight">\( V_ {out} (f) \)</span>, <span class="math notranslate nohighlight">\( V_ {in} (f) \)</span> and <span class="math notranslate nohighlight">\( V_ {out} (f) / V_ {in} (f) \)</span>?</p></li>
 </ul>
-<p>Simulação do circuito:</p>
+<p>Circuit simulation:</p>
 <ul class="simple">
-<li><p>Utilize o TinkerCAD para montar o circuito da figura <a class="reference internal" href="#fig-filtro-pb-esquema"><span class="std std-ref">Esquemático de um filtro passa-baixas.</span></a>, investigue seu comportamento.</p></li>
-<li><p>Utilize o QUCS para explorar o comportamento.</p></li>
+<li><p>Use TinkerCAD to assemble the circuit of the figure <a class="reference internal" href="#fig-filter-pb-scheme"><span class="std std-numref">Fig. 4</span></a>, investigate its behavior.</p></li>
+<li><p>Use QUCS to explore the behavior.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="section" id="adquirindo-os-dados-experimentais">
-<h3>Adquirindo os dados experimentais<a class="headerlink" href="#adquirindo-os-dados-experimentais" title="Permalink to this headline">¶</a></h3>
-<p>Utilize o gerador de sinais para analisar o comportamento de e da fase <span class="math notranslate nohighlight">\(\phi\)</span> para a frequência de corte, a frequência uma década abaixo da frequência de corte e a frequência uma década acima da frequência de corte.</p>
+<div class="section" id="acquiring-experimental-data">
+<h3>Acquiring experimental data<a class="headerlink" href="#acquiring-experimental-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Data acquisition will not take place in 1s2021!</p>
+</div>
+<p>Use the signal generator to analyze the behavior of and of the <span class="math notranslate nohighlight">\( \ phi \)</span> phase for the cutoff frequency, the frequency a decade below the cutoff frequency and the frequency a decade above the cutoff frequency.</p>
 <ul class="simple">
-<li><p>Utilizando o pylab adquira os valores de <span class="math notranslate nohighlight">\(V_{in}\)</span>, frequência, <span class="math notranslate nohighlight">\(V_{out}\)</span> e <span class="math notranslate nohighlight">\(\phi\)</span> para uma faixa de valores de frequência. Use <span class="math notranslate nohighlight">\(V_{in}\)</span> = 2 V (<span class="math notranslate nohighlight">\(V_{in}^{pp}=1 \)</span> V) para a amplitude do sinal de entrada.</p></li>
+<li><p>Using the pylab acquire the values of <span class="math notranslate nohighlight">\( V_ {in} \)</span>, frequency, <span class="math notranslate nohighlight">\( V_ {out} \)</span> and <span class="math notranslate nohighlight">\( \ phi \)</span> for a range of frequency values. Use <span class="math notranslate nohighlight">\( V_ {in} \)</span> = 2 V (<span class="math notranslate nohighlight">\( V_ {in} ^ {pp} = 1 \)</span> V) for the amplitude of the input signal.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>No programa devem ser definidos os valores:</p>
+<li><p>In the program, the values must be defined:</p>
 <ul>
-<li><p>frequência inicial= 10 Hz</p></li>
-<li><p>frequência final = 100 kHz</p></li>
-<li><p>pontos = 30</p></li>
+<li><p>initial frequency = 10 Hz</p></li>
+<li><p>final frequency = 100 kHz</p></li>
+<li><p>points = 30</p></li>
 </ul>
 </li>
-<li><p>Antes de utilizar 30 pontos, faça uma varredura com 10 pontos para certificar que está tudo correto.</p></li>
+<li><p>Before using 30 points, scan with 10 points to make sure everything is correct.</p></li>
 </ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A aquisição de dados não será realizada no 1s2021!</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;figs/dados_sweep.csv&#39;</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">data_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo_time&quot;</span><span class="p">,</span> <span class="n">data_time</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -743,41 +726,105 @@ e outra para a diferença de fase,
     </tr>
   </tbody>
 </table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
 </div></div></div>
 </div>
 </div>
-<div class="section" id="dados-disponibilizados">
-<h3>Dados disponibilizados<a class="headerlink" href="#dados-disponibilizados" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="downloadable-dataset-1">
+<span id="sec-dataset1"></span><h3>Downloadable dataset 1<a class="headerlink" href="#downloadable-dataset-1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Os dados disponibilizados no Teams foram obtidos seguindos os parâmetros acima.</p></li>
-<li><p>Dois arquivos (.zip):</p>
+<li><p>The data made available in Teams were obtained following the parameters above.</p></li>
+<li><p>Three files (.zip):</p>
 <ul>
-<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true">Circuito passa-baixas</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true">Circuito passa-altas</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true">Low-pass circuit</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true">High-pass circuit</a></p>
+<ul>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file contains:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.jpg</span></code> file with a photo of the circuit</p></li>
+<li><p>file <code class="docutils literal notranslate"><span class="pre">data_sweep.csv</span></code>: see an example of the structure of this file below.</p></li>
+<li><p>4 columns</p></li>
+<li><p>the phase (column <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">(degrees)</span></code> corresponds to <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>)</p></li>
+<li><p>folder <code class="docutils literal notranslate"><span class="pre">traces-temporal-images</span></code>:</p>
+<ul>
+<li><p>files with the name <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> correspond to the scope traces used to calculate each of the parameters of the file<code class="docutils literal notranslate"> <span class="pre">data_sweep.csv</span></code>. The <code class="docutils literal notranslate"><span class="pre">xxx</span></code> numbering of the<code class="docutils literal notranslate"> <span class="pre">.bmp</span></code> files corresponds to the index available in the first column of the <code class="docutils literal notranslate"><span class="pre">data_sweep.csv</span></code> file</p></li>
+<li><p>Make sure that you can “read” the data from one of the <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> files and get the corresponding result recorded in the<code class="docutils literal notranslate"> <span class="pre">data_sweep.csv</span></code> file.</p></li>
 </ul>
 </li>
-<li><p>Cada arquivos <code class="docutils literal notranslate"><span class="pre">.zip</span></code> contém:</p>
-<ul>
-<li><p>arquivo <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> com uma fotografia do circuito</p></li>
-<li><p>arquivo <code class="docutils literal notranslate"><span class="pre">dados_sweep.csv</span></code>: veja exemplo da estrutura desse arquivo a seguir.</p>
-<ul>
-<li><p>4 colunas</p></li>
-<li><p>a fase (coluna <code class="docutils literal notranslate"><span class="pre">fase</span> <span class="pre">(graus)</span></code> corresponde a <span class="math notranslate nohighlight">\(\phi = \phi_2-\phi_1\)</span>)</p></li>
 </ul>
 </li>
-<li><p>pasta <code class="docutils literal notranslate"><span class="pre">traços-temporal-imagens</span></code>:</p>
-<ul>
-<li><p>arquivos com nome <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> correspondendo ao traço temporal utilizado para fazer calcular cada um dos parâmetros do arquivo <code class="docutils literal notranslate"><span class="pre">dados_sweep.csv</span></code>. A numeração <code class="docutils literal notranslate"><span class="pre">xxx</span></code> dos arquivos <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> corresponde ao número presente na primeira coluna  do arquivo <code class="docutils literal notranslate"><span class="pre">dados_sweep.csv</span></code></p></li>
-<li><p>Certifique-se que você consegue “ler” os dados de um dos arquivos <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> e obter o resultado correspondente registrado no arquivo <code class="docutils literal notranslate"><span class="pre">dados_sweep.csv</span></code></p></li>
 </ul>
 </li>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
+<ul>
+<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
 </ul>
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="33858695-66de-440f-ac96-848a5f237fa0" name="ef57523b-f9ff-4c1b-87e0-6fce6c7e56e5" type="radio">
-</input><label class="tabbed-label" for="33858695-66de-440f-ac96-848a5f237fa0">
-Exemplos tabela de dados</label><div class="tabbed-content docutils">
+<input checked="checked" id="321ebc3c-414d-49b2-801c-d3ddea0acfde" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="321ebc3c-414d-49b2-801c-d3ddea0acfde">
+Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
@@ -849,21 +896,92 @@ Exemplos tabela de dados</label><div class="tabbed-content docutils">
   </tbody>
 </table>
 </div></div></div>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Estrutura do arquivo de dados <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, o separador entre as colunas é <code class="docutils literal notranslate"><span class="pre">,</span></code>.</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="032fa9f9-60bf-4382-9da2-589a0b36846e" name="ef57523b-f9ff-4c1b-87e0-6fce6c7e56e5" type="radio">
-</input><label class="tabbed-label" for="032fa9f9-60bf-4382-9da2-589a0b36846e">
-Exemplos screenshot osciloscópio</label><div class="tabbed-content docutils">
+<input id="8e3b2002-27c3-4608-9cc8-5901cb932571" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="8e3b2002-27c3-4608-9cc8-5901cb932571">
+Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot do osciloscópio para o passa-altas com <span class="math notranslate nohighlight">\(f=10\)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot of the oscilloscope for the high-pass with <span class="math notranslate nohighlight">\( f = 10 \)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="c094847c-8c3b-4a00-86f2-1e026afefb16" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="c094847c-8c3b-4a00-86f2-1e026afefb16">
+Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="id2" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="aplicacao-do-filtro-passa-alta">
-<h3>Aplicação do filtro passa-alta<a class="headerlink" href="#aplicacao-do-filtro-passa-alta" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="an-application-of-a-high-pass-filter">
+<h3>An application of a high-pass filter<a class="headerlink" href="#an-application-of-a-high-pass-filter" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">5e-3</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
@@ -897,41 +1015,39 @@ f0 = (f1+f2)/2 = 750.0 Hz
 δf = (f1-f2) = 500.0 Hz
 </pre></div>
 </div>
-<img alt="../../_images/exp1-guide_25_2.png" src="../../_images/exp1-guide_25_2.png" />
+<img alt="../../_images/exp1-guide_26_2.png" src="../../_images/exp1-guide_26_2.png" />
 </div>
 </div>
-<p>Uma aplicação real muito importante de filtrs é eliminar uma componente indesejada de um sinal elétrico. Suponha um sinal que possui apenas duas frequências,</p>
+<p>A very important real application of filters is to eliminate an undesired frequency component of an electrical signal. For example, it could a residue from the AC-line frequency (60 Hz) that could be contaminating an audio output from your stereo system. Let’s assume a given signal has only two frequencies componentes,</p>
 <div class="math notranslate nohighlight" id="equation-eq-soma-tensao">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
-<p>No domínio do tempo este sinal pode ser visualizado como é mostrado na figura abaixo.</p>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
+<p>In the time domain this signal can be viewed as shown in the figure below.</p>
 <div class="figure align-center" id="fig-dois-sinais" style="width: 450px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_25_1.png" src="../../_images/exp1-guide_25_1.png" />
+<img alt="../../_images/exp1-guide_26_1.png" src="../../_images/exp1-guide_26_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Sinal composto por duas ondas senoidais. <span class="math notranslate nohighlight">\(f_1\)</span>=1000 Hz e <span class="math notranslate nohighlight">\(f_2\)</span>=500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Signal composed of two sine waves. <span class="math notranslate nohighlight">\( f_1 \)</span> = 1000 Hz and <span class="math notranslate nohighlight">\( f_2 \)</span> = 500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
 </div>
-<p>Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, <span class="math notranslate nohighlight">\(f_0=(f_1+f_2)/2,\)</span> e a diferença de frequência,  <span class="math notranslate nohighlight">\(\delta f= f_1-f_2.\)</span></p>
-</div>
-<div class="section" id="efeito-do-filtro-sobre-o-sinal-decomposicao-de-fourier">
-<h3>Efeito do filtro sobre o sinal: Decomposição de Fourier<a class="headerlink" href="#efeito-do-filtro-sobre-o-sinal-decomposicao-de-fourier" title="Permalink to this headline">¶</a></h3>
-<p>O cálculo da função de transferência seguindo a equação <span class="xref std std-ref">eq:ganho</span> exige que os sinais de entrada e saída sejam senoidais, ou seja, contenham apenas uma única frequência. Naturalmente, a equação <span class="xref std std-ref">eq:soma_tensao</span> possui duas frequências, impossibilitando o uso imediato da equação <span class="xref std std-ref">eq:ganho</span>. E agora José?</p>
-<p>Bom, de acordo com o teorema de Fourier, qualquer função periódica bem comportada pode ser representada por uma somatória de funções harmônicas. Considere uma função dependente do tempo <span class="math notranslate nohighlight">\(t\)</span> tal que <span class="math notranslate nohighlight">\(F(t) = F(t+T)\)</span>, em que <span class="math notranslate nohighlight">\(T\)</span> e o período da função. <span class="math notranslate nohighlight">\(F(t)\)</span> pode ser escrita como:</p>
+<!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ --></div>
+<div class="section" id="effect-of-the-filter-on-the-signal-fourier-decomposition">
+<h3>Effect of the filter on the signal: Fourier decomposition<a class="headerlink" href="#effect-of-the-filter-on-the-signal-fourier-decomposition" title="Permalink to this headline">¶</a></h3>
+<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(2)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(5)</a> has two frequencies, making it impossible to use the eq. <code class="xref eq docutils literal notranslate"> <span class="pre">eq:gain</span></code> equation immediately. So how we proceed?</p>
+<p>Well, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Fourier’s theorem</a>, any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function <span class="math notranslate nohighlight">\( t \)</span> such that <span class="math notranslate nohighlight">\( F (t) = F (t + T) \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the period of the function. <span class="math notranslate nohighlight">\( F (t) \)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
-<p>O exemplo da eq. <span class="xref std std-ref">eq:soma_tensao</span> é um caso simples da eq. <span class="xref std std-ref">eq:fourier</span>, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.</p>
-<div class="exercise admonition" id="ex:fourier1">
-<p class="admonition-title"><span class="caption-number">Exercise 4 </span>(Determine os coeficientes de Fourier)</p>
-<div class="section" id="exercise-content">
-<p>Seguindo a notação da eq. <span class="xref std std-ref">eq:fourier</span>, determine os coeficientes de Fourier do seguinte sinal:</p>
-<div class="math notranslate nohighlight" id="equation-eq-soma-tensao-exemplo">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-soma-tensao-exemplo" title="Permalink to this equation">¶</a></span>\[ V(t) =  (1 V)\cos(2\pi 10^3 t+\pi/4)+ (2 V) \cos(40\pi t).\]</div>
-</div>
-</div>
-<!---
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
+<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-complex">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<p>where the relation betwenn the coeffiecient <span class="math notranslate nohighlight">\(c_n\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> is the following, <span class="math notranslate nohighlight">\(c_0=a_0/2\)</span> and <span class="math notranslate nohighlight">\(c_n=(a_n-jb_n)/2\)</span>, for <span class="math notranslate nohighlight">\(n\neq 0\)</span></p>
+<p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id3">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
+<!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><!---
 Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
 * Escolha a opção modulação;
 * calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
---><p>Quanto temos um sinal sobre o qual não conhecemos a função analítica que o geral, existe uma técnica numérica poderosa para se obter os coeficientes de Fourier, a transformada rápida de Fourier ou FFT (<em>Fast Fourier Transform</em>). A função a seguir foi definida para facilitar nosso cálculo da FFT.</p>
+--><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients known as the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">blackman</span>
@@ -956,7 +1072,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
     <span class="c1">#vetor de frequencias (positivas e negativas)</span>
     <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">timestep</span><span class="p">)</span>
     <span class="c1">#fft</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">blackman</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">blackman</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># window to optimize the tranform, and minimize artifacts due to  finite time-window</span>
     <span class="n">yfft</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">amp</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1"># fft computing and normalization, fator 2 para energia em freq. positivas</span>
 
     <span class="k">return</span> <span class="n">freq</span><span class="p">[:</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="n">yfft</span><span class="p">[:</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
@@ -964,7 +1080,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 </div>
 </div>
 </div>
-<p>A seguir exemplificamos o uso da FFT para o sinal que você resolver analíticamente no ex. <a class="reference internal" href="#ex:fourier1"><span class="std std-ref">Determine os coeficientes de Fourier</span></a>.</p>
+<p>The following is an example of the use of FFT for the signal that you solve analytically in ex. <code class="xref std std-numref docutils literal notranslate"><span class="pre">ex:fourier1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">100e-3</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">))</span> <span class="c1"># vetor de tempo</span>
@@ -980,23 +1096,12 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v01</span><span class="p">,</span><span class="n">v02</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span> <span class="c1"># amplitudes</span>
-<span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="o">=</span> <span class="mi">500</span><span class="p">,</span><span class="mf">5e3</span> <span class="c1"># frequencia e fase</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">f2</span><span class="o">-</span><span class="n">f1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2750.0
-2250.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-cell docutils container">
+<!--
+v01,v02 = 2,2 # amplitudes
+f1,f2= 500,5e3 # frequencia e fase
+print((f1+f2)/2)
+print((f2-f1)/2)
+--><div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### gráfico com 4 eixos###</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
@@ -1049,28 +1154,95 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 <img alt="../../_images/exp1-guide_36_1.png" src="../../_images/exp1-guide_36_1.png" />
 </div>
 </div>
-<p>Nos gráficos seguintes, são mostrados o sinal temporal e também a transformada de Fourier obtida pelo FFT.</p>
+<p>The following graphs show the time signal and also the Fourier transform obtained by the FFT.</p>
 <div class="figure align-center" id="fig-fft1" style="width: 800px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_39_0.png" src="../../_images/exp1-guide_39_0.png" />
+<img alt="../../_images/exp1-guide_36_0.png" src="../../_images/exp1-guide_36_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">(a) Traço temporal; (b) Zoom do traço temporal entre as linhas cinza pontilhadas de (a); (c) Magnitude da FFT ; (d) Magnitude da FFT, zoom   entre as linhas cinza pontilhadas de (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-</div>
-<div class="section" id="itens-para-incluir-no-relatorio">
-<h2><strong>Itens para incluir no relatório</strong><a class="headerlink" href="#itens-para-incluir-no-relatorio" title="Permalink to this headline">¶</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="section" id="downloadable-dataset-2">
+<span id="sec-dataset2"></span><h3>Downloadable dataset 2<a class="headerlink" href="#downloadable-dataset-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Gráficos dos diagramas de Bode dos filtros passa-altas e passa-baixas. Você deverá gerar os gráficos, a partir dos dados disponibilizados</p></li>
-<li><p>No mesmo gráfico dos dados, incluir as curvas que representam o ajuste (<em>fitting</em>) das funções de transferência. Um exemplo desse procedimento em Python pode ser visto em  <a class="reference internal" href="exemplo_ajuste_rc.html"><span class="doc">Fitting Filter Transfer Function</span></a></p></li>
-<li><p>Utilize a função FFT no Python ou em programa de sua preferência para calcule a transformada de Fourier dos sinais disponíveis nesse arquivo.</p>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
 <ul>
-<li><p>A diferença entre os dois sinais é que o sinal do canal 2, foi filtrado por um circuito RC. Determine se o circuito utilizado foi um passa-altas ou passa-baxas.</p></li>
+<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
 </ul>
 </li>
 </ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0e7b2eac-b8c0-4d7b-9e7c-47d326d0329e" name="d247b29b-db41-4534-9ed9-9c5b11a7cc50" type="radio">
+</input><label class="tabbed-label" for="0e7b2eac-b8c0-4d7b-9e7c-47d326d0329e">
+Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="id4" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -1133,10 +1305,53 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_39_1.png" src="../../_images/exp1-guide_39_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2894</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;time (s)&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">3</span><span class="n">eb68fcac355</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 2 (V)&#39;</span><span class="p">]</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2900</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2901</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2902</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2903</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2904</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2897</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">2898</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2899</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;time (s)&#39;
+</pre></div>
 </div>
 </div>
-<div class="cell docutils container">
+</div>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1199,18 +1414,16 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 <img alt="../../_images/exp1-guide_40_1.png" src="../../_images/exp1-guide_40_1.png" />
 </div>
 </div>
-<div class="section" id="propriedades-do-gerador-de-rf">
-<h3>Propriedades do gerador de RF<a class="headerlink" href="#propriedades-do-gerador-de-rf" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Calcule a impedância que o gerador percebe ao se conectar o circuito passa-baixas no mesmo. Mostre em um gráfico como esta impedância varia como função da frequência (utilize <code class="docutils literal notranslate"><span class="pre">plt.semilogx</span></code>)</p></li>
-<li><p>Com base na tensão medida no canal de entrada (<span class="math notranslate nohighlight">\(V_1\)</span>) e o circuito Thevenin da nosso gerador, determine a impedância Thevenin do gerador <span class="math notranslate nohighlight">\(R_{Th}\)</span></p></li>
-</ul>
-</div>
+<!--
+### Propriedades do gerador de RF
+* Calcule a impedância que o gerador percebe ao se conectar o circuito passa-baixas no mesmo. Mostre em um gráfico como esta impedância varia como função da frequência (utilize ```plt.semilogx```) 
+* Com base na tensão medida no canal de entrada ($V_1$) e o circuito Thevenin da nosso gerador, determine a impedância Thevenin do gerador $R_{Th}$
+--></div>
 </div>
 <div class="section" id="referencias">
 <h2>Referências<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p id="id2"><dl class="citation">
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<p id="id5"><dl class="citation">
+<dt class="label" id="id8"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
 <dd><p>D L Eggleston. <em>Basic Electronics for Scientists and Engineers</em>. Cambridge University Press, 2011. ISBN 9780521154307. URL: <a class="reference external" href="https://books.google.com.br/books?id=D1KVngEACAAJ">https://books.google.com.br/books?id=D1KVngEACAAJ</a>.</p>
 </dd>
 </dl>
@@ -1222,7 +1435,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -1243,8 +1456,8 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="complex_impedance.html" title="previous page">Complex impendances</a>
-    <a class='right-next' id="next-link" href="exemplo_ajuste_rc.html" title="next page">Fitting Filter Transfer Function</a>
+    <a class='left-prev' id="prev-link" href="complex_impedance.html" title="previous page">Background: Complex impedances</a>
+    <a class='right-next' id="next-link" href="exemplo_ajuste_rc.html" title="next page">Data analysis: Fitting the filter transfer function</a>
 
         </div>
         

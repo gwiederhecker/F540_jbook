@@ -46,11 +46,13 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -87,7 +89,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -99,19 +101,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -121,69 +145,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -259,6 +233,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Data aquisition - pyLEF.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -335,10 +317,7 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;USB0::0x0699::0x03B0::C010160::INSTR&#39;,
- &#39;USB0::0xF4ED::0xEE3A::388C14117::INSTR&#39;,
- &#39;ASRL1::INSTR&#39;,
- &#39;ASRL2::INSTR&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ASRL1::INSTR&#39;, &#39;ASRL2::INSTR&#39;)
 </pre></div>
 </div>
 </div>
@@ -351,8 +330,31 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gerador de Funções conectado! Id = *IDN BK Precision,4052,388C14117,1.01.01.31R1,02-00-00-22-26
-Osciloscópio conectado! Id = TEKTRONIX,TBS 1062,C010160,CF:91.1CT FV:v26.02
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">9492673</span><span class="n">a926d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span> <span class="o">=</span> <span class="s1">&#39;0xF4ED&#39;</span><span class="p">;</span> <span class="c1"># identificador do fabricante BK</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># time to wait after write and query - BK BUG!</span>
+<span class="ne">--&gt; </span><span class="mi">104</span>         <span class="n">interface_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_interface</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="c1"># instrument initialization</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>   <span class="c1">## resource name</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gerador de Funções conectado! Id = &quot;</span> <span class="o">+</span> <span class="n">bk_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="k">if</span> <span class="n">bk_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">134</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O osciloscopio BK scope nao foi identificado:</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">135</span>                          <span class="s1">&#39;Verique se o equipamento está ligado e se o cabo USB </span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">136</span>                          <span class="s1">&#39;foi conectado. Se o problema persistir, </span><span class="se">\n</span><span class="s1">&#39;</span>\
+
+<span class="ne">ValueError</span>: O osciloscopio BK scope nao foi identificado:
+<span class="n">Verique</span> <span class="n">se</span> <span class="n">o</span> <span class="n">equipamento</span> <span class="n">está</span> <span class="n">ligado</span> <span class="n">e</span> <span class="n">se</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span> 
+<span class="n">foi</span> <span class="n">conectado</span><span class="o">.</span> <span class="n">Se</span> <span class="n">o</span> <span class="n">problema</span> <span class="n">persistir</span><span class="p">,</span> 
+<span class="n">desconecte</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span><span class="p">,</span> <span class="n">aguarde</span> <span class="mi">20</span> <span class="n">segundos</span> 
+<span class="n">e</span> <span class="n">conecte</span> <span class="n">novamente</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -399,26 +401,6 @@ Osciloscópio conectado! Id = TEKTRONIX,TBS 1062,C010160,CF:91.1CT FV:v26.02
 <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
 <span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
 <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="n">ac5f2c90767</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>   <span class="c1"># liga o canal 1</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
-<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py</span> in <span class="ni">set_smart_scale</span><span class="nt">(self, log_step, Vmax, D)</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span>         <span class="c1">#test whether channel is on</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;off&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">397</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O canal </span><span class="si">%s</span><span class="s1"> do osciloscópio está desligado!&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="n">keep_loop</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;ACQuire:MODe SAMPle&#39;</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: O canal CH1 do osciloscópio está desligado!
 </pre></div>
 </div>
 </div>
@@ -878,7 +860,7 @@ Osciloscópio conectado! Id = TEKTRONIX,TBS 1062,C010160,CF:91.1CT FV:v26.02
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {

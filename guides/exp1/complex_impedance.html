@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complex impendances &#8212; F540 Interactive Book</title>
+    <title>Background: Complex impedances &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -46,11 +46,13 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -58,7 +60,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Guide to Experiment 1: RC filters" href="exp1-guide.html" />
-    <link rel="prev" title="Bem-vindo às notas digitais de F540." href="../../intro/intro.html" />
+    <link rel="prev" title="Solving Kirchhoff’s law ordinary differential equation" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,7 +93,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -103,19 +105,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -125,69 +149,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -263,6 +237,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/complex_impedance.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -366,9 +348,30 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/lectures/complex_impedance.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="complex-impendances">
-<h1>Complex impendances<a class="headerlink" href="#complex-impendances" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="background-complex-impedances">
+<h1>Background: Complex impedances<a class="headerlink" href="#background-complex-impedances" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">admonition</span><span class="p">}</span> <span class="n">Goals</span>
+<span class="p">:</span><span class="n">class</span><span class="p">:</span> <span class="n">tip</span>
+<span class="o">-</span>  <span class="n">Familiarizar</span> <span class="n">com</span> <span class="n">ondas</span> <span class="n">senoidais</span> <span class="n">e</span> <span class="n">suas</span> <span class="n">propriedades</span><span class="p">:</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">fase</span><span class="p">,</span> <span class="n">frequência</span> <span class="n">e</span> <span class="n">período</span>
+
+<span class="o">-</span>  <span class="n">Entender</span> <span class="n">os</span> <span class="n">casos</span> <span class="n">mais</span> <span class="n">comuns</span> <span class="n">de</span> <span class="n">controle</span> <span class="n">de</span> <span class="n">fluxo</span> <span class="n">em</span> <span class="n">programas</span> <span class="n">em</span> <span class="n">Python</span>
+
+<span class="o">-</span>  <span class="n">Fazer</span> <span class="n">gráficos</span> <span class="n">elementares</span> <span class="n">utilizando</span> <span class="n">o</span> <span class="n">pacote</span> <span class="n">Matplotlib</span>
+<span class="p">:::</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-6e012bbdc6f4&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="p">:::{</span><span class="n">admonition</span><span class="p">}</span> <span class="n">Goals</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="loading-packages">
 <h2>Loading packages<a class="headerlink" href="#loading-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -398,35 +401,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">ca101b692973</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ni">locator_params</span><span class="nt">(axis, tight, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2742</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">locator_params</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2743</span> <span class="k">def</span> <span class="nf">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">2744</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="n">tight</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2745</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2746</span> 
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">locator_params</span><span class="nt">(self, axis, tight, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3006</span>         <span class="n">update_y</span> <span class="o">=</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3007</span>         <span class="k">if</span> <span class="n">update_x</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3008</span>             <span class="bp">self</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3009</span>         <span class="k">if</span> <span class="n">update_y</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3010</span>             <span class="bp">self</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">get_major_locator</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/ticker.py</span> in <span class="ni">set_params</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2210</span>             <span class="n">key</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2211</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">2212</span>                 <span class="sa">f</span><span class="s2">&quot;set_params() got an unexpected keyword argument &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2213</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2214</span>     <span class="k">def</span> <span class="nf">_raw_ticks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
-
-<span class="ne">TypeError</span>: set_params() got an unexpected keyword argument &#39;nticks&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: MaxNLocator.set_params got an unexpected parameter: nticks
+  # This is added back by InteractiveShellApp.init_path()
 </pre></div>
 </div>
 <img alt="../../_images/complex_impedance_5_1.png" src="../../_images/complex_impedance_5_1.png" />
@@ -970,7 +946,7 @@ sendo que \)</span>\tilde{i}_0=i_0\exp(j\phi)$</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -991,7 +967,7 @@ sendo que \)</span>\tilde{i}_0=i_0\exp(j\phi)$</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../intro/intro.html" title="previous page">Bem-vindo às notas digitais de F540.</a>
+    <a class='left-prev' id="prev-link" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" title="previous page">Solving Kirchhoff’s law ordinary differential equation</a>
     <a class='right-next' id="next-link" href="exp1-guide.html" title="next page">Guide to Experiment 1: RC filters</a>
 
         </div>

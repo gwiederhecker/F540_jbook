@@ -46,17 +46,21 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Solving Kirchhoff’s law ordinary differential equation" href="Sympy%20-%20symbolic%20manipulation.html" />
-    <link rel="prev" title="Here we explore basic aspects of plots of sinusoids and related stuff." href="Plotting%20-%20AC%20wave%20plots.html" />
+    <link rel="next" title="Basics of AC waves" href="Plotting%20-%20AC%20wave%20plots.html" />
+    <link rel="prev" title="Welcome to F540 Jupyter book" href="../intro/intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,7 +93,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -101,19 +105,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -123,69 +149,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -261,6 +237,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Basics - Python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -276,53 +260,51 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Python basics
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-packages">
+   Loading packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arrays">
+   Arrays
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-packages">
-     Loading packages
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-arrays">
+     Python arrays
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arrays">
-     Arrays
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays">
+     Numpy arrays
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flow-control">
    Flow control
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-forms-of-iteration">
      Other forms of iteration
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
    Functions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simple-plots">
-     Simple plots
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-plots">
+   Simple plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-google-colab">
    Loading data (Google colab)
   </a>
@@ -341,12 +323,22 @@
                 
   <div class="section" id="python-basics">
 <h1>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Understand the types of Python variables that will be used most throughout the course</p></li>
+<li><p>Understand the most common cases of flow control in Python programs</p></li>
+<li><p>Create elementary graphics using the Matplotlib package</p></li>
+</ul>
+</div>
 <div class="section" id="loading-packages">
 <h2>Loading packages<a class="headerlink" href="#loading-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">glob</span>
 </pre></div>
 </div>
 </div>
@@ -354,10 +346,8 @@
 </div>
 <div class="section" id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
 <div class="section" id="python-arrays">
-<h1>Python arrays - []<a class="headerlink" href="#python-arrays" title="Permalink to this headline">¶</a></h1>
+<h3>Python arrays<a class="headerlink" href="#python-arrays" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -398,7 +388,9 @@
 </div>
 </div>
 </div>
-<p>Numpy arrays</p>
+</div>
+<div class="section" id="numpy-arrays">
+<h3>Numpy arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -417,6 +409,7 @@
 </div>
 </div>
 </div>
+<p>Soma de vetores é realizada <code class="docutils literal notranslate"><span class="pre">element-wise</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
@@ -429,10 +422,58 @@
 </div>
 </div>
 </div>
+<p>Vetores podem ser criados de diversas formas:</p>
+<ul class="simple">
+<li><p>vetores com espaçamento linear;</p></li>
+<li><p>vetores com espaçamento logarítmico;</p></li>
+</ul>
+<p>Vetor com 19 elementos no intervalo  <span class="math notranslate nohighlight">\(1\leq x \leq10\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">19</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5  7.   7.5
+  8.   8.5  9.   9.5 10. ]
+19
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vetor com com espaçamento de 0.5 no intervalo  <span class="math notranslate nohighlight">\(1\leq x &lt;10\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># vetor com 19 elementos entre 1 e 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5 9.  9.5]
+18
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>As you see above, native Python and Numpy arrays behave very differently, so be careful!</strong></p>
+<div class="exercise admonition" id="ex:python_arrays">
+<p class="admonition-title"><span class="caption-number">Exercise 1 </span>(Construindo um vetor)</p>
+<div class="section" id="exercise-content">
+<ul class="simple">
+<li><p>Crie um vetor linearmente espaçado no intervalo <span class="math notranslate nohighlight">\(0\leq x \leq 20\)</span> contendo 100</p></li>
+<li><p>Crie um vetor linearmente espaçado no intervalo <span class="math notranslate nohighlight">\(0\leq x \leq 20\)</span> com espaçamento <span class="math notranslate nohighlight">\(\delta x=1\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="flow-control">
-<h1>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h1>
+<h2>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
@@ -536,7 +577,7 @@ others are also great
 </div>
 </div>
 <div class="section" id="other-forms-of-iteration">
-<h2>Other forms of iteration<a class="headerlink" href="#other-forms-of-iteration" title="Permalink to this headline">¶</a></h2>
+<h3>Other forms of iteration<a class="headerlink" href="#other-forms-of-iteration" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
@@ -552,7 +593,7 @@ others are also great
 </div>
 </div>
 <div class="section" id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">helloworld</span><span class="p">():</span>
@@ -586,7 +627,8 @@ others are also great
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Basics - Python_24_0.png" src="../_images/Basics - Python_24_0.png" />
+<img alt="../_images/Basics - Python_30_0.png" src="../_images/Basics - Python_30_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="simple-plots">
@@ -599,10 +641,10 @@ others are also great
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff04bf918d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff09bb5b490&gt;]
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_26_1.png" src="../_images/Basics - Python_26_1.png" />
+<img alt="../_images/Basics - Python_32_1.png" src="../_images/Basics - Python_32_1.png" />
 </div>
 </div>
 <p>Adjusting standard plot configurations</p>
@@ -627,7 +669,7 @@ others are also great
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">c0c524b1c9f2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">c0c524b1c9f2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">locator_params</span><span class="p">(</span><span class="n">nticks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -656,13 +698,12 @@ others are also great
 <span class="ne">TypeError</span>: set_params() got an unexpected keyword argument &#39;nticks&#39;
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_28_1.png" src="../_images/Basics - Python_28_1.png" />
-</div>
+<img alt="../_images/Basics - Python_34_1.png" src="../_images/Basics - Python_34_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="loading-data-google-colab">
-<h1>Loading data (Google colab)<a class="headerlink" href="#loading-data-google-colab" title="Permalink to this headline">¶</a></h1>
+<h2>Loading data (Google colab)<a class="headerlink" href="#loading-data-google-colab" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
@@ -786,7 +827,7 @@ others are also great
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3241589fd0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_36_1.png" src="../_images/Basics - Python_36_1.png" />
+<img alt="../_images/Basics - Python_42_1.png" src="../_images/Basics - Python_42_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -799,7 +840,8 @@ others are also great
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3241516190&gt;]
 </pre></div>
 </div>
-<img alt="../_images/Basics - Python_37_1.png" src="../_images/Basics - Python_37_1.png" />
+<img alt="../_images/Basics - Python_43_1.png" src="../_images/Basics - Python_43_1.png" />
+</div>
 </div>
 </div>
 </div>
@@ -808,7 +850,7 @@ others are also great
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -829,8 +871,8 @@ others are also great
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Plotting%20-%20AC%20wave%20plots.html" title="previous page">Here we explore basic aspects of plots of sinusoids and related stuff.</a>
-    <a class='right-next' id="next-link" href="Sympy%20-%20symbolic%20manipulation.html" title="next page">Solving Kirchhoff’s law ordinary differential equation</a>
+    <a class='left-prev' id="prev-link" href="../intro/intro.html" title="previous page">Welcome to F540 Jupyter book</a>
+    <a class='right-next' id="next-link" href="Plotting%20-%20AC%20wave%20plots.html" title="next page">Basics of AC waves</a>
 
         </div>
         

@@ -17,47 +17,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-##### Pré-aquisição
-# mude a onda para uma senóide! O que acontece se usarmos a onda triângular?
-func_gen.ch1.set_function('sine')
-## ajuste o trigger externo
-# func_gen.ch1.sync_on()   # ligar o sync reference ao canal 1
-# scope.trigger.set_source('ext')  # ajusta o trigger para externo no osciloscópio
-## ajusta média nos canais
-scope.set_average_number(4)  # ajusta o número de médias
-scope.set_average()    # turn average ON
-#scope.set_sample()       # turn average OFF
-## parametros de varredura
-PATH = 'exemplo-pylef/passa-baixas/'  # pasta onde salvar todos os arquivos
-Vpp = 2.0   # Tensão pico-a-pico na saida do gerador
-freq0, freq1, Nfreq = 10, 100e3, 30  # frequências inicial, final e número de pontos
-## parâmetros inicias do gerador
-func_gen.ch1.set_frequency(freq0) 
-func_gen.ch1.set_Vpp(Vpp)
-func_gen.ch1.set_offset(0.0)
-func_gen.ch1.set_phase(0.0)
-## tenha certeza que o gerador está ligado e que o canal 1 está na escala certa
-func_gen.ch1.turn_on()   # liga o canal 1
-scope.set_horizontal_scale((1/freq0)/4.)  # escala horizontal = 1/4 período (2.5 oscilações em tela)
-scope.ch1.set_smart_scale()  # rescala o canal 1
-scope.ch2.set_smart_scale()  # rescala o canal 2
+func_gen = pylef.BK4052()          # definição do gerador de funções
+scope = pylef.TektronixTBS1062()   # definição do osciloscópio
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-5-0ac5f2c90767>[0m in [0;36m<module>[0;34m[0m
-[1;32m     21[0m [0mfunc_gen[0m[0;34m.[0m[0mch1[0m[0;34m.[0m[0mturn_on[0m[0;34m([0m[0;34m)[0m   [0;31m# liga o canal 1[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     22[0m [0mscope[0m[0;34m.[0m[0mset_horizontal_scale[0m[0;34m([0m[0;34m([0m[0;36m1[0m[0;34m/[0m[0mfreq0[0m[0;34m)[0m[0;34m/[0m[0;36m4.[0m[0;34m)[0m  [0;31m# escala horizontal = 1/4 período (2.5 oscilações em tela)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 23[0;31m [0mscope[0m[0;34m.[0m[0mch1[0m[0;34m.[0m[0mset_smart_scale[0m[0;34m([0m[0;34m)[0m  [0;31m# rescala o canal 1[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     24[0m [0mscope[0m[0;34m.[0m[0mch2[0m[0;34m.[0m[0mset_smart_scale[0m[0;34m([0m[0;34m)[0m  [0;31m# rescala o canal 2[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-3-9492673a926d>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mfunc_gen[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mBK4052[0m[0;34m([0m[0;34m)[0m          [0;31m# definição do gerador de funções[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mscope[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mTektronixTBS1062[0m[0;34m([0m[0;34m)[0m   [0;31m# definição do osciloscópio[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py[0m in [0;36mset_smart_scale[0;34m(self, log_step, Vmax, D)[0m
-[1;32m    395[0m         [0;31m#test whether channel is on[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    396[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mstate[0m[0;34m([0m[0;34m)[0m [0;34m==[0m [0;34m'off'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 397[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m'O canal %s do osciloscópio está desligado!'[0m [0;34m%[0m [0mself[0m[0;34m.[0m[0mchannel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    398[0m         [0mkeep_loop[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    399[0m         [0mself[0m[0;34m.[0m[0minstr[0m[0;34m.[0m[0mwrite[0m[0;34m([0m[0;34m'ACQuire:MODe SAMPle'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    102[0m         [0mself[0m[0;34m.[0m[0mid_bk[0m [0;34m=[0m [0;34m'0xF4ED'[0m[0;34m;[0m [0;31m# identificador do fabricante BK[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    103[0m         [0mself[0m[0;34m.[0m[0mdelay_time[0m [0;34m=[0m [0;36m0.5[0m [0;31m# time to wait after write and query - BK BUG![0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 104[0;31m         [0minterface_name[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mfind_interface[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    105[0m         [0;31m# instrument initialization[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    106[0m         [0mself[0m[0;34m.[0m[0minstr[0m [0;34m=[0m [0mvisa[0m[0;34m.[0m[0mResourceManager[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mopen_resource[0m[0;34m([0m[0minterface_name[0m[0;34m)[0m   [0;31m## resource name[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mValueError[0m: O canal CH1 do osciloscópio está desligado!
-ValueError: O canal CH1 do osciloscópio está desligado!
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py[0m in [0;36mfind_interface[0;34m(self)[0m
+[1;32m    132[0m                 [0mprint[0m[0;34m([0m[0;34m"Gerador de Funções conectado! Id = "[0m [0;34m+[0m [0mbk_str[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    133[0m         [0;32mif[0m [0mbk_str[0m [0;34m==[0m [0;34m''[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 134[0;31m             raise ValueError('O osciloscopio BK scope nao foi identificado:\n'\
+[0m[1;32m    135[0m                          [0;34m'Verique se o equipamento está ligado e se o cabo USB \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    136[0m                          [0;34m'foi conectado. Se o problema persistir, \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: O osciloscopio BK scope nao foi identificado:
+Verique se o equipamento está ligado e se o cabo USB 
+foi conectado. Se o problema persistir, 
+desconecte o cabo USB, aguarde 20 segundos 
+e conecte novamente.
+ValueError: O osciloscopio BK scope nao foi identificado:
+Verique se o equipamento está ligado e se o cabo USB 
+foi conectado. Se o problema persistir, 
+desconecte o cabo USB, aguarde 20 segundos 
+e conecte novamente.
 
