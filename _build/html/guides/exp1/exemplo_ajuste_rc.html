@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data analysis: Fitting the filter transfer function &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Background: Diodes" href="../exp2/diode_background.html" />
+    <link rel="prev" title="Guide to Experiment 1: RC filters" href="exp1-guide.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/exemplo_ajuste_rc.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-python-packages">
+   Loading python packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-data">
+   Loading data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-analysis-fitting-the-filter-transfer-function">
+<h1>Data analysis: Fitting the filter transfer function<a class="headerlink" href="#data-analysis-fitting-the-filter-transfer-function" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Learn how to load and fit a model to data using Python</p></li>
+</ul>
+</div>
+<p><span style='color:red'>OBS:Antes de usar este notebook, faça-te um favor e instale o Python através da distribuição Anaconda. Deve ser utilizado o Python versão &gt;3.</span>
+<a class="reference external" href="https://www.anaconda.com/download/">https://www.anaconda.com/download/</a></p>
+<div class="section" id="loading-python-packages">
+<h2>Loading python packages<a class="headerlink" href="#loading-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>The following python packages will be necessary to execute this notebook</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;importa as bibliotecas necessárias&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># importar a biblioteca Numpy para lidar com matrizes</span>
+<span class="kn">import</span> <span class="nn">time</span>          <span class="c1"># importar a bilioteca para funções temporais</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># importa bilioteca pandas para  lidar com processamento de dados</span>
+<span class="kn">import</span> <span class="nn">os</span>            <span class="c1"># biblioteca para lidar com diretórios</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span> <span class="c1">#pacote para carregar dados do matlab</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span> <span class="c1"># pacote para ajuste de curvas</span>
+<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">ufloat</span> <span class="c1"># pacote para lidar com incertezas</span>
+<span class="c1">#from scipy import optimize</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline   
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-data">
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>Carregando arquivos com o pacote PANDAS. O arquivo <code class="docutils literal notranslate"><span class="pre">.csv</span></code> deverá estar na mesma pasta que o seu arquivo Jupyter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;dados_sweep.csv&#39;</span>
+<span class="n">folder_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>    
+<span class="n">file</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1">#separador ,</span>
+<span class="c1">#ver o cabeçalho....</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
+      <th>Vpp1 (V)</th>
+      <th>Vpp2 (V)</th>
+      <th>fase (rad)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.000000</td>
+      <td>2.008803</td>
+      <td>1.999977</td>
+      <td>0.360000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.738238</td>
+      <td>2.021052</td>
+      <td>1.993670</td>
+      <td>-0.494505</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18.873918</td>
+      <td>1.996554</td>
+      <td>1.987532</td>
+      <td>-0.271903</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>25.929438</td>
+      <td>1.996554</td>
+      <td>1.993721</td>
+      <td>-1.867220</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>35.622479</td>
+      <td>1.996554</td>
+      <td>1.987511</td>
+      <td>-1.538462</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#atribuindo variáveis</span>
+<span class="c1">#*********************************************</span>
+<span class="n">freq_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">])</span>
+<span class="n">vpp1_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">vpp2_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">fase_vec</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">])</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vpp1_vec</span><span class="p">)</span> <span class="c1"># numero de pontos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Em termos das amplitudes (pico-pico) medidas no osciloscópio, a transmitância é dada por</p>
+<div class="math notranslate nohighlight" id="equation-eq-trans-lin">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
+<p>Em decibéis,</p>
+<div class="math notranslate nohighlight" id="equation-eq-trans-db">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
+<p>As equações <a class="reference internal" href="#equation-eq-trans-lin">(9)</a> e <a class="reference internal" href="#equation-eq-trans-db">(10)</a> são calculadas a seguir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#calculando transmistancia a partir dos vetores de vpp</span>
+<span class="c1">#*********************************************</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">vpp2_vec</span><span class="o">/</span><span class="n">vpp1_vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">t_db</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="c1">#*********************************************</span>
+<span class="c1">#---------------------------</span>
+<span class="c1">#horizontal [segundos]</span>
+<span class="n">fase_vec_rad</span><span class="o">=</span><span class="n">fase_vec</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span> <span class="c1">#fase em radianos</span>
+<span class="n">omega_vec</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">freq_vec</span> <span class="c1"># frequencia angular</span>
+<span class="c1">#*********************************************</span>
+<span class="c1">#recortando os vetores, caso possuam ponto a serem excluidos</span>
+<span class="c1">#*********************************************</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># indice do primeiro ponto</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="n">npt</span> <span class="c1"># indice do último ponto</span>
+<span class="n">freq_vecr</span> <span class="o">=</span> <span class="n">freq_vec</span><span class="p">[</span><span class="n">pi</span><span class="p">:</span><span class="n">pf</span><span class="p">]</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">pi</span><span class="p">:</span><span class="n">pf</span><span class="p">]</span>
+<span class="n">t_dbr</span> <span class="o">=</span> <span class="n">t_db</span><span class="p">[</span><span class="n">pi</span><span class="p">:</span><span class="n">pf</span><span class="p">]</span>
+<span class="n">fase_vecr</span> <span class="o">=</span> <span class="n">fase_vec</span><span class="p">[</span><span class="n">pi</span><span class="p">:</span><span class="n">pf</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#grafico</span>
+<span class="c1">#*********************************************</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span>
+<span class="c1">#DADOS</span>
+<span class="c1">#*********************************************</span>
+<span class="c1">#grafico experimental</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_vecr</span><span class="p">,</span><span class="n">t_dbr</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dados&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_vecr</span><span class="p">,</span><span class="n">fase_vecr</span><span class="p">,</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">;</span> <span class="c1"># mostra a figura</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/exemplo_ajuste_rc_10_1.png" src="../../_images/exemplo_ajuste_rc_10_1.png" />
+</div>
+</div>
+<p>Na célula abaixo, definimos funções para calcular a função de transferência complexa para um circuito <span class="math notranslate nohighlight">\(RC\)</span>, a transmitância e a fase de função de transferência
+$<span class="math notranslate nohighlight">\(H(\omega,R,C)=\frac{Z_c}{R+Zc}=\frac{-j/(\omega C)}{R-j/(\omega C)};\)</span><span class="math notranslate nohighlight">\( 
+a transmitância \)</span><span class="math notranslate nohighlight">\(T(\omega,R,C)=|H(\omega,R,C)|^2;\)</span><span class="math notranslate nohighlight">\(
+e a fase da função de transferência \)</span><span class="math notranslate nohighlight">\(\phi(\omega,R,C)=\arg(H(\omega,R,C)).\)</span>$</p>
+<p>Explicitamos acima a dependência com os parâmetros <span class="math notranslate nohighlight">\(R\)</span> e <span class="math notranslate nohighlight">\(C\)</span> para lembrá-los que estes parâmetros devem ser considerados no caso de outro circuito, e.g., no <span class="math notranslate nohighlight">\(RL\)</span> devemos ter uma função que depende de <span class="math notranslate nohighlight">\(R,L\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#definindo funcao que calcula a curva teorica</span>
+<span class="c1">#r - resistencia</span>
+<span class="c1">#c - capacitancia</span>
+<span class="c1">#*********************************************</span>
+<span class="k">def</span> <span class="nf">funcH</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">j</span><span class="o">=</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">omega</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">freq</span>
+    <span class="c1">#reatancias</span>
+    <span class="n">Xc</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+    <span class="c1">#impedancias</span>
+    <span class="n">Zc</span><span class="o">=-</span><span class="n">j</span><span class="o">*</span><span class="n">Xc</span>
+    <span class="c1">#funcao de transferencia</span>
+    <span class="n">H</span><span class="o">=</span> <span class="n">Zc</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">+</span><span class="n">Zc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">H</span>
+<span class="k">def</span> <span class="nf">funcT</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="c1">#transmitancia, linear</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">T</span>
+<span class="k">def</span> <span class="nf">funcTdb</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="c1">#transmitancia, linear</span>
+    <span class="n">Tdb</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Tdb</span>
+<span class="k">def</span> <span class="nf">funcPhi</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#Funcao H</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="c1">#fase em graus</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chute_inicial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mf">0.22e-6</span><span class="p">,)</span> <span class="c1">#chute inicial igual parametros nominais</span>
+<span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">funcTdb</span><span class="p">,</span> <span class="n">freq_vecr</span><span class="p">,</span> <span class="n">t_dbr</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">chute_inicial</span><span class="p">)</span>
+<span class="c1">#print(&#39;Parametros do ajuste (r (Ohms),c (faraday)):&#39;, pfit)</span>
+<span class="c1">#print(popt)</span>
+<span class="n">perr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Parâmetros ajustados segundo a função curve_fit:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pfit = &quot;</span><span class="p">,</span> <span class="n">pfit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Erros estimados pela função curve_fit:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;perr = &quot;</span><span class="p">,</span> <span class="n">perr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
+pfit =  [1.75694792e+02 7.81201677e-07]
+
+Erros estimados pela função curve_fit:
+perr =  [4.59981698e+07 2.04524262e-01]
+</pre></div>
+</div>
+</div>
+</div>
+<p>O erro acima ocorre porque tentamos ajustar dois parâmetros que estão relacionados <span class="math notranslate nohighlight">\(\tau=RC\)</span>, sendo que a função de ajuste depende apenas do produto entre os dois valores. Dada esta dependencia da função de ajuste, deveríamos tentar ajustar apenas o produto <span class="math notranslate nohighlight">\(RC\)</span>. Por exemplo, a função de transferência do filtro passa-baixas pode ser escrita como $<span class="math notranslate nohighlight">\(H_{PB}(\omega)=\frac{1}{1+j\omega\tau}.\)</span>$ A seguir tratamos este caso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcH2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+    <span class="n">j</span><span class="o">=</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">omega</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">freq</span>
+    <span class="c1">#funcao de transferencia</span>
+    <span class="n">H</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">tau</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">H</span>
+<span class="k">def</span> <span class="nf">funcTdb2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+    <span class="c1">#transmitancia, linear</span>
+    <span class="n">Tdb</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Tdb</span>
+<span class="k">def</span> <span class="nf">funcT2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+    <span class="c1">#transmitancia, linear</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">T</span>
+<span class="k">def</span> <span class="nf">funcPhi2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#comente estes valores </span>
+    <span class="c1">#caso deseje que eles tambem sejam ajustados</span>
+    <span class="c1">#****************</span>
+    <span class="c1">#Funcao H</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">funcH2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+    <span class="c1">#fase em graus</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chute_inicial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="o">*</span><span class="mf">0.22e-6</span><span class="p">,)</span> <span class="c1">#chute inicial igual parametros nominais</span>
+<span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">funcTdb2</span><span class="p">,</span> <span class="n">freq_vecr</span><span class="p">,</span> <span class="n">t_dbr</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">chute_inicial</span><span class="p">)</span>
+<span class="c1">#print(&#39;Parametros do ajuste (r (Ohms),c (faraday)):&#39;, pfit)</span>
+<span class="c1">#print(popt)</span>
+<span class="n">perr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Parâmetros ajustados segundo a função curve_fit:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pfit = </span><span class="si">{:2e}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pfit</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Erros estimados pela função curve_fit:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;σ = </span><span class="si">{:2e}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">perr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
+pfit = 1.372531e-04 
+
+Erros estimados pela função curve_fit:
+σ = 6.992647e-07 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos usar o pacote uncertainty (veja no início deste notebook), para colocar o erro com os algarismos significativos corretos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;τ (com uma casa décimal)= (</span><span class="si">{:.1f}</span><span class="s2">) μs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1e6</span><span class="o">*</span><span class="n">ufloat</span><span class="p">(</span><span class="n">pfit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">perr</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;τ (com duas casa décimal)= (</span><span class="si">{:.2f}</span><span class="s2">) μs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1e6</span><span class="o">*</span><span class="n">ufloat</span><span class="p">(</span><span class="n">pfit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">perr</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>τ (com uma casa décimal)= (137.3+/-0.7) μs
+τ (com duas casa décimal)= (137.25+/-0.70) μs
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na célula abaixo, é claro que será necessário alterar os valores dos argumentos das funções funcT e funcPhi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">funcT</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">0.22e-6</span><span class="p">)</span>
+<span class="n">fase</span> <span class="o">=</span> <span class="n">funcPhi</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mf">0.22e-6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Também é assumido que você já fez as alterações necessárias nas funções para contemplar as sutilezas do seu circuito.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#vetor de frequencias teorica, com bem mais pontos que o experimental</span>
+<span class="n">freq_t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_vecr</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_vecr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1">#transmicao teorica usando valores nominais, checar se a curva parece com o experimento</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">funcT2</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">150</span><span class="o">*</span><span class="mf">0.22e-6</span><span class="p">)</span>
+<span class="n">fase</span> <span class="o">=</span> <span class="n">funcPhi2</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">150</span><span class="o">*</span><span class="mf">0.22e-6</span><span class="p">)</span>
+<span class="c1">#*********************************************</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;teórico nominal&#39;</span><span class="p">)</span> <span class="c1"># curva teorica</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="n">fase</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">)</span> <span class="c1"># curva teorica</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exemplo_ajuste_rc_20_0.png" src="../../_images/exemplo_ajuste_rc_20_0.png" />
+</div>
+</div>
+<p><span style='color:red'>OBS:</span>Abaixo, usamos a notação <code class="docutils literal notranslate"><span class="pre">Tfit</span> <span class="pre">=</span> <span class="pre">funcT(freq_t,</span> <span class="pre">*pfit)</span></code> para passar o argumento <code class="docutils literal notranslate"><span class="pre">pfit</span></code>. Esta notação, que inlcui um asterísco, significa que <code class="docutils literal notranslate"><span class="pre">pfit</span></code> pode ser um escalar ou um vetor. No caso de ser um vetor, a sua função deverá receber tantos argumentos (após o argumento <code class="docutils literal notranslate"><span class="pre">freq_t</span></code>) quanto elementos no vetor <code class="docutils literal notranslate"><span class="pre">pfit</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
+<span class="c1">#graficando o ajuste em vermelho solido </span>
+<span class="c1">#calculando os a funcao teorica com os valores obtidos do ajuste</span>
+<span class="n">Tfit</span> <span class="o">=</span> <span class="n">funcT2</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span> <span class="o">*</span><span class="n">pfit</span><span class="p">)</span>
+<span class="n">fasefit</span> <span class="o">=</span> <span class="n">funcPhi2</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span> <span class="o">*</span><span class="n">pfit</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">Tfit</span><span class="p">),</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ajuste&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">freq_t</span><span class="p">,</span><span class="n">fasefit</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#ajustes dos graficos</span>
+<span class="c1">#ax1.set_xlabel(&#39;meu eixo freq&#39;)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;meu eixo t&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;meu eixo de freq&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;meu eixo fase&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mf">1e5</span><span class="p">))</span> <span class="c1">#LIMITES DO EIXO X</span>
+<span class="c1">#ax2.set_xlim((100,1e5))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1">#LIMITES DO EIXO Y</span>
+<span class="c1">#ax1.legend(loc=&#39;lower right&#39;)</span>
+<span class="c1">#plt.title(&#39;Diagrama Bode&#39;)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1">#plt.subplots_adjust(wspace=0.4)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exemplo_ajuste_rc_22_0.png" src="../../_images/exemplo_ajuste_rc_22_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#salvando</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pasta atual:&#39;</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>  
+<span class="n">name</span><span class="o">=</span><span class="s1">&#39;bode_rc_dados&#39;</span>
+<span class="n">folder_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">ext</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span>
+<span class="n">path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">ext</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;arquivo salvo:&#39;</span><span class="p">,</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc_dados.pdf
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/exp1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="exp1-guide.html" title="previous page">Guide to Experiment 1: RC filters</a>
+    <a class='right-next' id="next-link" href="../exp2/diode_background.html" title="next page">Background: Diodes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

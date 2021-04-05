@@ -1,11 +1,28 @@
-- file: README 
-
-- header: Get started
-- file: start/what_you_need_to_know
-- file: start/markdown 
-
-- header: Introduction to F540
-- file: intro/intro
-
-- header: Interactive examples
-- file: examples/kvl_graphic_solution
+- file: README
+# - part: Get started
+#   chapters:
+#   - file: start/what_you_need_to_know
+#   - file: start/markdown 
+- part: Introduction to F540
+  chapters:
+  - file: intro/intro
+  # - file: README
+- part: Background
+  chapters:
+  - file: examples/Basics - Python
+  - file: examples/Plotting - AC wave plots
+  - file: examples/Sympy - symbolic manipulation
+- part: RC filters (exp. 1)
+  chapters:
+  - file: guides/exp1/complex_impedance
+  - file: guides/exp1/exp1-guide
+    numbered: true
+  - file: guides/exp1/exemplo_ajuste_rc
+- part: Diodes (exp. 2)
+  chapters:
+  - file : guides/exp2/diode_background.ipynb
+# - part: Diodes (exp. 2)
+# - part: Transistors (exp. 3)
+# - part: Other examples
+#   chapters:
+#   - file: examples/Data aquisition - pyLEF basics

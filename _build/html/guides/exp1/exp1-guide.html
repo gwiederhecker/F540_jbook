@@ -1,0 +1,1488 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide to Experiment 1: RC filters &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data analysis: Fitting the filter transfer function" href="exemplo_ajuste_rc.html" />
+    <link rel="prev" title="Background: Complex impedances" href="complex_impedance.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exemplo_ajuste_rc.html">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/guides/exp1/exp1-guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/guides/exp1/exp1-guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/exp1-guide.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequency-response-of-filters">
+   Frequency response of filters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-amplitude-and-phase-shifts">
+   Measuring amplitude and phase-shifts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rc-filters-high-pass-hp-and-low-pass-lp">
+   RC filters: high-pass (HP) and low-pass (LP)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparation-for-the-experiment">
+     Preparation for the experiment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acquiring-experimental-data">
+     Acquiring experimental data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloadable-dataset-1">
+     Downloadable dataset 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-application-of-a-high-pass-filter">
+     An application of a high-pass filter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effect-of-the-filter-on-the-signal-fourier-decomposition">
+     Effect of the filter on the signal: Fourier decomposition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloadable-dataset-2">
+     Downloadable dataset 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referências
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="guide-to-experiment-1-rc-filters">
+<h1>Guide to Experiment 1: RC filters<a class="headerlink" href="#guide-to-experiment-1-rc-filters" title="Permalink to this headline">¶</a></h1>
+<p>Métodos da Físcia Experimental I: (F540 2s2020)</p>
+<ul class="simple">
+<li><p>JupyterBook: Gustavo Wiederhecker</p></li>
+<li><p>Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues</p></li>
+</ul>
+<p>In this experiment, circuits  containing a capacitor and
+a resistor will be investigated. These circuits allow us to measure the electric current
+(resistor) or the electrical charge (capacitor) that flows in the circuits. The
+amplitude and phase of the current or electric charge depend on the frequency. This dependency
+motivates their usage and their application as frequency filters, such as
+low-pass or high-pass filters.</p>
+<p>To understand this behavior, it is essential to review the concept of
+frequency response, that is, as the response of a given system
+linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Understand the relationships between sinusoidal voltages and currents in circuits containing resistors, capacitors and inductors.</p></li>
+<li><p>Understand how these circuits can be used as filters of     electrical signals.</p></li>
+<li><p>Determine the frequency response of the amplitude and phase of
+RC filters; low-pass, high-pass</p></li>
+<li><p>Describe the behavior of filters through graphs of
+transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Items to include in your lab report</p>
+<ol class="simple">
+<li><p>Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in <a class="reference internal" href="#sec-dataset1"><span class="std std-ref">Downloadable dataset 1</span></a>.</p></li>
+<li><p>In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in <span class="xref std std-doc">example_ajuste_rc</span></p>
+<ul class="simple">
+<li><p>Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade?</p></li>
+</ul>
+</li>
+<li><p>Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided <a class="reference internal" href="#sec-dataset2"><span class="std std-ref">Downloadable dataset 2</span></a>.</p>
+<ul class="simple">
+<li><p>The difference between the two signals is that the channel 2 signal was filtered by an RC circuit. Determine whether the circuit used was a high-pass or low-pass.</p></li>
+</ul>
+</li>
+<li><p>Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.</p></li>
+</ol>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-----------------------------</span>
+<span class="c1">#Pacote para manipular vetores e matrizes</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#-----------------------------</span>
+<span class="c1">#Pacotes para lidar com unidades</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">un</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">cte</span>
+<span class="c1">#-----------------------------</span>
+<span class="c1">#pacote para gráficos</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="c1">#Comandos opcionais para formatar gráfico</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">12</span><span class="p">}</span>	
+<span class="n">lines</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mf">1.6</span><span class="p">]}</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">figure</span><span class="p">)</span>
+<span class="c1">#-----------------------------</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="c1">#pacote para desenhar circuitos</span>
+<span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
+<span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
+<span class="c1"># %config InlineBackend.figure_format = &#39;svg&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="frequency-response-of-filters">
+<h2>Frequency response of filters<a class="headerlink" href="#frequency-response-of-filters" title="Permalink to this headline">¶</a></h2>
+<p>Consider the circuit diagrams shown in the figure below. All are examples of AC voltage dividers that behave as frequency filters.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,)</span>
+<span class="n">compsL</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],[</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">]]</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[[</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">],[</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">],[</span><span class="n">e</span><span class="o">.</span><span class="n">INDUCTOR</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">],[</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="n">INDUCTOR</span><span class="p">]]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RC passa-baixas&#39;</span><span class="p">,</span><span class="s1">&#39;RC passa-altas&#39;</span><span class="p">,</span><span class="s1">&#39;RL passa-baixas&#39;</span><span class="p">,</span><span class="s1">&#39;RL passa-altas&#39;</span><span class="p">]</span>
+<span class="n">xy0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">comp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">compsL</span><span class="p">):</span>
+    <span class="n">comp1</span> <span class="o">=</span> <span class="s1">&#39;$&#39;</span><span class="o">+</span><span class="n">comp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;$&#39;</span>
+    <span class="n">comp2</span> <span class="o">=</span> <span class="s1">&#39;$&#39;</span><span class="o">+</span><span class="n">comp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;$&#39;</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="n">xy0</span><span class="p">)</span>
+    <span class="n">comp1</span> <span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">comps</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">comp1</span><span class="p">)</span> <span class="c1">#capacitor</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">comps</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">comp2</span><span class="p">)</span> <span class="c1"># resistor de saída</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
+    <span class="c1">#output</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">comp1</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">xy0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="c1">#---</span>
+<span class="c1"># fig = d.draw()  </span>
+<span class="c1"># glue(&quot;fig_filtros_diversos&quot;, display(d.draw()),display=False)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_6_0.png" src="../../_images/exp1-guide_6_0.png" />
+</div>
+</div>
+<p>In the laboratory, a possible implementation of one of these circuits has the aspect of <a class="reference internal" href="#foto-filtro-pa"><span class="std std-numref">Fig. 1</span></a>:</p>
+<div class="figure align-default" id="foto-filtro-pa">
+<a class="reference internal image-reference" href="../../_images/foto_passa_altas_small.jpg"><img alt="../../_images/foto_passa_altas_small.jpg" src="../../_images/foto_passa_altas_small.jpg" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Filtro passa-altas montado em uma protoboard.</span><a class="headerlink" href="#foto-filtro-pa" title="Permalink to this image">¶</a></p>
+</div>
+<p>The filtering effect of these circuits can be seen by observing the behavior of the signal with an oscilloscope. For example, the RC high-pass filter  behavior manifests as in the <a class="reference internal" href="#highpass-scope"><span class="std std-numref">Fig. 2</span></a>.</p>
+<div class="figure align-default" id="highpass-scope">
+<a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">High-pass RC filter (R = 300, C = 470 nF), frequency 10 Hz. The blue trace represents the input signal, while the orange trace represents the output signal.</span><a class="headerlink" href="#highpass-scope" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="measuring-amplitude-and-phase-shifts">
+<h2>Measuring amplitude and phase-shifts<a class="headerlink" href="#measuring-amplitude-and-phase-shifts" title="Permalink to this headline">¶</a></h2>
+<p>Any electrical circuit whose response depends on the frequency introduces a lag in the output signal relative to the input signal. The low-pass and high-pass filters studied below are two typical examples. The figure below illustrates the input (<span class="math notranslate nohighlight">\( V_ {in} \)</span>) and output (<span class="math notranslate nohighlight">\( V_ {out} \)</span>) signals associated with a high-pass filter. Note that the signals are not in phase. The value of the <span class="math notranslate nohighlight">\( \phi \)</span> lag can be obtained by measuring the time difference <span class="math notranslate nohighlight">\( \Delta t \)</span> between their zero-crossing voltages.</p>
+<div class="math notranslate nohighlight" id="equation-eq-phase">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2e-3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
+<span class="n">f</span><span class="p">,</span><span class="n">ϕ1</span><span class="p">,</span><span class="n">ϕ2</span> <span class="o">=</span> <span class="mf">1e3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span> <span class="c1"># frequencia e fase</span>
+<span class="n">v01</span><span class="p">,</span><span class="n">v02</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.8</span> <span class="c1"># amplitudes</span>
+<span class="c1">#----</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ϕ1</span><span class="p">)</span> <span class="c1"># sinal v1(t)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ϕ2</span><span class="p">)</span> <span class="c1"># sinal v2(t)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$V_1(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$V_2(t)$&#39;</span><span class="p">)</span>
+<span class="c1">#----</span>
+<span class="n">ϕ</span> <span class="o">=</span> <span class="n">ϕ2</span><span class="o">-</span><span class="n">ϕ1</span> <span class="c1"># defasagem</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span> <span class="c1"># periodo dos sinais</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">T</span><span class="o">*</span><span class="n">ϕ</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># atraso temporal entre os sinais</span>
+<span class="c1">#linhas verticais</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">((</span><span class="n">T</span><span class="o">-</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="c1">#--------</span>
+<span class="c1">#formatação do gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># ativa grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dois sinais com mesma  frequência (1 kHz) e </span><span class="se">\n</span><span class="s1"> defasagem de $\phi=+</span><span class="si">{:1g}</span><span class="s1">^\circ$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">180</span><span class="o">*</span><span class="n">ϕ</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">));</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_fase_exemplo&quot;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;sinais_defasados.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_10_1.png" src="../../_images/exp1-guide_10_1.png" />
+</div>
+</div>
+<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
+<div class="figure align-center" id="fig-example-phase" style="width: 400px">
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_10_0.png" src="../../_images/exp1-guide_10_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Example of phase difference between two signals. The phase here is of signal 2 relative to 1, <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>, therefore, signal 2 is ** ahead ** of 1.</span><a class="headerlink" href="#fig-example-phase" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
+<span class="n">f</span><span class="p">,</span><span class="n">ϕ1</span><span class="p">,</span><span class="n">ϕ2</span> <span class="o">=</span> <span class="mf">2e3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>  <span class="c1"># frequencia e fase</span>
+<span class="n">v01</span><span class="p">,</span><span class="n">v02</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.8</span> <span class="c1"># amplitudes</span>
+<span class="c1">#----</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ϕ1</span><span class="p">)</span> <span class="c1"># sinal v1(t)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">ϕ2</span><span class="p">)</span> <span class="c1"># sinal v2(t)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$V_1(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$V_2(t)$&#39;</span><span class="p">)</span>
+<span class="c1">#----</span>
+<span class="n">ϕ</span> <span class="o">=</span> <span class="n">ϕ2</span><span class="o">-</span><span class="n">ϕ1</span> <span class="c1"># defasagem</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span> <span class="c1"># periodo dos sinais</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">T</span><span class="o">*</span><span class="n">ϕ</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1"># atraso temporal entre os sinais</span>
+<span class="c1">#linhas verticais</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="c1"># plt.axvline((T-dt)*1e3,color=&#39;k&#39;,linestyle=&#39;--&#39;,linewidth=2.0)</span>
+<span class="c1">#--------</span>
+<span class="c1">#formatação do gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># ativa grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="c1"># plt.title(&#39;Dois sinais com mesma defasagem de $\phi$&#39;.format(180*ϕ/np.pi));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/ex_delta_fase.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;sinais_defasados.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_12_0.png" src="../../_images/exp1-guide_12_0.png" />
+</div>
+</div>
+<div class="exercise admonition" id="ex:fase_delta1">
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span>(Phase difference between signals)</p>
+<div class="section" id="exercise-content">
+<p>Consider the following figure and determine:</p>
+<a class="reference internal image-reference" href="../../_images/ex_delta_fase.png"><img alt="circuit picture" class="align-center" src="../../_images/ex_delta_fase.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>the frequency of the signals</p></li>
+<li><p>the phase difference between the signals</p></li>
+</ul>
+</div>
+</div>
+<div class="solution admonition" id="exs:fase_delta1">
+<p class="admonition-title">Solution to <a class="reference external" href="#ex:fase_delta1"><span>Exercise 2</span></a></p>
+<div class="section" id="solution-content">
+<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(1)</a> to find the phase difference.</p>
+</div>
+</div>
+<div class="exercise admonition" id="ex:fase_delta2">
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span>(Phase difference between signals on the oscilloscope)</p>
+<div class="section" id="exercise-content">
+<p>Considering the oscilloscope screen that was captured using an RC circuit:</p>
+<a class="reference internal image-reference" href="../../_images/sweep_freq_PA_000.png"><img alt="oscilloscope traces" class="align-center" src="../../_images/sweep_freq_PA_000.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>The amplitude <span class="math notranslate nohighlight">\( v_j \pm \delta v_j \)</span> ([V]) of each signal;</p></li>
+<li><p>The frequency <span class="math notranslate nohighlight">\( f \)</span> [1 / s] (and <span class="math notranslate nohighlight">\( \omega \)</span> [rad / s]) of the signals;</p></li>
+<li><p>The phase difference between the signals, <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>, consider the phase signal!</p></li>
+<li><p>Based on the calculated phase, indicate whether is it a low-pass or high-pass filter? Justify.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="rc-filters-high-pass-hp-and-low-pass-lp">
+<h2>RC filters: high-pass (HP) and low-pass (LP)<a class="headerlink" href="#rc-filters-high-pass-hp-and-low-pass-lp" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="c1">#fonte</span>
+<span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span> <span class="c1"># cor da fonte</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span> <span class="c1"># terra</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">SOURCE_SIN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span> <span class="c1"># fonte</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
+<span class="c1">#circuito</span>
+<span class="n">diode1</span> <span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R$&#39;</span><span class="p">)</span> <span class="c1">#capacitor</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$C$&#39;</span><span class="p">)</span> <span class="c1"># resistor de saída</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
+<span class="c1">#output</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">diode1</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
+<span class="c1">#---</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;figs/filtro_pb_esquema.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_17_0.png" src="../../_images/exp1-guide_17_0.png" />
+</div>
+</div>
+<p>The circuit below illustrates a filter case where the low frequency signals have their amplitudes attenuated, while high frequency signals are transmitted almost without attenuation. Mount the high-pass filter using <span class="math notranslate nohighlight">\(R = 300 \)</span> \Omega <span class="math notranslate nohighlight">\(, \)</span>C = 470$ nF.</p>
+<div class="figure align-default" id="fig-filter-pb-scheme">
+<a class="reference internal image-reference" href="../../_images/filtro_pb_esquema.png"><img alt="../../_images/filtro_pb_esquema.png" src="../../_images/filtro_pb_esquema.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Schematic of a low-pass filter.</span><a class="headerlink" href="#fig-filter-pb-scheme" title="Permalink to this image">¶</a></p>
+</div>
+<p>The transfer function<span class="math notranslate nohighlight">\( H (\ omega) \)</span>  or voltage gain <span class="math notranslate nohighlight">\( G (\ omega) \)</span> are defined as,</p>
+<div class="math notranslate nohighlight" id="equation-eq-gain">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
+G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( v_ {out, in} \)</span> represents the amplitudes and <span class="math notranslate nohighlight">\( \ phi \ equiv \ phi_ {out} - \ phi_ {in} \)</span> the phase difference.</p>
+<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
+One for the amplitude,</p>
+<div class="math notranslate nohighlight" id="equation-eq-bode-gdb-experimental">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
+G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_{in}^{(pp)}}\right)
+\]</div>
+<p>and the other for the phase difference,</p>
+<div class="math notranslate nohighlight" id="equation-eq-bode-phi-experimental">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
+\phi = \arg(G(\omega))=\arg\left(\cfrac{v_{out}}{v_{in}}\exp(j\phi)\right)=\phi
+\]</div>
+<div class="section" id="preparation-for-the-experiment">
+<h3>Preparation for the experiment<a class="headerlink" href="#preparation-for-the-experiment" title="Permalink to this headline">¶</a></h3>
+<div class="exercise admonition" id="ex:prep_exp1">
+<p class="admonition-title"><span class="caption-number">Exercise 4 </span>(Preparação para experimento)</p>
+<div class="section" id="exercise-content">
+<ul class="simple">
+<li><p>Demonstrate the transfer function (voltage gain) for this circuit. Use complex impedances for this.</p></li>
+<li><p>What is the circuit cutoff frequency ?.</p></li>
+<li><p>How it behaves (total impedance and output voltage).</p></li>
+<li><p>With a minimum of math, try to see how the phase of the <span class="math notranslate nohighlight">\( V_ {out} \)</span> signal changes from <span class="math notranslate nohighlight">\( V_ {in} \)</span>.</p></li>
+<li><p>What effect does <span class="math notranslate nohighlight">\( R_ {th} \)</span> have on the circuit response? Does it change the measure of <span class="math notranslate nohighlight">\( V_ {out} (f) \)</span>, <span class="math notranslate nohighlight">\( V_ {in} (f) \)</span> and <span class="math notranslate nohighlight">\( V_ {out} (f) / V_ {in} (f) \)</span>?</p></li>
+</ul>
+<p>Circuit simulation:</p>
+<ul class="simple">
+<li><p>Use TinkerCAD to assemble the circuit of the figure <a class="reference internal" href="#fig-filter-pb-scheme"><span class="std std-numref">Fig. 4</span></a>, investigate its behavior.</p></li>
+<li><p>Use QUCS to explore the behavior.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="acquiring-experimental-data">
+<h3>Acquiring experimental data<a class="headerlink" href="#acquiring-experimental-data" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Data acquisition will not take place in 1s2021!</p>
+</div>
+<p>Use the signal generator to analyze the behavior of and of the <span class="math notranslate nohighlight">\( \ phi \)</span> phase for the cutoff frequency, the frequency a decade below the cutoff frequency and the frequency a decade above the cutoff frequency.</p>
+<ul class="simple">
+<li><p>Using the pylab acquire the values of <span class="math notranslate nohighlight">\( V_ {in} \)</span>, frequency, <span class="math notranslate nohighlight">\( V_ {out} \)</span> and <span class="math notranslate nohighlight">\( \ phi \)</span> for a range of frequency values. Use <span class="math notranslate nohighlight">\( V_ {in} \)</span> = 2 V (<span class="math notranslate nohighlight">\( V_ {in} ^ {pp} = 1 \)</span> V) for the amplitude of the input signal.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>In the program, the values must be defined:</p>
+<ul>
+<li><p>initial frequency = 10 Hz</p></li>
+<li><p>final frequency = 100 kHz</p></li>
+<li><p>points = 30</p></li>
+</ul>
+</li>
+<li><p>Before using 30 points, scan with 10 points to make sure everything is correct.</p></li>
+</ul>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;figs/dados_sweep.csv&#39;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">data_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo_time&quot;</span><span class="p">,</span> <span class="n">data_time</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
+      <th>Vpp1 (V)</th>
+      <th>Vpp2 (V)</th>
+      <th>fase (graus)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.000000</td>
+      <td>1.990429</td>
+      <td>0.024232</td>
+      <td>-95.118858</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.738238</td>
+      <td>1.990429</td>
+      <td>0.030812</td>
+      <td>96.007477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18.873918</td>
+      <td>2.015002</td>
+      <td>0.037238</td>
+      <td>94.137146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>25.929438</td>
+      <td>2.002716</td>
+      <td>0.050049</td>
+      <td>92.331604</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>35.622479</td>
+      <td>1.990429</td>
+      <td>0.065398</td>
+      <td>92.706551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="downloadable-dataset-1">
+<span id="sec-dataset1"></span><h3>Downloadable dataset 1<a class="headerlink" href="#downloadable-dataset-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The data made available in Teams were obtained following the parameters above.</p></li>
+<li><p>Three files (.zip):</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true">Low-pass circuit</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true">High-pass circuit</a></p>
+<ul>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file contains:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.jpg</span></code> file with a photo of the circuit</p></li>
+<li><p>file <code class="docutils literal notranslate"><span class="pre">data_sweep.csv</span></code>: see an example of the structure of this file below.</p></li>
+<li><p>4 columns</p></li>
+<li><p>the phase (column <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">(degrees)</span></code> corresponds to <span class="math notranslate nohighlight">\( \phi = \phi_2- \phi_1 \)</span>)</p></li>
+<li><p>folder <code class="docutils literal notranslate"><span class="pre">traces-temporal-images</span></code>:</p>
+<ul>
+<li><p>files with the name <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> correspond to the scope traces used to calculate each of the parameters of the file<code class="docutils literal notranslate"> <span class="pre">data_sweep.csv</span></code>. The <code class="docutils literal notranslate"><span class="pre">xxx</span></code> numbering of the<code class="docutils literal notranslate"> <span class="pre">.bmp</span></code> files corresponds to the index available in the first column of the <code class="docutils literal notranslate"><span class="pre">data_sweep.csv</span></code> file</p></li>
+<li><p>Make sure that you can “read” the data from one of the <code class="docutils literal notranslate"><span class="pre">sweep_freq_xxx.bmp</span></code> files and get the corresponding result recorded in the<code class="docutils literal notranslate"> <span class="pre">data_sweep.csv</span></code> file.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
+<ul>
+<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="321ebc3c-414d-49b2-801c-d3ddea0acfde" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="321ebc3c-414d-49b2-801c-d3ddea0acfde">
+Frequency reponse data example</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="tbl-pandas" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
+      <th>Vpp1 (V)</th>
+      <th>Vpp2 (V)</th>
+      <th>fase (graus)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.000000</td>
+      <td>1.990429</td>
+      <td>0.024232</td>
+      <td>-95.118858</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.738238</td>
+      <td>1.990429</td>
+      <td>0.030812</td>
+      <td>96.007477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18.873918</td>
+      <td>2.015002</td>
+      <td>0.037238</td>
+      <td>94.137146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>25.929438</td>
+      <td>2.002716</td>
+      <td>0.050049</td>
+      <td>92.331604</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>35.622479</td>
+      <td>1.990429</td>
+      <td>0.065398</td>
+      <td>92.706551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="8e3b2002-27c3-4608-9cc8-5901cb932571" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="8e3b2002-27c3-4608-9cc8-5901cb932571">
+Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-highpass-scope-exemplo">
+<a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot of the oscilloscope for the high-pass with <span class="math notranslate nohighlight">\( f = 10 \)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="c094847c-8c3b-4a00-86f2-1e026afefb16" name="eecc217c-2ce4-446f-8bc8-8169e0a3a04c" type="radio">
+</input><label class="tabbed-label" for="c094847c-8c3b-4a00-86f2-1e026afefb16">
+Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="id2" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="an-application-of-a-high-pass-filter">
+<h3>An application of a high-pass filter<a class="headerlink" href="#an-application-of-a-high-pass-filter" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">5e-3</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
+<span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="o">=</span> <span class="mf">1e3</span><span class="p">,</span><span class="mf">0.5e3</span> <span class="c1"># frequencia e fase</span>
+<span class="n">v01</span><span class="p">,</span><span class="n">v02</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="c1"># amplitudes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f1 = </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f2 = </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f0 = (f1+f2)/2 = </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;δf = (f1-f2) = </span><span class="si">{}</span><span class="s1"> Hz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">f2</span><span class="p">)))</span>
+<span class="c1">#----</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1"># sinal v1(t)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1"># sinal v2(t)</span>
+<span class="c1">#----</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">v1</span><span class="o">+</span><span class="n">v2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;$v(t)=v_1(t)+v_2(t)$&#39;</span><span class="p">)</span>
+<span class="c1">#--------</span>
+<span class="c1">#formatação do gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># ativa grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_dois_sinais&quot;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;sinais_defasados.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f1 = 1000.0 Hz
+f2 = 500.0 Hz
+f0 = (f1+f2)/2 = 750.0 Hz
+δf = (f1-f2) = 500.0 Hz
+</pre></div>
+</div>
+<img alt="../../_images/exp1-guide_26_2.png" src="../../_images/exp1-guide_26_2.png" />
+</div>
+</div>
+<p>A very important real application of filters is to eliminate an undesired frequency component of an electrical signal. For example, it could a residue from the AC-line frequency (60 Hz) that could be contaminating an audio output from your stereo system. Let’s assume a given signal has only two frequencies componentes,</p>
+<div class="math notranslate nohighlight" id="equation-eq-soma-tensao">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
+<p>In the time domain this signal can be viewed as shown in the figure below.</p>
+<div class="figure align-center" id="fig-dois-sinais" style="width: 450px">
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_26_1.png" src="../../_images/exp1-guide_26_1.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Signal composed of two sine waves. <span class="math notranslate nohighlight">\( f_1 \)</span> = 1000 Hz and <span class="math notranslate nohighlight">\( f_2 \)</span> = 500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
+</div>
+<!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ --></div>
+<div class="section" id="effect-of-the-filter-on-the-signal-fourier-decomposition">
+<h3>Effect of the filter on the signal: Fourier decomposition<a class="headerlink" href="#effect-of-the-filter-on-the-signal-fourier-decomposition" title="Permalink to this headline">¶</a></h3>
+<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(2)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(5)</a> has two frequencies, making it impossible to use the eq. <code class="xref eq docutils literal notranslate"> <span class="pre">eq:gain</span></code> equation immediately. So how we proceed?</p>
+<p>Well, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Fourier’s theorem</a>, any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function <span class="math notranslate nohighlight">\( t \)</span> such that <span class="math notranslate nohighlight">\( F (t) = F (t + T) \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the period of the function. <span class="math notranslate nohighlight">\( F (t) \)</span> can be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
+<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(2)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-complex">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<p>where the relation betwenn the coeffiecient <span class="math notranslate nohighlight">\(c_n\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> is the following, <span class="math notranslate nohighlight">\(c_0=a_0/2\)</span> and <span class="math notranslate nohighlight">\(c_n=(a_n-jb_n)/2\)</span>, for <span class="math notranslate nohighlight">\(n\neq 0\)</span></p>
+<p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id3">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
+<!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><!---
+Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
+* Escolha a opção modulação;
+* calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
+--><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients known as the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">blackman</span>
+
+<span class="k">def</span> <span class="nf">fft540</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">amp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Função para calcular a FFT de um sinal. </span>
+<span class="sd">    Esta função é baseada no comando FFT no Numpy.  </span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        time {[float]} -- vetor de tempo</span>
+<span class="sd">        amp {[float]} -- vetor de amplitude</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        [float] -- vetor de frequências</span>
+<span class="sd">        [complex float] -- vetor de amplitudes complexas</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="c1">#### fft ####</span>
+    <span class="n">timestep</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># intervalo de amostragem = dt</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amp</span><span class="p">)</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">timestep</span> <span class="c1"># frequencia de amostragem</span>
+
+    <span class="c1">#vetor de frequencias (positivas e negativas)</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">timestep</span><span class="p">)</span>
+    <span class="c1">#fft</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">blackman</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># window to optimize the tranform, and minimize artifacts due to  finite time-window</span>
+    <span class="n">yfft</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">amp</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1"># fft computing and normalization, fator 2 para energia em freq. positivas</span>
+
+    <span class="k">return</span> <span class="n">freq</span><span class="p">[:</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="n">yfft</span><span class="p">[:</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following is an example of the use of FFT for the signal that you solve analytically in ex. <code class="xref std std-numref docutils literal notranslate"><span class="pre">ex:fourier1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">100e-3</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">))</span> <span class="c1"># vetor de tempo</span>
+<span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="o">=</span> <span class="mf">1e3</span><span class="p">,</span><span class="mi">50</span> <span class="c1"># frequencia e fase</span>
+<span class="n">v01</span><span class="p">,</span><span class="n">v02</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="c1"># amplitudes</span>
+<span class="c1">#----</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="c1"># sinal v1(t)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># sinal v2(t)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">v1</span><span class="o">+</span><span class="n">v2</span> <span class="c1"># soma dos dois sinais</span>
+<span class="c1">#---- Calculando FFT</span>
+<span class="n">freq</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">fft540</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!--
+v01,v02 = 2,2 # amplitudes
+f1,f2= 500,5e3 # frequencia e fase
+print((f1+f2)/2)
+print((f2-f1)/2)
+--><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### gráfico com 4 eixos###</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="c1">#tempo</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span>
+<span class="c1">#tempo com zoom</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(b)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - frequencias negativas e positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span><span class="s1">&#39;r*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(c)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - ZOOM - apenas frequencias positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span><span class="s1">&#39;r*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(d)&#39;</span><span class="p">)</span>
+<span class="c1">#ajustar e mostrar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_fft1&quot;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_36_1.png" src="../../_images/exp1-guide_36_1.png" />
+</div>
+</div>
+<p>The following graphs show the time signal and also the Fourier transform obtained by the FFT.</p>
+<div class="figure align-center" id="fig-fft1" style="width: 800px">
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_36_0.png" src="../../_images/exp1-guide_36_0.png" />
+</div>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="downloadable-dataset-2">
+<span id="sec-dataset2"></span><h3>Downloadable dataset 2<a class="headerlink" href="#downloadable-dataset-2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
+<ul>
+<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0e7b2eac-b8c0-4d7b-9e7c-47d326d0329e" name="d247b29b-db41-4534-9ed9-9c5b11a7cc50" type="radio">
+</input><label class="tabbed-label" for="0e7b2eac-b8c0-4d7b-9e7c-47d326d0329e">
+Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="id4" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 2 (V)&#39;</span><span class="p">]</span>
+<span class="n">freq</span><span class="p">,</span><span class="n">Y1</span> <span class="o">=</span> <span class="n">fft540</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span><span class="c1">### gráfico com 4 eixos###</span>
+<span class="n">freq</span><span class="p">,</span><span class="n">Y2</span> <span class="o">=</span> <span class="n">fft540</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span><span class="c1">### gráfico com 4 eixos###</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="c1">#tempo</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="c1"># ax0 .axvline(20,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="c1"># ax0 .axvline(25,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span>
+<span class="c1">#tempo com zoom</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># ax0.axvline(20,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="c1"># ax0.axvline(25,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(b)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - frequencias negativas e positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y1</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y2</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(c)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - ZOOM - apenas frequencias positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y1</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y2</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(d)&#39;</span><span class="p">)</span>
+<span class="c1">#ajustar e mostrar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_fft1&quot;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2894</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;time (s)&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">3</span><span class="n">eb68fcac355</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 2 (V)&#39;</span><span class="p">]</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2900</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2901</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2902</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2903</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2904</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2897</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">2898</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2899</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;time (s)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 2 (V)&#39;</span><span class="p">]</span>
+<span class="n">freq</span><span class="p">,</span><span class="n">Y1</span> <span class="o">=</span> <span class="n">fft540</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span><span class="c1">### gráfico com 4 eixos###</span>
+<span class="n">freq</span><span class="p">,</span><span class="n">Y2</span> <span class="o">=</span> <span class="n">fft540</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span><span class="c1">### gráfico com 4 eixos###</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="c1">#tempo</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="c1"># ax0 .axvline(20,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="c1"># ax0 .axvline(25,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span>
+<span class="c1">#tempo com zoom</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">ax0</span> <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># ax0.axvline(20,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="c1"># ax0.axvline(25,ls=&#39;--&#39;,c=&#39;gray&#39;)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(b)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - frequencias negativas e positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y1</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y2</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(c)&#39;</span><span class="p">)</span>
+<span class="c1">#fft linear - ZOOM - apenas frequencias positivas</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y1</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y2</span><span class="p">),</span><span class="s1">&#39;*-&#39;</span><span class="p">)</span> <span class="c1"># plotting the spectrum</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Freq (kHz)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;|Y(freq)|&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;(d)&#39;</span><span class="p">)</span>
+<span class="c1">#ajustar e mostrar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;fig_fft2&quot;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp1-guide_40_1.png" src="../../_images/exp1-guide_40_1.png" />
+</div>
+</div>
+<!--
+### Propriedades do gerador de RF
+* Calcule a impedância que o gerador percebe ao se conectar o circuito passa-baixas no mesmo. Mostre em um gráfico como esta impedância varia como função da frequência (utilize ```plt.semilogx```) 
+* Com base na tensão medida no canal de entrada ($V_1$) e o circuito Thevenin da nosso gerador, determine a impedância Thevenin do gerador $R_{Th}$
+--></div>
+</div>
+<div class="section" id="referencias">
+<h2>Referências<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p id="id5"><dl class="citation">
+<dt class="label" id="id8"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>D L Eggleston. <em>Basic Electronics for Scientists and Engineers</em>. Cambridge University Press, 2011. ISBN 9780521154307. URL: <a class="reference external" href="https://books.google.com.br/books?id=D1KVngEACAAJ">https://books.google.com.br/books?id=D1KVngEACAAJ</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/exp1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="complex_impedance.html" title="previous page">Background: Complex impedances</a>
+    <a class='right-next' id="next-link" href="exemplo_ajuste_rc.html" title="next page">Data analysis: Fitting the filter transfer function</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

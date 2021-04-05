@@ -9,10 +9,32 @@ repository:
 
 # Configure your Binder links, such as the URL of the BinderHub.
 launch_buttons:
-  binderhub_url             : https://mybinder.org
+  # binderhub_url             : https://mybinder.org
+  colab_url: "https://colab.research.google.com"
+  thebe: true
 
 latex:
   latex_documents:
     targetname: book.tex
 
 theme: jekyll-theme-minimal
+
+number_equations: true
+
+sphinx:
+  extra_extensions:
+    - sphinx_exercise
+  # config:
+    # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    # myst_enable_extensions: ["dollarmath", "amsmath"]
+
+
+bibtex_bibfiles:
+   - references.bib
+
+# parse:
+#   myst_enable_extensions:
+#     # don't forget to list any other extensions you want enabled,
+#     # including those that are enabled by default!
+#     - amsmath
+#     - dollarmath
