@@ -2,8 +2,44 @@
 
 Métodos da Físcia Experimental I: (F540 2s2020)
 
-* Texto base: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues
-* Adaptação Jupyter: Gustavo Wiederhecker
+* JupyterBook: Gustavo Wiederhecker
+* Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues
+
+In this experiment, circuits  containing a capacitor and
+a resistor will be investigated. These circuits allow us to measure the electric current
+(resistor) or the electrical charge (capacitor) that flows in the circuits. The
+amplitude and phase of the current or electric charge depend on the frequency. This dependency
+motivates their usage and their application as frequency filters, such as 
+low-pass or high-pass filters.
+
+To understand this behavior, it is essential to review the concept of
+frequency response, that is, as the response of a given system
+linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston's book  (chapter 2) {cite}`eggleston2011basic`.
+
+:::{admonition} Goals
+:class: tip
+-   Understand the relationships between sinusoidal voltages and currents in circuits containing resistors, capacitors and inductors.
+
+-   Understand how these circuits can be used as filters of     electrical signals.
+
+- Determine the frequency response of the amplitude and phase of 
+     RC filters; low-pass, high-pass
+
+-   Describe the behavior of filters through graphs of
+     transmittance and phase on a logarithmic scale (Bode diagrams).
+:::
+
+
+
+:::{admonition} Items to include in your lab report
+:class: warning
+1. Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in {ref}`sec:dataset1`.
+2. In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in {doc}`example_ajuste_rc`
+    * Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade? 
+3. Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided {ref}`sec:dataset2`.
+     * The difference between the two signals is that the channel 2 signal was filtered by an RC circuit. Determine whether the circuit used was a high-pass or low-pass.
+4. Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.
+:::
 
 #-----------------------------
 #Pacote para manipular vetores e matrizes
@@ -33,42 +69,9 @@ import SchemDraw.elements as e
 d = schem.Drawing(unit=2.5) # unit=2.5 determina o tamanho dos componentes
 # %config InlineBackend.figure_format = 'svg'
 
-Neste experimento serão investigados circuitos contento um capacitor e
-um resistor. Estes circuitos nos permitem medir a corrente elétrica
-(resistor) ou a carga elétrica (capacitor) que fluem nos circuitos. A
-amplitude e a fase da corrente ou carga elétrica dependem da frequência. Esta dependência é que
-motiva e denominação desses circuitos como filtros de frequência, pois eles modificam como cada frequência é transmitida pelo mesmo. dos
-tipos passa-baixas ou passa-altas.
-
-Para compreender este comportamento é fundamental revisar o conceito de
-resposta em frequência, ou seja, como a resposta de um dado sistema
-linear se comporta como função da frequência de excitação, portanto, é
-recomendado que o aluno revise o assunto no livro de sua preferência. O
-capítulo 2 do livro do Brophy (Eletrônica básica)  é uma boa
-opção, ou mesmo um livro sobre equações diferenciais ordinárias.
-{cite}`eggleston2011basic`
-
-:::{admonition} Objetivos
-:class: tip
--   Compreender as relações entre tensões e correntes senoidais em
-    circuitos contendo resistores, capacitores e indutores.
-
--   Compreender como estes circuitos podem ser utilizados como filtros
-    de sinais elétricos.
-
--   Determinar a resposta em frequência da amplitude e fase de filtros
-    RC, RL e RLC; passa-baixas, passa-altas, passa-bandas,
-    rejeita-bandas.
-
--   Descrever o comportamento de filtros através de gráficos de
-    transmitância e fase em escala logarítmica (diagramas de Bode).
-:::
-
-
-
 ## Frequency response of filters
 
-Considere os diagrama dos  circuitos mostrados na figura abaixo. Todos são exemplos de divisores de tensão AC que comportam-se como filtros de frequência.
+Consider the circuit diagrams shown in the figure below. All are examples of AC voltage dividers that behave as frequency filters.
 
 d = schem.Drawing(unit=2.5,)
 compsL = [['R','C'],['C','R'],['L','R'],['R','L']]
@@ -91,9 +94,9 @@ for i,comp in enumerate(compsL):
 # glue("fig_filtros_diversos", display(d.draw()),display=False)
 d.draw()
 
-No laboratório, uma possível implementação de um desses circuito tem o aspecto da {ref}`foto_filtro_pa`:
+In the laboratory, a possible implementation of one of these circuits has the aspect of {numref}`foto_filtro_pa`:
 
-```{figure} figs/foto_passa_altas.jpg
+```{figure} figs/foto_passa_altas_small.jpg
 ---
 width: 450px
 name: foto_filtro_pa
@@ -101,23 +104,21 @@ name: foto_filtro_pa
 Filtro passa-altas montado em uma protoboard.
 ```
 
-O efeito da filtragem desses circuitos pode ser notado observando o comportamento do sinal com um osciloscópio. Por exemplo, o filtro passa-altas RC se manifesta como na figura {ref}`highpass_scope`. 
+The filtering effect of these circuits can be seen by observing the behavior of the signal with an oscilloscope. For example, the RC high-pass filter  behavior manifests as in the {numref}`highpass_scope`. 
 
 ```{figure} figs/sweep_freq_pa_000.png
 ---
 width: 450px
 name: highpass_scope
 ---
-Filtro passa-altas RC (R=300,C=470 nF), frequência 10 Hz. O sinal em azul representa o sinal de entrada, enquanto o laranja representa o sinal de saída.
+High-pass RC filter (R = 300, C = 470 nF), frequency 10 Hz. The blue trace represents the input signal, while the orange trace represents the output signal.
 ```
 
-## Amplitude and phase-shifts (amplitude e deslocamento de fase)
+## Measuring amplitude and phase-shifts 
 
-Todo circuito elétrico cuja resposta depende da frequência introduz uma defasagem no sinal de saída em relação ao sinal de entrada. Os filtros passa-baixa e passa-alta estudados são dois exemplos típicos. A figura abaixo ilustra o sinal de entrada ($V_{in}$) e saída ($V_{out}$) de um filtro passa-alta atuando em um sinal de baixa frequência. Notem que os sinais não estão em fase. O valor da defasagem $\phi$ pode ser obtido medindo-se a diferença de tempo $\Delta t$ entre os instantes que elas cruzam 0 Volts ou entre dois máximos das funções senoidais de entrada e saída e o período $T$.
+Any electrical circuit whose response depends on the frequency introduces a lag in the output signal relative to the input signal. The low-pass and high-pass filters studied below are two typical examples. The figure below illustrates the input ($ V_ {in} $) and output ($ V_ {out} $) signals associated with a high-pass filter. Note that the signals are not in phase. The value of the $ \phi $ lag can be obtained by measuring the time difference $ \Delta t $ between their zero-crossing voltages.
 
-$$ 
-\phi = 2\ \pi\ \cfrac{\Delta t}{T}
-$$ (eq:fase)
+$$ \phi= 2\ \pi\ \cfrac{\Delta t}{T} $$ (eq:phase)
 
 
 t = np.linspace(0,2e-3,100) # vetor de tempo
@@ -147,14 +148,16 @@ plt.title('Dois sinais com mesma  frequência (1 kHz) e \n defasagem de $\phi=+{
 glue("fig_fase_exemplo",fig,display=False)
 #plt.savefig('sinais_defasados.pdf')
 
-Notem que a {eq}`eq:fase` permite-nos relacionar a medida no osciloscópio (diferença de tempo) com a diferença de fase, como ilustrado na {ref}`fig:exemplo_fase`
+Note that eq. {eq}`eq:phase` allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in {numref}`fig:example_phase`
 ```{glue:figure} fig_fase_exemplo
 :figwidth: 400px
-:name: "fig:fase_exemplo"
+:name: fig:example_phase
 :align: center
 
-Exemplo de diferença de fase entre dois sinais. A fase aqui é do sinal 2 em relação ao 1, $\phi=\phi_2-\phi_1$, portanto, o sinal 2 está **adiantado** em relação ao 1.
+Example of phase difference between two signals. The phase here is of signal 2 relative to 1, $ \phi = \phi_2- \phi_1 $, therefore, signal 2 is ** ahead ** of 1.
 ```
+
+
 
 t = np.linspace(0,1e-3,100) # vetor de tempo
 f,ϕ1,ϕ2 = 2e3,0, np.pi/2+ np.pi/3*np.random.randn()  # frequencia e fase
@@ -182,44 +185,44 @@ plt.tight_layout()
 plt.savefig('figs/ex_delta_fase.png', bbox_inches='tight')
 #plt.savefig('sinais_defasados.pdf')
 
-````{exercise} Diferença de fase entre sinais
+````{exercise} Phase difference between signals
 :label: ex:fase_delta1
 
-Considere a figura a seguir e determine:
+Consider the following figure and determine:
 
 ```{image} figs/ex_delta_fase.png
 :alt: circuit picture
 :width: 400px
 :align: center
 ```
-* a frequência dos sinais
-* a diferença de fase entre os sinais
+* the frequency of the signals
+* the phase difference between the signals
 ```` 
 
 ````{solution} ex:fase_delta1
 :label: exs:fase_delta1
 
-Para resolver esse resolver este exercício, primeiro calcule a diferente de tempo entre as ondas, depois utilize a equação {eq}`eq:fase` encontrar a diferença de fase.
+To solve this problem, first calculate the time difference between the waves, then use the eq. {eq}`eq:phase` to find the phase difference.
 
 ````
 
-````{exercise} Diferença de fase entres sinais no osciloscópio
-:label: ex:fase_delta2
+````{exercise} Phase difference between signals on the oscilloscope
+: label: ex:fase_delta2
 
-Considerando  a tela do osciloscópio que foi capturada utilizando um circuito RC:
+Considering the oscilloscope screen that was captured using an RC circuit:
 
-```{image} figs/sweep_freq_PA_000.png
+```{image} figs / sweep_freq_PA_000.png
 :alt: oscilloscope traces
 :width: 400px
 :align: center
 ```
-* A amplitude $v_j\pm\delta v_j$([V]) de cada sinal;
-* A frequência $f$ [1/s] (e $\omega$ [rad/s])  dos sinais ;
-* A diferença de fase entre os sinais, $\phi=\phi_2-\phi_1$, considere o sinal da fase!
-* Com base na fase calculada, trata-se de um filtro passa-baixas ou passa-altas? Justifique.
+* The amplitude $ v_j \pm \delta v_j $ ([V]) of each signal;
+* The frequency $ f $ [1 / s] (and $ \omega $ [rad / s]) of the signals;
+* The phase difference between the signals, $ \phi = \phi_2- \phi_1 $, consider the phase signal!
+* Based on the calculated phase, indicate whether is it a low-pass or high-pass filter? Justify.
 ```` 
 
-## Filtros RC: passa-altas (PA) e passa-baixas (PB)
+## RC filters: high-pass (HP) and low-pass (LP)
 
 d = schem.Drawing(unit=2.5)
 #fonte
@@ -239,107 +242,123 @@ d.add(e.DOT_OPEN)
 d.draw()
 d.save('figs/filtro_pb_esquema.png')
 
-O circuito abaixo ilustra um caso de filtro onde os sinais de baixa frequência têm suas amplitudes atenuadas, enquanto sinais de alta frequência são transmitidos quase sem atenuação. Monte o filtro passa-alta usando R = 300 $\Omega$, C = 470 nF. 
+The circuit below illustrates a filter case where the low frequency signals have their amplitudes attenuated, while high frequency signals are transmitted almost without attenuation. Mount the high-pass filter using $R = 300 $ \Omega $, $C = 470$ nF.
 ```{figure} figs/filtro_pb_esquema.png
 ---
 width: 300px
-name: fig:filtro_pb_esquema
+name: fig:filter_pb_scheme
 ---
-Esquemático de um filtro passa-baixas.
+Schematic of a low-pass filter.
 ```
 
-A função de transferência $H(\omega)$ ou ganho do circuito $G(\omega)$ são definidos como,
+The transfer function$ H (\ omega) $  or voltage gain $ G (\ omega) $ are defined as,
 
 $$
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
-$$ (eq:ganho)
-sendo que $v_{out,in}$ representam as amplitudes  e $\phi\equiv \phi_{out}-\phi_{in}$ a diferença de fase.
+$$(eq:gain)
+where $ v_ {out, in} $ represents the amplitudes and $ \ phi \ equiv \ phi_ {out} - \ phi_ {in} $ the phase difference.
 
-Experimentalmente, as amplitudes e diferença de fase são medidas separadamente, como feito no exercício {ref}`ex:fase_delta2`. Como a {ref}`eq:ganho` contém informações sobre amplitude e fase dos sinais, ela será representada através de dois gráficos (diagrama de Bode). 
-Um gráfico para a amplitude transmitida pelo filtro,
+Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise {numref}`ex:fase_delta2`. As the eq. {eq}`eq:gain` contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
+One for the amplitude,
+
 $$
 G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_{in}^{(pp)}}\right)
 $$ (eq:bode_gdb_experimental)
-e outra para a diferença de fase,
+
+and the other for the phase difference,
+
 $$
 \phi = \arg(G(\omega))=\arg\left(\cfrac{v_{out}}{v_{in}}\exp(j\phi)\right)=\phi
 $$ (eq:bode_phi_experimental)
 
-### Preparação para o experimento
-
+### Preparation for the experiment
 
 ````{exercise} Preparação para experimento
 :label: ex:prep_exp1
 
-* Demonstre a função de transferência (Ganho de tensão) para este circuito. Utilize as impedâncias complexas para isto.
-* Qual a frequência de corte do circuito?.
-* Como ele se comporta (impedância total e tensão de saída).
-* Com o mínimo de matemática, tente visualizar como a fase do sinal $V_{out}$ se altera em relação à $V_{in}$.
-* Qual efeito de $R_{Th}$ na resposta do circuito? Ele altera a medida de $V_{out}(f)$, $V_{in}(f)$ e $V_{out}(f)/V_{in}(f)$ ?
+* Demonstrate the transfer function (voltage gain) for this circuit. Use complex impedances for this.
+* What is the circuit cutoff frequency ?.
+* How it behaves (total impedance and output voltage).
+* With a minimum of math, try to see how the phase of the $ V_ {out} $ signal changes from $ V_ {in} $.
+* What effect does $ R_ {th} $ have on the circuit response? Does it change the measure of $ V_ {out} (f) $, $ V_ {in} (f) $ and $ V_ {out} (f) / V_ {in} (f) $?
 
-Simulação do circuito:
-* Utilize o TinkerCAD para montar o circuito da figura {ref}`fig:filtro_pb_esquema`, investigue seu comportamento. 
-* Utilize o QUCS para explorar o comportamento.
+Circuit simulation:
+* Use TinkerCAD to assemble the circuit of the figure {numref}`fig:filter_pb_scheme`, investigate its behavior.
+* Use QUCS to explore the behavior.
 
 ```` 
 
-### Adquirindo os dados experimentais
-
-
-Utilize o gerador de sinais para analisar o comportamento de e da fase $\phi$ para a frequência de corte, a frequência uma década abaixo da frequência de corte e a frequência uma década acima da frequência de corte. 
-* Utilizando o pylab adquira os valores de $V_{in}$, frequência, $V_{out}$ e $\phi$ para uma faixa de valores de frequência. Use $V_{in}$ = 2 V ($V_{in}^{pp}=1 $ V) para a amplitude do sinal de entrada. 
-
-```{note}
-* No programa devem ser definidos os valores:
-    * frequência inicial= 10 Hz
-    * frequência final = 100 kHz
-    * pontos = 30
-* Antes de utilizar 30 pontos, faça uma varredura com 10 pontos para certificar que está tudo correto.
-```
+### Acquiring experimental data
 
 ```{warning}
-A aquisição de dados não será realizada no 1s2021!
+Data acquisition will not take place in 1s2021!
+```
+
+
+Use the signal generator to analyze the behavior of and of the $ \ phi $ phase for the cutoff frequency, the frequency a decade below the cutoff frequency and the frequency a decade above the cutoff frequency.
+* Using the pylab acquire the values of $ V_ {in} $, frequency, $ V_ {out} $ and $ \ phi $ for a range of frequency values. Use $ V_ {in} $ = 2 V ($ V_ {in} ^ {pp} = 1 $ V) for the amplitude of the input signal.
+
+```{note}
+* In the program, the values must be defined:
+     * initial frequency = 10 Hz
+     * final frequency = 100 kHz
+     * points = 30
+* Before using 30 points, scan with 10 points to make sure everything is correct.
 ```
 
 import pandas as pd
 data = pd.read_csv('figs/dados_sweep.csv')
 glue("df_pandas_exemplo", data.head())
+data_time = pd.read_csv('dados/fft_exemplo_experimental_pa_00_34_22.dat')
+glue("df_pandas_exemplo_time", data_time.head())
 
-### Dados disponibilizados
-* Os dados disponibilizados no Teams foram obtidos seguindos os parâmetros acima.
-* Dois arquivos (.zip): 
-    * [Circuito passa-baixas](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true)
-    * [Circuito passa-altas](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true)
-* Cada arquivos `.zip` contém:
-    * arquivo `.jpg` com uma fotografia do circuito
-    * arquivo `dados_sweep.csv`: veja exemplo da estrutura desse arquivo a seguir.
-        * 4 colunas
-        * a fase (coluna `fase (graus)` corresponde a $\phi = \phi_2-\phi_1$) 
-    * pasta `traços-temporal-imagens`:
-        * arquivos com nome `sweep_freq_xxx.bmp` correspondendo ao traço temporal utilizado para fazer calcular cada um dos parâmetros do arquivo `dados_sweep.csv`. A numeração `xxx` dos arquivos `.bmp` corresponde ao número presente na primeira coluna  do arquivo `dados_sweep.csv`
-        * Certifique-se que você consegue "ler" os dados de um dos arquivos `sweep_freq_xxx.bmp` e obter o resultado correspondente registrado no arquivo `dados_sweep.csv`
+(sec:dataset1)=
+### Downloadable dataset 1
+* The data made available in Teams were obtained following the parameters above.
+* Three files (.zip):
+    * [Low-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true)
+    * [High-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true)
+        * Each `.zip` file contains:
+         * `.jpg` file with a photo of the circuit
+         * file `data_sweep.csv`: see an example of the structure of this file below.
+         * 4 columns
+         * the phase (column `phase (degrees)` corresponds to $ \phi = \phi_2- \phi_1 $)
+         * folder `traces-temporal-images`:
+             * files with the name `sweep_freq_xxx.bmp` correspond to the scope traces used to calculate each of the parameters of the file` data_sweep.csv`. The `xxx` numbering of the` .bmp` files corresponds to the index available in the first column of the `data_sweep.csv` file
+             * Make sure that you can "read" the data from one of the `sweep_freq_xxx.bmp` files and get the corresponding result recorded in the` data_sweep.csv` file.
+* [Two-frequencies signals](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true)
+    * the two `.dat` files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.
 
 
-````{tabbed} Exemplos tabela de dados
+````{tabbed} Frequency reponse data example
 ```{glue:figure} df_pandas_exemplo
 :figwidth: 600px
 :name: "tbl:pandas"
 :align: center
 
-Estrutura do arquivo de dados `.csv`, o separador entre as colunas é `,`.
+Structure of the `.csv` data file, the separator between entries is a comma (`,`).
 ```
 ````
-````{tabbed} Exemplos screenshot osciloscópio
+````{tabbed} Examples oscilloscope screenshot
 ```{figure} figs/sweep_freq_pa_000.png
 ---
 width: 450px
 name: "fig:highpass_scope_exemplo"
 ---
-Screenshot do osciloscópio para o passa-altas com $f=10$ Hz!
+Screenshot of the oscilloscope for the high-pass with $ f = 10 $ Hz!
+```
+````
+````{tabbed} Two-tone oscilloscope trace xample
+```{glue:figure} df_pandas_exemplo_time
+:figwidth: 600px
+:name: "tbl:pandas"
+:align: center
+
+Structure of the `.csv` data file, the separator between entries is a comma (`,`).
 ```
 ````
 
-### Aplicação do filtro passa-alta
+### An application of a high-pass filter
 
 t = np.linspace(0,5e-3,500) # vetor de tempo
 f1,f2= 1e3,0.5e3 # frequencia e fase
@@ -363,41 +382,43 @@ plt.ylabel('Amplitude (V)')
 glue("fig_dois_sinais",fig,display=False)
 #plt.savefig('sinais_defasados.pdf')
 
-Uma aplicação real muito importante de filtrs é eliminar uma componente indesejada de um sinal elétrico. Suponha um sinal que possui apenas duas frequências,
+A very important real application of filters is to eliminate an undesired frequency component of an electrical signal. For example, it could a residue from the AC-line frequency (60 Hz) that could be contaminating an audio output from your stereo system. Let's assume a given signal has only two frequencies componentes,
 
 $$v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).$$ (eq:soma_tensao)
 
-No domínio do tempo este sinal pode ser visualizado como é mostrado na figura abaixo.
+In the time domain this signal can be viewed as shown in the figure below.
 
 ```{glue:figure} fig_dois_sinais
 :figwidth: 450px
 :name: "fig:dois_sinais"
 :align: center
 
-Sinal composto por duas ondas senoidais. $f_1$=1000 Hz e $f_2$=500 Hz
+Signal composed of two sine waves. $ f_1 $ = 1000 Hz and $ f_2 $ = 500 Hz
 ```
 
-Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$
+<!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ -->
 
-### Efeito do filtro sobre o sinal: Decomposição de Fourier
+### Effect of the filter on the signal: Fourier decomposition
 
-O cálculo da função de transferência seguindo a equação {ref}`eq:ganho` exige que os sinais de entrada e saída sejam senoidais, ou seja, contenham apenas uma única frequência. Naturalmente, a equação {ref}`eq:soma_tensao` possui duas frequências, impossibilitando o uso imediato da equação {ref}`eq:ganho`. E agora José?
+The calculation of the transfer function following the equation {eq}`eq:gain` requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. {eq}`eq:soma_tensao` has two frequencies, making it impossible to use the eq. {eq}` eq:gain` equation immediately. So how we proceed?
 
 
-Bom, de acordo com o teorema de Fourier, qualquer função periódica bem comportada pode ser representada por uma somatória de funções harmônicas. Considere uma função dependente do tempo $t$ tal que $F(t) = F(t+T)$, em que $T$ e o período da função. $F(t)$ pode ser escrita como: 
+Well, according to [Fourier's theorem](https://en.wikipedia.org/wiki/Fourier_series), any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function $ t $ such that $ F (t) = F (t + T) $, where $ T $ is the period of the function. $ F (t) $ can be written as:
 
 $$ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)$$ (eq:fourier)
 
-O exemplo da eq. {ref}`eq:soma_tensao` é um caso simples da eq. {ref}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.
+Therefore, we can still use eq. {eq}`eq:gain` provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,
 
-````{exercise} Determine os coeficientes de Fourier
-:label: ex:fourier1
+$$ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,$$ (eq:fourier_complex)
 
-Seguindo a notação da eq. {ref}`eq:fourier`, determine os coeficientes de Fourier do seguinte sinal:
+where the relation betwenn the coeffiecient $c_n$ and $a_n$ is the following, $c_0=a_0/2$ and $c_n=(a_n-jb_n)/2$, for $n\neq 0$ 
 
-$$ V(t) =  (1 V)\cos(2\pi 10^3 t+\pi/4)+ (2 V) \cos(40\pi t).$$ (eq:soma_tensao_exemplo)
+For instance, if the function $F(t)$ above is applied to the filter's input, the output would be:
 
-```` 
+$$ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,$$ (eq:fourier_complex_out)
+
+If you want to learn more about this, I suggest section 2.8 of Eggleston's book {cite}`eggleston2011basic`.
+<!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.-->
 
 <!---
 Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
@@ -405,7 +426,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 * calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
 -->
 
-Quanto temos um sinal sobre o qual não conhecemos a função analítica que o geral, existe uma técnica numérica poderosa para se obter os coeficientes de Fourier, a transformada rápida de Fourier ou FFT (*Fast Fourier Transform*). A função a seguir foi definida para facilitar nosso cálculo da FFT.
+When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients known as the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT.
 
 from scipy.signal import blackman
 
@@ -429,12 +450,12 @@ def fft540(time,amp):
     #vetor de frequencias (positivas e negativas)
     freq = np.fft.fftfreq(n, d=timestep)
     #fft
-    w = blackman(n)
+    w = blackman(n) # window to optimize the tranform, and minimize artifacts due to  finite time-window
     yfft = 2*np.fft.fft(w*amp)/n # fft computing and normalization, fator 2 para energia em freq. positivas
 
     return freq[:n//2], yfft[:n//2]
 
-A seguir exemplificamos o uso da FFT para o sinal que você resolver analíticamente no ex. {ref}`ex:fourier1`.
+The following is an example of the use of FFT for the signal that you solve analytically in ex. {numref}`ex:fourier1`.
 
 t = np.linspace(0,100e-3,int(1e5)) # vetor de tempo
 f1,f2= 1e3,50 # frequencia e fase
@@ -446,10 +467,12 @@ v = v1+v2 # soma dos dois sinais
 #---- Calculando FFT
 freq,Y = fft540(t,v)
 
+<!--
 v01,v02 = 2,2 # amplitudes
 f1,f2= 500,5e3 # frequencia e fase
 print((f1+f2)/2)
 print((f2-f1)/2)
+-->
 
 ### gráfico com 4 eixos###
 fig, ax = plt.subplots(2, 2,figsize=[10,7])
@@ -496,22 +519,28 @@ ax0.set_title('(d)')
 plt.tight_layout()
 glue("fig_fft1",fig,display=False)
 
-Nos gráficos seguintes, são mostrados o sinal temporal e também a transformada de Fourier obtida pelo FFT. 
+The following graphs show the time signal and also the Fourier transform obtained by the FFT.
 ```{glue:figure} fig_fft1
 :figwidth: 800px
 :name: "fig:fft1"
 :align: center
 
-(a) Traço temporal; (b) Zoom do traço temporal entre as linhas cinza pontilhadas de (a); (c) Magnitude da FFT ; (d) Magnitude da FFT, zoom   entre as linhas cinza pontilhadas de (c)
+(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)
 ```
 
-## **Itens para incluir no relatório**
+(sec:dataset2)=
+### Downloadable dataset 2
+* [Two-frequencies signals](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true)
+    * the two `.dat` files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.
 
-````{important}
-* Gráficos dos diagramas de Bode dos filtros passa-altas e passa-baixas. Você deverá gerar os gráficos, a partir dos dados disponibilizados
-* No mesmo gráfico dos dados, incluir as curvas que representam o ajuste (*fitting*) das funções de transferência. Um exemplo desse procedimento em Python pode ser visto em  {doc}`exemplo_ajuste_rc` 
-* Utilize a função FFT no Python ou em programa de sua preferência para calcule a transformada de Fourier dos sinais disponíveis nesse arquivo.
-    * A diferença entre os dois sinais é que o sinal do canal 2, foi filtrado por um circuito RC. Determine se o circuito utilizado foi um passa-altas ou passa-baxas. 
+````{tabbed} Two-tone oscilloscope trace xample
+```{glue:figure} df_pandas_exemplo_time
+:figwidth: 600px
+:name: "tbl:pandas"
+:align: center
+
+Structure of the `.csv` data file, the separator between entries is a comma (`,`).
+```
 ````
 
 import pandas as pd
@@ -625,13 +654,14 @@ ax0.set_title('(d)')
 plt.tight_layout()
 glue("fig_fft2",fig,display=False)
 
+<!--
 ### Propriedades do gerador de RF
 * Calcule a impedância que o gerador percebe ao se conectar o circuito passa-baixas no mesmo. Mostre em um gráfico como esta impedância varia como função da frequência (utilize ```plt.semilogx```) 
 * Com base na tensão medida no canal de entrada ($V_1$) e o circuito Thevenin da nosso gerador, determine a impedância Thevenin do gerador $R_{Th}$
+-->
 
 ## Referências
 
 ```{bibliography}
 :style: unsrt
 ```
-

@@ -1,6 +1,14 @@
-<a href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/lectures/complex_impedance.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+# Background: Complex impedances
 
-# Complex impendances
+:::{admonition} Goals
+:class: tip
+-  Familiarizar com ondas senoidais e suas propriedades: amplitude, fase, frequência e período
+
+-  Entender os casos mais comuns de controle de fluxo em programas em Python
+
+-  Fazer gráficos elementares utilizando o pacote Matplotlib
+:::
+
 
 ## Loading packages
 

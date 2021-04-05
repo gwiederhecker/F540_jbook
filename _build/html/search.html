@@ -47,11 +47,13 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="_static/searchtools.js"></script>
@@ -93,7 +95,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -105,19 +107,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="guides/exp1/complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -127,69 +151,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="guides/exp1/exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="examples/Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="examples/Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="guides/exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>

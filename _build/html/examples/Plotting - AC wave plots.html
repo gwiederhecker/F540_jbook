@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Here we explore basic aspects of plots of sinusoids and related stuff. &#8212; F540 Interactive Book</title>
+    <title>Basics of AC waves &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -46,17 +46,21 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python basics" href="Basics%20-%20Python.html" />
-    <link rel="prev" title="Fitting Filter Transfer Function" href="../guides/exp1/exemplo_ajuste_rc.html" />
+    <link rel="next" title="Solving Kirchhoff’s law ordinary differential equation" href="Sympy%20-%20symbolic%20manipulation.html" />
+    <link rel="prev" title="Python basics" href="Basics%20-%20Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,7 +93,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -101,19 +105,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/complex_impedance.html">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -123,69 +149,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -261,6 +237,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Plotting - AC wave plots.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -276,32 +260,32 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports-the-numpy-and-matplotlib-libraries">
+   Imports the numpy and matplotlib libraries
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aula-1">
-   Aula 1
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties">
+   Properties
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#defasagem">
-     Defasagem
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funcao-resposta-diagramas-de-bode">
-     Função resposta, diagramas de Bode
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amplitude-period">
+     Amplitude,  period
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#average-dc-level-and-rms-amplitude">
+   Average, DC level and RMS amplitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#response-function-and-bode-diagrams">
+   Response function and Bode diagrams
+  </a>
  </li>
 </ul>
 
@@ -315,13 +299,16 @@
         
               <div>
                 
-  <div class="section" id="here-we-explore-basic-aspects-of-plots-of-sinusoids-and-related-stuff">
-<h1>Here we explore basic aspects of plots of sinusoids and related stuff.<a class="headerlink" href="#here-we-explore-basic-aspects-of-plots-of-sinusoids-and-related-stuff" title="Permalink to this headline">¶</a></h1>
-<p>Neste notebook, serão explorados alguns aspectos elementares de ondas senoidas e representação da resposta destes circuitos .
-Última atualização: 28 de setembro de 2020</p>
+  <div class="section" id="basics-of-ac-waves">
+<h1>Basics of AC waves<a class="headerlink" href="#basics-of-ac-waves" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Familiarize with sine waves and their properties: amplitude, phase, frequency and period</p></li>
+</ul>
 </div>
-<div class="section" id="importa-as-bibliotecas-numpy-e-matplotlib">
-<h1>Importa as bibliotecas numpy e matplotlib<a class="headerlink" href="#importa-as-bibliotecas-numpy-e-matplotlib" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="imports-the-numpy-and-matplotlib-libraries">
+<h2>Imports the numpy and matplotlib libraries<a class="headerlink" href="#imports-the-numpy-and-matplotlib-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -342,41 +329,44 @@
 </div>
 </div>
 </div>
-<p>Gerar os grafícos no próprio notebook, ao invés de uma janela separada:</p>
-<p>Graficando funções senoidas com diferença de fase:</p>
 </div>
-<div class="section" id="aula-1">
-<h1>Aula 1<a class="headerlink" href="#aula-1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="defasagem">
-<h2>Defasagem<a class="headerlink" href="#defasagem" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="amplitude-period">
+<h3>Amplitude,  period<a class="headerlink" href="#amplitude-period" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#------------------------</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span>
 <span class="c1">#criando vetores para representar</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span>
 <span class="n">y2</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">y3</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">t</span>
 <span class="c1">#------------------------</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;--k&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">&#39;--k&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="s1">&#39;-k&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">2.25</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="c1">#------------</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
         <span class="s1">&#39;amplitude&#39;</span><span class="p">,</span>
         <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">))</span>
 <span class="c1">#------------</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-        <span class="s1">&#39;amplitude pico-pico&#39;</span><span class="p">,</span>
-        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.55</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;&lt;-&gt;&#39;</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="s1">&#39;amplitude peak-to-peak&#39;</span><span class="p">,</span>
+        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;&lt;-&gt;&#39;</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <span class="c1">#------------</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-        <span class="s1">&#39;periodo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;period&#39;</span><span class="p">,</span>
         <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.25</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;&lt;-&gt;&#39;</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">2.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">))</span>
 <span class="c1">##------------</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;tempo (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;tensão (V)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Voltage (V)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]))</span>
 <span class="c1">#------------------------------------</span>
 <span class="c1">#fig.savefig(&#39;onda_ac.pdf&#39;)</span>
@@ -387,38 +377,58 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1, 1.1)
 </pre></div>
 </div>
-<img alt="../_images/Plotting - AC wave plots_7_1.png" src="../_images/Plotting - AC wave plots_7_1.png" />
+<img alt="../_images/Plotting - AC wave plots_6_1.png" src="../_images/Plotting - AC wave plots_6_1.png" />
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="average-dc-level-and-rms-amplitude">
+<h2>Average, DC level and RMS amplitude<a class="headerlink" href="#average-dc-level-and-rms-amplitude" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following signal
+$<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\phi)\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#------------------------</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span>
-<span class="n">y3</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">t</span>
-<span class="n">y5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#--------</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># amplitude DC ou valor médio</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#amplitude</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span> <span class="c1"># fase</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># frequencia angular</span>
+<span class="c1">#--------</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">omega</span> <span class="c1"># período</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">vdc</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span>
 <span class="c1">#------------------------</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y5</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="s1">&#39;-k&#39;</span><span class="p">)</span>
-<span class="c1">#------------</span>
+<span class="n">yrms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y0</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># media rms</span>
+<span class="n">ymean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span> <span class="c1"># media</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span> <span class="c1"># maximo </span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span> <span class="c1"># mínimo</span>
+<span class="c1">#------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$y_0(t)$&#39;</span><span class="p">)</span>
+<span class="c1"># ax.plot(t, y0**2, linestyle=&#39;--&#39;,label = &#39;$y_0(t)^2$&#39;)</span>
+<span class="c1">#--</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">yrms</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymean</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;_</span><span class="si">{rms}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># ax.axhline(-v0)</span>
+<span class="c1"># ax.plot(t,y3,&#39;-k&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span><span class="o">+</span><span class="mf">0.1</span><span class="p">])</span>
 <span class="c1">##------------</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;tempo (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;tensão (V)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">fig1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;$\cos$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\cos^2$&#39;</span><span class="p">,</span><span class="s1">&#39;$V_</span><span class="si">{rms}</span><span class="s1">$&#39;</span><span class="p">),</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span> <span class="c1"># legenda de fora do gráfico</span>
 <span class="c1">#------------------------------------</span>
 <span class="c1">#fig.savefig(&#39;onda_ac_rms.pdf&#39;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fddd5577790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda9ca6d850&gt;
 </pre></div>
 </div>
-<img alt="../_images/Plotting - AC wave plots_8_1.png" src="../_images/Plotting - AC wave plots_8_1.png" />
+<img alt="../_images/Plotting - AC wave plots_9_1.png" src="../_images/Plotting - AC wave plots_9_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -448,7 +458,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1, 1.1)
 </pre></div>
 </div>
-<img alt="../_images/Plotting - AC wave plots_9_1.png" src="../_images/Plotting - AC wave plots_9_1.png" />
+<img alt="../_images/Plotting - AC wave plots_10_1.png" src="../_images/Plotting - AC wave plots_10_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -474,10 +484,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fddd5e16f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda9cfeee10&gt;
 </pre></div>
 </div>
-<img alt="../_images/Plotting - AC wave plots_10_1.png" src="../_images/Plotting - AC wave plots_10_1.png" />
+<img alt="../_images/Plotting - AC wave plots_11_1.png" src="../_images/Plotting - AC wave plots_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -503,22 +513,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fddd6014d50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda9d0576d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/Plotting - AC wave plots_11_1.png" src="../_images/Plotting - AC wave plots_11_1.png" />
+<img alt="../_images/Plotting - AC wave plots_12_1.png" src="../_images/Plotting - AC wave plots_12_1.png" />
 </div>
 </div>
 </div>
-<div class="section" id="funcao-resposta-diagramas-de-bode">
-<h2>Função resposta, diagramas de Bode<a class="headerlink" href="#funcao-resposta-diagramas-de-bode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="response-function-and-bode-diagrams">
+<h2>Response function and Bode diagrams<a class="headerlink" href="#response-function-and-bode-diagrams" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">lomega</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
-<span class="n">C</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">;</span>
-<span class="n">L</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">;</span>
-<span class="n">R</span><span class="o">=.</span><span class="mi">5</span><span class="p">;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">C</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">;</span>
+<span class="n">L</span><span class="o">=</span><span class="mf">50e-3</span><span class="p">;</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span>
 <span class="n">j</span><span class="o">=</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">Xc</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">C</span><span class="p">);</span>
 <span class="n">Xl</span><span class="o">=</span><span class="n">omega</span><span class="o">*</span><span class="n">L</span><span class="p">;</span>
@@ -545,22 +554,32 @@
 <span class="c1">#****************************</span>
 <span class="c1">#AMPLITUDE</span>
 <span class="c1">#****************************</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="c1">#ax.plot(lomega,100*np.angle(Hr,deg=True),&#39;--k&#39;,linewidth=2,label=&#39;omega&#39;)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lomega</span><span class="p">,</span><span class="n">Tldb</span><span class="p">,</span><span class="n">lomega</span><span class="p">,</span><span class="n">Tcdb</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;omega&#39;</span><span class="p">)</span>
-<span class="c1">#ax.plot(lomega,Tcdb,&#39;-g&#39;,linewidth=2)</span>
-<span class="c1">#ax.plot(lomega,Tldb,&#39;-b&#39;,linewidth=2)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#-----</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span><span class="n">Tldb</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;inductor output&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span><span class="n">Tcdb</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;capacitor output&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Diagrama de Bode&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;log(freq.)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bode Diagram&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T (dB)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#-----</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">Hl</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;inductor output&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">Hc</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;capacitor output&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (deg)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#-----</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fddd607d390&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fda9d181990&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_15_1.png" src="../_images/Plotting - AC wave plots_15_1.png" />
@@ -573,7 +592,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -594,8 +613,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../guides/exp1/exemplo_ajuste_rc.html" title="previous page">Fitting Filter Transfer Function</a>
-    <a class='right-next' id="next-link" href="Basics%20-%20Python.html" title="next page">Python basics</a>
+    <a class='left-prev' id="prev-link" href="Basics%20-%20Python.html" title="previous page">Python basics</a>
+    <a class='right-next' id="next-link" href="Sympy%20-%20symbolic%20manipulation.html" title="next page">Solving Kirchhoff’s law ordinary differential equation</a>
 
         </div>
         

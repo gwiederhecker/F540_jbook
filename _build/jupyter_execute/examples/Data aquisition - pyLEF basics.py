@@ -1,3 +1,10 @@
+# Data aquisition with pyLEF
+
+:::{admonition} Goals
+:class: tip
+-  Demonstrate the usage of the package pyLEF to control BK-4052 function generator and Tektronic TBS1062 oscilloscopes
+:::
+
 import pylef   # importar pylef 
 import visa    # importar a bilioteca pyVISA para lidar com virtualização de instrumentos
 import matplotlib.pyplot as plt  # importar a bilioteca pyplot para fazer gráficos

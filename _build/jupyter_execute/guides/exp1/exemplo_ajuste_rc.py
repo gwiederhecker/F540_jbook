@@ -1,4 +1,9 @@
-# Fitting Filter Transfer Function
+# Data analysis: Fitting the filter transfer function
+
+:::{admonition} Goals
+:class: tip
+-  Learn how to load and fit a model to data using Python
+:::
 
 <span style='color:red'>OBS:Antes de usar este notebook, faça-te um favor e instale o Python através da distribuição Anaconda. Deve ser utilizado o Python versão >3.</span>
 https://www.anaconda.com/download/
@@ -46,7 +51,7 @@ Em decibéis,
 
 $$T_{dB}=10\log_{10}(T)$$(eq:trans_db)
 
-As equações {eq}```(eq:trans_lin)``` e {eq}```{eq:trans_db}``` são calculadas a seguir:
+As equações {eq}`eq:trans_lin` e {eq}`eq:trans_db` são calculadas a seguir:
 
 #*********************************************
 #calculando transmistancia a partir dos vetores de vpp

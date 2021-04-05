@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#---------------------
+fig_size = (14,10)
+fig,ax = plt.subplots(2, 2, figsize = fig_size)
+alphahv = 0.7
+#---------------------
+#Parâmetros numéricos
+R = 100 # resistencia R1
+Vdc, V0 = 0, 1.5 # nível DC, amplitude
+fname = 'resistor_V0_{:}_Vdc_{:}'.format(V0,Vdc).replace('.','p')+'.mp4'
+plt_label = "Resistor"
+c1 = [e.RES,'R_1={:}Ω'.format(R)]
+c2 = [e.RBOX,'I(V)=RI']
+lab1 = r'$I(V)$'
+anima_curva_carga(200)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-9-0db5ff63ba28>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0mc2[0m [0;34m=[0m [0;34m[[0m[0me[0m[0;34m.[0m[0mRBOX[0m[0;34m,[0m[0;34m'I(V)=RI'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0mlab1[0m [0;34m=[0m [0;34mr'$I(V)$'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0manima_curva_carga[0m[0;34m([0m[0;36m200[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-3-375363cd516c>[0m in [0;36manima_curva_carga[0;34m(nframes, movie_duration, ω)[0m
+[1;32m    196[0m     [0;31m#Salvando resultado[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    197[0m     ani.save(fname, writer='ffmpeg', dpi=150 ,
+[0;32m--> 198[0;31m              fps=nframes/movie_duration)#,savefig_kwargs={'bbox_inches',[2,2]})
+[0m
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/animation.py[0m in [0;36msave[0;34m(self, filename, writer, fps, dpi, codec, bitrate, extra_args, metadata, extra_anim, savefig_kwargs, progress_callback)[0m
+[1;32m   1139[0m                 [0;32mfor[0m [0manim[0m[0;34m,[0m [0md[0m [0;32min[0m [0mzip[0m[0;34m([0m[0mall_anim[0m[0;34m,[0m [0mdata[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1140[0m                     [0;31m# TODO: See if turning off blit is really necessary[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1141[0;31m                     [0manim[0m[0;34m.[0m[0m_draw_next_frame[0m[0;34m([0m[0md[0m[0;34m,[0m [0mblit[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1142[0m                     [0;32mif[0m [0mprogress_callback[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1143[0m                         [0mprogress_callback[0m[0;34m([0m[0mframe_number[0m[0;34m,[0m [0mtotal_frames[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/animation.py[0m in [0;36m_draw_next_frame[0;34m(self, framedata, blit)[0m
+[1;32m   1174[0m         [0;31m# post- draw, as well as the drawing of the frame itself.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1175[0m         [0mself[0m[0;34m.[0m[0m_pre_draw[0m[0;34m([0m[0mframedata[0m[0;34m,[0m [0mblit[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1176[0;31m         [0mself[0m[0;34m.[0m[0m_draw_frame[0m[0;34m([0m[0mframedata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1177[0m         [0mself[0m[0;34m.[0m[0m_post_draw[0m[0;34m([0m[0mframedata[0m[0;34m,[0m [0mblit[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1178[0m [0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/animation.py[0m in [0;36m_draw_frame[0;34m(self, framedata)[0m
+[1;32m   1724[0m         [0;31m# Call the func with framedata and args. If blitting is desired,[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1725[0m         [0;31m# func needs to return a sequence of any artists that were modified.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1726[0;31m         [0mself[0m[0;34m.[0m[0m_drawn_artists[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_func[0m[0;34m([0m[0mframedata[0m[0;34m,[0m [0;34m*[0m[0mself[0m[0;34m.[0m[0m_args[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1727[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_blit[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1728[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0m_drawn_artists[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-3-375363cd516c>[0m in [0;36manimate[0;34m(i)[0m
+[1;32m     51[0m         [0;31m#----------[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     52[0m         [0;31m#Grafico 3[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 53[0;31m         [0mdschem[0m[0;34m.[0m[0melements[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0msegments[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mcolor[0m [0;34m=[0m [0mcm[0m[0;34m([0m[0mdivnorm[0m[0;34m([0m[0mIdVec[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     54[0m         [0mdschem[0m[0;34m.[0m[0melements[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m.[0m[0msegments[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mcolor[0m [0;34m=[0m [0mcm[0m[0;34m([0m[0mdivnorm[0m[0;34m([0m[0mIdVec[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     55[0m         [0mdschem[0m[0;34m.[0m[0melements[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m.[0m[0msegments[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mcolor[0m [0;34m=[0m [0mcm[0m[0;34m([0m[0mdivnorm[0m[0;34m([0m[0mIdVec[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'Drawing' object has no attribute 'elements'
+AttributeError: 'Drawing' object has no attribute 'elements'
+

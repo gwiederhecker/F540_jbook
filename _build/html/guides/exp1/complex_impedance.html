@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complex impendances &#8212; F540 Interactive Book</title>
+    <title>Background: Complex impedances &#8212; F540 Interactive Book</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -48,9 +48,9 @@
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Guide to Experiment 1: RC filters" href="exp1-guide.html" />
-    <link rel="prev" title="Bem-vindo às notas digitais de F540." href="../../intro/intro.html" />
+    <link rel="prev" title="Solving Kirchhoff’s law ordinary differential equation" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,7 +91,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../README.html">
-   F540_jbook
+   Syllabus
   </a>
  </li>
 </ul>
@@ -103,19 +103,41 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../intro/intro.html">
-   Bem-vindo às notas digitais de F540.
+   Welcome to F540 Jupyter book
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Experiment 1
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Complex impendances
+   Background: Complex impedances
   </a>
  </li>
  <li class="toctree-l1">
@@ -125,69 +147,19 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="exemplo_ajuste_rc.html">
-   Fitting Filter Transfer Function
+   Data analysis: Fitting the filter transfer function
   </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Python examples
+  Diodes (exp. 2)
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
-   Here we explore basic aspects of plots of sinusoids and related stuff.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#importa-as-bibliotecas-numpy-e-matplotlib">
-   Importa as bibliotecas numpy e matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html#aula-1">
-   Aula 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
-   Python basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#python-arrays">
-   Python arrays - []
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#flow-control">
-   Flow control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#functions">
-   Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Basics%20-%20Python.html#loading-data-google-colab">
-   Loading data (Google colab)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
-   Solving Kirchhoff’s law ordinary differential equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html">
-   Varredura
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/Data%20aquisition%20-%20pyLEF%20basics.html#varredura-salvando-tracos-temporais">
-   Varredura salvando traços temporais
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
   </a>
  </li>
 </ul>
@@ -263,6 +235,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/guides/exp1/complex_impedance.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -366,9 +346,16 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/lectures/complex_impedance.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="complex-impendances">
-<h1>Complex impendances<a class="headerlink" href="#complex-impendances" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="background-complex-impedances">
+<h1>Background: Complex impedances<a class="headerlink" href="#background-complex-impedances" title="Permalink to this headline">¶</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Familiarizar com ondas senoidais e suas propriedades: amplitude, fase, frequência e período</p></li>
+<li><p>Entender os casos mais comuns de controle de fluxo em programas em Python</p></li>
+<li><p>Fazer gráficos elementares utilizando o pacote Matplotlib</p></li>
+</ul>
+</div>
 <div class="section" id="loading-packages">
 <h2>Loading packages<a class="headerlink" href="#loading-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -970,7 +957,7 @@ sendo que \)</span>\tilde{i}_0=i_0\exp(j\phi)$</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gwiederhecker/F540_jbook",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -991,7 +978,7 @@ sendo que \)</span>\tilde{i}_0=i_0\exp(j\phi)$</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../intro/intro.html" title="previous page">Bem-vindo às notas digitais de F540.</a>
+    <a class='left-prev' id="prev-link" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" title="previous page">Solving Kirchhoff’s law ordinary differential equation</a>
     <a class='right-next' id="next-link" href="exp1-guide.html" title="next page">Guide to Experiment 1: RC filters</a>
 
         </div>

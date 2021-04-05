@@ -1,8 +1,11 @@
-# Here we explore basic aspects of plots of sinusoids and related stuff.
-Neste notebook, serão explorados alguns aspectos elementares de ondas senoidas e representação da resposta destes circuitos .
-Última atualização: 28 de setembro de 2020
+# Basics of AC waves
 
-# Importa as bibliotecas numpy e matplotlib
+:::{admonition} Goals
+:class: tip
+-  Familiarize with sine waves and their properties: amplitude, phase, frequency and period
+:::
+
+## Imports the numpy and matplotlib libraries
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,61 +22,81 @@ plt.rc('font', **font)
 #Ajsutando espessura das linhas padrão dos gráficos
 plt.rcParams['lines.linewidth'] = 2;
 
-Gerar os grafícos no próprio notebook, ao invés de uma janela separada:
+## Properties
 
-Graficando funções senoidas com diferença de fase:
-
-# Aula 1
-
-## Defasagem
+### Amplitude,  period
 
 #------------------------
 t = np.linspace(0, 3,100)
-phi = np.pi/6
-y0 = np.cos(2*np.pi*t)
+phi = 0
+y0 = np.cos(2*np.pi*t+phi)
 #criando vetores para representar
 y1 = 0*t+1
 y2 =  0*t-1
 y3 =  0*t
 #------------------------
-fig = plt.figure(figsize=(10,6))
-fig1 = plt.plot(t,y1,'--k',t,y0,t,y2,'--k',t,y3,'-k')
+fig,ax = plt.subplots(figsize=(8,6))
+ax.plot(t,y0)
+ax.scatter(1.25,0)
+ax.scatter(2.25,0)
+ax.axhline( 0, linestyle='-.', color='gray')
+ax.axhline( 1, linestyle='-.', color='red')
+ax.axhline( -1, linestyle='-.', color='red')
 #------------
 plt.annotate(
         'amplitude',
         xy=(1.5,1), arrowprops=dict(arrowstyle='->'), xytext=(1.2, .5))
 #------------
 plt.annotate(
-        'amplitude pico-pico',
-        xy=(0.55,1), arrowprops=dict(arrowstyle='<->'), xytext=(0.0, -1))
+        'amplitude peak-to-peak',
+        xy=(1,1), arrowprops=dict(arrowstyle='<->'), xytext=(0.6, -1))
 #------------
 plt.annotate(
-        'periodo',
+        'period',
         xy=(1.25,-0.05), arrowprops=dict(arrowstyle='<->'), xytext=(2.25, -0.1))
 ##------------
-plt.xlabel('tempo (s)')
-plt.ylabel('tensão (V)')
+plt.xlabel('time (s)')
+plt.ylabel('Voltage (V)')
 plt.ylim(1.1*np.array([-1.0,1.0]))
 #------------------------------------
 #fig.savefig('onda_ac.pdf')
 
+## Average, DC level and RMS amplitude
+
+Consider the following signal
+$$y(t)=v_{dc}+v_0 \cos(\omega t +\phi)$$
+
+#--------
+vdc = 2 # amplitude DC ou valor médio
+v0 = 1 #amplitude
+phi = np.pi/6 # fase
+omega = 2*np.pi # frequencia angular
+#--------
+T = 2*np.pi/omega # período
+t = np.linspace(0, 3*T, 100) # vetor de tempo
+y0 = vdc + v0*np.cos(omega*t+phi)
 #------------------------
-t = np.linspace(0, 3,100)
-phi = np.pi/6
-y0 = np.cos(2*np.pi*t)
-y1 = 0*t+1/2**(0.5)
-y2 =  0*t-1
-y3 =  0*t
-y5 = np.cos(2*np.pi*t)**2
+yrms = np.sqrt(np.mean(y0**2)) # media rms
+ymean = np.mean(y0) # media
+ymax = np.max(y0) # maximo 
+ymin = np.min(y0) # mínimo
 #------------------------
-fig = plt.figure()
-fig1 = plt.plot(t,y0,t,y5,'-r',t,y1,'-g',t,y3,'-k')
-#------------
+fig, ax = plt.subplots()
+ax.plot(t, y0, label = '$y_0(t)$')
+# ax.plot(t, y0**2, linestyle='--',label = '$y_0(t)^2$')
+#--
+ax.axhline( yrms, linestyle='--', color='green', label='$<{y}>$')
+ax.axhline( ymean, linestyle='--', color='gray', label='$<{y}>_{rms}$')
+ax.axhline( ymax, linestyle='-.', color='red')
+ax.axhline( ymin, linestyle='-.', color='red')
+# ax.axhline(-v0)
+# ax.plot(t,y3,'-k')
+plt.grid(True)
+plt.ylim([-np.max(y0)-0.1,np.max(y0)+0.1])
 ##------------
 plt.xlabel('tempo (s)')
 plt.ylabel('tensão (V)')
-plt.ylim(1.1*np.array([-1.0,1.0]))
-plt.legend(iter(fig1), ('$\cos$', '$\cos^2$','$V_{rms}$'),loc='lower right')
+plt.legend(bbox_to_anchor=(1.0, 0.5), loc='center left') # legenda de fora do gráfico
 #------------------------------------
 #fig.savefig('onda_ac_rms.pdf')
 
@@ -132,16 +155,12 @@ plt.legend(iter(fig1), ('0','pi','"0"-"pi"'),loc='upper right')
 #------------------------------------
 #fig.savefig('defasagem3.pdf')
 
+## Response function and Bode diagrams
 
-
-
-## Função resposta, diagramas de Bode
-
-omega=np.logspace(0,6,200)
-lomega=np.log10(omega)
-C=1e-3;
-L=1e-3;
-R=.5;
+omega=np.logspace(1,6,200)
+C=1e-6;
+L=50e-3;
+R=200;
 j=complex(0,1);
 Xc=1/(omega*C);
 Xl=omega*L;
@@ -163,15 +182,25 @@ name='bode_rlc_l'
 #****************************
 #AMPLITUDE
 #****************************
-fig = plt.figure()
-ax = fig.add_subplot(111)
-#ax.plot(lomega,100*np.angle(Hr,deg=True),'--k',linewidth=2,label='omega')
-ax.plot(lomega,Tldb,lomega,Tcdb,'-r',linewidth=2,label='omega')
-#ax.plot(lomega,Tcdb,'-g',linewidth=2)
-#ax.plot(lomega,Tldb,'-b',linewidth=2)
+fig,axs = plt.subplots(2,1,figsize=(6,8),sharex=True)
+#-----
+ax = axs[0]
+ax.plot(omega,Tldb,'-b',linewidth=2,label='inductor output')
+ax.plot(omega,Tcdb,'-r',linewidth=2,label='capacitor output')
+ax.set_xscale('log')
 ax.set_ylim((-40,10))
-ax.set_title('Diagrama de Bode')
-ax.set_xlabel('log(freq.)')
+ax.set_title('Bode Diagram')
 ax.set_ylabel('T (dB)')
-ax.legend(loc='lower right')
+ax.grid(True)
+#-----
+ax = axs[1]
+ax.plot(omega,np.angle(Hl,deg=True),'-b',linewidth=2,label='inductor output')
+ax.plot(omega,np.angle(Hc,deg=True),'-r',linewidth=2,label='capacitor output')
+ax.set_xscale('log')
+ax.set_xlabel('Frequency (Hz)')
+ax.set_ylabel('Phase (deg)')
+ax.grid(True)
+#-----
+plt.tight_layout()
+ax.legend(bbox_to_anchor = [1.0,0.5],loc='center left')
 
