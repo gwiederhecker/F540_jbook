@@ -34,8 +34,9 @@ linear behaves as a function of the excitation frequency, so it is recommended t
 :::{admonition} Items to include in your lab report
 :class: warning
 1. Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in {ref}`sec:dataset1`.
-2. In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in {doc}`example_ajuste_rc`
+2. In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in {doc}`exemplo_ajuste_rc`
     * Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade? 
+    * Based on on the intersection between the asymptotes, provide an estimate of the cut-off frequency of the filter. Estimate the RC constant of the filter based on your estimate, compare with your fitting results.
 3. Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided {ref}`sec:dataset2`.
      * The difference between the two signals is that the channel 2 signal was filtered by an RC circuit. Determine whether the circuit used was a high-pass or low-pass.
 4. Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.
@@ -106,7 +107,7 @@ Filtro passa-altas montado em uma protoboard.
 
 The filtering effect of these circuits can be seen by observing the behavior of the signal with an oscilloscope. For example, the RC high-pass filter  behavior manifests as in the {numref}`highpass_scope`. 
 
-```{figure} figs/sweep_freq_pa_000.png
+```{figure} figs/sweep_freq_pa.png
 ---
 width: 450px
 name: highpass_scope
@@ -211,7 +212,7 @@ To solve this problem, first calculate the time difference between the waves, th
 
 Considering the oscilloscope screen that was captured using an RC circuit:
 
-```{image} figs/sweep_freq_PA_000.png
+```{image} figs/sweep_freq_pa.png
 :alt: oscilloscope traces
 :width: 400px
 :align: center
@@ -256,6 +257,7 @@ The transfer function$ H (\omega) $  or voltage gain $ G (\omega) $ are defined 
 $$
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
 $$(eq:gain)
+
 where $ v_{out, in} $ represents the amplitudes and $ \phi \equiv \phi_ {out} - \phi_ {in} $ the phase difference.
 
 Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise {numref}`ex:fase_delta2`. As the eq. {eq}`eq:gain` contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
@@ -291,7 +293,7 @@ Circuit simulation:
 ### Acquiring experimental data
 
 ```{warning}
-Data acquisition will not take place in 1s2021!
+Due to COVID-19 campus access restrictions, data acquisition will not take place in 1s2021!
 ```
 
 
@@ -326,9 +328,6 @@ glue("df_pandas_exemplo_time", data_time.head())
          * folder `traces-temporal-images`:
              * files with the name `sweep_freq_xxx.bmp` correspond to the scope traces used to calculate each of the parameters of the file` data_sweep.csv`. The `xxx` numbering of the` .bmp` files corresponds to the index available in the first column of the `data_sweep.csv` file
              * Make sure that you can "read" the data from one of the `sweep_freq_xxx.bmp` files and get the corresponding result recorded in the` data_sweep.csv` file.
-* [Two-frequencies signals](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true)
-    * the two `.dat` files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.
-
 
 ````{tabbed} Frequency reponse data example
 ```{glue:figure} df_pandas_exemplo
@@ -340,21 +339,12 @@ Structure of the `.csv` data file, the separator between entries is a comma (`,`
 ```
 ````
 ````{tabbed} Examples oscilloscope screenshot
-```{figure} figs/sweep_freq_pa_000.png
+```{figure} figs/sweep_freq_pa.png
 ---
 width: 450px
 name: "fig:highpass_scope_exemplo"
 ---
 Screenshot of the oscilloscope for the high-pass with $ f = 10 $ Hz!
-```
-````
-````{tabbed} Two-tone oscilloscope trace xample
-```{glue:figure} df_pandas_exemplo_time
-:figwidth: 600px
-:name: "tbl:pandas"
-:align: center
-
-Structure of the `.csv` data file, the separator between entries is a comma (`,`).
 ```
 ````
 
@@ -400,7 +390,7 @@ Signal composed of two sine waves. $ f_1 $ = 1000 Hz and $ f_2 $ = 500 Hz
 
 ### Effect of the filter on the signal: Fourier decomposition
 
-The calculation of the transfer function following the equation {eq}`eq:gain` requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. {eq}`eq:soma_tensao` has two frequencies, making it impossible to use the eq. {eq}` eq:gain` equation immediately. So how we proceed?
+The calculation of the transfer function following the equation {eq}`eq:gain` requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. {eq}`eq:soma_tensao` has two frequencies, making it impossible to use the eq. {eq}`eq:gain` equation immediately. So how we proceed?
 
 
 Well, according to [Fourier's theorem](https://en.wikipedia.org/wiki/Fourier_series), any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function $ t $ such that $ F (t) = F (t + T) $, where $ T $ is the period of the function. $ F (t) $ can be written as:
@@ -419,12 +409,6 @@ $$ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}
 
 If you want to learn more about this, I suggest section 2.8 of Eggleston's book {cite}`eggleston2011basic`.
 <!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.-->
-
-<!---
-Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
-* Escolha a opção modulação;
-* calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
--->
 
 When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.
 
@@ -455,7 +439,7 @@ def fft540(time,amp):
 
     return freq[:n//2], yfft[:n//2]
 
-The following is an example of the use of FFT for the signal that you solve analytically in ex. {numref}`ex:fourier1`.
+The following is an example of the use of FFT for a two-tones  signal.
 
 t = np.linspace(0,100e-3,int(1e5)) # vetor de tempo
 f1,f2= 1e3,50 # frequencia e fase
@@ -536,7 +520,7 @@ The following graphs show the time signal and also the Fourier transform obtaine
 ````{tabbed} Two-tone oscilloscope trace xample
 ```{glue:figure} df_pandas_exemplo_time
 :figwidth: 600px
-:name: "tbl:pandas"
+:name: "tbl:pandas2"
 :align: center
 
 Structure of the `.csv` data file, the separator between entries is a comma (`,`).

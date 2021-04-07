@@ -337,7 +337,7 @@ motivates their usage and their application as frequency filters, such as
 low-pass or high-pass filters.</p>
 <p>To understand this behavior, it is essential to review the concept of
 frequency response, that is, as the response of a given system
-linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
+linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="#id6"><span>1</span></a>]</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Goals</p>
 <ul class="simple">
@@ -353,9 +353,10 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <p class="admonition-title">Items to include in your lab report</p>
 <ol class="simple">
 <li><p>Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in <a class="reference internal" href="#sec-dataset1"><span class="std std-ref">Downloadable dataset 1</span></a>.</p></li>
-<li><p>In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in <span class="xref std std-doc">example_ajuste_rc</span></p>
+<li><p>In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in <a class="reference internal" href="exemplo_ajuste_rc.html"><span class="doc">Data analysis: Fitting the filter transfer function</span></a></p>
 <ul class="simple">
 <li><p>Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade?</p></li>
+<li><p>Based on on the intersection between the asymptotes, provide an estimate of the cut-off frequency of the filter. Estimate the RC constant of the filter based on your estimate, compare with your fitting results.</p></li>
 </ul>
 </li>
 <li><p>Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided <a class="reference internal" href="#sec-dataset2"><span class="std std-ref">Downloadable dataset 2</span></a>.</p>
@@ -438,7 +439,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 </div>
 <p>The filtering effect of these circuits can be seen by observing the behavior of the signal with an oscilloscope. For example, the RC high-pass filter  behavior manifests as in the <a class="reference internal" href="#highpass-scope"><span class="std std-numref">Fig. 2</span></a>.</p>
 <div class="figure align-default" id="highpass-scope">
-<a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">High-pass RC filter (R = 300, C = 470 nF), frequency 10 Hz. The blue trace represents the input signal, while the orange trace represents the output signal.</span><a class="headerlink" href="#highpass-scope" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -544,7 +545,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <p class="admonition-title"><span class="caption-number">Exercise 3 </span>(Phase difference between signals on the oscilloscope)</p>
 <div class="section" id="exercise-content">
 <p>Considering the oscilloscope screen that was captured using an RC circuit:</p>
-<a class="reference internal image-reference" href="../../_images/sweep_freq_PA_000.png"><img alt="oscilloscope traces" class="align-center" src="../../_images/sweep_freq_PA_000.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="oscilloscope traces" class="align-center" src="../../_images/sweep_freq_pa.png" style="width: 400px;" /></a>
 <ul class="simple">
 <li><p>The amplitude <span class="math notranslate nohighlight">\( v_j \pm \delta v_j \)</span> ([V]) of each signal;</p></li>
 <li><p>The frequency <span class="math notranslate nohighlight">\( f \)</span> [1/s] and angular frequency <span class="math notranslate nohighlight">\( \omega \)</span> [rad/s] of the signals;</p></li>
@@ -628,7 +629,7 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 <h3>Acquiring experimental data<a class="headerlink" href="#acquiring-experimental-data" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Data acquisition will not take place in 1s2021!</p>
+<p>Due to COVID-19 campus access restrictions, data acquisition will not take place in 1s2021!</p>
 </div>
 <p>Use the signal generator to analyze the behavior of and of the <span class="math notranslate nohighlight">\( \ phi \)</span> phase for the cutoff frequency, the frequency a decade below the cutoff frequency and the frequency a decade above the cutoff frequency.</p>
 <ul class="simple">
@@ -815,15 +816,10 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
-<ul>
-<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
-</ul>
-</li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="28ae6d9a-33f1-4fe0-b980-36d3e84d6284" name="9096a822-9063-4780-8978-540ceaad05ee" type="radio">
-</input><label class="tabbed-label" for="28ae6d9a-33f1-4fe0-b980-36d3e84d6284">
+<input checked="checked" id="2a9d7625-b48e-470c-bcc6-19111f5e910a" name="03d0ae02-256c-4a31-8f28-4056f0aa23aa" type="radio">
+</input><label class="tabbed-label" for="2a9d7625-b48e-470c-bcc6-19111f5e910a">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -899,83 +895,12 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="956a87f0-d0a5-4842-8f68-4d1fa06d735f" name="9096a822-9063-4780-8978-540ceaad05ee" type="radio">
-</input><label class="tabbed-label" for="956a87f0-d0a5-4842-8f68-4d1fa06d735f">
+<input id="c5d1303e-fde0-4702-9b24-6198cd569d4b" name="03d0ae02-256c-4a31-8f28-4056f0aa23aa" type="radio">
+</input><label class="tabbed-label" for="c5d1303e-fde0-4702-9b24-6198cd569d4b">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
-<a class="reference internal image-reference" href="../../_images/sweep_freq_pa_000.png"><img alt="../../_images/sweep_freq_pa_000.png" src="../../_images/sweep_freq_pa_000.png" style="width: 450px;" /></a>
+<a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Screenshot of the oscilloscope for the high-pass with <span class="math notranslate nohighlight">\( f = 10 \)</span> Hz!</span><a class="headerlink" href="#fig-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<input id="db472313-9eb6-43ef-9594-2293a79f0d3e" name="9096a822-9063-4780-8978-540ceaad05ee" type="radio">
-</input><label class="tabbed-label" for="db472313-9eb6-43ef-9594-2293a79f0d3e">
-Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
-<div class="figure align-center" id="id2" style="width: 600px">
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>time (s)</th>
-      <th>Channel 1 (V)</th>
-      <th>Channel 2 (V)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>-0.01252</td>
-      <td>0.28</td>
-      <td>-0.34</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>-0.01251</td>
-      <td>0.16</td>
-      <td>-0.42</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>-0.01250</td>
-      <td>0.12</td>
-      <td>-0.48</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>-0.01249</td>
-      <td>0.06</td>
-      <td>-0.48</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>-0.01248</td>
-      <td>0.06</td>
-      <td>-0.44</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -1026,12 +951,12 @@ f0 = (f1+f2)/2 = 750.0 Hz
 <div class="cell_output docutils container">
 <img alt="../../_images/exp1-guide_26_1.png" src="../../_images/exp1-guide_26_1.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Signal composed of two sine waves. <span class="math notranslate nohighlight">\( f_1 \)</span> = 1000 Hz and <span class="math notranslate nohighlight">\( f_2 \)</span> = 500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Signal composed of two sine waves. <span class="math notranslate nohighlight">\( f_1 \)</span> = 1000 Hz and <span class="math notranslate nohighlight">\( f_2 \)</span> = 500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
 </div>
 <!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ --></div>
 <div class="section" id="effect-of-the-filter-on-the-signal-fourier-decomposition">
 <h3>Effect of the filter on the signal: Fourier decomposition<a class="headerlink" href="#effect-of-the-filter-on-the-signal-fourier-decomposition" title="Permalink to this headline">¶</a></h3>
-<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(4)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(7)</a> has two frequencies, making it impossible to use the eq. <code class="xref eq docutils literal notranslate"> <span class="pre">eq:gain</span></code> equation immediately. So how we proceed?</p>
+<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(4)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(7)</a> has two frequencies, making it impossible to use the eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> equation immediately. So how we proceed?</p>
 <p>Well, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Fourier’s theorem</a>, any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function <span class="math notranslate nohighlight">\( t \)</span> such that <span class="math notranslate nohighlight">\( F (t) = F (t + T) \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the period of the function. <span class="math notranslate nohighlight">\( F (t) \)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier">
 <span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
@@ -1042,12 +967,8 @@ f0 = (f1+f2)/2 = 750.0 Hz
 <p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
 <span class="eqno">(10)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
-<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id3">[<a class="reference internal" href="#id8"><span>1</span></a>]</span>.</p>
-<!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><!---
-Note que no nosso gerador de funções, é necessário utilizar a função de modulação para gerar os dois sinais simultaneamente:
-* Escolha a opção modulação;
-* calcule a frequência $f_0,\delta f$ a partir das frequências dos sinais desejados;
---><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.</p>
+<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id2">[<a class="reference internal" href="#id6"><span>1</span></a>]</span>.</p>
+<!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">blackman</span>
@@ -1080,7 +1001,7 @@ Note que no nosso gerador de funções, é necessário utilizar a função de mo
 </div>
 </div>
 </div>
-<p>The following is an example of the use of FFT for the signal that you solve analytically in ex. <code class="xref std std-numref docutils literal notranslate"><span class="pre">ex:fourier1</span></code>.</p>
+<p>The following is an example of the use of FFT for a two-tones  signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">100e-3</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">))</span> <span class="c1"># vetor de tempo</span>
@@ -1151,15 +1072,15 @@ print((f2-f1)/2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_36_1.png" src="../../_images/exp1-guide_36_1.png" />
+<img alt="../../_images/exp1-guide_35_1.png" src="../../_images/exp1-guide_35_1.png" />
 </div>
 </div>
 <p>The following graphs show the time signal and also the Fourier transform obtained by the FFT.</p>
 <div class="figure align-center" id="fig-fft1" style="width: 800px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_36_0.png" src="../../_images/exp1-guide_36_0.png" />
+<img alt="../../_images/exp1-guide_35_0.png" src="../../_images/exp1-guide_35_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="downloadable-dataset-2">
@@ -1172,10 +1093,10 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="6e3cce7a-cdf1-49fa-80be-e8dd95089622" name="f76694dc-cacf-4591-b247-68d04531af1a" type="radio">
-</input><label class="tabbed-label" for="6e3cce7a-cdf1-49fa-80be-e8dd95089622">
+<input checked="checked" id="ac034193-6cab-42af-9175-db83a5678016" name="299bc356-91d4-48ed-904c-e6cca6e3b946" type="radio">
+</input><label class="tabbed-label" for="ac034193-6cab-42af-9175-db83a5678016">
 Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
-<div class="figure align-center" id="id4" style="width: 600px">
+<div class="figure align-center" id="tbl-pandas2" style="width: 600px">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1240,7 +1161,7 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
   </tbody>
 </table>
 </div></div></div>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -1411,7 +1332,7 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_40_1.png" src="../../_images/exp1-guide_40_1.png" />
+<img alt="../../_images/exp1-guide_39_1.png" src="../../_images/exp1-guide_39_1.png" />
 </div>
 </div>
 <!--
@@ -1422,8 +1343,8 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="referencias">
 <h2>Referências<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p id="id5"><dl class="citation">
-<dt class="label" id="id8"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<p id="id3"><dl class="citation">
+<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>D L Eggleston. <em>Basic Electronics for Scientists and Engineers</em>. Cambridge University Press, 2011. ISBN 9780521154307. URL: <a class="reference external" href="https://books.google.com.br/books?id=D1KVngEACAAJ">https://books.google.com.br/books?id=D1KVngEACAAJ</a>.</p>
 </dd>
 </dl>
