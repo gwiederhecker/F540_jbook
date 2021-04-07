@@ -45,6 +45,7 @@ linear behaves as a function of the excitation frequency, so it is recommended t
 #-----------------------------
 #Pacote para manipular vetores e matrizes
 import numpy as np
+import pandas as pd
 #-----------------------------
 #Pacotes para lidar com unidades
 from astropy import units as un
@@ -308,11 +309,8 @@ Use the signal generator to analyze the behavior of and of the $ \ phi $ phase f
 * Before using 30 points, scan with 10 points to make sure everything is correct.
 ```
 
-import pandas as pd
 data = pd.read_csv('figs/dados_sweep.csv')
 glue("df_pandas_exemplo", data.head())
-data_time = pd.read_csv('dados/fft_exemplo_experimental_pa_00_34_22.dat')
-glue("df_pandas_exemplo_time", data_time.head())
 
 (sec:dataset1)=
 ### Downloadable dataset 1
@@ -512,18 +510,30 @@ The following graphs show the time signal and also the Fourier transform obtaine
 (a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)
 ```
 
+data_time = pd.read_csv('dados/fft_exemplo_experimental_pa_00_34_22.dat')
+glue("df_pandas_fft", data_time.head())
+
 (sec:dataset2)=
 ### Downloadable dataset 2
-* [Two-frequencies signals](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true)
-    * the two `.dat` files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.
+* [Two-frequencies signals](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two-tones.zip?raw=true)
+    * the two `.dat` [files](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two-tones.zip?raw=true) contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.
 
-````{tabbed} Two-tone oscilloscope trace xample
-```{glue:figure} df_pandas_exemplo_time
+````{tabbed} Two-tone oscilloscope trace example
+```{glue:figure} df_pandas_fft
 :figwidth: 600px
 :name: "tbl:pandas2"
 :align: center
 
 Structure of the `.csv` data file, the separator between entries is a comma (`,`).
+```
+````
+````{tabbed} Examples oscilloscope screenshot
+```{figure} dados/fft_exemplo_experimental_pa.jpeg
+---
+width: 450px
+name: "fig:fft_highpass_scope_exemplo"
+---
+Screenshot of the two-tone signal measured with the oscilloscope before and after the high-pass filter
 ```
 ````
 

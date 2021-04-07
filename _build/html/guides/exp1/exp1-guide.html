@@ -372,6 +372,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-----------------------------</span>
 <span class="c1">#Pacote para manipular vetores e matrizes</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="c1">#-----------------------------</span>
 <span class="c1">#Pacotes para lidar com unidades</span>
 <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">un</span>
@@ -650,11 +651,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;figs/dados_sweep.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;figs/dados_sweep.csv&#39;</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="n">data_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">)</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo_time&quot;</span><span class="p">,</span> <span class="n">data_time</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -727,68 +725,6 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>time (s)</th>
-      <th>Channel 1 (V)</th>
-      <th>Channel 2 (V)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>-0.01252</td>
-      <td>0.28</td>
-      <td>-0.34</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>-0.01251</td>
-      <td>0.16</td>
-      <td>-0.42</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>-0.01250</td>
-      <td>0.12</td>
-      <td>-0.48</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>-0.01249</td>
-      <td>0.06</td>
-      <td>-0.48</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>-0.01248</td>
-      <td>0.06</td>
-      <td>-0.44</td>
-    </tr>
-  </tbody>
-</table>
 </div></div></div>
 </div>
 </div>
@@ -818,8 +754,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2a9d7625-b48e-470c-bcc6-19111f5e910a" name="03d0ae02-256c-4a31-8f28-4056f0aa23aa" type="radio">
-</input><label class="tabbed-label" for="2a9d7625-b48e-470c-bcc6-19111f5e910a">
+<input checked="checked" id="4be518a2-8010-4040-b518-94942d6ac4e2" name="a609a5f7-3ef4-4bc5-b0f8-b3a0178dd599" type="radio">
+</input><label class="tabbed-label" for="4be518a2-8010-4040-b518-94942d6ac4e2">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -895,8 +831,8 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c5d1303e-fde0-4702-9b24-6198cd569d4b" name="03d0ae02-256c-4a31-8f28-4056f0aa23aa" type="radio">
-</input><label class="tabbed-label" for="c5d1303e-fde0-4702-9b24-6198cd569d4b">
+<input id="3b778334-d937-4cd5-9fb1-65c16afb9c81" name="a609a5f7-3ef4-4bc5-b0f8-b3a0178dd599" type="radio">
+</input><label class="tabbed-label" for="3b778334-d937-4cd5-9fb1-65c16afb9c81">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
@@ -1082,20 +1018,92 @@ print((f2-f1)/2)
 </div>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pa_00_34_22.dat&#39;</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_fft&quot;</span><span class="p">,</span> <span class="n">data_time</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="downloadable-dataset-2">
 <span id="sec-dataset2"></span><h3>Downloadable dataset 2<a class="headerlink" href="#downloadable-dataset-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two_tones.zip?raw=true">Two-frequencies signals</a></p>
+<li><p><a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two-tones.zip?raw=true">Two-frequencies signals</a></p>
 <ul>
-<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
+<li><p>the two <code class="docutils literal notranslate"><span class="pre">.dat</span></code> <a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/two-tones.zip?raw=true">files</a> contain oscilloscope time-traces for the input and output of two-frequencies signal going through a LP and HP filter.</p></li>
 </ul>
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ac034193-6cab-42af-9175-db83a5678016" name="299bc356-91d4-48ed-904c-e6cca6e3b946" type="radio">
-</input><label class="tabbed-label" for="ac034193-6cab-42af-9175-db83a5678016">
-Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
+<input checked="checked" id="d5fe3d5d-3e5d-4f59-96e8-ef662d20f025" name="edf85abf-6abe-407d-960b-335135ac6b5d" type="radio">
+</input><label class="tabbed-label" for="d5fe3d5d-3e5d-4f59-96e8-ef662d20f025">
+Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas2" style="width: 600px">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
@@ -1164,6 +1172,14 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+<input id="0b061559-566a-4faf-bcf9-1eb1168bbe4c" name="edf85abf-6abe-407d-960b-335135ac6b5d" type="radio">
+</input><label class="tabbed-label" for="0b061559-566a-4faf-bcf9-1eb1168bbe4c">
+Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
+<div class="figure align-default" id="fig-fft-highpass-scope-exemplo">
+<a class="reference internal image-reference" href="../../_images/fft_exemplo_experimental_pa.jpeg"><img alt="../../_images/fft_exemplo_experimental_pa.jpeg" src="../../_images/fft_exemplo_experimental_pa.jpeg" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Screenshot of the two-tone signal measured with the oscilloscope before and after the high-pass filter</span><a class="headerlink" href="#fig-fft-highpass-scope-exemplo" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -1227,47 +1243,54 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2894</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;time (s)&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">3</span><span class="n">eb68fcac355</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">3</span><span class="n">eb68fcac355</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 2 (V)&#39;</span><span class="p">]</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2900</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2901</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2902</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2903</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2904</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2895</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2896</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2897</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">2898</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
 
-<span class="ne">KeyError</span>: &#39;time (s)&#39;
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> 
+<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> 
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
+<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;
 </pre></div>
 </div>
 </div>
@@ -1332,7 +1355,7 @@ Two-tone oscilloscope trace xample</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_39_1.png" src="../../_images/exp1-guide_39_1.png" />
+<img alt="../../_images/exp1-guide_40_1.png" src="../../_images/exp1-guide_40_1.png" />
 </div>
 </div>
 <!--
