@@ -185,3 +185,25 @@ This second video illustrate the experimental procedure and data acquisition ass
 
 <iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/f3763f6a-b335-489d-83a1-5dfd18b966ea?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
 
+(sec:dataset_diode)=
+### Downloadable dataset 1
+* Two files (.zip):
+<!--     * [Low-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true)
+    * [High-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true)
+        * Each `.zip` file contains:
+         * `.jpg` file with a photo of the circuit
+         * file `data_sweep.csv`: see an example of the structure of this file below.
+         * 4 columns
+         * the phase (column `phase (degrees)` corresponds to $ \phi = \phi_2- \phi_1 $)
+         * folder `traces-temporal-images`:
+             * files with the name `sweep_freq_xxx.bmp` correspond to the scope traces used to calculate each of the parameters of the file` data_sweep.csv`. The `xxx` numbering of the` .bmp` files corresponds to the index available in the first column of the `data_sweep.csv` file
+             * Make sure that you can "read" the data from one of the `sweep_freq_xxx.bmp` files and get the corresponding result recorded in the` data_sweep.csv` file. -->
+
+
+```{figure} figs/onda_completa.gif
+---
+width: 450px
+name: "fig:full_wave_gif"
+---
+Full wave rectification filtering
+```
