@@ -656,6 +656,3 @@ glue("fig_fft2",fig,display=False)
 
 ## Referências
 
-```{bibliography}
-:style: unsrt
-```

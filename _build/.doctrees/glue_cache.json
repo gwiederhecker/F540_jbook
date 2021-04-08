@@ -1,5 +1,66 @@
 {
   "guides/exp1/exp1-guide": {
+    "df_pandas_fft": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "df_pandas_fft",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "   Unnamed: 0  time (s)  Channel 1 (V)  Channel 2 (V)\n0           0  -0.01252           0.28          -0.34\n1           1  -0.01251           0.16          -0.42\n2           2  -0.01250           0.12          -0.48\n3           3  -0.01249           0.06          -0.48\n4           4  -0.01248           0.06          -0.44",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>time (s)</th>\n      <th>Channel 1 (V)</th>\n      <th>Channel 2 (V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>-0.01252</td>\n      <td>0.28</td>\n      <td>-0.34</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>-0.01251</td>\n      <td>0.16</td>\n      <td>-0.42</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>-0.01250</td>\n      <td>0.12</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>-0.01249</td>\n      <td>0.06</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>4</td>\n      <td>-0.01248</td>\n      <td>0.06</td>\n      <td>-0.44</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
+    },
+    "fig_fase_exemplo": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_fase_exemplo",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_10_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "fig_dois_sinais": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_dois_sinais",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_26_1.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "fig_fft1": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_fft1",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_35_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 720x504 with 4 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
     "df_pandas_exemplo": {
       "output_type": "display_data",
       "metadata": {
@@ -28,65 +89,22 @@
         }
       },
       "output_type": "display_data"
-    },
-    "df_pandas_fft": {
+    }
+  },
+  "guides/exp2/exp2-guide": {
+    "fig_diode_theory_iv_curve": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "df_pandas_fft",
-          "mime_prefix": ""
-        }
-      },
-      "data": {
-        "text/plain": "   Unnamed: 0  time (s)  Channel 1 (V)  Channel 2 (V)\n0           0  -0.01252           0.28          -0.34\n1           1  -0.01251           0.16          -0.42\n2           2  -0.01250           0.12          -0.48\n3           3  -0.01249           0.06          -0.48\n4           4  -0.01248           0.06          -0.44",
-        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>time (s)</th>\n      <th>Channel 1 (V)</th>\n      <th>Channel 2 (V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>-0.01252</td>\n      <td>0.28</td>\n      <td>-0.34</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>-0.01251</td>\n      <td>0.16</td>\n      <td>-0.42</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>-0.01250</td>\n      <td>0.12</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>-0.01249</td>\n      <td>0.06</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>4</td>\n      <td>-0.01248</td>\n      <td>0.06</td>\n      <td>-0.44</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
-      }
-    },
-    "fig_fft1": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "fig_fft1",
+          "name": "fig_diode_theory_iv_curve",
           "mime_prefix": "application/papermill.record/"
         },
         "filenames": {
-          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_35_0.png"
+          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp2/exp2-guide_5_0.png"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "<Figure size 720x504 with 4 Axes>",
-        "application/papermill.record/image/png": null
-      }
-    },
-    "fig_dois_sinais": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "fig_dois_sinais",
-          "mime_prefix": "application/papermill.record/"
-        },
-        "filenames": {
-          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_26_1.png"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
-        "application/papermill.record/image/png": null
-      }
-    },
-    "fig_fase_exemplo": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "fig_fase_exemplo",
-          "mime_prefix": "application/papermill.record/"
-        },
-        "filenames": {
-          "image/png": "/Users/gsw/Documents/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_10_0.png"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
         "application/papermill.record/image/png": null
       }
     }

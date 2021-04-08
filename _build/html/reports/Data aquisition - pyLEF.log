@@ -24,29 +24,29 @@ scope = pylef.TektronixTBS1062()   # definição do osciloscópio
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
 [0;32m<ipython-input-3-9492673a926d>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mfunc_gen[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mBK4052[0m[0;34m([0m[0;34m)[0m          [0;31m# definição do gerador de funções[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mscope[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mTektronixTBS1062[0m[0;34m([0m[0;34m)[0m   [0;31m# definição do osciloscópio[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py[0m in [0;36m__init__[0;34m(self)[0m
-[1;32m     43[0m         """
-[1;32m     44[0m         [0mself[0m[0;34m.[0m[0mid_tek[0m [0;34m=[0m [0;34m'0x0699'[0m[0;34m;[0m [0;31m# identificador do fabricante TEK[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 45[0;31m         [0minterface_name[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mfind_interface[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     46[0m         [0mself[0m[0;34m.[0m[0minstr[0m [0;34m=[0m [0mvisa[0m[0;34m.[0m[0mResourceManager[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mopen_resource[0m[0;34m([0m[0minterface_name[0m[0;34m)[0m   [0;31m## resource name[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     47[0m         [0mself[0m[0;34m.[0m[0mdelay_time[0m [0;34m=[0m [0;36m0.1[0m [0;31m# time to wait after write and query - BK BUG![0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 1[0;31m [0mfunc_gen[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mBK4052[0m[0;34m([0m[0;34m)[0m          [0;31m# definição do gerador de funções[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mscope[0m [0;34m=[0m [0mpylef[0m[0;34m.[0m[0mTektronixTBS1062[0m[0;34m([0m[0;34m)[0m   [0;31m# definição do osciloscópio[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/scope.py[0m in [0;36mfind_interface[0;34m(self)[0m
-[1;32m     82[0m                 [0mprint[0m[0;34m([0m[0;34m"Osciloscópio conectado! Id = "[0m [0;34m+[0m [0mtek_str[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     83[0m         [0;32mif[0m [0mtek_str[0m [0;34m==[0m [0;34m''[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 84[0;31m             raise ValueError('O osciloscopio TEK 1062 nao foi identificado:\n'\
-[0m[1;32m     85[0m                          [0;34m'Verique se o equipamento está ligado e se o cabo USB \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     86[0m                          [0;34m'foi conectado. Se o problema persistir, \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m    102[0m         [0mself[0m[0;34m.[0m[0mid_bk[0m [0;34m=[0m [0;34m'0xF4ED'[0m[0;34m;[0m [0;31m# identificador do fabricante BK[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    103[0m         [0mself[0m[0;34m.[0m[0mdelay_time[0m [0;34m=[0m [0;36m0.5[0m [0;31m# time to wait after write and query - BK BUG![0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 104[0;31m         [0minterface_name[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mfind_interface[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    105[0m         [0;31m# instrument initialization[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    106[0m         [0mself[0m[0;34m.[0m[0minstr[0m [0;34m=[0m [0mvisa[0m[0;34m.[0m[0mResourceManager[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mopen_resource[0m[0;34m([0m[0minterface_name[0m[0;34m)[0m   [0;31m## resource name[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mValueError[0m: O osciloscopio TEK 1062 nao foi identificado:
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py[0m in [0;36mfind_interface[0;34m(self)[0m
+[1;32m    132[0m                 [0mprint[0m[0;34m([0m[0;34m"Gerador de Funções conectado! Id = "[0m [0;34m+[0m [0mbk_str[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    133[0m         [0;32mif[0m [0mbk_str[0m [0;34m==[0m [0;34m''[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 134[0;31m             raise ValueError('O osciloscopio BK scope nao foi identificado:\n'\
+[0m[1;32m    135[0m                          [0;34m'Verique se o equipamento está ligado e se o cabo USB \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    136[0m                          [0;34m'foi conectado. Se o problema persistir, \n'[0m[0;31m\[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: O osciloscopio BK scope nao foi identificado:
 Verique se o equipamento está ligado e se o cabo USB 
 foi conectado. Se o problema persistir, 
 desconecte o cabo USB, aguarde 20 segundos 
 e conecte novamente.
-ValueError: O osciloscopio TEK 1062 nao foi identificado:
+ValueError: O osciloscopio BK scope nao foi identificado:
 Verique se o equipamento está ligado e se o cabo USB 
 foi conectado. Se o problema persistir, 
 desconecte o cabo USB, aguarde 20 segundos 

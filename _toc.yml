@@ -21,6 +21,10 @@
 - part: Diodes (exp. 2)
   chapters:
   - file : guides/exp2/diode_background.ipynb
+  - file : guides/exp2/exp2-guide.ipynb
+- part: References
+  chapters:
+  - file: into/references
 # - part: Diodes (exp. 2)
 # - part: Transistors (exp. 3)
 # - part: Other examples

@@ -46,6 +46,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -158,6 +160,16 @@
    Background: Diodes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/exp2-guide.html#diode-current-voltage-curves-i-v-curve">
+   Diode current-voltage curves (I-V curve)
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -267,6 +279,16 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sweep-dc-level">
    Sweep DC level
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dc-level-of-ch2">
+   DC level of ch2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vpp1-vpp2-versus-vdc">
+   Vpp1,Vpp2 versus vdc
   </a>
  </li>
 </ul>
@@ -438,10 +460,10 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <span class="n">scope</span><span class="o">.</span><span class="n">set_average</span><span class="p">()</span>    <span class="c1"># turn average ON</span>
 <span class="c1">#scope.set_sample()       # turn average OFF</span>
 <span class="c1">## parametros de varredura</span>
-<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;diode_ac_resistance_100mV&#39;</span>  <span class="c1"># pasta onde salvar todos os arquivos</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;diode_ac_resistance_100mV_300ohms&#39;</span>  <span class="c1"># pasta onde salvar todos os arquivos</span>
 <span class="n">freq0</span> <span class="o">=</span> <span class="mi">60</span><span class="c1">#</span>
 <span class="n">Vpp</span> <span class="o">=</span> <span class="mf">0.05</span>   <span class="c1"># Tensão pico-a-pico na saida do gerador</span>
-<span class="n">vdc0</span><span class="p">,</span><span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span>  <span class="c1"># frequências inicial, final e número de pontos</span>
+<span class="n">vdc0</span><span class="p">,</span><span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span>  <span class="c1"># frequências inicial, final e número de pontos</span>
 <span class="c1">## parâmetros inicias do gerador</span>
 <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freq0</span><span class="p">)</span> 
 <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_Vpp</span><span class="p">(</span><span class="n">Vpp</span><span class="p">)</span>
@@ -452,48 +474,34 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
 <span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
 <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_scale</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">vdc0</span><span class="p">,</span> <span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;path ok&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.5       , -0.47474747, -0.44949495, -0.42424242, -0.3989899 ,
-       -0.37373737, -0.34848485, -0.32323232, -0.2979798 , -0.27272727,
-       -0.24747475, -0.22222222, -0.1969697 , -0.17171717, -0.14646465,
-       -0.12121212, -0.0959596 , -0.07070707, -0.04545455, -0.02020202,
-        0.00505051,  0.03030303,  0.05555556,  0.08080808,  0.10606061,
-        0.13131313,  0.15656566,  0.18181818,  0.20707071,  0.23232323,
-        0.25757576,  0.28282828,  0.30808081,  0.33333333,  0.35858586,
-        0.38383838,  0.40909091,  0.43434343,  0.45959596,  0.48484848,
-        0.51010101,  0.53535354,  0.56060606,  0.58585859,  0.61111111,
-        0.63636364,  0.66161616,  0.68686869,  0.71212121,  0.73737374,
-        0.76262626,  0.78787879,  0.81313131,  0.83838384,  0.86363636,
-        0.88888889,  0.91414141,  0.93939394,  0.96464646,  0.98989899,
-        1.01515152,  1.04040404,  1.06565657,  1.09090909,  1.11616162,
-        1.14141414,  1.16666667,  1.19191919,  1.21717172,  1.24242424,
-        1.26767677,  1.29292929,  1.31818182,  1.34343434,  1.36868687,
-        1.39393939,  1.41919192,  1.44444444,  1.46969697,  1.49494949,
-        1.52020202,  1.54545455,  1.57070707,  1.5959596 ,  1.62121212,
-        1.64646465,  1.67171717,  1.6969697 ,  1.72222222,  1.74747475,
-        1.77272727,  1.7979798 ,  1.82323232,  1.84848485,  1.87373737,
-        1.8989899 ,  1.92424242,  1.94949495,  1.97474747,  2.        ])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>path ok
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">109</span><span class="o">-</span><span class="mi">607</span><span class="n">b1c17e4f1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;path ok&#39;</span><span class="p">)</span>
+
+<span class="ne">FileExistsError</span>: [Errno 17] File exists: &#39;diode_ac_resistance_100mV_300ohms&#39;
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="dc-level-of-ch2">
+<h2>DC level of ch2<a class="headerlink" href="#dc-level-of-ch2" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
@@ -529,6 +537,9 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="vpp1-vpp2-versus-vdc">
+<h2>Vpp1,Vpp2 versus vdc<a class="headerlink" href="#vpp1-vpp2-versus-vdc" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
@@ -559,14 +570,14 @@ The reason for the deprecation is the possible conflict with the visa package pr
 <span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
 <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">vdc</span>
 <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
-<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH</span><span class="p">,</span><span class="s1">&#39;dados_sweep_vdc_swap.csv&#39;</span><span class="p">))</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH</span><span class="p">,</span><span class="s1">&#39;dados_sweep_vdc_res.csv&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">67</span><span class="o">-</span><span class="n">d40f3762dc44</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">102</span><span class="o">-</span><span class="n">d40f3762dc44</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">vdcP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
@@ -639,10 +650,63 @@ The reason for the deprecation is the possible conflict with the visa package pr
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV/dados_sweep_vdc.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV_300ohms/dados_sweep_vdc_res_dc.csv&#39;</span><span class="p">)</span>
 <span class="n">Vpp_all2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span>
 <span class="n">Vpp_res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span>
 <span class="n">vdc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;Vpp2 (V)&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">107</span><span class="o">-</span><span class="mi">403</span><span class="n">b598968bc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV_300ohms/dados_sweep_vdc_res_dc.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Vpp_all2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Vpp_res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vdc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2798</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2799</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2800</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2801</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2802</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2648</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maybe_cast_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2649</span>         <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="n">key</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2650</span>         <span class="k">if</span> <span class="n">indexer</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">indexer</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;Vpp2 (V)&#39;
 </pre></div>
 </div>
 </div>
@@ -688,11 +752,17 @@ Name: Vpp1 (V), Length: 100, dtype: float64
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">vdiode2</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">vdiode</span><span class="p">,</span> <span class="s1">&#39;*-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
 
+
 <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="c1">#------------------</span>
+<span class="c1">#------------</span>
+<span class="n">β</span><span class="o">=</span><span class="mf">39.6</span>
+<span class="n">n</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="n">Is</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="mf">1e3</span><span class="o">*</span><span class="mf">1e-12</span>
+<span class="n">Id</span> <span class="o">=</span> <span class="n">Is</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">β</span><span class="o">*</span><span class="n">vdc</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># corrente no diodo</span>
 <span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">rdiode2</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão </span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">rdiode</span><span class="p">,</span> <span class="s1">&#39;*-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão   </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">n</span><span class="o">/</span><span class="n">β</span><span class="o">/</span><span class="n">Id</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AC resistance&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="c1">#segundo eixo</span>

@@ -58,10 +58,10 @@ scope.set_average_number(64)  # ajusta o número de médias
 scope.set_average()    # turn average ON
 #scope.set_sample()       # turn average OFF
 ## parametros de varredura
-PATH = 'diode_ac_resistance_100mV'  # pasta onde salvar todos os arquivos
+PATH = 'diode_ac_resistance_100mV_300ohms'  # pasta onde salvar todos os arquivos
 freq0 = 60#
 Vpp = 0.05   # Tensão pico-a-pico na saida do gerador
-vdc0,vdc1, npt = -0.5, 2, 100  # frequências inicial, final e número de pontos
+vdc0,vdc1, npt = -0.5, 2, 20  # frequências inicial, final e número de pontos
 ## parâmetros inicias do gerador
 func_gen.ch1.set_frequency(freq0) 
 func_gen.ch1.set_Vpp(Vpp)
@@ -72,10 +72,12 @@ func_gen.ch1.turn_on()   # liga o canal 1
 scope.set_horizontal_scale((1/freq0)/4.)  # escala horizontal = 1/4 período (2.5 oscilações em tela)
 scope.ch1.set_smart_scale()  # rescala o canal 1
 scope.ch2.set_smart_scale()  # rescala o canal 2
+try:
+    os.mkdir(PATH)
+finally:
+    print('path ok')
 
-scope.ch2.set_scale(1) 
-
-np.linspace(vdc0, vdc1, npt, endpoint = True)  # varredura logaritmica
+## DC level of ch2
 
 #### Aquisição de dados!! ####
 vdc = np.linspace(vdc0, vdc1, npt, endpoint = True)  # varredura logaritmica
@@ -107,6 +109,8 @@ dados['vdc (V)']= vdc
 dados['Vpp1 (V)'], dados['Vmean2 (V)'] = Vpp1, Vpp2
 dados.to_csv(os.path.join(PATH,'dados_sweep_vdc_res_dc.csv'))
 
+## Vpp1,Vpp2 versus vdc
+
 #### Aquisição de dados!! ####
 vdc = np.linspace(vdc0, vdc1, npt, endpoint = True)  # varredura logaritmica
 Vpp1, Vpp2 = [], []    # listas para guardar as variáveis
@@ -135,14 +139,14 @@ Vpp2 = np.array(Vpp2)  # convete a lista em array
 dados = pd.DataFrame()   # inicializa um dataframe do pandas
 dados['vdc (V)']= vdc
 dados['Vpp1 (V)'], dados['Vpp2 (V)'] = Vpp1, Vpp2
-dados.to_csv(os.path.join(PATH,'dados_sweep_vdc_swap.csv'))
+dados.to_csv(os.path.join(PATH,'dados_sweep_vdc_res.csv'))
 
 data = pd.read_csv('diode_ac_resistance_100mV/dados_sweep_vdc_swap.csv')
 Vpp_all1 = data['Vpp1 (V)']
 Vpp_diode = data['Vpp2 (V)']
 vdc = data['vdc (V)']
 
-data = pd.read_csv('diode_ac_resistance_100mV/dados_sweep_vdc.csv')
+data = pd.read_csv('diode_ac_resistance_100mV_300ohms/dados_sweep_vdc_res_dc.csv')
 Vpp_all2 = data['Vpp1 (V)']
 Vpp_res = data['Vpp2 (V)']
 vdc = data['vdc (V)']
@@ -165,11 +169,17 @@ ax0=ax[1]
 ax0.plot(vdc,vdiode2, 'o-')   # plota a transmissão  
 ax0.plot(vdc,vdiode, '*-')   # plota a transmissão  
 
+
 ax0.grid()
-#------------------
+#------------
+β=39.6
+n=1.5
+Is=0.5*1e3*1e-12
+Id = Is*(np.exp(β*vdc/n)-1) # corrente no diodo
 ax0=ax[2]
 ax0.semilogy(vdc,rdiode2, 'o-')   # plota a transmissão 
 ax0.semilogy(vdc,rdiode, '*-')   # plota a transmissão   
+ax0.plot(vdc,n/β/Id, '--')   # plota a transmissão  
 ax0.set_ylabel('AC resistance')   # seta escala do eixo y
 ax0.grid()
 #segundo eixo

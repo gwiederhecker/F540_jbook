@@ -46,6 +46,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -160,6 +162,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../exp2/diode_background.html">
    Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/exp2-guide.html#diode-current-voltage-curves-i-v-curve">
+   Diode current-voltage curves (I-V curve)
   </a>
  </li>
 </ul>
@@ -337,7 +349,7 @@ motivates their usage and their application as frequency filters, such as
 low-pass or high-pass filters.</p>
 <p>To understand this behavior, it is essential to review the concept of
 frequency response, that is, as the response of a given system
-linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="#id6"><span>1</span></a>]</span>.</p>
+linear behaves as a function of the excitation frequency, so it is recommended that the student review the subject in the book of their choice. An excelent reference is Denis Eggleston’s book  (chapter 2) <span id="id1">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Goals</p>
 <ul class="simple">
@@ -754,8 +766,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4be518a2-8010-4040-b518-94942d6ac4e2" name="a609a5f7-3ef4-4bc5-b0f8-b3a0178dd599" type="radio">
-</input><label class="tabbed-label" for="4be518a2-8010-4040-b518-94942d6ac4e2">
+<input checked="checked" id="ca1a8924-6db8-418b-b4c8-7f21aa8a3f10" name="4ec6c042-64b2-4ce6-bb41-50f33eeb07d0" type="radio">
+</input><label class="tabbed-label" for="ca1a8924-6db8-418b-b4c8-7f21aa8a3f10">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -831,8 +843,8 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="3b778334-d937-4cd5-9fb1-65c16afb9c81" name="a609a5f7-3ef4-4bc5-b0f8-b3a0178dd599" type="radio">
-</input><label class="tabbed-label" for="3b778334-d937-4cd5-9fb1-65c16afb9c81">
+<input id="fbdcc141-8a3e-49be-851c-30a8d68f69d2" name="4ec6c042-64b2-4ce6-bb41-50f33eeb07d0" type="radio">
+</input><label class="tabbed-label" for="fbdcc141-8a3e-49be-851c-30a8d68f69d2">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
@@ -903,7 +915,7 @@ f0 = (f1+f2)/2 = 750.0 Hz
 <p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
 <span class="eqno">(10)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
-<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id2">[<a class="reference internal" href="#id6"><span>1</span></a>]</span>.</p>
+<p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id2">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>.</p>
 <!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1101,8 +1113,8 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d5fe3d5d-3e5d-4f59-96e8-ef662d20f025" name="edf85abf-6abe-407d-960b-335135ac6b5d" type="radio">
-</input><label class="tabbed-label" for="d5fe3d5d-3e5d-4f59-96e8-ef662d20f025">
+<input checked="checked" id="15862dc6-4fa7-4af9-84bf-d8bb654c4c29" name="ff1fed9b-d4d8-4d40-8d20-d1ea8bd65542" type="radio">
+</input><label class="tabbed-label" for="15862dc6-4fa7-4af9-84bf-d8bb654c4c29">
 Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas2" style="width: 600px">
 <div class="cell_output docutils container">
@@ -1172,8 +1184,8 @@ Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="0b061559-566a-4faf-bcf9-1eb1168bbe4c" name="edf85abf-6abe-407d-960b-335135ac6b5d" type="radio">
-</input><label class="tabbed-label" for="0b061559-566a-4faf-bcf9-1eb1168bbe4c">
+<input id="cd4630a4-283d-4943-8355-b631436170e2" name="ff1fed9b-d4d8-4d40-8d20-d1ea8bd65542" type="radio">
+</input><label class="tabbed-label" for="cd4630a4-283d-4943-8355-b631436170e2">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-fft-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/fft_exemplo_experimental_pa.jpeg"><img alt="../../_images/fft_exemplo_experimental_pa.jpeg" src="../../_images/fft_exemplo_experimental_pa.jpeg" style="width: 450px;" /></a>
@@ -1366,12 +1378,6 @@ Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="referencias">
 <h2>Referências<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p id="id3"><dl class="citation">
-<dt class="label" id="id6"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
-<dd><p>D L Eggleston. <em>Basic Electronics for Scientists and Engineers</em>. Cambridge University Press, 2011. ISBN 9780521154307. URL: <a class="reference external" href="https://books.google.com.br/books?id=D1KVngEACAAJ">https://books.google.com.br/books?id=D1KVngEACAAJ</a>.</p>
-</dd>
-</dl>
-</p>
 </div>
 </div>
 
