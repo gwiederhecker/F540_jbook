@@ -1,4 +1,4 @@
-## Guide to Experiment 2: Diodes
+# Guide to Experiment 2: Diodes
 
 Métodos da Físcia Experimental I: (F540 2s2020)
 

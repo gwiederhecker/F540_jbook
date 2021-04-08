@@ -2,7 +2,7 @@
 
 Métodos da Físcia Experimental I: (F540 2s2020)
 
-* JupyterBook: Gustavo Wiederhecker
+* JupyterBook: Gustavo Wiederhecker, Varlei Rodrigues
 * Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues
 
 In this experiment, circuits  containing a capacitor and
