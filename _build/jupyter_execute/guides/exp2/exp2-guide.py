@@ -2,7 +2,7 @@
 
 Métodos da Físcia Experimental I: (F540 2s2020)
 
-* JupyterBook: Gustavo Wiederhecker
+* JupyterBook: Gustavo Wiederhecker, Varlei Rodrigues
 * Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues
 
 In this experiment, the role of diodes in electric circuits will be investigated. A diode is a nonlinear elementcomposed of a semiconductor junction with different doping of the *p* and *n* type, *a pn junction*. This junction allows the passage of a high current $ (\approx 1 A) $ when directly polarized and very low $ (\approx 10 ^ {- 5} A) $ when it is reverse polarized.
@@ -21,12 +21,13 @@ To fully appreciate this device, it is desirable that you read an introductory  
 
 :::{admonition} Items to include in your lab report
 :class: warning
-1. Graphs of Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in {ref}`sec:dataset1`.
-2. In the same graph as the data, include the curves that represent fitting of the transfer functions. An example of this procedure in Python can be seen in {doc}`exemplo_ajuste_rc`
-    * Make sure you can also estimate the asymptotic slopes of the ampitude plots, e.g., what is the filter roll-off in dB/decade? 
-    * Based on on the intersection between the asymptotes, provide an estimate of the cut-off frequency of the filter. Estimate the RC constant of the filter based on your estimate, compare with your fitting results.
-3. Use the FFT function in Python (or in a program of your choice) to calculate the Fourier transform of two-frequncies signal provided {ref}`sec:dataset2`.
-     * The difference between the two signals is that the channel 2 signal was filtered by an RC circuit. Determine whether the circuit used was a high-pass or low-pass.
+1. Graphs of the time-traces corresponding two different load conditions (resistance values. Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in {ref}`sec:dataset_diode`.
+    * Try to add the different traces to a single figure, instead of adding multiple repetitive plots to your report. Consider distinct line colors for each trace.
+2. Extract the following parameters from each plots
+    * Average voltage
+    * Ripple voltage
+    * RMS voltage 
+3. Compare the extracted ripple data with {eq}`eq:diode_capacitor` and {eq}`eq:diode_capacitor_2`. Can you extract the capacitance from this model?
 4. Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.
 :::
 
@@ -135,16 +136,17 @@ Despite the average DC value that appears in the rectified signals, either half-
 
 ### Filtered rectification
 
-The simplest circuit to minimize the ripples observed in {ref}`fig:half-wave_example` or  {ref}`fig:full-wave_example` consists of coupling a capacitor to the load, which allows filtering of the ripples and, therefore,  minimizing the signal oscillation. The complete model for filter rectification implies an RC circuit, where the signal ripple (ripple voltage) can be expressed by (see section 3.2.3 in {cite}`eggleston2011basic`):
+The simplest circuit to minimize the ripples observed in {numref}`fig:half-wave_example` or  {numref}`fig:full-wave_example` consists of coupling a capacitor to the load, which allows filtering of the ripples and, therefore,  minimizing the signal oscillation. The complete model for filter rectification implies an RC circuit, where the signal ripple (ripple voltage) can be expressed by (see section 3.2.3 in {cite}`eggleston2011basic`):
 
 $$ V_{R}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), $$(eq:diode_capacitor)
 
 where $V_d\approx 0.7$ is the diode voltage drop, and $\Delta t_{d}$ is the time slot between two successive peaks, i.e., $\Delta t_{d}\approx T$ for half-wave rectifiers and $\Delta t_{d}\approx T/2$  for full-wave rectifiers.
-When $RC>>\Delta t_{d}$, eq. {eq}`(eq:diode_capacitor)` can  be approximated by,
+When $RC>>\Delta t_{d}$, eq. {eq}`eq:diode_capacitor` can  be approximated by,
 
-$$V_{R} = \frac{V_{0} \ \Delta t_{d} }{R C} = \frac{I_0}{(2 \ ou \ 1) fC}$$
+$$V_{R} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},$$ (eq:diode_capacitor_2)
 
-with $I_0=\left(V_{0}-V_d\right)/R$ is the current that flows in the circuit (capacitor-less) circuit when the voltage is above the diode voltage ($\approx 0.7 V$).
+where $n=1$ (half-wave) or $n=2$ (full-wave).
+
 
 ## Rectified voltage sources
 
@@ -185,25 +187,43 @@ This second video illustrate the experimental procedure and data acquisition ass
 
 <iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/f3763f6a-b335-489d-83a1-5dfd18b966ea?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
 
+data = pd.read_csv('dados/001_meia_onda_c_R_330.dat',sep='\t')
+glue("df_pandas_exemplo_diode_rc", data.head())
+
 (sec:dataset_diode)=
 ### Downloadable dataset 1
 * Two files (.zip):
-<!--     * [Low-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-baixas.zip?raw=true)
-    * [High-pass circuit](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp1/dados/passa-altas.zip?raw=true)
-        * Each `.zip` file contains:
-         * `.jpg` file with a photo of the circuit
-         * file `data_sweep.csv`: see an example of the structure of this file below.
-         * 4 columns
-         * the phase (column `phase (degrees)` corresponds to $ \phi = \phi_2- \phi_1 $)
-         * folder `traces-temporal-images`:
-             * files with the name `sweep_freq_xxx.bmp` correspond to the scope traces used to calculate each of the parameters of the file` data_sweep.csv`. The `xxx` numbering of the` .bmp` files corresponds to the index available in the first column of the `data_sweep.csv` file
-             * Make sure that you can "read" the data from one of the `sweep_freq_xxx.bmp` files and get the corresponding result recorded in the` data_sweep.csv` file. -->
+    * [Half-wave rectifier](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp2/dados/dados_meia_onda.zip?raw=true)
+    * [Full-wave rectifier](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp2/dados/dados_onda_completa.zip?raw=true)
+    * Each `.zip` file contains:
+        * `.dat` files corresponding to oscilloscope traces (see {numref}`tbl:pandas_diode_rc`)
+    * Each oscilloscope trace recorded for the various decade resistance values are shown in {numref}`fig:half_wave_gif` and {numref}`fig:full_wave_gif`
 
 
+````{tabbed} Diode rectification dataset structure
+```{glue:figure} df_pandas_exemplo_diode_rc
+:figwidth: 600px
+:name: "tbl:pandas_diode_rc"
+:align: center
+
+Structure of the `001_meia_onda_c_R_330.dat` data file, corresponding to the decade resistance at $330\Omega$; the separator between entries is a **tab**.
+```
+````
+````{tabbed} Half-wave rectification
+```{figure} figs/meia_onda.gif
+---
+width: 450px
+name: "fig:half_wave_gif"
+---
+Oscilloscope traces of the half-wave rectification as the **decade resistance** is increased.
+```
+````
+````{tabbed} Full-wave rectification
 ```{figure} figs/onda_completa.gif
 ---
 width: 450px
 name: "fig:full_wave_gif"
 ---
-Full wave rectification filtering
+Oscilloscope traces of the full-wave rectification as the **decade resistance** is increased.
 ```
+````
