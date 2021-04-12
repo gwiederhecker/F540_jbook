@@ -449,16 +449,16 @@ When breakdown(see section 3.1.5 in <span id="id3">[<a class="reference internal
 <p>The distribution of electrical energy worldwide is carried out by sine waves, with frequencies in the range of 50−100Hz and amplitudes between 100−300V (within a house). These amplitudes can be reduced by the use of a transformer, but the signal remains alternated, AC. Relative to the neutral wire, these signals exhibit a zero mean or DC value.
 Most electrical equipment, however, uses continuous power, DC. The transformation of an alternating voltage into continuous voltage is the most important and present application of diodes in our daily lives. The figure below represents the voltage output at the terminals of a transformer, similar to that used in the laboratory. Note that this signal has an average voltage value equal to zero (<span class="math notranslate nohighlight">\(&lt;V(t)&gt;=0\)</span>). Using a diode in a circuit assembly we can obtain a half-wave or full-wave rectification. The following figure shows the full-wave rectification, where the signal coming out of the transformer is rectified.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d4ceced0-2034-42c6-9884-34db8306e1d0" name="7d76f04a-68b8-4ce7-8ac2-b3ea563adb9f" type="radio">
-</input><label class="tabbed-label" for="d4ceced0-2034-42c6-9884-34db8306e1d0">
+<input checked="checked" id="2f9fd8a0-b204-41a7-b95d-1257a239e21b" name="66c42be7-1c09-4ce2-a0f7-945f1edcbfcc" type="radio">
+</input><label class="tabbed-label" for="2f9fd8a0-b204-41a7-b95d-1257a239e21b">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-example">
 <a class="reference internal image-reference" href="../../_images/000_meia_onda_fig.png"><img alt="../../_images/000_meia_onda_fig.png" src="../../_images/000_meia_onda_fig.png" style="width: 650px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Experimental trace of input (left) and half-wave rectified signal (right)</span><a class="headerlink" href="#fig-half-wave-example" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1b56027f-488b-42a6-95ef-944784250cb3" name="7d76f04a-68b8-4ce7-8ac2-b3ea563adb9f" type="radio">
-</input><label class="tabbed-label" for="1b56027f-488b-42a6-95ef-944784250cb3">
+<input id="4ce3cbf5-7237-4717-8689-b86a151dd2f7" name="66c42be7-1c09-4ce2-a0f7-945f1edcbfcc" type="radio">
+</input><label class="tabbed-label" for="4ce3cbf5-7237-4717-8689-b86a151dd2f7">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-example">
 <a class="reference internal image-reference" href="../../_images/013_onda_completa_R_330_fig.png"><img alt="../../_images/013_onda_completa_R_330_fig.png" src="../../_images/013_onda_completa_R_330_fig.png" style="width: 650px;" /></a>
@@ -471,7 +471,7 @@ Full-wave rectification</label><div class="tabbed-content docutils">
 <h3>Filtered rectification<a class="headerlink" href="#filtered-rectification" title="Permalink to this headline">¶</a></h3>
 <p>The simplest circuit to minimize the ripples observed in <a class="reference internal" href="#fig-half-wave-example"><span class="std std-numref">Fig. 12</span></a> or  <a class="reference internal" href="#fig-full-wave-example"><span class="std std-numref">Fig. 13</span></a> consists of coupling a capacitor to the load, which allows filtering of the ripples and, therefore,  minimizing the signal oscillation. The complete model for filter rectification implies an RC circuit, where the signal ripple (ripple voltage) can be expressed by (see section 3.2.3 in <span id="id4">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>):</p>
 <div class="math notranslate nohighlight" id="equation-eq-diode-capacitor">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-diode-capacitor" title="Permalink to this equation">¶</a></span>\[ V_{R}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), \]</div>
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-diode-capacitor" title="Permalink to this equation">¶</a></span>\[ V_R}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), \]</div>
 <p>where <span class="math notranslate nohighlight">\(V_d\approx 0.7\)</span> is the diode voltage drop, and <span class="math notranslate nohighlight">\(\Delta t_{d}\)</span> is the time slot between two successive peaks, i.e., <span class="math notranslate nohighlight">\(\Delta t_{d}\approx T\)</span> for half-wave rectifiers and <span class="math notranslate nohighlight">\(\Delta t_{d}\approx T/2\)</span>  for full-wave rectifiers.
 When <span class="math notranslate nohighlight">\(RC&gt;&gt;\Delta t_{d}\)</span>, eq. <a class="reference internal" href="#equation-eq-diode-capacitor">(14)</a> can  be approximated by,</p>
 <div class="math notranslate nohighlight" id="equation-eq-diode-capacitor-2">
@@ -486,16 +486,16 @@ When <span class="math notranslate nohighlight">\(RC&gt;&gt;\Delta t_{d}\)</span
 
 O sinal de tensão alternado na saída do transformador é retificado, i.e, apenas os valores de tensão positivos “passam” pelo diodo, cortando os valores negativos de tensão. Essa é uma retificação muito ruim, pois ainda tem muita oscilação no sinal retificado. -->
 <div class="tabbed-set docutils">
-<input checked="checked" id="9a1216e8-b3b3-4707-b52f-921a4ef80e43" name="acec10c4-d3a6-4d4c-890d-36454e878041" type="radio">
-</input><label class="tabbed-label" for="9a1216e8-b3b3-4707-b52f-921a4ef80e43">
+<input checked="checked" id="037509b6-73de-4ffb-94f2-c821759da724" name="af747a11-de9e-4f3b-8bad-8714aebd3322" type="radio">
+</input><label class="tabbed-label" for="037509b6-73de-4ffb-94f2-c821759da724">
 Half-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/meia_onda_qucs_cap.png"><img alt="../../_images/meia_onda_qucs_cap.png" src="../../_images/meia_onda_qucs_cap.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Schematic of a half-wave rectifier</span><a class="headerlink" href="#fig-half-wave-circuit-capacitor" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="88e565c2-055f-4141-8b0a-4544f922b59a" name="acec10c4-d3a6-4d4c-890d-36454e878041" type="radio">
-</input><label class="tabbed-label" for="88e565c2-055f-4141-8b0a-4544f922b59a">
+<input id="38b68ce7-3654-4de7-a406-dec0c247e221" name="af747a11-de9e-4f3b-8bad-8714aebd3322" type="radio">
+</input><label class="tabbed-label" for="38b68ce7-3654-4de7-a406-dec0c247e221">
 Full-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/completa_onda_qucs_cap.png"><img alt="../../_images/completa_onda_qucs_cap.png" src="../../_images/completa_onda_qucs_cap.png" style="width: 450px;" /></a>
@@ -599,8 +599,8 @@ Full-wave circuit</label><div class="tabbed-content docutils">
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5eddb35e-c845-4595-a0be-af19678f450e" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="5eddb35e-c845-4595-a0be-af19678f450e">
+<input checked="checked" id="d92ec1e7-6707-4f7a-a48e-ca232496e9f8" name="38dde193-138f-4d19-923b-1c6eac126215" type="radio">
+</input><label class="tabbed-label" for="d92ec1e7-6707-4f7a-a48e-ca232496e9f8">
 Diode rectification dataset structure</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-diode-rc" style="width: 600px">
 <div class="cell_output docutils container">
@@ -664,16 +664,16 @@ Diode rectification dataset structure</label><div class="tabbed-content docutils
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">001_meia_onda_c_R_330.dat</span></code> data file, corresponding to the decade resistance at <span class="math notranslate nohighlight">\(330\Omega\)</span>; the separator between entries is a <strong>tab</strong>.</span><a class="headerlink" href="#tbl-pandas-diode-rc" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="e7fe8ca3-5615-4d79-a6aa-886c6a601139" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="e7fe8ca3-5615-4d79-a6aa-886c6a601139">
+<input id="d7c6dd1c-97b7-4989-8130-8c4531556cd5" name="38dde193-138f-4d19-923b-1c6eac126215" type="radio">
+</input><label class="tabbed-label" for="d7c6dd1c-97b7-4989-8130-8c4531556cd5">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-gif">
 <a class="reference internal image-reference" href="../../_images/meia_onda.gif"><img alt="../../_images/meia_onda.gif" src="../../_images/meia_onda.gif" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Oscilloscope traces of the half-wave rectification as the <strong>decade resistance</strong> is increased.</span><a class="headerlink" href="#fig-half-wave-gif" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b6f26572-ae28-47a9-8c80-4bd557a0d7a5" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="b6f26572-ae28-47a9-8c80-4bd557a0d7a5">
+<input id="af577d5f-235f-4037-a094-834b721934ce" name="38dde193-138f-4d19-923b-1c6eac126215" type="radio">
+</input><label class="tabbed-label" for="af577d5f-235f-4037-a094-834b721934ce">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-gif">
 <a class="reference internal image-reference" href="../../_images/onda_completa.gif"><img alt="../../_images/onda_completa.gif" src="../../_images/onda_completa.gif" style="width: 450px;" /></a>
