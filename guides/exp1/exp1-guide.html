@@ -46,6 +46,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -165,6 +167,23 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../exp2/exp2-guide.html">
    Guide to Experiment 2: Diodes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
   </a>
  </li>
 </ul>
@@ -759,8 +778,8 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="74ec60f1-7690-4a82-8d62-ef5d279adb9d" name="2090292b-fd6d-4d48-854a-971fe445696b" type="radio">
-</input><label class="tabbed-label" for="74ec60f1-7690-4a82-8d62-ef5d279adb9d">
+<input checked="checked" id="cc16b9bf-42f7-4aab-8d7f-7353f04159ac" name="42d1faf0-bc9d-45d3-978c-656e7d68ce33" type="radio">
+</input><label class="tabbed-label" for="cc16b9bf-42f7-4aab-8d7f-7353f04159ac">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
 <div class="cell_output docutils container">
@@ -836,8 +855,8 @@ Frequency reponse data example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="0a831467-10ea-4a15-93e4-7a4f948fced5" name="2090292b-fd6d-4d48-854a-971fe445696b" type="radio">
-</input><label class="tabbed-label" for="0a831467-10ea-4a15-93e4-7a4f948fced5">
+<input id="2f3feac3-ae57-4577-9712-2f6d829ab011" name="42d1faf0-bc9d-45d3-978c-656e7d68ce33" type="radio">
+</input><label class="tabbed-label" for="2f3feac3-ae57-4577-9712-2f6d829ab011">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
@@ -1106,8 +1125,8 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="58039e08-18a8-48b3-8864-a4f174352866" name="d2066aa0-6b17-4db6-aabc-b8653db8cf86" type="radio">
-</input><label class="tabbed-label" for="58039e08-18a8-48b3-8864-a4f174352866">
+<input checked="checked" id="16049fe3-1d1a-420f-8cf1-e612e88035c4" name="74c9bded-cf06-4850-98fa-3bf0c1bc4330" type="radio">
+</input><label class="tabbed-label" for="16049fe3-1d1a-420f-8cf1-e612e88035c4">
 Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas2" style="width: 600px">
 <div class="cell_output docutils container">
@@ -1177,8 +1196,8 @@ Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="7054de38-1494-4219-8c73-a6d8e97a8615" name="d2066aa0-6b17-4db6-aabc-b8653db8cf86" type="radio">
-</input><label class="tabbed-label" for="7054de38-1494-4219-8c73-a6d8e97a8615">
+<input id="202c8d03-3e2c-4021-83e4-a262d9d913f0" name="74c9bded-cf06-4850-98fa-3bf0c1bc4330" type="radio">
+</input><label class="tabbed-label" for="202c8d03-3e2c-4021-83e4-a262d9d913f0">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-fft-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/fft_exemplo_experimental_pa.jpeg"><img alt="../../_images/fft_exemplo_experimental_pa.jpeg" src="../../_images/fft_exemplo_experimental_pa.jpeg" style="width: 450px;" /></a>
