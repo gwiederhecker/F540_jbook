@@ -57,6 +57,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Background: Solving Kirchhoof’s law for transistors using load lines" href="../exp3a/aula_transistor_interativo.html" />
     <link rel="prev" title="Background: Diodes" href="diode_background.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -164,6 +165,23 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Guide to Experiment 2: Diodes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
   </a>
  </li>
 </ul>
@@ -449,16 +467,16 @@ When breakdown(see section 3.1.5 in <span id="id3">[<a class="reference internal
 <p>The distribution of electrical energy worldwide is carried out by sine waves, with frequencies in the range of 50−100Hz and amplitudes between 100−300V (within a house). These amplitudes can be reduced by the use of a transformer, but the signal remains alternated, AC. Relative to the neutral wire, these signals exhibit a zero mean or DC value.
 Most electrical equipment, however, uses continuous power, DC. The transformation of an alternating voltage into continuous voltage is the most important and present application of diodes in our daily lives. The figure below represents the voltage output at the terminals of a transformer, similar to that used in the laboratory. Note that this signal has an average voltage value equal to zero (<span class="math notranslate nohighlight">\(&lt;V(t)&gt;=0\)</span>). Using a diode in a circuit assembly we can obtain a half-wave or full-wave rectification. The following figure shows the full-wave rectification, where the signal coming out of the transformer is rectified.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d4ceced0-2034-42c6-9884-34db8306e1d0" name="7d76f04a-68b8-4ce7-8ac2-b3ea563adb9f" type="radio">
-</input><label class="tabbed-label" for="d4ceced0-2034-42c6-9884-34db8306e1d0">
+<input checked="checked" id="916154b5-04fe-46ee-9f81-fe0f482778ac" name="f3f81c7f-bf70-4d26-a271-41fb2c68c6ca" type="radio">
+</input><label class="tabbed-label" for="916154b5-04fe-46ee-9f81-fe0f482778ac">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-example">
 <a class="reference internal image-reference" href="../../_images/000_meia_onda_fig.png"><img alt="../../_images/000_meia_onda_fig.png" src="../../_images/000_meia_onda_fig.png" style="width: 650px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Experimental trace of input (left) and half-wave rectified signal (right)</span><a class="headerlink" href="#fig-half-wave-example" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="1b56027f-488b-42a6-95ef-944784250cb3" name="7d76f04a-68b8-4ce7-8ac2-b3ea563adb9f" type="radio">
-</input><label class="tabbed-label" for="1b56027f-488b-42a6-95ef-944784250cb3">
+<input id="3d15615a-a9a5-40bd-85de-faa9aa73aeb9" name="f3f81c7f-bf70-4d26-a271-41fb2c68c6ca" type="radio">
+</input><label class="tabbed-label" for="3d15615a-a9a5-40bd-85de-faa9aa73aeb9">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-example">
 <a class="reference internal image-reference" href="../../_images/013_onda_completa_R_330_fig.png"><img alt="../../_images/013_onda_completa_R_330_fig.png" src="../../_images/013_onda_completa_R_330_fig.png" style="width: 650px;" /></a>
@@ -471,11 +489,11 @@ Full-wave rectification</label><div class="tabbed-content docutils">
 <h3>Filtered rectification<a class="headerlink" href="#filtered-rectification" title="Permalink to this headline">¶</a></h3>
 <p>The simplest circuit to minimize the ripples observed in <a class="reference internal" href="#fig-half-wave-example"><span class="std std-numref">Fig. 12</span></a> or  <a class="reference internal" href="#fig-full-wave-example"><span class="std std-numref">Fig. 13</span></a> consists of coupling a capacitor to the load, which allows filtering of the ripples and, therefore,  minimizing the signal oscillation. The complete model for filter rectification implies an RC circuit, where the signal ripple (ripple voltage) can be expressed by (see section 3.2.3 in <span id="id4">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>):</p>
 <div class="math notranslate nohighlight" id="equation-eq-diode-capacitor">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-diode-capacitor" title="Permalink to this equation">¶</a></span>\[ V_{R}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), \]</div>
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-diode-capacitor" title="Permalink to this equation">¶</a></span>\[ V_\text{ripple}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), \]</div>
 <p>where <span class="math notranslate nohighlight">\(V_d\approx 0.7\)</span> is the diode voltage drop, and <span class="math notranslate nohighlight">\(\Delta t_{d}\)</span> is the time slot between two successive peaks, i.e., <span class="math notranslate nohighlight">\(\Delta t_{d}\approx T\)</span> for half-wave rectifiers and <span class="math notranslate nohighlight">\(\Delta t_{d}\approx T/2\)</span>  for full-wave rectifiers.
 When <span class="math notranslate nohighlight">\(RC&gt;&gt;\Delta t_{d}\)</span>, eq. <a class="reference internal" href="#equation-eq-diode-capacitor">(14)</a> can  be approximated by,</p>
 <div class="math notranslate nohighlight" id="equation-eq-diode-capacitor-2">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-diode-capacitor-2" title="Permalink to this equation">¶</a></span>\[V_{R} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},\]</div>
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-diode-capacitor-2" title="Permalink to this equation">¶</a></span>\[V_\text{ripple} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},\]</div>
 <p>where <span class="math notranslate nohighlight">\(n=1\)</span> (half-wave) or <span class="math notranslate nohighlight">\(n=2\)</span> (full-wave).</p>
 </div>
 </div>
@@ -486,16 +504,16 @@ When <span class="math notranslate nohighlight">\(RC&gt;&gt;\Delta t_{d}\)</span
 
 O sinal de tensão alternado na saída do transformador é retificado, i.e, apenas os valores de tensão positivos “passam” pelo diodo, cortando os valores negativos de tensão. Essa é uma retificação muito ruim, pois ainda tem muita oscilação no sinal retificado. -->
 <div class="tabbed-set docutils">
-<input checked="checked" id="9a1216e8-b3b3-4707-b52f-921a4ef80e43" name="acec10c4-d3a6-4d4c-890d-36454e878041" type="radio">
-</input><label class="tabbed-label" for="9a1216e8-b3b3-4707-b52f-921a4ef80e43">
+<input checked="checked" id="a7080946-21f8-4277-9bf1-fee952cbe994" name="7b721538-f2c5-440b-83ea-3f889d557061" type="radio">
+</input><label class="tabbed-label" for="a7080946-21f8-4277-9bf1-fee952cbe994">
 Half-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/meia_onda_qucs_cap.png"><img alt="../../_images/meia_onda_qucs_cap.png" src="../../_images/meia_onda_qucs_cap.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Schematic of a half-wave rectifier</span><a class="headerlink" href="#fig-half-wave-circuit-capacitor" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="88e565c2-055f-4141-8b0a-4544f922b59a" name="acec10c4-d3a6-4d4c-890d-36454e878041" type="radio">
-</input><label class="tabbed-label" for="88e565c2-055f-4141-8b0a-4544f922b59a">
+<input id="9b7831b9-c108-4883-989f-6669e3b98846" name="7b721538-f2c5-440b-83ea-3f889d557061" type="radio">
+</input><label class="tabbed-label" for="9b7831b9-c108-4883-989f-6669e3b98846">
 Full-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/completa_onda_qucs_cap.png"><img alt="../../_images/completa_onda_qucs_cap.png" src="../../_images/completa_onda_qucs_cap.png" style="width: 450px;" /></a>
@@ -516,7 +534,8 @@ Full-wave circuit</label><div class="tabbed-content docutils">
 <p>This second video illustrate the experimental procedure and data acquisition associated with the half-wave rectifier.</p>
 <iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/f3763f6a-b335-489d-83a1-5dfd18b966ea?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/001_meia_onda_c_R_330.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Loading dataset with &quot;tab&quot; as separator</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/001_meia_onda_c_R_330.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo_diode_rc&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -599,8 +618,8 @@ Full-wave circuit</label><div class="tabbed-content docutils">
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5eddb35e-c845-4595-a0be-af19678f450e" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="5eddb35e-c845-4595-a0be-af19678f450e">
+<input checked="checked" id="2ad8e388-e0c7-4ec6-acce-d75ce2965fd4" name="ab7dcfdf-315f-4796-90ab-83ce919f7311" type="radio">
+</input><label class="tabbed-label" for="2ad8e388-e0c7-4ec6-acce-d75ce2965fd4">
 Diode rectification dataset structure</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-diode-rc" style="width: 600px">
 <div class="cell_output docutils container">
@@ -664,16 +683,16 @@ Diode rectification dataset structure</label><div class="tabbed-content docutils
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">001_meia_onda_c_R_330.dat</span></code> data file, corresponding to the decade resistance at <span class="math notranslate nohighlight">\(330\Omega\)</span>; the separator between entries is a <strong>tab</strong>.</span><a class="headerlink" href="#tbl-pandas-diode-rc" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="e7fe8ca3-5615-4d79-a6aa-886c6a601139" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="e7fe8ca3-5615-4d79-a6aa-886c6a601139">
+<input id="46bfe8f3-7b9a-44a0-aed2-1b9d741fd6a9" name="ab7dcfdf-315f-4796-90ab-83ce919f7311" type="radio">
+</input><label class="tabbed-label" for="46bfe8f3-7b9a-44a0-aed2-1b9d741fd6a9">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-gif">
 <a class="reference internal image-reference" href="../../_images/meia_onda.gif"><img alt="../../_images/meia_onda.gif" src="../../_images/meia_onda.gif" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Oscilloscope traces of the half-wave rectification as the <strong>decade resistance</strong> is increased.</span><a class="headerlink" href="#fig-half-wave-gif" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="b6f26572-ae28-47a9-8c80-4bd557a0d7a5" name="3a108610-e760-4bc0-9d75-52d9a05c8867" type="radio">
-</input><label class="tabbed-label" for="b6f26572-ae28-47a9-8c80-4bd557a0d7a5">
+<input id="6584a6fd-7539-4a8c-b21b-580007edba5f" name="ab7dcfdf-315f-4796-90ab-83ce919f7311" type="radio">
+</input><label class="tabbed-label" for="6584a6fd-7539-4a8c-b21b-580007edba5f">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-gif">
 <a class="reference internal image-reference" href="../../_images/onda_completa.gif"><img alt="../../_images/onda_completa.gif" src="../../_images/onda_completa.gif" style="width: 450px;" /></a>
@@ -711,6 +730,7 @@ Full-wave rectification</label><div class="tabbed-content docutils">
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="diode_background.html" title="previous page">Background: Diodes</a>
+    <a class='right-next' id="next-link" href="../exp3a/aula_transistor_interativo.html" title="next page">Background: Solving Kirchhoof’s law for transistors using load lines</a>
 
         </div>
         

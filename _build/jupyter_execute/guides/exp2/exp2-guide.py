@@ -138,12 +138,12 @@ Despite the average DC value that appears in the rectified signals, either half-
 
 The simplest circuit to minimize the ripples observed in {numref}`fig:half-wave_example` or  {numref}`fig:full-wave_example` consists of coupling a capacitor to the load, which allows filtering of the ripples and, therefore,  minimizing the signal oscillation. The complete model for filter rectification implies an RC circuit, where the signal ripple (ripple voltage) can be expressed by (see section 3.2.3 in {cite}`eggleston2011basic`):
 
-$$ V_{R}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), $$(eq:diode_capacitor)
+$$ V_\text{ripple}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \right), $$(eq:diode_capacitor)
 
 where $V_d\approx 0.7$ is the diode voltage drop, and $\Delta t_{d}$ is the time slot between two successive peaks, i.e., $\Delta t_{d}\approx T$ for half-wave rectifiers and $\Delta t_{d}\approx T/2$  for full-wave rectifiers.
 When $RC>>\Delta t_{d}$, eq. {eq}`eq:diode_capacitor` can  be approximated by,
 
-$$V_{R} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},$$ (eq:diode_capacitor_2)
+$$V_\text{ripple} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},$$ (eq:diode_capacitor_2)
 
 where $n=1$ (half-wave) or $n=2$ (full-wave).
 
@@ -187,6 +187,7 @@ This second video illustrate the experimental procedure and data acquisition ass
 
 <iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/f3763f6a-b335-489d-83a1-5dfd18b966ea?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
 
+#Loading dataset with "tab" as separator
 data = pd.read_csv('dados/001_meia_onda_c_R_330.dat',sep='\t')
 glue("df_pandas_exemplo_diode_rc", data.head())
 
