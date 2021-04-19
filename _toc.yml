@@ -22,7 +22,7 @@
   chapters:
   - file : guides/exp2/diode_background.ipynb
   - file : guides/exp2/exp2-guide.ipynb
-- part: Diodes (exp. 2)
+- part: Transistors characterization (exp. 3a)
   chapters:
   - file : guides/exp3a/aula_transistor_interativo.ipynb
   - file : guides/exp3a/exp3a-guide.ipynb
