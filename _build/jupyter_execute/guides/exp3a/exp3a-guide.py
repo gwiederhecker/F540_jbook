@@ -64,7 +64,7 @@ presents characteristic curves for the bipolar junction transistor BD 135, being
 $$ I_\text{collector} = \beta \times I_\text{base}, $$ (eq:transitor_ic_ib)
 
 
-In general, for {eq}`eq:transitor_ic_ib` to be valid, if ($V_{CE}$) is  higher than the $V_{BE}$ , which is required  to polarize the transistor into the active region. Play around withthe the background theory notebook to get an insight into the the transistor behavior {doc}`aula_transistor_interativo`. An example of the *IV* curves generated at this notebook are shown in 
+In general, for {eq}`eq:transitor_ic_ib` to be valid, if ($V_{CE}$) is  higher than the $V_{BE}$ , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( {doc}`aula_transistor_interativo`) to get an insight into the the transistor behavior. An example of the *IV* curves generated at this notebook are shown in {numref}`fig:transistor_gif`:
 ```{figure} figs/transistor.gif
 ---
 width: 650px
@@ -74,9 +74,20 @@ Solving the transistor using the load line method for varying values of the base
 ```
 
 
+Characteristics curves are often presented in transistor datasheets, such as the example in {numref}`fig:bjt_sheet`
+```{figure} figs/ic_vce_curve.png
+---
+width: 350px
+name: "fig:bjt_sheet"
+align: center
+---
+Example [datasheet from manufacturer](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/figs/BD135_datasheet.pdf?raw=true) showing transistor gain characterization
+```
+
 ## Transistor  gain $\beta$
 The gain of a transistor depends on its construction, current range and the frequency of operation of the circuit assembly. For the transistor BD 135, the characteristic curves as a function of the current $ I_B $ are illustrated in {numref}`fig:ic_ib_bjt`
-```{figure} figs/ic_vce_curve.png
+
+```{figure} figs/curva2.png
 ---
 width: 350px
 name: "fig:ic_ib_bjt"
@@ -107,15 +118,15 @@ Circuit schematic used in the transistor characterization
 ## Measuring transistor Gain 
 The gain of the $ (\beta) $ transistor can be obtained simply by the ratio between the current in the collector and the current in the emitter, as previously shown. In a variation of the previous assembly, we can measure the gain of the transistor. We will use the a linear voltage ramp to vary the base voltage and, consequently, the current at the base of the transistor. 
 
-The current $ I_C $ is measured through the resistance $ R4 $, while $ I_B $ is measured against the resistance of decades.
-Measure a series of 20 points for $ I_C $ up to $ 10 mA $. By controlling the variable resistance at the base it is possible to control $ I_B $.
+The current $ I_C $ is measured through the resistance $ RC $, while $ I_B $ is measured against the resistance $R_B$.
+ By controlling either the base voltage ($V_{BB}$), or the base resistace $R_B$, it is possible to control $ I_B $.
 ```{figure} figs/esquema_medida_beta.png
 ---
 width: 400px
-name: "fig:bjt_setup1"
+name: "fig:bjt_setup2"
 align: center
 ---
-Circuit schematic used in the transistor characterization. The internal resistance of the base voltage source is 50 Ohms.
+Circuit schematic used in the transistor gain characterization. The internal resistance of the base voltage source is 50 Ohms.
 ```
 
 ### Videos of the experiments
@@ -145,7 +156,7 @@ glue("df_pandas_beta", df2.head())
 
 (sec:dataset_transistor_3a)=
 ### Downloadable dataset
-* One (.zip) file: [Half-wave rectifier](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/dados/dados_transistor_3a?raw=true)
+* One (.zip) file: [Transistor characterization](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/dados/dados_transistor_3a?raw=true)
     * `.zip` file contains:
         * `dados_Vce_Vcc_15p5.csv` file corresponding to the characteristic curves (see {numref}`tbl:pandas_ic_vce`)
         * `dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv` file corresponding to the $I_C$ versus $I_B$ curve. (see {numref}`tbl:pandas_ic_vce`)
