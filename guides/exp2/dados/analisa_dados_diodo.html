@@ -360,7 +360,8 @@
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
 <span class="c1">#Comandos opcionais para formatar gráfico</span>
 <span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
@@ -378,20 +379,6 @@
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span> <span class="c1"># pacote para ajuste de curvas</span>
 <span class="c1"># navegar pelas pastas</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">74</span><span class="n">a53e444528</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">figure</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mf">1.6</span><span class="p">]}</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">lines</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">figure</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;matplotlib&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -444,6 +431,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dados_onda_completa&#39;,
  &#39;dados_meia_onda.zip&#39;,
  &#39;dados_onda_completa.zip&#39;,
+ &#39;analise_meia_onda_teoria_fig.png&#39;,
  &#39;001_meia_onda_c_R_330.dat&#39;,
  &#39;analisa_dados_diodo.ipynb&#39;]
 </pre></div>
@@ -475,7 +463,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;, &#39;dados_onda_completa/015_onda_completa_C_R_352.dat&#39;, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;, &#39;dados_onda_completa/013_onda_completa_R_330_fig.png&#39;, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;, &#39;dados_onda_completa/014_onda_completa_C_R_330_fig.png&#39;, &#39;dados_onda_completa/015_onda_completa_C_R_352.dat&#39;, &#39;dados_onda_completa/015_onda_completa_C_R_352_fig.png&#39;, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;, &#39;dados_onda_completa/016_onda_completa_C_R_412_fig.png&#39;, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;, &#39;dados_onda_completa/017_onda_completa_C_R_510_fig.png&#39;, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;, &#39;dados_onda_completa/018_onda_completa_C_R_610_fig.png&#39;, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;, &#39;dados_onda_completa/019_onda_completa_C_R_820_fig.png&#39;, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;, &#39;dados_onda_completa/020_onda_completa_C_R_1000_fig.png&#39;, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;, &#39;dados_onda_completa/021_onda_completa_C_R_1200_fig.png&#39;, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;, &#39;dados_onda_completa/022_onda_completa_C_R_2700_fig.png&#39;, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;, &#39;dados_onda_completa/023_onda_completa_C_R_4700_fig.png&#39;, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;, &#39;dados_onda_completa/024_onda_completa_C_R_9100_fig.png&#39;, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;, &#39;dados_onda_completa/025_onda_completa_C_R_aberto_fig.png&#39;]
 </pre></div>
 </div>
 </div>
@@ -506,19 +494,32 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     dados_onda_completa/019_onda_completa_C_R_820.dat
-1     dados_onda_completa/024_onda_completa_C_R_9100...
-2     dados_onda_completa/016_onda_completa_C_R_412.dat
-3     dados_onda_completa/025_onda_completa_C_R_aber...
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       dados_onda_completa/013_onda_completa_R_330.dat
+1     dados_onda_completa/013_onda_completa_R_330_fi...
+2     dados_onda_completa/014_onda_completa_C_R_330.dat
+3     dados_onda_completa/014_onda_completa_C_R_330_...
 4     dados_onda_completa/015_onda_completa_C_R_352.dat
-5     dados_onda_completa/020_onda_completa_C_R_1000...
-6     dados_onda_completa/017_onda_completa_C_R_510.dat
-7       dados_onda_completa/013_onda_completa_R_330.dat
-8     dados_onda_completa/022_onda_completa_C_R_2700...
-9     dados_onda_completa/023_onda_completa_C_R_4700...
-10    dados_onda_completa/014_onda_completa_C_R_330.dat
-11    dados_onda_completa/018_onda_completa_C_R_610.dat
-12    dados_onda_completa/021_onda_completa_C_R_1200...
+5     dados_onda_completa/015_onda_completa_C_R_352_...
+6     dados_onda_completa/016_onda_completa_C_R_412.dat
+7     dados_onda_completa/016_onda_completa_C_R_412_...
+8     dados_onda_completa/017_onda_completa_C_R_510.dat
+9     dados_onda_completa/017_onda_completa_C_R_510_...
+10    dados_onda_completa/018_onda_completa_C_R_610.dat
+11    dados_onda_completa/018_onda_completa_C_R_610_...
+12    dados_onda_completa/019_onda_completa_C_R_820.dat
+13    dados_onda_completa/019_onda_completa_C_R_820_...
+14    dados_onda_completa/020_onda_completa_C_R_1000...
+15    dados_onda_completa/020_onda_completa_C_R_1000...
+16    dados_onda_completa/021_onda_completa_C_R_1200...
+17    dados_onda_completa/021_onda_completa_C_R_1200...
+18    dados_onda_completa/022_onda_completa_C_R_2700...
+19    dados_onda_completa/022_onda_completa_C_R_2700...
+20    dados_onda_completa/023_onda_completa_C_R_4700...
+21    dados_onda_completa/023_onda_completa_C_R_4700...
+22    dados_onda_completa/024_onda_completa_C_R_9100...
+23    dados_onda_completa/024_onda_completa_C_R_9100...
+24    dados_onda_completa/025_onda_completa_C_R_aber...
+25    dados_onda_completa/025_onda_completa_C_R_aber...
 dtype: object
 </pre></div>
 </div>
@@ -532,19 +533,32 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;]
-[1, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;]
-[2, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;]
-[3, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, &#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;]
+[1, &#39;dados_onda_completa/013_onda_completa_R_330_fig.png&#39;]
+[2, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;]
+[3, &#39;dados_onda_completa/014_onda_completa_C_R_330_fig.png&#39;]
 [4, &#39;dados_onda_completa/015_onda_completa_C_R_352.dat&#39;]
-[5, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;]
-[6, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;]
-[7, &#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;]
-[8, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;]
-[9, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;]
-[10, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;]
-[11, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;]
-[12, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;]
+[5, &#39;dados_onda_completa/015_onda_completa_C_R_352_fig.png&#39;]
+[6, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;]
+[7, &#39;dados_onda_completa/016_onda_completa_C_R_412_fig.png&#39;]
+[8, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;]
+[9, &#39;dados_onda_completa/017_onda_completa_C_R_510_fig.png&#39;]
+[10, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;]
+[11, &#39;dados_onda_completa/018_onda_completa_C_R_610_fig.png&#39;]
+[12, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;]
+[13, &#39;dados_onda_completa/019_onda_completa_C_R_820_fig.png&#39;]
+[14, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;]
+[15, &#39;dados_onda_completa/020_onda_completa_C_R_1000_fig.png&#39;]
+[16, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;]
+[17, &#39;dados_onda_completa/021_onda_completa_C_R_1200_fig.png&#39;]
+[18, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;]
+[19, &#39;dados_onda_completa/022_onda_completa_C_R_2700_fig.png&#39;]
+[20, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;]
+[21, &#39;dados_onda_completa/023_onda_completa_C_R_4700_fig.png&#39;]
+[22, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;]
+[23, &#39;dados_onda_completa/024_onda_completa_C_R_9100_fig.png&#39;]
+[24, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;]
+[25, &#39;dados_onda_completa/025_onda_completa_C_R_aberto_fig.png&#39;]
 </pre></div>
 </div>
 </div>
@@ -567,7 +581,7 @@ The output file will be a Pandas <a class="reference external" href="https://pan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dados_onda_completa/019_onda_completa_C_R_820.dat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dados_onda_completa/013_onda_completa_R_330.dat
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -598,31 +612,31 @@ The output file will be a Pandas <a class="reference external" href="https://pan
       <th>0</th>
       <td>0.00002</td>
       <td>1.2</td>
-      <td>12.2</td>
+      <td>0.6</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.00004</td>
       <td>1.4</td>
-      <td>12.2</td>
+      <td>0.6</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.00006</td>
       <td>1.4</td>
-      <td>12.2</td>
+      <td>0.8</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.00008</td>
       <td>1.6</td>
-      <td>12.2</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.00010</td>
       <td>1.8</td>
-      <td>12.2</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -749,19 +763,32 @@ tensões= [9.34344, 14.8, -0.2]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     dados_onda_completa/019_onda_completa_C_R_820.dat
-1     dados_onda_completa/024_onda_completa_C_R_9100...
-2     dados_onda_completa/016_onda_completa_C_R_412.dat
-3     dados_onda_completa/025_onda_completa_C_R_aber...
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       dados_onda_completa/013_onda_completa_R_330.dat
+1     dados_onda_completa/013_onda_completa_R_330_fi...
+2     dados_onda_completa/014_onda_completa_C_R_330.dat
+3     dados_onda_completa/014_onda_completa_C_R_330_...
 4     dados_onda_completa/015_onda_completa_C_R_352.dat
-5     dados_onda_completa/020_onda_completa_C_R_1000...
-6     dados_onda_completa/017_onda_completa_C_R_510.dat
-7       dados_onda_completa/013_onda_completa_R_330.dat
-8     dados_onda_completa/022_onda_completa_C_R_2700...
-9     dados_onda_completa/023_onda_completa_C_R_4700...
-10    dados_onda_completa/014_onda_completa_C_R_330.dat
-11    dados_onda_completa/018_onda_completa_C_R_610.dat
-12    dados_onda_completa/021_onda_completa_C_R_1200...
+5     dados_onda_completa/015_onda_completa_C_R_352_...
+6     dados_onda_completa/016_onda_completa_C_R_412.dat
+7     dados_onda_completa/016_onda_completa_C_R_412_...
+8     dados_onda_completa/017_onda_completa_C_R_510.dat
+9     dados_onda_completa/017_onda_completa_C_R_510_...
+10    dados_onda_completa/018_onda_completa_C_R_610.dat
+11    dados_onda_completa/018_onda_completa_C_R_610_...
+12    dados_onda_completa/019_onda_completa_C_R_820.dat
+13    dados_onda_completa/019_onda_completa_C_R_820_...
+14    dados_onda_completa/020_onda_completa_C_R_1000...
+15    dados_onda_completa/020_onda_completa_C_R_1000...
+16    dados_onda_completa/021_onda_completa_C_R_1200...
+17    dados_onda_completa/021_onda_completa_C_R_1200...
+18    dados_onda_completa/022_onda_completa_C_R_2700...
+19    dados_onda_completa/022_onda_completa_C_R_2700...
+20    dados_onda_completa/023_onda_completa_C_R_4700...
+21    dados_onda_completa/023_onda_completa_C_R_4700...
+22    dados_onda_completa/024_onda_completa_C_R_9100...
+23    dados_onda_completa/024_onda_completa_C_R_9100...
+24    dados_onda_completa/025_onda_completa_C_R_aber...
+25    dados_onda_completa/025_onda_completa_C_R_aber...
 dtype: object
 </pre></div>
 </div>
@@ -851,7 +878,55 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:61: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">de959cbe8f3f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">for</span> <span class="n">ii</span><span class="p">,</span><span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_list</span><span class="p">):</span><span class="c1">#[1:-3]</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="c1">#----</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># DataFrame segundo Pandasdf</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">,</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">,</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="c1">#----</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> 
+<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> 
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
+<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._get_header</span><span class="nt">()</span>
+
+<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0x89 in position 0: invalid start byte
 </pre></div>
 </div>
 <img alt="../../../_images/analisa_dados_diodo_31_1.png" src="../../../_images/analisa_dados_diodo_31_1.png" />
