@@ -2,6 +2,7 @@
 
 ## Load packages
 
+import matplotlib
 import matplotlib.pyplot as plt  # importar a bilioteca pyplot para fazer gráficos
 from matplotlib import colors
 #Comandos opcionais para formatar gráfico
