@@ -54,7 +54,7 @@ To fully appreciate this device, it is desirable that you read an introductory  
     * Be carefull to properly convert the voltage measurements into currents using the appropriate values for the resistors.
 2. Include a graph of $I_C(I_B)$ and determine the transistor gain.
     * Make sure to include the linear fitting you used  to determine $\beta$
-4. Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.
+3. Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.
 :::
 
 
@@ -70,7 +70,7 @@ In general, for {eq}`eq:transitor_ic_ib` to be valid, if ($V_{CE}$) is  higher t
 width: 650px
 name: "fig:transistor_gif"
 ---
-Solving the transistor using the load line method for varying values of the base current.
+Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook {doc}`aula_transistor_interativo`, the base voltage $V_BB$ was varied in the range   $0.2 V\leq V_B\leq 1.2 V$.
 ```
 
 
@@ -96,7 +96,7 @@ align: center
 Example dateset of transistor gain characterization
 ```
 
-An approximate value of the $ (\beta) $ gain can be obtained on a linear graph of $ I_c $ as a function of $ I_B $, the gain being given by the slope of the line, as in the example of {numref}`fig:ic_ib_bjt`.
+An approximate value of the $ (\beta) $ gain can be obtained on a linear graph of $ I_C $ as a function of $ I_B $, the gain being given by the slope of the line, as in the example of {numref}`fig:ic_ib_bjt`.
 
 ## Measuring characterisitic curves
 The characteristic curve of a transistor is the graph of $ I_C $ for $ V_ {CE} $. The proposed assembly for this measure is illustrated in the figure below.
@@ -156,7 +156,7 @@ glue("df_pandas_beta", df2.head())
 
 (sec:dataset_transistor_3a)=
 ### Downloadable dataset
-* One (.zip) file: [Transistor characterization](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/dados/dados_transistor_3a?raw=true)
+* One (.zip) file: [Transistor characterization](https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/dados/dados_transistor_3a.zip?raw=true)
     * `.zip` file contains:
         * `dados_Vce_Vcc_15p5.csv` file corresponding to the characteristic curves (see {numref}`tbl:pandas_ic_vce`)
         * `dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv` file corresponding to the $I_C$ versus $I_B$ curve. (see {numref}`tbl:pandas_ic_vce`)

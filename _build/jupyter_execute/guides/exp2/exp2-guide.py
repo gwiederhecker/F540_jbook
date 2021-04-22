@@ -21,7 +21,7 @@ To fully appreciate this device, it is desirable that you read an introductory  
 
 :::{admonition} Items to include in your lab report
 :class: warning
-1. Graphs of the time-traces corresponding two different load conditions (resistance values. Bode diagrams of the high-pass and low-pass filters. You must generate the graphs, based on the data provided in {ref}`sec:dataset_diode`.
+1. Graphs of the time-traces corresponding two different load conditions (resistance values). You must generate the graphs, based on the data provided in {ref}`sec:dataset_diode`.
     * Try to add the different traces to a single figure, instead of adding multiple repetitive plots to your report. Consider distinct line colors for each trace.
 2. Extract the following parameters from each plots
     * Average voltage
@@ -143,7 +143,7 @@ $$ V_\text{ripple}=\left(V_{0}-V_d\right)\left(1 - e^\frac{\Delta t_{d}}{RC} \ri
 where $V_d\approx 0.7$ is the diode voltage drop, and $\Delta t_{d}$ is the time slot between two successive peaks, i.e., $\Delta t_{d}\approx T$ for half-wave rectifiers and $\Delta t_{d}\approx T/2$  for full-wave rectifiers.
 When $RC>>\Delta t_{d}$, eq. {eq}`eq:diode_capacitor` can  be approximated by,
 
-$$V_\text{ripple} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n fC},$$ (eq:diode_capacitor_2)
+$$V_\text{ripple} = \frac{(V_{0}-V_d)\ \Delta t_{d} }{R C} \approx \frac{(V_{0}-V_d)}{n f C}\frac{1}{R},$$ (eq:diode_capacitor_2)
 
 where $n=1$ (half-wave) or $n=2$ (full-wave).
 

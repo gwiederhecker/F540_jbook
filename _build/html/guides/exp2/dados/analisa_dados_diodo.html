@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data analysis: Diode full-wave rectification &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Transistor math" href="../../exp3a/transistor_math.html" />
+    <link rel="prev" title="Guide to Experiment 2: Diodes" href="../exp2-guide.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp1/complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp1/exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp1/exemplo_ajuste_rc.html">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/guides/exp2/dados/analisa_dados_diodo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/guides/exp2/dados/analisa_dados_diodo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp2/dados/analisa_dados_diodo.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-the-list-of-files">
+   Getting the list of files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-the-files">
+   Reading the files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-a-single-file">
+     reading a single file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-time-waveforms-using-matplotlib">
+     Plotting the time waveforms using Matplotlib
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-and-plotting-multiple-files-at-once">
+   Loading and plotting multiple files at once
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#characteristics-of-the-diode-rectified-voltage-source">
+   Characteristics of the diode-rectified voltage source
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-model-to-data">
+     Fitting model to data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-data-and-fitted-model">
+     Comparing data and fitted model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-time-traces-for-each-data">
+   Generating time traces for each data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-analysis-diode-full-wave-rectification">
+<h1>Data analysis: Diode full-wave rectification<a class="headerlink" href="#data-analysis-diode-full-wave-rectification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-packages">
+<h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="c1">#Comandos opcionais para formatar gráfico</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">12</span><span class="p">}</span>	
+<span class="n">lines</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mf">1.6</span><span class="p">]}</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">figure</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># importar a biblioteca Numpy para lidar com matrizes</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># importa bilioteca pandas para  lidar com processamento de dados</span>
+<span class="kn">import</span> <span class="nn">os</span> <span class="c1">#com</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span> <span class="c1"># pacote para ajuste de curvas</span>
+<span class="c1"># navegar pelas pastas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">74</span><span class="n">a53e444528</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">figure</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mf">1.6</span><span class="p">]}</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">lines</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">figure</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;matplotlib&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="getting-the-list-of-files">
+<h2>Getting the list of files<a class="headerlink" href="#getting-the-list-of-files" title="Permalink to this headline">¶</a></h2>
+<p>If you want to find out in which folder your located at the moment, use the command <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1"># aonde estou?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/gsw/Documents/GitHub/F540_jbook/guides/exp2/dados&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is important because it may affect how you load data in the cell below:</p>
+<ul class="simple">
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">path</span> <span class="pre">=</span> <span class="pre">os.getcwd()</span></code> will assign to the variable <code class="docutils literal notranslate"><span class="pre">path</span></code> the current folder</p></li>
+<li><p><strong>If your data files are within this folder</strong>, then you should be able to load them right away</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Colocando nomes das pastas e arquivos</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Documents/GitHub/F540_jbook/guides/exp2/dados
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">glob.glob('*')</span></code> will list all files in current folder, including <em>subfolders</em>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dados_onda_completa&#39;,
+ &#39;dados_meia_onda.zip&#39;,
+ &#39;dados_onda_completa.zip&#39;,
+ &#39;001_meia_onda_c_R_330.dat&#39;,
+ &#39;analisa_dados_diodo.ipynb&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>I know my data is within the <code class="docutils literal notranslate"><span class="pre">dados_onda_completa</span></code> folder, so I will list the files within it.</p></li>
+<li><p>Im Unix OS (Mac and Linux), I will provide the string <code class="docutils literal notranslate"><span class="pre">dados_onda_completa/*</span></code>. But in Windows, it will need to be <code class="docutils literal notranslate"><span class="pre">dados_onda_completa\*</span></code>.</p></li>
+<li><p>To make sure this command will work regardless of you OS, I will explore the command <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>, which will determine automatically whether <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">\</span></code> is to be used:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;dados_onda_completa&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dados_onda_completa/*&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;dados_onda_completa&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;, &#39;dados_onda_completa/015_onda_completa_C_R_352.dat&#39;, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Note usage of the python fucntion <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> to sort the files in increasing name order.</p></li>
+<li><p>The list above is fine and we can access its content using integer indexes (starting at zero):</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Instead, I will use the command <code class="docutils literal notranslate"><span class="pre">pd.Series(file_list)</span></code> from the Pandas package, this will show the file names with the corresponding indexes:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     dados_onda_completa/019_onda_completa_C_R_820.dat
+1     dados_onda_completa/024_onda_completa_C_R_9100...
+2     dados_onda_completa/016_onda_completa_C_R_412.dat
+3     dados_onda_completa/025_onda_completa_C_R_aber...
+4     dados_onda_completa/015_onda_completa_C_R_352.dat
+5     dados_onda_completa/020_onda_completa_C_R_1000...
+6     dados_onda_completa/017_onda_completa_C_R_510.dat
+7       dados_onda_completa/013_onda_completa_R_330.dat
+8     dados_onda_completa/022_onda_completa_C_R_2700...
+9     dados_onda_completa/023_onda_completa_C_R_4700...
+10    dados_onda_completa/014_onda_completa_C_R_330.dat
+11    dados_onda_completa/018_onda_completa_C_R_610.dat
+12    dados_onda_completa/021_onda_completa_C_R_1200...
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another way of achieving a similar result is using a for loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">file</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">file</span> <span class="ow">in</span>  <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_list</span><span class="p">)];</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, &#39;dados_onda_completa/019_onda_completa_C_R_820.dat&#39;]
+[1, &#39;dados_onda_completa/024_onda_completa_C_R_9100.dat&#39;]
+[2, &#39;dados_onda_completa/016_onda_completa_C_R_412.dat&#39;]
+[3, &#39;dados_onda_completa/025_onda_completa_C_R_aberto.dat&#39;]
+[4, &#39;dados_onda_completa/015_onda_completa_C_R_352.dat&#39;]
+[5, &#39;dados_onda_completa/020_onda_completa_C_R_1000.dat&#39;]
+[6, &#39;dados_onda_completa/017_onda_completa_C_R_510.dat&#39;]
+[7, &#39;dados_onda_completa/013_onda_completa_R_330.dat&#39;]
+[8, &#39;dados_onda_completa/022_onda_completa_C_R_2700.dat&#39;]
+[9, &#39;dados_onda_completa/023_onda_completa_C_R_4700.dat&#39;]
+[10, &#39;dados_onda_completa/014_onda_completa_C_R_330.dat&#39;]
+[11, &#39;dados_onda_completa/018_onda_completa_C_R_610.dat&#39;]
+[12, &#39;dados_onda_completa/021_onda_completa_C_R_1200.dat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-the-files">
+<h2>Reading the files<a class="headerlink" href="#reading-the-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-a-single-file">
+<h3>reading a single file<a class="headerlink" href="#reading-a-single-file" title="Permalink to this headline">¶</a></h3>
+<p>Note the use of the <code class="docutils literal notranslate"><span class="pre">sep='\t'</span></code> argument for the <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> command. It was used because the data files used a TAB character for separating values.
+The output file will be a Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe">DataFrame</a> object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">file_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># DataFrame segundo Pandasdf</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">,</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">,</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># preview the first few rows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dados_onda_completa/019_onda_completa_C_R_820.dat
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tempo(s)</th>
+      <th>ch1(V)</th>
+      <th>ch2(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00002</td>
+      <td>1.2</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.00004</td>
+      <td>1.4</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.00006</td>
+      <td>1.4</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00008</td>
+      <td>1.6</td>
+      <td>12.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00010</td>
+      <td>1.8</td>
+      <td>12.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can access columns using either of the two approaches:</p>
+<ul class="simple">
+<li><p>Using the column name, for example, <code class="docutils literal notranslate"><span class="pre">df['ch1(V)']</span></code> will give us column <code class="docutils literal notranslate"><span class="pre">'ch1(V)'</span></code> content</p></li>
+<li><p>Using indexes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.iloc[:,0]</span></code> - All rows of column <code class="docutils literal notranslate"><span class="pre">tempo(s)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.iloc[0,0]</span></code> - first row of column <code class="docutils literal notranslate"><span class="pre">tempo(s)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.iloc[:,1]</span></code> - All rows of column <code class="docutils literal notranslate"><span class="pre">ch1(V)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.iloc[:,2]</span></code> - All rows of column <code class="docutils literal notranslate"><span class="pre">ch2(V)</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       0.00002
+1       0.00004
+2       0.00006
+3       0.00008
+4       0.00010
+         ...   
+2495    0.04992
+2496    0.04994
+2497    0.04996
+2498    0.04998
+2499    0.05000
+Name: tempo(s), Length: 2500, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below use <a class="reference external" href="https://numpy.org/doc/stable/user/whatisnumpy.html">Numpy</a> functions to calculate:</p>
+<ul class="simple">
+<li><p>mean value</p></li>
+<li><p>max and min voltages
+Note that Numpy functions works seamlessly with Pandas DataFrames:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V1med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+<span class="n">V1max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+<span class="n">V1min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensões=&#39;</span><span class="p">,[</span><span class="n">V1med</span><span class="p">,</span><span class="n">V1max</span><span class="p">,</span><span class="n">V1min</span><span class="p">])</span>
+<span class="c1">#---</span>
+<span class="n">V2med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+<span class="n">V2max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+<span class="n">V2min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensões=&#39;</span><span class="p">,[</span><span class="n">V2med</span><span class="p">,</span><span class="n">V2max</span><span class="p">,</span><span class="n">V2min</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensões= [0.09839999999999946, 15.8, -15.6]
+tensões= [9.34344, 14.8, -0.2]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-time-waveforms-using-matplotlib">
+<h3>Plotting the time waveforms using <a class="reference external" href="https://matplotlib.org/">Matplotlib</a><a class="headerlink" href="#plotting-the-time-waveforms-using-matplotlib" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#----</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#------------------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#--</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1med</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{dc}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1med</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1max</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{max}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1max</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1min</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{min}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1min</span><span class="p">))</span>
+<span class="c1">#--</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensão (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="c1">#------------------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+<span class="c1">#--</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2med</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{dc}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2med</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2max</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{max}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2max</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2min</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{min}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2min</span><span class="p">))</span>
+<span class="c1">#--</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+<span class="c1">#ax0.set_ylabel(&#39;Tensão (V)&#39;)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="c1">#------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1">#----</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;dado: &#39;</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+<span class="c1"># shift subplots down:</span>
+<span class="n">st</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="c1">#---</span>
+<span class="c1">#plt.savefig(file[0:-4]+&#39;_fig.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/analisa_dados_diodo_27_0.png" src="../../../_images/analisa_dados_diodo_27_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-and-plotting-multiple-files-at-once">
+<h2>Loading and plotting multiple files at once<a class="headerlink" href="#loading-and-plotting-multiple-files-at-once" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;file_print&quot;</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">file_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     dados_onda_completa/019_onda_completa_C_R_820.dat
+1     dados_onda_completa/024_onda_completa_C_R_9100...
+2     dados_onda_completa/016_onda_completa_C_R_412.dat
+3     dados_onda_completa/025_onda_completa_C_R_aber...
+4     dados_onda_completa/015_onda_completa_C_R_352.dat
+5     dados_onda_completa/020_onda_completa_C_R_1000...
+6     dados_onda_completa/017_onda_completa_C_R_510.dat
+7       dados_onda_completa/013_onda_completa_R_330.dat
+8     dados_onda_completa/022_onda_completa_C_R_2700...
+9     dados_onda_completa/023_onda_completa_C_R_4700...
+10    dados_onda_completa/014_onda_completa_C_R_330.dat
+11    dados_onda_completa/018_onda_completa_C_R_610.dat
+12    dados_onda_completa/021_onda_completa_C_R_1200...
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we know how to handle a single file, we can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to sequentially open and process all files. For example, I manually extracted from the file names the values of resistance associated with each file:</p>
+<p><a href="#id1"><span class="problematic" id="id2">:glue:`file_print`</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">327</span><span class="p">,</span><span class="mi">327</span><span class="p">,</span><span class="mi">349</span><span class="p">,</span><span class="mi">404</span><span class="p">,</span><span class="mi">505</span><span class="p">,</span><span class="mi">603</span><span class="p">,</span><span class="mi">820</span><span class="p">,</span><span class="mi">993</span><span class="p">,</span><span class="mi">1185</span><span class="p">,</span><span class="mi">2640</span><span class="p">,</span><span class="mi">4640</span><span class="p">,</span><span class="mi">8880</span><span class="p">,</span><span class="mf">1e8</span><span class="p">])</span>
+<span class="c1">#----------------</span>
+<span class="c1">#mapa de cores</span>
+<span class="n">cm</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span> <span class="o">=</span> <span class="mi">330</span><span class="p">,</span><span class="n">vmax</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">)</span>
+<span class="c1">#----------------</span>
+<span class="c1">#initialize python lists to store the relevant quantities</span>
+<span class="n">vmax_vec</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># max voltage</span>
+<span class="n">vmed_vec</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># mean value</span>
+<span class="n">vrip_vec</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># ripple voltage</span>
+<span class="n">label_vec</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># label</span>
+<span class="c1">#---</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ii</span><span class="p">,</span><span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_list</span><span class="p">):</span><span class="c1">#[1:-3]</span>
+    <span class="c1">#----</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># DataFrame segundo Pandasdf</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">,</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">,</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">]</span>
+    <span class="c1">#----</span>
+    <span class="n">V1med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="n">V1max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="n">V1min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="c1">#---</span>
+    <span class="n">V2med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="n">V2max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="n">V2min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="c1">#--</span>
+    <span class="n">vmax_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V2max</span><span class="p">)</span>
+    <span class="n">vmed_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V2med</span><span class="p">)</span>
+    <span class="n">vrip_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V2max</span><span class="o">-</span><span class="n">V2min</span><span class="p">)</span>
+    <span class="c1">#----</span>
+    <span class="c1">#------------------------</span>
+    <span class="c1">#grafica apenas o primeiro</span>
+    <span class="k">if</span> <span class="n">ii</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1">#--</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1med</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{dc}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1med</span><span class="p">))</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1max</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{max}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1max</span><span class="p">))</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1min</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{min}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1min</span><span class="p">))</span>
+        <span class="c1">#--</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensão (V)&#39;</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+            
+    <span class="c1">#------------------------</span>
+    <span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ii</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># different label in this case</span>
+        <span class="n">label_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;sem cap.&#39;</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">label_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">ii</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">res_val</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># different label in this case</span>
+        <span class="n">label_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;aberto (sem res.)&#39;</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">cm</span><span class="p">((</span><span class="n">norm</span><span class="p">(</span><span class="n">res_val</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))),</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">label_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># common labels</span>
+        <span class="n">label_vec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_val</span><span class="p">[</span><span class="n">ii</span><span class="p">]))</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">cm</span><span class="p">((</span><span class="n">norm</span><span class="p">(</span><span class="n">res_val</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))),</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">label_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+    <span class="c1">#--</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+    <span class="c1">#ax0.set_ylabel(&#39;Tensão (V)&#39;)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="c1">#------------------</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1">#----</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;dado: meia onda &#39;</span><span class="p">)</span>
+<span class="c1"># shift subplots down:</span>
+<span class="n">st</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="c1">#---</span>
+<span class="c1"># plt.savefig(&#39;todos_dados_meia_onda&#39;+&#39;_fig.pdf&#39;)</span>
+<span class="c1">#plt.savefig(&#39;todos_dados_onda_completa&#39;+&#39;_fig.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:61: RuntimeWarning: invalid value encountered in double_scalars
+</pre></div>
+</div>
+<img alt="../../../_images/analisa_dados_diodo_31_1.png" src="../../../_images/analisa_dados_diodo_31_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="characteristics-of-the-diode-rectified-voltage-source">
+<h2>Characteristics of the diode-rectified voltage source<a class="headerlink" href="#characteristics-of-the-diode-rectified-voltage-source" title="Permalink to this headline">¶</a></h2>
+<p>Below we explore the function <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from the <a class="reference external" href="https://www.scipy.org/">Scipy package</a> (loaded at the beggining of this file with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy.optimize</span> <span class="pre">import</span> <span class="pre">curve_fit</span></code></p>
+<div class="section" id="fitting-model-to-data">
+<h3>Fitting model to data<a class="headerlink" href="#fitting-model-to-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rinverse</span> <span class="o">=</span> <span class="mf">1e3</span><span class="o">/</span><span class="n">res_val</span> <span class="c1"># inverse of resistance in mS ([S]=1/[Ohm])</span>
+<span class="n">T</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">60</span> <span class="c1"># period </span>
+<span class="c1">#------------------------------------</span>
+<span class="c1">#define fittting function</span>
+<span class="c1">#theory</span>
+<span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vmax_vec</span><span class="p">)</span> <span class="c1"># we assume the input voltagevmax_vec is approximately constant during the experiment, verify!!</span>
+<span class="k">def</span> <span class="nf">vripple</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">c0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">vmax_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">c0</span><span class="p">))</span> <span class="p">)</span>
+<span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">vripple</span><span class="p">,</span> <span class="n">res_val</span><span class="p">,</span><span class="n">vrip_vec</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="mf">22e-6</span><span class="p">)</span>
+<span class="n">c0</span><span class="o">=</span><span class="n">pfit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fitted capacitance, c=&#39;</span><span class="p">,</span><span class="n">c0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fitted capacitance, c= 5.475089763087214e-05
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comparing-data-and-fitted-model">
+<h3>Comparing data and fitted model<a class="headerlink" href="#comparing-data-and-fitted-model" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#------------------------------------</span>
+<span class="c1">#Generate the &quot;theory&quot; curves from our fitted model</span>
+<span class="n">vripT1_vec</span><span class="o">=</span> <span class="p">(</span><span class="n">vmax_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">c0</span><span class="o">*</span><span class="n">res_val</span><span class="p">)</span><span class="o">*</span><span class="n">T</span> <span class="c1">#linearizado</span>
+<span class="n">vripT2_vec</span><span class="o">=</span> <span class="n">vmax_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="n">res_val</span><span class="o">*</span><span class="n">c0</span><span class="p">))</span> <span class="p">)</span> <span class="c1">#completo</span>
+<span class="c1">#------------------------------------</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensão média $V_</span><span class="si">{dc}</span><span class="s1">$ (V)&#39;</span><span class="p">)</span>
+<span class="c1">#------------------------------------</span>
+<span class="k">for</span> <span class="n">ii</span><span class="p">,</span><span class="n">r0</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">res_val</span><span class="p">):</span>
+    <span class="c1"># this if is to skip the case with no capacitor (ii=0) and no resistor (ii=12)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ii</span><span class="o">&gt;=</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">ii</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">res_val</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> 
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Rinverse</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">vmed_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">cm</span><span class="p">((</span><span class="n">norm</span><span class="p">(</span><span class="n">res_val</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">))),</span>
+                    <span class="n">label</span><span class="o">=</span><span class="n">label_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Rinverse</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">vrip_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">cm</span><span class="p">((</span><span class="n">norm</span><span class="p">(</span><span class="n">res_val</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">))),</span>
+                    <span class="n">label</span><span class="o">=</span><span class="n">label_vec</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="c1">#---------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#-------------------</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Rinverse</span><span class="p">,</span><span class="n">vripT1_vec</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Rinverse</span><span class="p">,</span><span class="n">vripT2_vec</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;completo&#39;</span><span class="p">)</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensão de Ripple $V_</span><span class="si">{rip}</span><span class="s1">$ (V)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$R^{-1}$ (mS)&#39;</span><span class="p">)</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax0</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">#----</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;dado: simulação meia onda c=22 μF, cfit=</span><span class="si">{:2.1f}</span><span class="s1"> μF&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1e6</span><span class="o">*</span><span class="n">c0</span><span class="p">))</span>
+<span class="c1"># shift subplots down:</span>
+<span class="n">st</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;analise_meia_onda_teoria&#39;+&#39;_fig.png&#39;, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:15: RuntimeWarning: invalid value encountered in double_scalars
+  from ipykernel import kernelapp as app
+/Users/gsw/Library/Python/3.7/lib/python/site-packages/ipykernel_launcher.py:18: RuntimeWarning: invalid value encountered in double_scalars
+</pre></div>
+</div>
+<img alt="../../../_images/analisa_dados_diodo_36_1.png" src="../../../_images/analisa_dados_diodo_36_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generating-time-traces-for-each-data">
+<h2>Generating time traces for each data<a class="headerlink" href="#generating-time-traces-for-each-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say you are not sure about the what the min/max/mean script above did and want to visually inspect the result, <strong>you should always do this, never trust automation without double-checking the results</strong>.</p>
+<ul class="simple">
+<li><p>Below we show an example of how could you generate a time-trace plot for each experimental curve and make sure your script is doing the right thing.</p></li>
+<li><p>It will save multiple files in the current folder <code class="docutils literal notranslate"><span class="pre">plt.savefig(file[0:-4]+'_fig.png')</span></code>, each containing the max/min/mean identification for each dataset</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+    <span class="c1">#----</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># DataFrame segundo Pandasdf</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">,</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">,</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">]</span>
+    <span class="c1">#----</span>
+    <span class="n">V1med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="n">V1max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="n">V1min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensões=&#39;</span><span class="p">,[</span><span class="n">V1med</span><span class="p">,</span><span class="n">V1max</span><span class="p">,</span><span class="n">V1min</span><span class="p">])</span>
+    <span class="c1">#---</span>
+    <span class="n">V2med</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="n">V2max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="n">V2min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensões=&#39;</span><span class="p">,[</span><span class="n">V2med</span><span class="p">,</span><span class="n">V2max</span><span class="p">,</span><span class="n">V2min</span><span class="p">])</span>
+    <span class="c1">#----</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#------------------------</span>
+    <span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#--</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch1(V)&#39;</span><span class="p">])</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1med</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{dc}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1med</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1max</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{max}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1max</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V1min</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{min}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V1min</span><span class="p">))</span>
+    <span class="c1">#--</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tensão (V)&#39;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="c1">#------------------------</span>
+    <span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tempo(s)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ch2(V)&#39;</span><span class="p">])</span>
+    <span class="c1">#--</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2med</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{dc}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2med</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2max</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{max}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2max</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">V2min</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{min}</span><span class="s1">$&#39;</span><span class="o">+</span><span class="s1">&#39;=</span><span class="si">{:3.2f}</span><span class="s1"> V&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">V2min</span><span class="p">))</span>
+    <span class="c1">#--</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tempo (ms)&#39;</span><span class="p">)</span>
+    <span class="c1">#ax0.set_ylabel(&#39;Tensão (V)&#39;)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="c1">#------------------</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="c1">#----</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;dado: &#39;</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
+    <span class="c1"># shift subplots down:</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span>
+    <span class="c1">#---</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_fig.png&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensões= [0.09839999999999946, 15.8, -15.6]
+tensões= [9.34344, 14.8, -0.2]
+tensões= [0.09295999999999985, 15.8, -15.6]
+tensões= [11.68384, 14.8, 7.4]
+tensões= [0.09519999999999963, 15.8, -15.6]
+tensões= [11.8356, 15.0, 7.6]
+tensões= [0.09335999999999949, 15.8, -15.6]
+tensões= [12.064160000000001, 14.8, 8.200000000000001]
+tensões= [0.09704000000000014, 15.8, -15.6]
+tensões= [12.42704, 14.8, 9.2]
+tensões= [0.10192000000000007, 15.8, -15.6]
+tensões= [12.732, 15.0, 9.8]
+tensões= [0.10503999999999979, 15.8, -15.6]
+tensões= [13.176, 15.0, 10.8]
+tensões= [0.10567999999999957, 15.8, -15.6]
+tensões= [13.4032, 15.0, 11.4]
+tensões= [0.10536000000000022, 16.0, -15.8]
+tensões= [13.627120000000001, 15.0, 11.8]
+tensões= [0.10728000000000029, 15.8, -15.6]
+tensões= [14.259520000000002, 15.0, 13.4]
+tensões= [0.10799999999999964, 15.8, -15.6]
+tensões= [14.5064, 15.0, 14.0]
+tensões= [0.1056, 15.8, -15.6]
+tensões= [14.691679999999998, 15.0, 14.4]
+tensões= [0.10863999999999978, 16.0, -15.6]
+tensões= [15.179039999999999, 15.2, 15.0]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "2021_1s",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/exp2/dados"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../exp2-guide.html" title="previous page">Guide to Experiment 2: Diodes</a>
+    <a class='right-next' id="next-link" href="../../exp3a/transistor_math.html" title="next page">Transistor math</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

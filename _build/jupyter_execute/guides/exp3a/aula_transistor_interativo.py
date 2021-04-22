@@ -244,7 +244,7 @@ plot_load_lines_transistor(Vcc=10,Rc=100,Vbb=0.3,Rb=1000)
 
 Interactive code code below for an interactive
 
-interact(plot_load_lines_transistor,Vcc=(1,10,1),Rc=(1,300),Vbb=(0.5,1.5,0.1),Rb=(1e2,5e3,1e2))
+interact(plot_load_lines_transistor,Vcc=(1,10,1),Rc=(1,300),Vbb=(0.2,2.0,0.1),Rb=(1e2,5e3,1e2))
 
 # #generate animation
 # vbb_vec = np.linspace(0.2,1.2,30);
