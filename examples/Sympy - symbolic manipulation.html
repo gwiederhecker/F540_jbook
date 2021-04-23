@@ -46,6 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -59,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Background: Complex impedances" href="../guides/exp1/complex_impedance.html" />
+    <link rel="next" title="Plotting: Interactive analysis of an RLC ressonant filter" href="Plotting%20-%20Interactive%20Transfer%20function.html" />
     <link rel="prev" title="Basics of AC waves" href="Plotting%20-%20AC%20wave%20plots.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -130,6 +131,11 @@
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -171,7 +177,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp2/dados/analisa_dados_diodo.html">
-   Diode data analysis example
+   Data analysis: Diode full-wave rectification
   </a>
  </li>
 </ul>
@@ -322,6 +328,19 @@
 <span class="c1">#pacote para desenhar circuitos</span>
 <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
 <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">6</span><span class="n">ae4f70a6b85</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#pacote para desenhar circuitos</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
 </pre></div>
 </div>
 </div>
@@ -552,7 +571,7 @@ Equivalently we could solve directly for the electric current <span class="math 
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Plotting%20-%20AC%20wave%20plots.html" title="previous page">Basics of AC waves</a>
-    <a class='right-next' id="next-link" href="../guides/exp1/complex_impedance.html" title="next page">Background: Complex impedances</a>
+    <a class='right-next' id="next-link" href="Plotting%20-%20Interactive%20Transfer%20function.html" title="next page">Plotting: Interactive analysis of an RLC ressonant filter</a>
 
         </div>
         

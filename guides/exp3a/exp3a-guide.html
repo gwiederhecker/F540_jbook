@@ -46,6 +46,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -129,6 +130,11 @@
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -170,7 +176,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../exp2/dados/analisa_dados_diodo.html">
-   Diode data analysis example
+   Data analysis: Diode full-wave rectification
   </a>
  </li>
 </ul>
@@ -388,6 +394,20 @@
 <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
 <span class="c1"># %config InlineBackend.figure_format = &#39;svg&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bf224a595574</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="c1">#pacote para desenhar circuitos</span>
+<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
 </pre></div>
 </div>
 </div>
@@ -642,8 +662,8 @@ By controlling either the base voltage (<span class="math notranslate nohighligh
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d7a89f14-3782-44c1-8fc1-8c87b8ff594a" name="28be2365-52cb-4c1e-8dec-3c5d8a885858" type="radio">
-</input><label class="tabbed-label" for="d7a89f14-3782-44c1-8fc1-8c87b8ff594a">
+<input checked="checked" id="0a0592d3-a5e4-4122-a72c-ff2fbc45e216" name="fb481a89-3283-442e-ab78-e5a12ed99ea7" type="radio">
+</input><label class="tabbed-label" for="0a0592d3-a5e4-4122-a72c-ff2fbc45e216">
 Characteristic curves</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-ic-vce" style="width: 600px">
 <div class="cell_output docutils container">
@@ -719,8 +739,8 @@ Characteristic curves</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> data file, corresponding to the decade resistance  indicated at the column label; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-ic-vce" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d2956a12-b7ee-4217-a6ee-5ad5329a19e1" name="28be2365-52cb-4c1e-8dec-3c5d8a885858" type="radio">
-</input><label class="tabbed-label" for="d2956a12-b7ee-4217-a6ee-5ad5329a19e1">
+<input id="e6c23455-9436-490f-8542-96e36b8867af" name="fb481a89-3283-442e-ab78-e5a12ed99ea7" type="radio">
+</input><label class="tabbed-label" for="e6c23455-9436-490f-8542-96e36b8867af">
 Gain characterization</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-beta" style="width: 600px">
 <div class="cell_output docutils container">

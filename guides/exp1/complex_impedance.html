@@ -46,6 +46,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -60,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Guide to Experiment 1: RC filters" href="exp1-guide.html" />
-    <link rel="prev" title="Solving Kirchhoff’s law ordinary differential equation" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" />
+    <link rel="prev" title="Plotting: Interactive analysis of an RLC ressonant filter" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -130,6 +131,11 @@
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -171,7 +177,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../exp2/dados/analisa_dados_diodo.html">
-   Diode data analysis example
+   Data analysis: Diode full-wave rectification
   </a>
  </li>
 </ul>
@@ -586,7 +592,7 @@ sendo que \)</span>\tilde{i}_0=i_0\exp(j\phi)$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd05d351250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc060625f40&gt;
 </pre></div>
 </div>
 <img alt="../../_images/complex_impedance_14_1.png" src="../../_images/complex_impedance_14_1.png" />
@@ -798,7 +804,7 @@ forma polar: (-0.5+1j)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd05ce18f50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc090be6eb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/complex_impedance_30_1.png" src="../../_images/complex_impedance_30_1.png" />
@@ -867,8 +873,8 @@ forma polar: (-0.5+1j)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1
-arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc.pdf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/GitHub/F540_jbook/guides/exp1
+arquivo salvo: /Users/gsw/GitHub/F540_jbook/guides/exp1/bode_rc.pdf
 </pre></div>
 </div>
 </div>
@@ -919,26 +925,26 @@ arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc.pdf
 <span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1741</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1742</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
-<span class="ne">-&gt; </span><span class="mi">1743</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1744</span><span class="s2">         for line in lines:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1745</span><span class="s2">             self.add_line(line)</span>
+<span class="nn">~/anaconda3/envs/f540jbook/lib/python3.9/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1603</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1604</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
+<span class="ne">-&gt; </span><span class="mi">1605</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1606</span><span class="s2">         for line in lines:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1607</span><span class="s2">             self.add_line(line)</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="s2">                 this += args[0],</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span><span class="s2">                 args = args[1:]</span>
-<span class="ne">--&gt; </span><span class="mi">273</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span><span class="s2">     def get_next_color(self):</span>
+<span class="nn">~/anaconda3/envs/f540jbook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">                 this += args[0],</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">                 args = args[1:]</span>
+<span class="ne">--&gt; </span><span class="mi">315</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">     def get_next_color(self):</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
-<span class="ne">--&gt; </span><span class="mi">399</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
+<span class="nn">~/anaconda3/envs/f540jbook/lib/python3.9/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs, return_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
+<span class="ne">--&gt; </span><span class="mi">501</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
 
 <span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (200,) and (20,)
 </pre></div>
@@ -1047,7 +1053,7 @@ arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc.pdf
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../examples/Sympy%20-%20symbolic%20manipulation.html" title="previous page">Solving Kirchhoff’s law ordinary differential equation</a>
+    <a class='left-prev' id="prev-link" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html" title="previous page">Plotting: Interactive analysis of an RLC ressonant filter</a>
     <a class='right-next' id="next-link" href="exp1-guide.html" title="next page">Guide to Experiment 1: RC filters</a>
 
         </div>
