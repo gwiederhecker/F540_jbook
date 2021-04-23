@@ -46,6 +46,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -59,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Background: Solving Kirchhoof’s law for transistors using load lines" href="aula_transistor_interativo.html" />
+    <link rel="prev" title="Guide to Experiment 2: Diodes" href="../exp2/exp2-guide.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -129,6 +130,11 @@
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -168,11 +174,6 @@
    Guide to Experiment 2: Diodes
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exp2/dados/analisa_dados_diodo.html">
-   Data analysis: Diode full-wave rectification
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -180,16 +181,6 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="transistor_math.html">
-   Transistor math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="aula_transistor_interativo.html">
-   Background: Solving Kirchhoof’s law for transistors using load lines
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Guide to Experiment 3a: Transistor characterization
@@ -391,6 +382,20 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bf224a595574</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="c1">#pacote para desenhar circuitos</span>
+<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>In this experiment, the basic properties of a bipolar junctio transistor will be explored.</p>
 <p>The name transistor (<a class="reference external" href="https://web.archive.org/web/20080528164454/http://users.arczip.com/rmcgarra2/namememo.gif">a combination of transfer + resistor</a>)originates from this device capabiblity of transferring electric signals. It is an <em>active device</em> that amplifies the voltage or current of an input signal, therefore, it is necessary to use a power supply. The transistor is a sandwich of two <em>pn</em> junctions, facing each other, forming a sequence of <span class="math notranslate nohighlight">\( npn \)</span> or <span class="math notranslate nohighlight">\( pnp \)</span> junctions. Each of these parts is called the collector, base and emitter, and the information to be transferred and / or used as a control signal is applied to the base of the transistor.</p>
@@ -424,25 +429,25 @@
 <p>presents characteristic curves for the bipolar junction transistor BD 135, being similar for other junction transistors. For each current value of the base there is a current in the collector, for which the equation below is satisfied:</p>
 <div class="math notranslate nohighlight" id="equation-eq-transitor-ic-ib">
 <span class="eqno">(16)<a class="headerlink" href="#equation-eq-transitor-ic-ib" title="Permalink to this equation">¶</a></span>\[ I_\text{collector} = \beta \times I_\text{base}, \]</div>
-<p>In general, for <a class="reference internal" href="#equation-eq-transitor-ic-ib">(16)</a> to be valid, if (<span class="math notranslate nohighlight">\(V_{CE}\)</span>) is  higher than the <span class="math notranslate nohighlight">\(V_{BE}\)</span> , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>) to get an insight into the the transistor behavior. An example of the <em>IV</em> curves generated at this notebook are shown in <a class="reference internal" href="transistor_math.html#fig-transistor-gif"><span class="std std-numref">Fig. 19</span></a>:</p>
+<p>In general, for <a class="reference internal" href="#equation-eq-transitor-ic-ib">(16)</a> to be valid, if (<span class="math notranslate nohighlight">\(V_{CE}\)</span>) is  higher than the <span class="math notranslate nohighlight">\(V_{BE}\)</span> , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( <span class="xref std std-doc">aula_transistor_interativo</span>) to get an insight into the the transistor behavior. An example of the <em>IV</em> curves generated at this notebook are shown in <a class="reference internal" href="#fig-transistor-gif"><span class="std std-numref">Fig. 19</span></a>:</p>
 <div class="figure align-default" id="fig-transistor-gif">
 <a class="reference internal image-reference" href="../../_images/transistor.gif"><img alt="../../_images/transistor.gif" src="../../_images/transistor.gif" style="width: 650px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>, the base voltage <span class="math notranslate nohighlight">\(V_BB\)</span> was varied in the range   <span class="math notranslate nohighlight">\(0.2 V\leq V_B\leq 1.2 V\)</span>.</span><a class="headerlink" href="#fig-transistor-gif" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook <span class="xref std std-doc">aula_transistor_interativo</span>, the base voltage <span class="math notranslate nohighlight">\(V_BB\)</span> was varied in the range   <span class="math notranslate nohighlight">\(0.2 V\leq V_B\leq 1.2 V\)</span>.</span><a class="headerlink" href="#fig-transistor-gif" title="Permalink to this image">¶</a></p>
 </div>
-<p>Characteristics curves are often presented in transistor datasheets, such as the example in <a class="reference internal" href="#fig-bjt-sheet"><span class="std std-numref">Fig. 22</span></a></p>
+<p>Characteristics curves are often presented in transistor datasheets, such as the example in <a class="reference internal" href="#fig-bjt-sheet"><span class="std std-numref">Fig. 20</span></a></p>
 <div class="figure align-center" id="fig-bjt-sheet">
 <a class="reference internal image-reference" href="../../_images/ic_vce_curve.png"><img alt="../../_images/ic_vce_curve.png" src="../../_images/ic_vce_curve.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Example <a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/figs/BD135_datasheet.pdf?raw=true">datasheet from manufacturer</a> showing transistor gain characterization</span><a class="headerlink" href="#fig-bjt-sheet" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Example <a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/figs/BD135_datasheet.pdf?raw=true">datasheet from manufacturer</a> showing transistor gain characterization</span><a class="headerlink" href="#fig-bjt-sheet" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="transistor-gain-beta">
 <h2>Transistor  gain <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#transistor-gain-beta" title="Permalink to this headline">¶</a></h2>
-<p>The gain of a transistor depends on its construction, current range and the frequency of operation of the circuit assembly. For the transistor BD 135, the characteristic curves as a function of the current <span class="math notranslate nohighlight">\( I_B \)</span> are illustrated in <a class="reference internal" href="#fig-ic-ib-bjt"><span class="std std-numref">Fig. 23</span></a></p>
+<p>The gain of a transistor depends on its construction, current range and the frequency of operation of the circuit assembly. For the transistor BD 135, the characteristic curves as a function of the current <span class="math notranslate nohighlight">\( I_B \)</span> are illustrated in <a class="reference internal" href="#fig-ic-ib-bjt"><span class="std std-numref">Fig. 21</span></a></p>
 <div class="figure align-center" id="fig-ic-ib-bjt">
 <a class="reference internal image-reference" href="../../_images/curva2.png"><img alt="../../_images/curva2.png" src="../../_images/curva2.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Example dateset of transistor gain characterization</span><a class="headerlink" href="#fig-ic-ib-bjt" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Example dateset of transistor gain characterization</span><a class="headerlink" href="#fig-ic-ib-bjt" title="Permalink to this image">¶</a></p>
 </div>
-<p>An approximate value of the <span class="math notranslate nohighlight">\( (\beta) \)</span> gain can be obtained on a linear graph of <span class="math notranslate nohighlight">\( I_C \)</span> as a function of <span class="math notranslate nohighlight">\( I_B \)</span>, the gain being given by the slope of the line, as in the example of <a class="reference internal" href="#fig-ic-ib-bjt"><span class="std std-numref">Fig. 23</span></a>.</p>
+<p>An approximate value of the <span class="math notranslate nohighlight">\( (\beta) \)</span> gain can be obtained on a linear graph of <span class="math notranslate nohighlight">\( I_C \)</span> as a function of <span class="math notranslate nohighlight">\( I_B \)</span>, the gain being given by the slope of the line, as in the example of <a class="reference internal" href="#fig-ic-ib-bjt"><span class="std std-numref">Fig. 21</span></a>.</p>
 </div>
 <div class="section" id="measuring-characterisitic-curves">
 <h2>Measuring characterisitic curves<a class="headerlink" href="#measuring-characterisitic-curves" title="Permalink to this headline">¶</a></h2>
@@ -452,7 +457,7 @@ Note that the assembly is formed by a voltage divider (resistors <span class="ma
 <p>Only the <span class="math notranslate nohighlight">\( I_C \)</span> measure is missing. Since the power supply is fixed at <span class="math notranslate nohighlight">\( 15 V \)</span>, from the measurement of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> and the resistance value of decades it is possible to calculate the current in the collector, <span class="math notranslate nohighlight">\( I_C \)</span>. Therefore, it is enough to vary the resistance of decades to obtain each curve. Try to obtain a larger number of points in the region where the variation of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> is more abrupt (lower values of voltage <span class="math notranslate nohighlight">\( V_ {CE} \)</span>). 3 <span class="math notranslate nohighlight">\( I_C \)</span> curves must be measured by <span class="math notranslate nohighlight">\( V_ {CE} \)</span>, with <span class="math notranslate nohighlight">\( R_1 \)</span> = 10 k <span class="math notranslate nohighlight">\( \Omega \)</span>, 15 k <span class="math notranslate nohighlight">\( \Omega \)</span> and 18 k <span class="math notranslate nohighlight">\( \Omega \)</span>.</p>
 <div class="figure align-center" id="fig-bjt-setup1">
 <a class="reference internal image-reference" href="../../_images/medida_caracteristica.png"><img alt="../../_images/medida_caracteristica.png" src="../../_images/medida_caracteristica.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Circuit schematic used in the transistor characterization</span><a class="headerlink" href="#fig-bjt-setup1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Circuit schematic used in the transistor characterization</span><a class="headerlink" href="#fig-bjt-setup1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="measuring-transistor-gain">
@@ -462,7 +467,7 @@ Note that the assembly is formed by a voltage divider (resistors <span class="ma
 By controlling either the base voltage (<span class="math notranslate nohighlight">\(V_{BB}\)</span>), or the base resistace <span class="math notranslate nohighlight">\(R_B\)</span>, it is possible to control <span class="math notranslate nohighlight">\( I_B \)</span>.</p>
 <div class="figure align-center" id="fig-bjt-setup2">
 <a class="reference internal image-reference" href="../../_images/esquema_medida_beta.png"><img alt="../../_images/esquema_medida_beta.png" src="../../_images/esquema_medida_beta.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Circuit schematic used in the transistor gain characterization. The internal resistance of the base voltage source is 50 Ohms.</span><a class="headerlink" href="#fig-bjt-setup2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Circuit schematic used in the transistor gain characterization. The internal resistance of the base voltage source is 50 Ohms.</span><a class="headerlink" href="#fig-bjt-setup2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="videos-of-the-experiments">
 <h3>Videos of the experiments<a class="headerlink" href="#videos-of-the-experiments" title="Permalink to this headline">¶</a></h3>
@@ -633,8 +638,8 @@ By controlling either the base voltage (<span class="math notranslate nohighligh
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">.zip</span></code> file contains:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> file corresponding to the characteristic curves (see <a class="reference internal" href="#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 26</span></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> file corresponding to the <span class="math notranslate nohighlight">\(I_C\)</span> versus <span class="math notranslate nohighlight">\(I_B\)</span> curve. (see <a class="reference internal" href="#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 26</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> file corresponding to the characteristic curves (see <a class="reference internal" href="#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 24</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> file corresponding to the <span class="math notranslate nohighlight">\(I_C\)</span> versus <span class="math notranslate nohighlight">\(I_B\)</span> curve. (see <a class="reference internal" href="#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 24</span></a>)</p></li>
 </ul>
 </li>
 <li><p>Images of the protoboard assembly.</p></li>
@@ -642,8 +647,8 @@ By controlling either the base voltage (<span class="math notranslate nohighligh
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="59859214-e9c0-4ead-811d-7adaa4623ff7" name="1c235043-a78b-4daa-9b3c-6202e379a951" type="radio">
-</input><label class="tabbed-label" for="59859214-e9c0-4ead-811d-7adaa4623ff7">
+<input checked="checked" id="5b459958-b3a0-4721-8d48-d3ac3f112d2a" name="08567db8-c1be-48d9-813e-9de5d0060ccb" type="radio">
+</input><label class="tabbed-label" for="5b459958-b3a0-4721-8d48-d3ac3f112d2a">
 Characteristic curves</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-ic-vce" style="width: 600px">
 <div class="cell_output docutils container">
@@ -716,11 +721,11 @@ Characteristic curves</label><div class="tabbed-content docutils">
   </tbody>
 </table>
 </div></div></div>
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> data file, corresponding to the decade resistance  indicated at the column label; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-ic-vce" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> data file, corresponding to the decade resistance  indicated at the column label; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-ic-vce" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c16055d3-4d99-4e8a-88ab-0fbdf588395a" name="1c235043-a78b-4daa-9b3c-6202e379a951" type="radio">
-</input><label class="tabbed-label" for="c16055d3-4d99-4e8a-88ab-0fbdf588395a">
+<input id="eb036ffa-2bfd-40a7-8349-54a019b0647b" name="08567db8-c1be-48d9-813e-9de5d0060ccb" type="radio">
+</input><label class="tabbed-label" for="eb036ffa-2bfd-40a7-8349-54a019b0647b">
 Gain characterization</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-beta" style="width: 600px">
 <div class="cell_output docutils container">
@@ -787,7 +792,7 @@ Gain characterization</label><div class="tabbed-content docutils">
   </tbody>
 </table>
 </div></div></div>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> data file, corresponding to the osciloscope traces measured at distinct point in the circuit; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-beta" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> data file, corresponding to the osciloscope traces measured at distinct point in the circuit; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-beta" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -820,7 +825,7 @@ Gain characterization</label><div class="tabbed-content docutils">
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="aula_transistor_interativo.html" title="previous page">Background: Solving Kirchhoof’s law for transistors using load lines</a>
+    <a class='left-prev' id="prev-link" href="../exp2/exp2-guide.html" title="previous page">Guide to Experiment 2: Diodes</a>
 
         </div>
         

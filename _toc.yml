@@ -12,6 +12,7 @@
   - file: examples/Basics - Python
   - file: examples/Plotting - AC wave plots
   - file: examples/Sympy - symbolic manipulation
+  - file: examples/Plotting - Interactive Transfer function
 - part: RC filters (exp. 1)
   chapters:
   - file: guides/exp1/complex_impedance
