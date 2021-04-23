@@ -46,7 +46,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -58,7 +59,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Guide to Experiment 3a: Transistor characterization" href="../exp3a/exp3a-guide.html" />
+    <link rel="next" title="Data analysis: Diode full-wave rectification" href="dados/analisa_dados_diodo.html" />
     <link rel="prev" title="Background: Diodes" href="diode_background.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -168,6 +169,11 @@
    Guide to Experiment 2: Diodes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -175,6 +181,16 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../exp3a/exp3a-guide.html">
    Guide to Experiment 3a: Transistor characterization
@@ -402,20 +418,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a072a29bceed</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#pacote para desenhar circuitos</span>
-<span class="ne">---&gt; </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="diode-current-voltage-curves-i-v-curve">
 <h2>Diode current-voltage curves (I-V curve)<a class="headerlink" href="#diode-current-voltage-curves-i-v-curve" title="Permalink to this headline">¶</a></h2>
@@ -455,6 +457,9 @@ When breakdown(see section 3.1.5 in <span id="id3">[<a class="reference internal
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/exp2-guide_5_1.png" src="../../_images/exp2-guide_5_1.png" />
+</div>
 </div>
 <p>Atributing typical values (REF) to <span class="math notranslate nohighlight">\(I_S\)</span> for different materials,</p>
 <ul class="simple">
@@ -463,6 +468,9 @@ When breakdown(see section 3.1.5 in <span id="id3">[<a class="reference internal
 <li><p><span class="math notranslate nohighlight">\(I_S^\text{(GaAs)}\approx 7\times 10^{-21} A\)</span></p></li>
 </ul>
 <div class="figure align-center" id="fig-diode-theory-iv-curve" style="width: 400px">
+<div class="cell_output docutils container">
+<img alt="../../_images/exp2-guide_5_0.png" src="../../_images/exp2-guide_5_0.png" />
+</div>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Diode IV curves for distinct materials, according to <a class="reference internal" href="#equation-eq-schockley">(13)</a>.</span><a class="headerlink" href="#fig-diode-theory-iv-curve" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -471,16 +479,16 @@ When breakdown(see section 3.1.5 in <span id="id3">[<a class="reference internal
 <p>The distribution of electrical energy worldwide is carried out by sine waves, with frequencies in the range of 50−100Hz and amplitudes between 100−300V (within a house). These amplitudes can be reduced by the use of a transformer, but the signal remains alternated, AC. Relative to the neutral wire, these signals exhibit a zero mean or DC value.
 Most electrical equipment, however, uses continuous power, DC. The transformation of an alternating voltage into continuous voltage is the most important and present application of diodes in our daily lives. The figure below represents the voltage output at the terminals of a transformer, similar to that used in the laboratory. Note that this signal has an average voltage value equal to zero (<span class="math notranslate nohighlight">\(&lt;V(t)&gt;=0\)</span>). Using a diode in a circuit assembly we can obtain a half-wave or full-wave rectification. The following figure shows the full-wave rectification, where the signal coming out of the transformer is rectified.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="f971785e-3368-40b4-a7d2-a861af6e6cc6" name="4374cad8-ae76-476f-9e0d-217c88549f5e" type="radio">
-</input><label class="tabbed-label" for="f971785e-3368-40b4-a7d2-a861af6e6cc6">
+<input checked="checked" id="ba5b37b9-95cb-4c6d-9857-7dbf4929d059" name="5dda718b-3d7a-411e-b8c8-da9b091a3b64" type="radio">
+</input><label class="tabbed-label" for="ba5b37b9-95cb-4c6d-9857-7dbf4929d059">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-example">
 <a class="reference internal image-reference" href="../../_images/000_meia_onda_fig.png"><img alt="../../_images/000_meia_onda_fig.png" src="../../_images/000_meia_onda_fig.png" style="width: 650px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Experimental trace of input (left) and half-wave rectified signal (right)</span><a class="headerlink" href="#fig-half-wave-example" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="ba98113d-3e19-4c39-b5d4-10b0e28767b0" name="4374cad8-ae76-476f-9e0d-217c88549f5e" type="radio">
-</input><label class="tabbed-label" for="ba98113d-3e19-4c39-b5d4-10b0e28767b0">
+<input id="fdae8e71-93cb-4176-99b7-b00f789bc1d6" name="5dda718b-3d7a-411e-b8c8-da9b091a3b64" type="radio">
+</input><label class="tabbed-label" for="fdae8e71-93cb-4176-99b7-b00f789bc1d6">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-example">
 <a class="reference internal image-reference" href="../../_images/013_onda_completa_R_330_fig.png"><img alt="../../_images/013_onda_completa_R_330_fig.png" src="../../_images/013_onda_completa_R_330_fig.png" style="width: 650px;" /></a>
@@ -508,16 +516,16 @@ When <span class="math notranslate nohighlight">\(RC&gt;&gt;\Delta t_{d}\)</span
 
 O sinal de tensão alternado na saída do transformador é retificado, i.e, apenas os valores de tensão positivos “passam” pelo diodo, cortando os valores negativos de tensão. Essa é uma retificação muito ruim, pois ainda tem muita oscilação no sinal retificado. -->
 <div class="tabbed-set docutils">
-<input checked="checked" id="867d212e-d8ee-4612-98a7-f9fdc5ab9049" name="18cddaa5-bf84-49bb-a363-31f52556ee12" type="radio">
-</input><label class="tabbed-label" for="867d212e-d8ee-4612-98a7-f9fdc5ab9049">
+<input checked="checked" id="1ebb4c23-bfa0-46d2-ab66-022b6c1a0f94" name="02113f1d-4eae-4337-a9ab-7a641a512f97" type="radio">
+</input><label class="tabbed-label" for="1ebb4c23-bfa0-46d2-ab66-022b6c1a0f94">
 Half-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/meia_onda_qucs_cap.png"><img alt="../../_images/meia_onda_qucs_cap.png" src="../../_images/meia_onda_qucs_cap.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Schematic of a half-wave rectifier</span><a class="headerlink" href="#fig-half-wave-circuit-capacitor" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="d920fa0b-80a3-4d55-a477-e0a46622c370" name="18cddaa5-bf84-49bb-a363-31f52556ee12" type="radio">
-</input><label class="tabbed-label" for="d920fa0b-80a3-4d55-a477-e0a46622c370">
+<input id="10d7fc79-98af-4ce2-890e-b1f74bf41484" name="02113f1d-4eae-4337-a9ab-7a641a512f97" type="radio">
+</input><label class="tabbed-label" for="10d7fc79-98af-4ce2-890e-b1f74bf41484">
 Full-wave circuit</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-circuit-capacitor">
 <a class="reference internal image-reference" href="../../_images/completa_onda_qucs_cap.png"><img alt="../../_images/completa_onda_qucs_cap.png" src="../../_images/completa_onda_qucs_cap.png" style="width: 450px;" /></a>
@@ -545,17 +553,63 @@ Full-wave circuit</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c3c2d22e63a0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Loading dataset with &quot;tab&quot; as separator</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/001_meia_onda_c_R_330.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo_diode_rc&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time (s)</th>
+      <th>CH1 (V)</th>
+      <th>CH2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00002</td>
+      <td>1.2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.00004</td>
+      <td>1.4</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.00006</td>
+      <td>1.4</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00008</td>
+      <td>1.6</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00010</td>
+      <td>1.8</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -576,23 +630,81 @@ Full-wave circuit</label><div class="tabbed-content docutils">
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a53f6b93-d1da-411a-b4fd-eba579fdd56f" name="a862b921-22c1-415a-9b8b-98d85493275d" type="radio">
-</input><label class="tabbed-label" for="a53f6b93-d1da-411a-b4fd-eba579fdd56f">
+<input checked="checked" id="9525d30d-62bc-4f19-ae53-83c410a96aa9" name="75c16e8f-4625-470a-bdaa-8d55402d1b84" type="radio">
+</input><label class="tabbed-label" for="9525d30d-62bc-4f19-ae53-83c410a96aa9">
 Diode rectification dataset structure</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-diode-rc" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time (s)</th>
+      <th>CH1 (V)</th>
+      <th>CH2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00002</td>
+      <td>1.2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.00004</td>
+      <td>1.4</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.00006</td>
+      <td>1.4</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.00008</td>
+      <td>1.6</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.00010</td>
+      <td>1.8</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">001_meia_onda_c_R_330.dat</span></code> data file, corresponding to the decade resistance at <span class="math notranslate nohighlight">\(330\Omega\)</span>; the separator between entries is a <strong>tab</strong>.</span><a class="headerlink" href="#tbl-pandas-diode-rc" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="5f3863dd-52f4-4066-85c1-eb0ef740db8d" name="a862b921-22c1-415a-9b8b-98d85493275d" type="radio">
-</input><label class="tabbed-label" for="5f3863dd-52f4-4066-85c1-eb0ef740db8d">
+<input id="e0fb9d49-3851-484f-b564-1d4afff87c7e" name="75c16e8f-4625-470a-bdaa-8d55402d1b84" type="radio">
+</input><label class="tabbed-label" for="e0fb9d49-3851-484f-b564-1d4afff87c7e">
 Half-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-half-wave-gif">
 <a class="reference internal image-reference" href="../../_images/meia_onda.gif"><img alt="../../_images/meia_onda.gif" src="../../_images/meia_onda.gif" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Oscilloscope traces of the half-wave rectification as the <strong>decade resistance</strong> is increased.</span><a class="headerlink" href="#fig-half-wave-gif" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="575aee17-3f72-4f7d-92ff-6a45411bcab4" name="a862b921-22c1-415a-9b8b-98d85493275d" type="radio">
-</input><label class="tabbed-label" for="575aee17-3f72-4f7d-92ff-6a45411bcab4">
+<input id="cf4aeb15-2cf1-4cc9-8c4f-2e6694f8880e" name="75c16e8f-4625-470a-bdaa-8d55402d1b84" type="radio">
+</input><label class="tabbed-label" for="cf4aeb15-2cf1-4cc9-8c4f-2e6694f8880e">
 Full-wave rectification</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-full-wave-gif">
 <a class="reference internal image-reference" href="../../_images/onda_completa.gif"><img alt="../../_images/onda_completa.gif" src="../../_images/onda_completa.gif" style="width: 450px;" /></a>
@@ -630,7 +742,7 @@ Full-wave rectification</label><div class="tabbed-content docutils">
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="diode_background.html" title="previous page">Background: Diodes</a>
-    <a class='right-next' id="next-link" href="../exp3a/exp3a-guide.html" title="next page">Guide to Experiment 3a: Transistor characterization</a>
+    <a class='right-next' id="next-link" href="dados/analisa_dados_diodo.html" title="next page">Data analysis: Diode full-wave rectification</a>
 
         </div>
         

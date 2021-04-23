@@ -46,7 +46,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -168,6 +169,11 @@
    Guide to Experiment 2: Diodes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -175,6 +181,16 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../exp3a/exp3a-guide.html">
    Guide to Experiment 3a: Transistor characterization
@@ -556,10 +572,10 @@ e a fase da função de transferência \)</span><span class="math notranslate no
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
-pfit =  [2.65689727e+02 5.16591553e-07]
+pfit =  [1.75694792e+02 7.81201677e-07]
 
 Erros estimados pela função curve_fit:
-perr =  [6.02608179e+07 1.17087795e-01]
+perr =  [4.59981698e+07 2.04524262e-01]
 </pre></div>
 </div>
 </div>
@@ -722,7 +738,9 @@ Erros estimados pela função curve_fit:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1
-arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc_dados.pdf
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arquivo salvo: /Users/gsw/Documents/GitHub/F540_jbook/guides/exp1/bode_rc_dados.pdf
 </pre></div>
 </div>
 </div>
