@@ -19,25 +19,21 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 import matplotlib.pyplot as plt  # importar a bilioteca pyplot para fazer gráficos
 import matplotlib.ticker as plticker
-import matplotlib.colors as mcolors
 import numpy as np   # importar a biblioteca Numpy para lidar com matrizes
 import pandas as pd   # importa bilioteca pandas para  lidar com processamento de dados
 import os
 from scipy import optimize
 import SchemDraw as schem
 import SchemDraw.elements as e
-import matplotlib.colors as mcolors
-from myst_nb import glue
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-fbbf042021fe>[0m in [0;36m<module>[0;34m[0m
-[1;32m      6[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      7[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0moptimize[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 8[0;31m [0;32mimport[0m [0mSchemDraw[0m [0;32mas[0m [0mschem[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      9[0m [0;32mimport[0m [0mSchemDraw[0m[0;34m.[0m[0melements[0m [0;32mas[0m [0me[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     10[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mcolors[0m [0;32mas[0m [0mmcolors[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-1-1c73932e17be>[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0moptimize[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mSchemDraw[0m [0;32mas[0m [0mschem[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mimport[0m [0mSchemDraw[0m[0;34m.[0m[0melements[0m [0;32mas[0m [0me[0m[0;34m[0m[0;34m[0m[0m
 
 [0;31mModuleNotFoundError[0m: No module named 'SchemDraw'
 ModuleNotFoundError: No module named 'SchemDraw'
