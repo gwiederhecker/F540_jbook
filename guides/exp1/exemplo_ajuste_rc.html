@@ -46,7 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -134,6 +133,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
    Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
   </a>
  </li>
 </ul>
@@ -452,11 +456,11 @@
 </div>
 <p>Em termos das amplitudes (pico-pico) medidas no osciloscópio, a transmitância é dada por</p>
 <div class="math notranslate nohighlight" id="equation-eq-trans-lin">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-trans-lin" title="Permalink to this equation">¶</a></span>\[T=\left(\frac{v_{out}^{(pp)}}{v_{in}^{(pp)}}\right)^2\]</div>
 <p>Em decibéis,</p>
 <div class="math notranslate nohighlight" id="equation-eq-trans-db">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
-<p>As equações <a class="reference internal" href="#equation-eq-trans-lin">(11)</a> e <a class="reference internal" href="#equation-eq-trans-db">(12)</a> são calculadas a seguir:</p>
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-trans-db" title="Permalink to this equation">¶</a></span>\[T_{dB}=10\log_{10}(T)\]</div>
+<p>As equações <a class="reference internal" href="#equation-eq-trans-lin">(12)</a> e <a class="reference internal" href="#equation-eq-trans-db">(13)</a> são calculadas a seguir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#*********************************************</span>
@@ -578,10 +582,10 @@ e a fase da função de transferência \)</span><span class="math notranslate no
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parâmetros ajustados segundo a função curve_fit:
-pfit =  [2.65689727e+02 5.16591553e-07]
+pfit =  [1.75694792e+02 7.81201677e-07]
 
 Erros estimados pela função curve_fit:
-perr =  [6.02608179e+07 1.17087795e-01]
+perr =  [4.59981698e+07 2.04524262e-01]
 </pre></div>
 </div>
 </div>
@@ -744,7 +748,9 @@ Erros estimados pela função curve_fit:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pasta atual: /Users/gsw/GitHub/F540_jbook/guides/exp1
-arquivo salvo: /Users/gsw/GitHub/F540_jbook/guides/exp1/bode_rc_dados.pdf
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arquivo salvo: /Users/gsw/GitHub/F540_jbook/guides/exp1/bode_rc_dados.pdf
 </pre></div>
 </div>
 </div>
