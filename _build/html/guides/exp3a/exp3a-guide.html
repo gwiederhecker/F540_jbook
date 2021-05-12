@@ -46,7 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -133,6 +132,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
    Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
   </a>
  </li>
 </ul>
@@ -397,20 +401,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bf224a595574</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="c1">#pacote para desenhar circuitos</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>In this experiment, the basic properties of a bipolar junctio transistor will be explored.</p>
 <p>The name transistor (<a class="reference external" href="https://web.archive.org/web/20080528164454/http://users.arczip.com/rmcgarra2/namememo.gif">a combination of transfer + resistor</a>)originates from this device capabiblity of transferring electric signals. It is an <em>active device</em> that amplifies the voltage or current of an input signal, therefore, it is necessary to use a power supply. The transistor is a sandwich of two <em>pn</em> junctions, facing each other, forming a sequence of <span class="math notranslate nohighlight">\( npn \)</span> or <span class="math notranslate nohighlight">\( pnp \)</span> junctions. Each of these parts is called the collector, base and emitter, and the information to be transferred and / or used as a control signal is applied to the base of the transistor.</p>
@@ -443,8 +433,8 @@
 <h2>Characteristic curves (I-V curve)<a class="headerlink" href="#characteristic-curves-i-v-curve" title="Permalink to this headline">¶</a></h2>
 <p>presents characteristic curves for the bipolar junction transistor BD 135, being similar for other junction transistors. For each current value of the base there is a current in the collector, for which the equation below is satisfied:</p>
 <div class="math notranslate nohighlight" id="equation-eq-transitor-ic-ib">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eq-transitor-ic-ib" title="Permalink to this equation">¶</a></span>\[ I_\text{collector} = \beta \times I_\text{base}, \]</div>
-<p>In general, for <a class="reference internal" href="#equation-eq-transitor-ic-ib">(16)</a> to be valid, if (<span class="math notranslate nohighlight">\(V_{CE}\)</span>) is  higher than the <span class="math notranslate nohighlight">\(V_{BE}\)</span> , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>) to get an insight into the the transistor behavior. An example of the <em>IV</em> curves generated at this notebook are shown in <a class="reference internal" href="transistor_math.html#fig-transistor-gif"><span class="std std-numref">Fig. 19</span></a>:</p>
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-transitor-ic-ib" title="Permalink to this equation">¶</a></span>\[ I_\text{collector} = \beta \times I_\text{base}, \]</div>
+<p>In general, for <a class="reference internal" href="#equation-eq-transitor-ic-ib">(17)</a> to be valid, if (<span class="math notranslate nohighlight">\(V_{CE}\)</span>) is  higher than the <span class="math notranslate nohighlight">\(V_{BE}\)</span> , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>) to get an insight into the the transistor behavior. An example of the <em>IV</em> curves generated at this notebook are shown in <a class="reference internal" href="transistor_math.html#fig-transistor-gif"><span class="std std-numref">Fig. 19</span></a>:</p>
 <div class="figure align-default" id="fig-transistor-gif">
 <a class="reference internal image-reference" href="../../_images/transistor.gif"><img alt="../../_images/transistor.gif" src="../../_images/transistor.gif" style="width: 650px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>, the base voltage <span class="math notranslate nohighlight">\(V_BB\)</span> was varied in the range   <span class="math notranslate nohighlight">\(0.2 V\leq V_B\leq 1.2 V\)</span>.</span><a class="headerlink" href="#fig-transistor-gif" title="Permalink to this image">¶</a></p>
@@ -662,8 +652,8 @@ By controlling either the base voltage (<span class="math notranslate nohighligh
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0a0592d3-a5e4-4122-a72c-ff2fbc45e216" name="fb481a89-3283-442e-ab78-e5a12ed99ea7" type="radio">
-</input><label class="tabbed-label" for="0a0592d3-a5e4-4122-a72c-ff2fbc45e216">
+<input checked="checked" id="17a8cccb-16a2-49ae-92c6-0deb65ec2a2b" name="b7ff1479-f43d-4dbe-bba7-0fa5cb50e472" type="radio">
+</input><label class="tabbed-label" for="17a8cccb-16a2-49ae-92c6-0deb65ec2a2b">
 Characteristic curves</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-ic-vce" style="width: 600px">
 <div class="cell_output docutils container">
@@ -739,8 +729,8 @@ Characteristic curves</label><div class="tabbed-content docutils">
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> data file, corresponding to the decade resistance  indicated at the column label; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-ic-vce" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="e6c23455-9436-490f-8542-96e36b8867af" name="fb481a89-3283-442e-ab78-e5a12ed99ea7" type="radio">
-</input><label class="tabbed-label" for="e6c23455-9436-490f-8542-96e36b8867af">
+<input id="6d373e2f-4464-46b5-a0f8-9e2a6f1a78a6" name="b7ff1479-f43d-4dbe-bba7-0fa5cb50e472" type="radio">
+</input><label class="tabbed-label" for="6d373e2f-4464-46b5-a0f8-9e2a6f1a78a6">
 Gain characterization</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas-beta" style="width: 600px">
 <div class="cell_output docutils container">

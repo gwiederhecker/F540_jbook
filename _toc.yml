@@ -1,5 +1,5 @@
 - file: README
-# - part: Get started
+# - part: Get started 
 #   chapters:
 #   - file: start/what_you_need_to_know
 #   - file: start/markdown 
@@ -13,6 +13,7 @@
   - file: examples/Plotting - AC wave plots
   - file: examples/Sympy - symbolic manipulation
   - file: examples/Plotting - Interactive Transfer function
+  - file: examples/Plotting - Exploring Log scale
 - part: RC filters (exp. 1)
   chapters:
   - file: guides/exp1/complex_impedance

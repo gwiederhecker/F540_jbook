@@ -1,5 +1,79 @@
 {
   "guides/exp1/exp1-guide": {
+    "fig_fft1": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_fft1",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_35_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 720x504 with 4 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "fig_fase_exemplo": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_fase_exemplo",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_10_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "df_pandas_exemplo": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "df_pandas_exemplo",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "   Unnamed: 0  frequencia (Hz)  Vpp1 (V)  Vpp2 (V)  fase (graus)\n0           0        10.000000  1.990429  0.024232    -95.118858\n1           1        13.738238  1.990429  0.030812     96.007477\n2           2        18.873918  2.015002  0.037238     94.137146\n3           3        25.929438  2.002716  0.050049     92.331604\n4           4        35.622479  1.990429  0.065398     92.706551",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>frequencia (Hz)</th>\n      <th>Vpp1 (V)</th>\n      <th>Vpp2 (V)</th>\n      <th>fase (graus)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>10.000000</td>\n      <td>1.990429</td>\n      <td>0.024232</td>\n      <td>-95.118858</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>13.738238</td>\n      <td>1.990429</td>\n      <td>0.030812</td>\n      <td>96.007477</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>18.873918</td>\n      <td>2.015002</td>\n      <td>0.037238</td>\n      <td>94.137146</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>25.929438</td>\n      <td>2.002716</td>\n      <td>0.050049</td>\n      <td>92.331604</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>4</td>\n      <td>35.622479</td>\n      <td>1.990429</td>\n      <td>0.065398</td>\n      <td>92.706551</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
+    },
+    "fig_dois_sinais": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_dois_sinais",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_26_1.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "df_pandas_fft": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "df_pandas_fft",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "   Unnamed: 0  time (s)  Channel 1 (V)  Channel 2 (V)\n0           0  -0.01252           0.28          -0.34\n1           1  -0.01251           0.16          -0.42\n2           2  -0.01250           0.12          -0.48\n3           3  -0.01249           0.06          -0.48\n4           4  -0.01248           0.06          -0.44",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>time (s)</th>\n      <th>Channel 1 (V)</th>\n      <th>Channel 2 (V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>-0.01252</td>\n      <td>0.28</td>\n      <td>-0.34</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>-0.01251</td>\n      <td>0.16</td>\n      <td>-0.42</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>-0.01250</td>\n      <td>0.12</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>-0.01249</td>\n      <td>0.06</td>\n      <td>-0.48</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>4</td>\n      <td>-0.01248</td>\n      <td>0.06</td>\n      <td>-0.44</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
+    },
     "fig_fft2": {
       "data": {
         "application/papermill.record/image/png": null,
@@ -12,66 +86,6 @@
         },
         "filenames": {
           "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_40_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "fig_fft1": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 720x504 with 4 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "fig_fft1"
-        },
-        "filenames": {
-          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_39_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "fig_dois_sinais": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "fig_dois_sinais"
-        },
-        "filenames": {
-          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_26_2.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "fig_fase_exemplo": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 432x270 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "fig_fase_exemplo"
-        },
-        "filenames": {
-          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp1/exp1-guide_10_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "caption_dois_sinais": {
-      "data": {
-        "text/plain": "'Sinal composto por duas ondas senoidais. \\n $f_1$=1000 Hz e $f_2$=500 Hz'"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "",
-          "name": "caption_dois_sinais"
         }
       },
       "output_type": "display_data"
@@ -91,62 +105,93 @@
       }
     }
   },
+  "guides/exp2/exp2-guide": {
+    "fig_diode_theory_iv_curve": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "fig_diode_theory_iv_curve",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp2/exp2-guide_5_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 288x288 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "df_pandas_exemplo_diode_rc": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "df_pandas_exemplo_diode_rc",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "   time (s)    CH1 (V)    CH2 (V)\n0    0.00002        1.2       3.0\n1    0.00004        1.4       3.0\n2    0.00006        1.4       2.8\n3    0.00008        1.6       2.8\n4    0.00010        1.8       3.0",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>time (s)</th>\n      <th>CH1 (V)</th>\n      <th>CH2 (V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0.00002</td>\n      <td>1.2</td>\n      <td>3.0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>0.00004</td>\n      <td>1.4</td>\n      <td>3.0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>0.00006</td>\n      <td>1.4</td>\n      <td>2.8</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>0.00008</td>\n      <td>1.6</td>\n      <td>2.8</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>0.00010</td>\n      <td>1.8</td>\n      <td>3.0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
+    }
+  },
   "guides/exp3a/exp3a-guide": {
     "df_pandas_beta": {
-      "data": {
-        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>tempo(s)</th>\n      <th>Vbb(V)</th>\n      <th>Vbe(V)</th>\n      <th>Vce(V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0.0004</td>\n      <td>8.08</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>0.0008</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>0.0012</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>0.0016</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>0.0020</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
-        "text/plain": "   tempo(s)  Vbb(V)  Vbe(V)  Vce(V)\n0    0.0004    8.08    0.72    0.24\n1    0.0008    8.00    0.72    0.24\n2    0.0012    8.00    0.72    0.24\n3    0.0016    8.00    0.72    0.24\n4    0.0020    8.00    0.72    0.24"
-      },
+      "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "mime_prefix": "",
-          "name": "df_pandas_beta"
+          "name": "df_pandas_beta",
+          "mime_prefix": ""
         }
       },
-      "output_type": "display_data"
+      "data": {
+        "text/plain": "   tempo(s)  Vbb(V)  Vbe(V)  Vce(V)\n0    0.0004    8.08    0.72    0.24\n1    0.0008    8.00    0.72    0.24\n2    0.0012    8.00    0.72    0.24\n3    0.0016    8.00    0.72    0.24\n4    0.0020    8.00    0.72    0.24",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>tempo(s)</th>\n      <th>Vbb(V)</th>\n      <th>Vbe(V)</th>\n      <th>Vce(V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0.0004</td>\n      <td>8.08</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>0.0008</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>0.0012</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>0.0016</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>0.0020</td>\n      <td>8.00</td>\n      <td>0.72</td>\n      <td>0.24</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
     },
     "df_pandas_ic_vce": {
-      "data": {
-        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Rc(Ohm)</th>\n      <th>Vce_rb_10k(V)</th>\n      <th>Vce_rb_12k(V)k</th>\n      <th>Vce_rb_15k(V)</th>\n      <th>Vce_rb_20k(V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>100</td>\n      <td>13.86</td>\n      <td>14.10</td>\n      <td>14.29</td>\n      <td>14.43</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>200</td>\n      <td>12.82</td>\n      <td>13.22</td>\n      <td>13.61</td>\n      <td>13.89</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>300</td>\n      <td>11.75</td>\n      <td>12.40</td>\n      <td>12.87</td>\n      <td>13.32</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>400</td>\n      <td>10.71</td>\n      <td>11.57</td>\n      <td>12.20</td>\n      <td>12.81</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>500</td>\n      <td>9.70</td>\n      <td>10.70</td>\n      <td>11.54</td>\n      <td>12.28</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
-        "text/plain": "   Rc(Ohm)  Vce_rb_10k(V)  Vce_rb_12k(V)k  Vce_rb_15k(V)  Vce_rb_20k(V)\n0      100          13.86           14.10          14.29          14.43\n1      200          12.82           13.22          13.61          13.89\n2      300          11.75           12.40          12.87          13.32\n3      400          10.71           11.57          12.20          12.81\n4      500           9.70           10.70          11.54          12.28"
-      },
+      "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "mime_prefix": "",
-          "name": "df_pandas_ic_vce"
+          "name": "df_pandas_ic_vce",
+          "mime_prefix": ""
         }
       },
-      "output_type": "display_data"
+      "data": {
+        "text/plain": "   Rc(Ohm)  Vce_rb_10k(V)  Vce_rb_12k(V)k  Vce_rb_15k(V)  Vce_rb_20k(V)\n0      100          13.86           14.10          14.29          14.43\n1      200          12.82           13.22          13.61          13.89\n2      300          11.75           12.40          12.87          13.32\n3      400          10.71           11.57          12.20          12.81\n4      500           9.70           10.70          11.54          12.28",
+        "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Rc(Ohm)</th>\n      <th>Vce_rb_10k(V)</th>\n      <th>Vce_rb_12k(V)k</th>\n      <th>Vce_rb_15k(V)</th>\n      <th>Vce_rb_20k(V)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>100</td>\n      <td>13.86</td>\n      <td>14.10</td>\n      <td>14.29</td>\n      <td>14.43</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>200</td>\n      <td>12.82</td>\n      <td>13.22</td>\n      <td>13.61</td>\n      <td>13.89</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>300</td>\n      <td>11.75</td>\n      <td>12.40</td>\n      <td>12.87</td>\n      <td>13.32</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>400</td>\n      <td>10.71</td>\n      <td>11.57</td>\n      <td>12.20</td>\n      <td>12.81</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>500</td>\n      <td>9.70</td>\n      <td>10.70</td>\n      <td>11.54</td>\n      <td>12.28</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+      }
     }
   },
   "guides/exp3a/transistor_math": {
     "fig_ic_ib_curves": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 907.2x432 with 3 Axes>"
-      },
+      "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "fig_ic_ib_curves"
+          "name": "fig_ic_ib_curves",
+          "mime_prefix": "application/papermill.record/"
         },
         "filenames": {
           "image/png": "/Users/gsw/GitHub/F540_jbook/_build/jupyter_execute/guides/exp3a/transistor_math_4_0.png"
         }
       },
-      "output_type": "display_data"
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 907.2x432 with 3 Axes>",
+        "application/papermill.record/image/png": null
+      }
     },
     "vbbvec": {
-      "data": {
-        "text/plain": "None"
-      },
+      "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "mime_prefix": "",
-          "name": "vbbvec"
+          "name": "vbbvec",
+          "mime_prefix": ""
         }
       },
-      "output_type": "display_data"
+      "data": {
+        "text/plain": "None"
+      }
     }
   }
 }

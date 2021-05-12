@@ -46,7 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -134,6 +133,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
    Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
   </a>
  </li>
 </ul>
@@ -440,20 +444,6 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a072a29bceed</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#pacote para desenhar circuitos</span>
-<span class="ne">---&gt; </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;SchemDraw&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="frequency-response-of-filters">
 <h2>Frequency response of filters<a class="headerlink" href="#frequency-response-of-filters" title="Permalink to this headline">¶</a></h2>
@@ -502,7 +492,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <h2>Measuring amplitude and phase-shifts<a class="headerlink" href="#measuring-amplitude-and-phase-shifts" title="Permalink to this headline">¶</a></h2>
 <p>Any electrical circuit whose response depends on the frequency introduces a lag in the output signal relative to the input signal. The low-pass and high-pass filters studied below are two typical examples. The figure below illustrates the input (<span class="math notranslate nohighlight">\( V_ {in} \)</span>) and output (<span class="math notranslate nohighlight">\( V_ {out} \)</span>) signals associated with a high-pass filter. Note that the signals are not in phase. The value of the <span class="math notranslate nohighlight">\( \phi \)</span> lag can be obtained by measuring the time difference <span class="math notranslate nohighlight">\( \Delta t \)</span> between their zero-crossing voltages.</p>
 <div class="math notranslate nohighlight" id="equation-eq-phase">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-phase" title="Permalink to this equation">¶</a></span>\[ \phi= 2\ \pi\ \cfrac{\Delta t}{T} \]</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2e-3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># vetor de tempo</span>
@@ -538,7 +528,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <img alt="../../_images/exp1-guide_10_1.png" src="../../_images/exp1-guide_10_1.png" />
 </div>
 </div>
-<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(3)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
+<p>Note that eq. <a class="reference internal" href="#equation-eq-phase">(4)</a> allows us to relate the measurement on the oscilloscope (time difference) with the phase difference, as illustrated in <a class="reference internal" href="#fig-example-phase"><span class="std std-numref">Fig. 3</span></a></p>
 <div class="figure align-center" id="fig-example-phase" style="width: 400px">
 <div class="cell_output docutils container">
 <img alt="../../_images/exp1-guide_10_0.png" src="../../_images/exp1-guide_10_0.png" />
@@ -593,7 +583,7 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 <div class="solution admonition" id="exs:fase_delta1">
 <p class="admonition-title">Solution to <a class="reference external" href="#ex:fase_delta1"><span>Exercise 2</span></a></p>
 <div class="section" id="solution-content">
-<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(3)</a> to find the phase difference.</p>
+<p>To solve this problem, first calculate the time difference between the waves, then use the eq. <a class="reference internal" href="#equation-eq-phase">(4)</a> to find the phase difference.</p>
 </div>
 </div>
 <div class="exercise admonition" id="ex:fase_delta2">
@@ -645,19 +635,19 @@ transmittance and phase on a logarithmic scale (Bode diagrams).</p></li>
 </div>
 <p>The transfer function<span class="math notranslate nohighlight">\( H (\omega) \)</span>  or voltage gain <span class="math notranslate nohighlight">\( G (\omega) \)</span> are defined as,</p>
 <div class="math notranslate nohighlight" id="equation-eq-gain">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-gain" title="Permalink to this equation">¶</a></span>\[
 G(\omega)=H(\omega)=\cfrac{V_{out}}{V_{in}}=\cfrac{v_{out}\exp(j\phi_{out})}{v_{in}\exp(j\phi_{in})}=\cfrac{v_{out}}{v_{in}}\exp(j\phi),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\( v_{out, in} \)</span> represents the amplitudes and <span class="math notranslate nohighlight">\( \phi \equiv \phi_ {out} - \phi_ {in} \)</span> the phase difference.</p>
-<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
+<p>Experimentally, the amplitudes and phase difference are measured separately, as done in the exercise <a class="reference internal" href="#ex:fase_delta2"><span class="std std-numref">Exercise 3</span></a>. As the eq. <a class="reference internal" href="#equation-eq-gain">(5)</a> contains information about the amplitude and phase of the signals, it will be represented by two graphs (Bode diagram).
 One for the amplitude,</p>
 <div class="math notranslate nohighlight" id="equation-eq-bode-gdb-experimental">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-bode-gdb-experimental" title="Permalink to this equation">¶</a></span>\[
 G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_{in}^{(pp)}}\right)
 \]</div>
 <p>and the other for the phase difference,</p>
 <div class="math notranslate nohighlight" id="equation-eq-bode-phi-experimental">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-bode-phi-experimental" title="Permalink to this equation">¶</a></span>\[
 \phi = \arg(G(\omega))=\arg\left(\cfrac{v_{out}}{v_{in}}\exp(j\phi)\right)=\phi
 \]</div>
 <div class="section" id="preparation-for-the-experiment">
@@ -711,16 +701,75 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b76187859582</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;figs/dados_sweep.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_exemplo&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
+      <th>Vpp1 (V)</th>
+      <th>Vpp2 (V)</th>
+      <th>fase (graus)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.000000</td>
+      <td>1.990429</td>
+      <td>0.024232</td>
+      <td>-95.118858</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.738238</td>
+      <td>1.990429</td>
+      <td>0.030812</td>
+      <td>96.007477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18.873918</td>
+      <td>2.015002</td>
+      <td>0.037238</td>
+      <td>94.137146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>25.929438</td>
+      <td>2.002716</td>
+      <td>0.050049</td>
+      <td>92.331604</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>35.622479</td>
+      <td>1.990429</td>
+      <td>0.065398</td>
+      <td>92.706551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="downloadable-dataset-1">
@@ -749,15 +798,85 @@ G_{dB} = 10\log_{10}(|G(\omega)|^2) = 20\log_{10}\left(\cfrac{V_{out}^{(pp)}}{V_
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dbc99d24-93fa-4b13-a764-83fd6b71592f" name="16b28fef-1225-444e-bcb5-2d4b572855d4" type="radio">
-</input><label class="tabbed-label" for="dbc99d24-93fa-4b13-a764-83fd6b71592f">
+<input checked="checked" id="6c2ece3e-1ef4-4828-a3fd-6d90e63bfc03" name="f7eabd51-bdff-484b-953b-2ed62efbb8b1" type="radio">
+</input><label class="tabbed-label" for="6c2ece3e-1ef4-4828-a3fd-6d90e63bfc03">
 Frequency reponse data example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>frequencia (Hz)</th>
+      <th>Vpp1 (V)</th>
+      <th>Vpp2 (V)</th>
+      <th>fase (graus)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.000000</td>
+      <td>1.990429</td>
+      <td>0.024232</td>
+      <td>-95.118858</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.738238</td>
+      <td>1.990429</td>
+      <td>0.030812</td>
+      <td>96.007477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18.873918</td>
+      <td>2.015002</td>
+      <td>0.037238</td>
+      <td>94.137146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>25.929438</td>
+      <td>2.002716</td>
+      <td>0.050049</td>
+      <td>92.331604</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>35.622479</td>
+      <td>1.990429</td>
+      <td>0.065398</td>
+      <td>92.706551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="c26046ed-cb52-4332-800b-6d472c333722" name="16b28fef-1225-444e-bcb5-2d4b572855d4" type="radio">
-</input><label class="tabbed-label" for="c26046ed-cb52-4332-800b-6d472c333722">
+<input id="fb4cdd68-3d75-4649-8f77-1ebeeadad783" name="f7eabd51-bdff-484b-953b-2ed62efbb8b1" type="radio">
+</input><label class="tabbed-label" for="fb4cdd68-3d75-4649-8f77-1ebeeadad783">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/sweep_freq_pa.png"><img alt="../../_images/sweep_freq_pa.png" src="../../_images/sweep_freq_pa.png" style="width: 450px;" /></a>
@@ -801,36 +920,33 @@ f0 = (f1+f2)/2 = 750.0 Hz
 δf = (f1-f2) = 500.0 Hz
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Sinal composto por duas ondas senoidais. \n $f_1$=1000 Hz e $f_2$=500 Hz&#39;
-</pre></div>
-</div>
-<img alt="../../_images/exp1-guide_26_3.png" src="../../_images/exp1-guide_26_3.png" />
+<img alt="../../_images/exp1-guide_26_2.png" src="../../_images/exp1-guide_26_2.png" />
 </div>
 </div>
 <p>A very important real application of filters is to eliminate an undesired frequency component of an electrical signal. For example, it could a residue from the AC-line frequency (60 Hz) that could be contaminating an audio output from your stereo system. Let’s assume a given signal has only two frequencies componentes,</p>
 <div class="math notranslate nohighlight" id="equation-eq-soma-tensao">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-soma-tensao" title="Permalink to this equation">¶</a></span>\[v(t) = v_{01} \cos(2\pi f_1 t)+v_{02} \cos(2\pi f_2 t).\]</div>
 <p>In the time domain this signal can be viewed as shown in the figure below.</p>
 <div class="figure align-center" id="fig-dois-sinais" style="width: 450px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_26_2.png" src="../../_images/exp1-guide_26_2.png" />
+<img alt="../../_images/exp1-guide_26_1.png" src="../../_images/exp1-guide_26_1.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Signal composed of two sine waves. <span class="math notranslate nohighlight">\( f_1 \)</span> = 1000 Hz and <span class="math notranslate nohighlight">\( f_2 \)</span> = 500 Hz</span><a class="headerlink" href="#fig-dois-sinais" title="Permalink to this image">¶</a></p>
 </div>
 <!-- Como veremos, nosso gerador de funções BK-4052 pode gerar este tipo de sinal, porém ele representa as frequências do sinal utilizando o valor médio, $f_0=(f_1+f_2)/2,$ e a diferença de frequência,  $\delta f= f_1-f_2.$ --></div>
 <div class="section" id="effect-of-the-filter-on-the-signal-fourier-decomposition">
 <h3>Effect of the filter on the signal: Fourier decomposition<a class="headerlink" href="#effect-of-the-filter-on-the-signal-fourier-decomposition" title="Permalink to this headline">¶</a></h3>
-<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(4)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(7)</a> has two frequencies, making it impossible to use the eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> equation immediately. So how we proceed?</p>
+<p>The calculation of the transfer function following the equation <a class="reference internal" href="#equation-eq-gain">(5)</a> requires that the input and output signals are sinusoidal, that is, contain only a single frequency. Naturally, eq. <a class="reference internal" href="#equation-eq-soma-tensao">(8)</a> has two frequencies, making it impossible to use the eq. <a class="reference internal" href="#equation-eq-gain">(5)</a> equation immediately. So how we proceed?</p>
 <p>Well, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier_series">Fourier’s theorem</a>, any well-behaved periodic function can be represented by a sum of harmonic functions. Consider a time-dependent function <span class="math notranslate nohighlight">\( t \)</span> such that <span class="math notranslate nohighlight">\( F (t) = F (t + T) \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the period of the function. <span class="math notranslate nohighlight">\( F (t) \)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
-<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(4)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-fourier" title="Permalink to this equation">¶</a></span>\[ F(t) = \cfrac{a_0}{2} + \displaystyle\sum_{n=1}^{\infty} \left(a_n \mathrm{cos}(n \omega_0 t) + b_n \mathrm{sen}(n \omega_0 t)\right)\]</div>
+<p>Therefore, we can still use eq. <a class="reference internal" href="#equation-eq-gain">(5)</a> provided we apply the transfer function for each term in the series. Since the transfer function is a complex number, it is convenient to write the Fourier series above in its complex version,</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-fourier-complex" title="Permalink to this equation">¶</a></span>\[ F(t) =  \displaystyle\sum_{n=-\infty}^{\infty} c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
 <p>where the relation betwenn the coeffiecient <span class="math notranslate nohighlight">\(c_n\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> is the following, <span class="math notranslate nohighlight">\(c_0=a_0/2\)</span> and <span class="math notranslate nohighlight">\(c_n=(a_n-jb_n)/2\)</span>, for <span class="math notranslate nohighlight">\(n\neq 0\)</span></p>
 <p>For instance, if the function <span class="math notranslate nohighlight">\(F(t)\)</span> above is applied to the filter’s input, the output would be:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-complex-out">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-fourier-complex-out" title="Permalink to this equation">¶</a></span>\[ G(t) =  \displaystyle\sum_{n=-\infty}^{\infty} H(n \omega_0) c_n \mathrm{exp}(j n \omega_0 t) ,\]</div>
 <p>If you want to learn more about this, I suggest section 2.8 of Eggleston’s book <span id="id2">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>.</p>
 <!--O exemplo da eq. {eq}`eq:soma_tensao` é um caso simples da eq. {eq}`eq:fourier`, com apenas dois termos da série. Nesse caso podemos determinar os coeficientes da expansão de Fourier comparando os termos.--><p>When we have a signal about which we do not know an analytical representation, there is a powerful numerical technique to obtain its Fourier coefficients: the fast Fourier transform or FFT. The following function has been defined to facilitate our calculation of the FFT in Python.</p>
 <div class="cell docutils container">
@@ -942,7 +1058,7 @@ print((f2-f1)/2)
 <p>The following graphs show the time signal and also the Fourier transform obtained by the FFT.</p>
 <div class="figure align-center" id="fig-fft1" style="width: 800px">
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_39_0.png" src="../../_images/exp1-guide_39_0.png" />
+<img alt="../../_images/exp1-guide_35_0.png" src="../../_images/exp1-guide_35_0.png" />
 </div>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">(a) Time trace; (b) Zoom of the time trace between the gray dotted lines of (a); (c) Magnitude of the FFT; (d) Magnitude of FFT, zoom between the gray dotted lines of (c)</span><a class="headerlink" href="#fig-fft1" title="Permalink to this image">¶</a></p>
 </div>
@@ -953,6 +1069,70 @@ print((f2-f1)/2)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="downloadable-dataset-2">
@@ -965,15 +1145,79 @@ print((f2-f1)/2)
 </li>
 </ul>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dc2dc6b2-3b23-4b1e-9542-802c63f94371" name="ad667368-c9c1-4b56-98c9-fab124fce7df" type="radio">
-</input><label class="tabbed-label" for="dc2dc6b2-3b23-4b1e-9542-802c63f94371">
+<input checked="checked" id="d49a8ee1-8ee7-461b-bcb7-5cd00ea5e8c9" name="7654609c-0d33-4a53-a196-54a67f10dc05" type="radio">
+</input><label class="tabbed-label" for="d49a8ee1-8ee7-461b-bcb7-5cd00ea5e8c9">
 Two-tone oscilloscope trace example</label><div class="tabbed-content docutils">
 <div class="figure align-center" id="tbl-pandas2" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>time (s)</th>
+      <th>Channel 1 (V)</th>
+      <th>Channel 2 (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-0.01252</td>
+      <td>0.28</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.01251</td>
+      <td>0.16</td>
+      <td>-0.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-0.01250</td>
+      <td>0.12</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-0.01249</td>
+      <td>0.06</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-0.01248</td>
+      <td>0.06</td>
+      <td>-0.44</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> data file, the separator between entries is a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>).</span><a class="headerlink" href="#tbl-pandas2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<input id="ad2e95d5-a58e-403f-8350-8aaee5812592" name="ad667368-c9c1-4b56-98c9-fab124fce7df" type="radio">
-</input><label class="tabbed-label" for="ad2e95d5-a58e-403f-8350-8aaee5812592">
+<input id="a2480843-b53f-4bcc-97d6-e8645f53b891" name="7654609c-0d33-4a53-a196-54a67f10dc05" type="radio">
+</input><label class="tabbed-label" for="a2480843-b53f-4bcc-97d6-e8645f53b891">
 Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-fft-highpass-scope-exemplo">
 <a class="reference internal image-reference" href="../../_images/fft_exemplo_experimental_pa.jpeg"><img alt="../../_images/fft_exemplo_experimental_pa.jpeg" src="../../_images/fft_exemplo_experimental_pa.jpeg" style="width: 450px;" /></a>
@@ -1042,7 +1286,57 @@ Examples oscilloscope screenshot</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/exp1-guide_39_1.png" src="../../_images/exp1-guide_39_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">3</span><span class="n">eb68fcac355</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time (s)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channel 1 (V)&#39;</span><span class="p">]</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> 
+<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> 
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
+<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;dados/fft_exemplo_experimental_pb_20_13_54.dat&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
