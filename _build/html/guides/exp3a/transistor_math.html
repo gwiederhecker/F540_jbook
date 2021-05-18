@@ -207,6 +207,18 @@
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistor AC amplifier (exp. 3b)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3b/exp3b-guide.html">
+   Guide to Experiment 3b: Transistor-based AC amplifier
+  </a>
+ </li>
+</ul>
 
 </nav> <!-- To handle the deprecated key -->
 
@@ -623,19 +635,30 @@
 <img alt="../../_images/transistor_math_4_3.png" src="../../_images/transistor_math_4_3.png" />
 </div>
 </div>
-<p>Base mesh: <span class="math notranslate nohighlight">\( V_{BB}-R_B I_B-V_{BE}=0\)</span></p>
-<p>Colector mesh: <span class="math notranslate nohighlight">\(V_{CC}-R_C I_C - V_{CE}=0\)</span></p>
-<p>Coupling between base and collector meshes:<span class="math notranslate nohighlight">\(I_C = \beta I_B\)</span></p>
-<p>The load curve that characterizes the transistor relates the value of <span class="math notranslate nohighlight">\( I_C \)</span> versus <span class="math notranslate nohighlight">\( V_ {CE} \)</span>. Note that <span class="math notranslate nohighlight">\( I_C = \ beta I_B \)</span>, where <span class="math notranslate nohighlight">\( \beta \)</span> is defined by the transistor and <span class="math notranslate nohighlight">\( I_B \)</span> by the base loop circuit:</p>
-<div class="math notranslate nohighlight">
-\[I_B = \cfrac{V_{BB} - V_{BE}}{R_B}\]</div>
+<p>In order to solve the simple transistor circuit illustrated above, we must write Kirchhoff’s law for both base and collector meshes:</p>
+<p>For the base mesh,</p>
+<div class="math notranslate nohighlight" id="equation-eq-base-kcl">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-base-kcl" title="Permalink to this equation">¶</a></span>\[ V_{BB}-R_B I_B-V_{BE}(I_B)=0\]</div>
+<p>For the colector mesh,</p>
+<div class="math notranslate nohighlight" id="equation-eq-collector-kcl">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eq-collector-kcl" title="Permalink to this equation">¶</a></span>\[ V_{CC}-R_C I_C - V_{CE}(I_C)=0\]</div>
+<p>In the active regime of the transistor (<span class="math notranslate nohighlight">\(V_{BE}\geq 0.7\)</span> V and <span class="math notranslate nohighlight">\(V_{CE}&gt;V{BE}\)</span>), a simple relation is valid between <span class="math notranslate nohighlight">\(I_C\)</span> and <span class="math notranslate nohighlight">\(I_B\)</span> that couples base and collector meshes,</p>
+<div class="math notranslate nohighlight" id="equation-eq-ic-ib">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eq-ic-ib" title="Permalink to this equation">¶</a></span>\[I_C = \beta I_B\]</div>
+<p>Althout it might seem rather straightforward to solve  <a class="reference internal" href="../transistor_math_old.html#equation-eq-base-kcl">()</a>,<a class="reference internal" href="../transistor_math_old.html#equation-eq-collector-kcl">()</a>, and <code class="xref eq docutils literal notranslate"><span class="pre">eq:ic_bc</span></code> the terms <span class="math notranslate nohighlight">\(V_{BE}(I_B)\)</span> and V_{CE}(I_C)$ are nonlinear functions that turn their solution into a rather complex task.</p>
+<p>One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of <span class="math notranslate nohighlight">\(V_{BE}(I_B)\)</span> and V_{CE}(I_C)$ are given, we can proceed as illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:transistor_gif</span></code>.</p>
+<p>There are two revelant sets of load-lines, one for the base,  <span class="math notranslate nohighlight">\( I_B \)</span> by the base loop circuit,</p>
+<div class="math notranslate nohighlight" id="equation-eq-ib-base">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eq-ib-base" title="Permalink to this equation">¶</a></span>\[I_B(V_BE) = \cfrac{V_{BB}}{R_B} - \cfrac{V_{BE}}{R_B}\]</div>
+<p>Clearly, this is a straight line in a <span class="math notranslate nohighlight">\(I_B\times V_{BE}\)</span> diagram, the slope is <span class="math notranslate nohighlight">\(1/R_B\)</span> and y-intercept <span class="math notranslate nohighlight">\(I_B(0)=\cfrac{V_{BB}}{R_B}\)</span>.</p>
+<p>The load curve that characterizes the transistor relates the value of <span class="math notranslate nohighlight">\( I_C \)</span> versus <span class="math notranslate nohighlight">\( V_ {CE} \)</span>. Note that <span class="math notranslate nohighlight">\( I_C = \beta I_B \)</span>, where <span class="math notranslate nohighlight">\( \beta \)</span> is defined by the transistor and</p>
 <p>The value of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> is defined by the collector’s mesh by the relation:
 $<span class="math notranslate nohighlight">\( V_{CE} = V_{CC} - R_C I_C = V_{CC} - R_C (\beta I_B)\)</span>$</p>
 <div class="figure align-default" id="fig-transistor-gif">
 <a class="reference internal image-reference" href="../../_images/transistor.gif"><img alt="../../_images/transistor.gif" src="../../_images/transistor.gif" style="width: 650px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>, the base voltage <span class="math notranslate nohighlight">\(V_BB\)</span> was varied in the range   <span class="math notranslate nohighlight">\(0.2 V\leq V_B\leq 1.2 V\)</span>.</span><a class="headerlink" href="#fig-transistor-gif" title="Permalink to this image">¶</a></p>
 </div>
-<p>We can see in these relations that for each value of <span class="math notranslate nohighlight">\( I_B \)</span> we have a value of <span class="math notranslate nohighlight">\( I_C \)</span> independent of <span class="math notranslate nohighlight">\( R_C \)</span> and <span class="math notranslate nohighlight">\( V_ {CC} \)</span>. In this case, we will have load curves that are plateaus called active operating regions delimited by the region where the reverse polarization of the base-collector diode occurs and the rupture region, where the transistor is damaged and starts to work as a short circuit. The figure on the side illustrates this behavior for a transistor with <span class="math notranslate nohighlight">\( \beta = 100 \)</span>.</p>
+<p>We can see in these relations that for each value of <span class="math notranslate nohighlight">\( I_B \)</span> we have a value of <span class="math notranslate nohighlight">\( I_C \)</span> independent of <span class="math notranslate nohighlight">\( R_C \)</span> and <span class="math notranslate nohighlight">\( V_ {CC} \)</span>. In this case, we will have load curves that are plateaus called active operating regions delimited by two regions. On the left (lower <span class="math notranslate nohighlight">\(V_{CE}\)</span>), a region where the reverse polarization of the base-collector diode occurs. On the right (higher <span class="math notranslate nohighlight">\(V_{CE}\)</span>) is the rupture region, where the very large voltages may permanently damage teh transistor.</p>
 <div class="figure align-center" id="fig-fig-ic-ib-curves" style="width: 800px">
 <div class="cell_output docutils container">
 <img alt="../../_images/transistor_math_4_0.png" src="../../_images/transistor_math_4_0.png" />
@@ -647,455 +670,6 @@ $<span class="math notranslate nohighlight">\( V_{CE} = V_{CC} - R_C I_C = V_{CC
 <li><p><span class="math notranslate nohighlight">\( I_C (= \beta I_B) \)</span> is almost constant for a range of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> forming a plateu: active regions;</p></li>
 <li><p>transistor rupture region.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boxsmu</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">smu</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Draw a dotted box around the SMU element &#39;&#39;&#39;</span>
-    <span class="n">topleft</span> <span class="o">=</span> <span class="n">smu</span><span class="o">.</span><span class="n">inpt</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">topleft</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">topleft</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">topleft</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">topleft</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-    <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span>   <span class="n">toy</span><span class="o">=</span><span class="n">topleft</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
-<span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d = schemdraw.Drawing()</span>
-<span class="c1"># d += (V1 := elm.SourceV().label(&#39;5V&#39;))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d = schem.Drawing(unit=2.5)</span>
-<span class="c1"># d += (iC := e.LINE().right() )</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
-<span class="c1">#gnd1 = d.add(e.GND,color=source_color)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="c1">#d.add(e.SOURCE_V, label=&#39;$V_{B}$&#39;,color=source_color)</span>
-<span class="n">VB</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1"># d += (iC := e.LINE().right() )</span>
-<span class="c1"># d.labelI(L1, &#39;$i_g$&#39;, top=False)</span>
-
-
-<span class="c1">#---</span>
-<span class="c1">#transistor</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">RB</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">bjt</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="c1">#----</span>
-<span class="c1"># #voltage divider</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_C$&#39;</span><span class="p">)</span>
-<span class="n">Vcc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{C}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1"># RE = d.add(e.RES, d=&#39;down&#39;, xy=bjt.emitter, label=&#39;$R_E$&#39;)</span>
-<span class="c1"># gnd = d.add(e.GNDd)</span>
-<span class="c1">#---</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="c1"># d.save(os.path.join(figure_path,&#39;transistor_basic.pdf&#39;))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">0</span><span class="n">f96289b396d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#d.add(e.SOURCE_V, label=&#39;$V_{B}$&#39;,color=source_color)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">VB</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># d += (iC := e.LINE().right() )</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># d.labelI(L1, &#39;$i_g$&#39;, top=False)</span>
-
-<span class="ne">NameError</span>: name &#39;d&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-
-<span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
-<span class="c1">#gnd1 = d.add(e.GND,color=source_color)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="c1">#d.add(e.SOURCE_V, label=&#39;$V_{B}$&#39;,color=source_color)</span>
-<span class="n">VB</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">RB</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
-
-
-<span class="c1">#---</span>
-<span class="c1">#transistor</span>
-<span class="c1">#d.add(e.LINE, d=&#39;right&#39;, xy=RB.end, l=1)</span>
-<span class="n">bjt</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="c1">#----</span>
-<span class="c1"># #voltage divider</span>
-<span class="n">Rc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_C$&#39;</span><span class="p">)</span>
-<span class="n">Vcc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{C}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">RE</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_E$&#39;</span><span class="p">)</span>
-<span class="n">gnd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1"># d.add(e.LINE, d=&#39;left&#39;, l=1.5)</span>
-<span class="c1"># d.add(e.LINE, d=&#39;up&#39;, l=0.5)</span>
-<span class="c1"># Vcc = d.add(e.DOT_OPEN, label=&#39;$V_{CC}$&#39;)</span>
-<span class="c1"># #d.add(e.LINE, d=&#39;left&#39;, y=Rc.end)</span>
-<span class="c1"># d.add(e.LINE, d=&#39;down&#39;, l=0.5)</span>
-<span class="c1"># d.add(e.LINE, d=&#39;left&#39;, tox=Vout.end)</span>
-<span class="c1"># d.add(e.RES, d=&#39;down&#39;, toy=Vout.end, label=&#39;$R_1$&#39;, color=&#39;black&#39;)</span>
-<span class="c1"># d.add(e.RES, d=&#39;down&#39;, toy=gnd1.start, label=&#39;$R_2$&#39;, color=&#39;black&#39;)</span>
-<span class="c1"># gnd2 = d.add(e.GND)</span>
-<span class="c1"># #---</span>
-<span class="c1"># #emitter</span>
-<span class="c1"># d.add(e.RES, d=&#39;down&#39;, xy=bjt.emitter, toy=gnd1.start, label=&#39;$R_E$&#39;)</span>
-<span class="c1"># gnd3 = d.add(e.GND)</span>
-<span class="c1"># d.add(e.LINE, d=&#39;right&#39;, xy=bjt.emitter, l=1)</span>
-<span class="c1"># cap_out = d.add(e.CAP, d=&#39;down&#39;, toy=gnd1.start)</span>
-<span class="c1"># gnd4 = d.add(e.GND)</span>
-<span class="c1"># #emitter output</span>
-<span class="c1"># d.add(e.LINE, d=&#39;right&#39;, xy=cap_out.start, l=0.5)</span>
-<span class="c1"># d.add(e.DOT_OPEN, label=&#39;$V_{out}^{E}$&#39;)</span>
-<span class="c1"># #collector output</span>
-<span class="c1"># d.add(e.LINE, d=&#39;right&#39;, xy=bjt.collector, l=1)</span>
-<span class="c1"># d.add(e.DOT_OPEN, label=&#39;$V_{out}^{C}$&#39;)</span>
-<span class="c1">#---</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="c1"># d.save(os.path.join(figure_path,&#39;transistor_basic.pdf&#39;))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_12_0.png" src="../../_images/transistor_math_12_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-
-<span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
-<span class="n">gnd1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">SOURCE_SIN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;right&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="n">Vout0</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1"># anchors = {</span>
-<span class="c1">#     &#39;inpt&#39;:[0,0],</span>
-<span class="c1">#     &#39;F&#39;:gnd1.start,</span>
-<span class="c1">#     &#39;S&#39;:Vout0.end,}</span>
-
-<span class="c1"># gp = schem.group_elements(d, anchors=anchors)</span>
-<span class="c1"># #---</span>
-<span class="c1">#boxsmu(d, S1)</span>
-
-<span class="c1">#--</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$C_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="n">Vout</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-
-
-
-
-<span class="c1">#---</span>
-<span class="c1">#transistor</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">bjt</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="c1">#----</span>
-<span class="c1">#voltage divider</span>
-<span class="n">Rc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_C$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">Vcc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{CC}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;left&#39;, y=Rc.end)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_1$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_2$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">gnd2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1">#emitter</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_E$&#39;</span><span class="p">)</span>
-<span class="n">gnd3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cap_out</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
-<span class="n">gnd4</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#emitter output</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">cap_out</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">^</span><span class="si">{E}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#collector output</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">^</span><span class="si">{C}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="c1">#plt.savefig(os.path.join(figure_path,&#39;curvas_transistor.pdf&#39;),bbox_inches=&quot;tight&quot;)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">figure_path</span><span class="p">,</span><span class="s1">&#39;transistor_amplifier.pdf&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_13_0.png" src="../../_images/transistor_math_13_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-
-<span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
-<span class="n">gnd1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">SOURCE_SIN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;right&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="n">Vout0</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1"># anchors = {</span>
-<span class="c1">#     &#39;inpt&#39;:[0,0],</span>
-<span class="c1">#     &#39;F&#39;:gnd1.start,</span>
-<span class="c1">#     &#39;S&#39;:Vout0.end,}</span>
-
-<span class="c1"># gp = schem.group_elements(d, anchors=anchors)</span>
-<span class="c1"># #---</span>
-<span class="c1">#boxsmu(d, S1)</span>
-
-<span class="c1">#--</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$C_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">Vout</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-
-
-
-
-<span class="c1">#---</span>
-<span class="c1">#transistor</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">bjt</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="c1">#----</span>
-<span class="c1">#voltage divider</span>
-<span class="n">Rc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_C$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">Vcc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{CC}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;left&#39;, y=Rc.end)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_1$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_2$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">gnd2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1">#emitter</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_E$&#39;</span><span class="p">)</span>
-<span class="n">gnd3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cap_out</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
-<span class="n">gnd4</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#emitter output</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">cap_out</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">^</span><span class="si">{E}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#collector output</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">^</span><span class="si">{C}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;transistor_bias_voltage_divider.pdf&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_14_0.png" src="../../_images/transistor_math_14_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-
-<span class="n">source_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
-<span class="n">gnd1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;up&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">SOURCE_SIN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;right&#39;, l=1)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_</span><span class="si">{Th}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="n">Vout0</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">source_color</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1"># anchors = {</span>
-<span class="c1">#     &#39;inpt&#39;:[0,0],</span>
-<span class="c1">#     &#39;F&#39;:gnd1.start,</span>
-<span class="c1">#     &#39;S&#39;:Vout0.end,}</span>
-
-<span class="c1"># gp = schem.group_elements(d, anchors=anchors)</span>
-<span class="c1"># #---</span>
-<span class="c1">#boxsmu(d, S1)</span>
-
-<span class="c1">#--</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$C_</span><span class="si">{in}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">Vout</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-
-
-
-
-<span class="c1">#---</span>
-<span class="c1">#transistor</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">bjt</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="c1">#----</span>
-<span class="c1">#voltage divider</span>
-<span class="n">Rc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_C$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">Vcc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{CC}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#d.add(e.LINE, d=&#39;left&#39;, y=Rc.end)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">Vout</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_1$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">gnd1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$R_2$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">gnd2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="c1">#emitter</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">gnd3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="c1">#emitter output</span>
-<span class="c1">#collector output</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">bjt</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">^</span><span class="si">{C}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="c1">#---</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;transistor_bias_voltage_divider.pdf&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_15_0.png" src="../../_images/transistor_math_15_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-<span class="n">R7</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;$R_7$&#39;</span><span class="p">)</span>
-<span class="n">R6</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;$R_6$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">R5</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span> <span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;$R_5$&#39;</span><span class="p">)</span>
-<span class="n">R4</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;$R_4$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
-<span class="n">R3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">R6</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;$R_3$&#39;</span><span class="p">)</span>
-<span class="c1"># d.pop()</span>
-<span class="c1"># d.add(e.LINE, d=&#39;left&#39;, l=2)</span>
-<span class="c1"># d.push()</span>
-<span class="c1"># R2 = d.add(e.RES, d=&#39;down&#39;, toy=R6.end, botlabel=&#39;$R_2$&#39;)</span>
-<span class="c1"># d.pop()</span>
-<span class="c1"># R1 = d.add(e.RES, d=&#39;left&#39;, tox=R7.start, label=&#39;$R_1$&#39;)</span>
-<span class="c1"># Vt = d.add(e.BATTERY, d=&#39;up&#39;, xy=R7.start, toy=R1.end, label=&#39;$V_t$&#39;, lblofst=0.3)</span>
-<span class="c1"># d.labelI(Vt, arrowlen=1.5, arrowofst=0.5)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;7_resistors_3_loops.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_16_0.png" src="../../_images/transistor_math_16_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">inches_per_unit</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">D1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DIODE</span><span class="p">,</span> <span class="n">theta</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">D2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DIODE</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">225</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">D3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DIODE</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">135</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">D4</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DIODE</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">D3</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">D1</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AC IN&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">D4</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-
-<span class="n">top</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">D2</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">Q2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;collector&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Q2</span><span class="se">\n</span><span class="s1">2n3055&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Q2</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">Q2b</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">Q1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">BJT_NPN_C</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;emitter&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Q1</span><span class="se">\n</span><span class="s1">    2n3054&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Q1</span><span class="o">.</span><span class="n">collector</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">top</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Q1</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">ZENER</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;D2</span><span class="se">\n</span><span class="s1">500mA&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GND</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP_P</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;C2</span><span class="se">\n</span><span class="s1">100$\mu$F</span><span class="se">\n</span><span class="s1">50V&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">top</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;R1</span><span class="se">\n</span><span class="s1">2.2K</span><span class="se">\n</span><span class="s1">50V&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-
-<span class="n">d</span><span class="o">.</span><span class="n">here</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">here</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">here</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP_P</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;C1</span><span class="se">\n</span><span class="s1"> 1000$\mu$F</span><span class="se">\n</span><span class="s1">50V&#39;</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">D4</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">D4</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
-
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">Q2b</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;56$\Omega$ 1W&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">top</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">Q2</span><span class="o">.</span><span class="n">emitter</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">CAP_P</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;C3</span><span class="se">\n</span><span class="s1">470$\mu$F</span><span class="se">\n</span><span class="s1">50V&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tox</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">move_cur</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">RES</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">top</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="n">botlabel</span><span class="o">=</span><span class="s1">&#39;R3</span><span class="se">\n</span><span class="s1">10K</span><span class="se">\n</span><span class="s1">1W&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">move_cur</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">GAP</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="n">toy</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$V_</span><span class="si">{out}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">DOT_OPEN</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">LINE</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="c1">#d.draw(showplot=True)</span>
-<span class="c1"># d.save(&#39;powersupply.svg&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;SchemDraw.schemdraw.Element at 0x10f8cbc88&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">showplot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/transistor_math_18_0.png" src="../../_images/transistor_math_18_0.png" />
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">

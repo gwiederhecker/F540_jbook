@@ -288,15 +288,31 @@ fig = plot_ic_curves_transistor(Vcc=10,Rc=100,Vbb_vec=vbbvec,Rb=1000)
 glue("fig_ic_ib_curves",fig,display=False)
 glue("vbbvec",print(vbbvec))
 
-Base mesh: $ V_{BB}-R_B I_B-V_{BE}=0$
+In order to solve the simple transistor circuit illustrated above, we must write Kirchhoff's law for both base and collector meshes:
 
-Colector mesh: $V_{CC}-R_C I_C - V_{CE}=0$
+For the base mesh,
 
-Coupling between base and collector meshes:$I_C = \beta I_B$
+$$ V_{BB}-R_B I_B-V_{BE}(I_B)=0$$ (eq:base_kcl)
 
-The load curve that characterizes the transistor relates the value of $ I_C $ versus $ V_ {CE} $. Note that $ I_C = \ beta I_B $, where $ \beta $ is defined by the transistor and $ I_B $ by the base loop circuit:
+For the colector mesh,
 
-$$I_B = \cfrac{V_{BB} - V_{BE}}{R_B}$$
+$$ V_{CC}-R_C I_C - V_{CE}(I_C)=0$$ (eq:collector_kcl)
+
+In the active regime of the transistor ($V_{BE}\geq 0.7$ V and $V_{CE}>V{BE}$), a simple relation is valid between $I_C$ and $I_B$ that couples base and collector meshes,
+
+$$I_C = \beta I_B$$ (eq:ic_ib)
+
+Althout it might seem rather straightforward to solve  {eq}`eq:base_kcl`,{eq}`eq:collector_kcl`, and {eq}`eq:ic_bc` the terms $V_{BE}(I_B)$ and V_{CE}(I_C)$ are nonlinear functions that turn their solution into a rather complex task.
+
+One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of $V_{BE}(I_B)$ and V_{CE}(I_C)$ are given, we can proceed as illustrated in {numref}`fig:transistor_gif`.
+
+There are two revelant sets of load-lines, one for the base,  $ I_B $ by the base loop circuit,
+
+$$I_B(V_BE) = \cfrac{V_{BB}}{R_B} - \cfrac{V_{BE}}{R_B}$$ (eq:ib_base)
+
+Clearly, this is a straight line in a $I_B\times V_{BE}$ diagram, the slope is $1/R_B$ and y-intercept $I_B(0)=\cfrac{V_{BB}}{R_B}$.
+
+The load curve that characterizes the transistor relates the value of $ I_C $ versus $ V_ {CE} $. Note that $ I_C = \beta I_B $, where $ \beta $ is defined by the transistor and
 
 The value of $ V_ {CE} $ is defined by the collector's mesh by the relation:
 $$ V_{CE} = V_{CC} - R_C I_C = V_{CC} - R_C (\beta I_B)$$
@@ -309,7 +325,7 @@ name: "fig:transistor_gif"
 Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook {doc}`aula_transistor_interativo`, the base voltage $V_BB$ was varied in the range   $0.2 V\leq V_B\leq 1.2 V$.
 ```
 
-We can see in these relations that for each value of $ I_B $ we have a value of $ I_C $ independent of $ R_C $ and $ V_ {CC} $. In this case, we will have load curves that are plateaus called active operating regions delimited by the region where the reverse polarization of the base-collector diode occurs and the rupture region, where the transistor is damaged and starts to work as a short circuit. The figure on the side illustrates this behavior for a transistor with $ \beta = 100 $.
+We can see in these relations that for each value of $ I_B $ we have a value of $ I_C $ independent of $ R_C $ and $ V_ {CC} $. In this case, we will have load curves that are plateaus called active operating regions delimited by two regions. On the left (lower $V_{CE}$), a region where the reverse polarization of the base-collector diode occurs. On the right (higher $V_{CE}$) is the rupture region, where the very large voltages may permanently damage teh transistor.
 
 
 ```{glue:figure} fig_ic_ib_curves
@@ -323,362 +339,3 @@ $I_C$ curves using $V_BB=${glue:}`vbbvec` V.
 * when $ V_ {CE} $ is between 0 and 1 V, the base-collector diode is not reverse polarized and therefore $ I_C \rightarrow $ 0 A to $ V_ {CE} \rightarrow $ 0 V, growing exponentially as a function of $ V_ {CE} $: saturation region;
 * $ I_C (= \beta I_B) $ is almost constant for a range of $ V_ {CE} $ forming a plateu: active regions;
 * transistor rupture region.
-
-def boxsmu(d, smu):
-    ''' Draw a dotted box around the SMU element '''
-    topleft = smu.inpt + np.array([-.5,1])
-    d.add(e.LINE, xy=topleft, tox=topleft[0]+6, d='right', ls=':')
-    d.add(e.LINE, d='down', toy=topleft[1]-7, ls=':')
-    d.add(e.LINE, d='left', tox=topleft[0], ls=':')
-    d.add(e.LINE, d='up',   toy=topleft[1], ls=':')
-
-import SchemDraw as schem
-import SchemDraw.elements as e
-
-# d = schemdraw.Drawing()
-# d += (V1 := elm.SourceV().label('5V'))
-
-# d = schem.Drawing(unit=2.5)
-# d += (iC := e.LINE().right() )
-
-
-
-source_color='blue'
-#gnd1 = d.add(e.GND,color=source_color)
-#d.add(e.LINE, d='up', l=1)
-#d.add(e.SOURCE_V, label='$V_{B}$',color=source_color)
-VB = d.add(e.DOT_OPEN, label='$V_{B}$')
-# d += (iC := e.LINE().right() )
-# d.labelI(L1, '$i_g$', top=False)
-
-
-#---
-#transistor
-d.add(e.LINE, d='right', xy=RB.end, l=1)
-bjt = d.add(e.BJT_NPN_C, d='right')
-#----
-# #voltage divider
-d.add(e.LINE, d='up', xy=bjt.collector, label='$R_C$')
-Vcc = d.add(e.DOT_OPEN, label='$V_{C}$')
-# RE = d.add(e.RES, d='down', xy=bjt.emitter, label='$R_E$')
-# gnd = d.add(e.GNDd)
-#---
-d.draw()
-# d.save(os.path.join(figure_path,'transistor_basic.pdf'))
-
-
-d = schem.Drawing(unit=2.5)
-
-source_color='blue'
-#gnd1 = d.add(e.GND,color=source_color)
-#d.add(e.LINE, d='up', l=1)
-#d.add(e.SOURCE_V, label='$V_{B}$',color=source_color)
-VB = d.add(e.DOT_OPEN, label='$V_{B}$')
-RB = d.add(e.RES, d='right',label='$R_{B}$')
-
-
-#---
-#transistor
-#d.add(e.LINE, d='right', xy=RB.end, l=1)
-bjt = d.add(e.BJT_NPN_C, d='right')
-#----
-# #voltage divider
-Rc = d.add(e.RES, d='up', xy=bjt.collector, label='$R_C$')
-Vcc = d.add(e.DOT_OPEN, label='$V_{C}$')
-RE = d.add(e.RES, d='down', xy=bjt.emitter, label='$R_E$')
-gnd = d.add(e.GND)
-# d.add(e.LINE, d='left', l=1.5)
-# d.add(e.LINE, d='up', l=0.5)
-# Vcc = d.add(e.DOT_OPEN, label='$V_{CC}$')
-# #d.add(e.LINE, d='left', y=Rc.end)
-# d.add(e.LINE, d='down', l=0.5)
-# d.add(e.LINE, d='left', tox=Vout.end)
-# d.add(e.RES, d='down', toy=Vout.end, label='$R_1$', color='black')
-# d.add(e.RES, d='down', toy=gnd1.start, label='$R_2$', color='black')
-# gnd2 = d.add(e.GND)
-# #---
-# #emitter
-# d.add(e.RES, d='down', xy=bjt.emitter, toy=gnd1.start, label='$R_E$')
-# gnd3 = d.add(e.GND)
-# d.add(e.LINE, d='right', xy=bjt.emitter, l=1)
-# cap_out = d.add(e.CAP, d='down', toy=gnd1.start)
-# gnd4 = d.add(e.GND)
-# #emitter output
-# d.add(e.LINE, d='right', xy=cap_out.start, l=0.5)
-# d.add(e.DOT_OPEN, label='$V_{out}^{E}$')
-# #collector output
-# d.add(e.LINE, d='right', xy=bjt.collector, l=1)
-# d.add(e.DOT_OPEN, label='$V_{out}^{C}$')
-#---
-d.draw()
-# d.save(os.path.join(figure_path,'transistor_basic.pdf'))
-
-
-d = schem.Drawing(unit=2.5)
-
-source_color='blue'
-gnd1 = d.add(e.GND,color=source_color)
-#d.add(e.LINE, d='up', l=1)
-d.add(e.SOURCE_SIN, label='$V_{Th}$',color=source_color)
-#d.add(e.LINE, d='right', l=1)
-d.add(e.RES, d='right',label='$R_{Th}$',color=source_color)
-Vout0 = d.add(e.DOT_OPEN,label='$V_{in}$',color=source_color)
-#---
-# anchors = {
-#     'inpt':[0,0],
-#     'F':gnd1.start,
-#     'S':Vout0.end,}
-
-# gp = schem.group_elements(d, anchors=anchors)
-# #---
-#boxsmu(d, S1)
-
-#--
-d.add(e.CAP, d='right',label='$C_{in}$',color=source_color)
-Vout = d.add(e.DOT_OPEN)
-
-
-
-
-#---
-#transistor
-d.add(e.LINE, d='right', xy=Vout.start, l=2)
-bjt = d.add(e.BJT_NPN_C, d='right')
-#----
-#voltage divider
-Rc = d.add(e.RES, d='up', xy=bjt.collector, label='$R_C$')
-d.add(e.LINE, d='left', l=1.5)
-d.add(e.LINE, d='up', l=0.5)
-Vcc = d.add(e.DOT_OPEN, label='$V_{CC}$')
-#d.add(e.LINE, d='left', y=Rc.end)
-d.add(e.LINE, d='down', l=0.5)
-d.add(e.LINE, d='left', tox=Vout.end)
-d.add(e.RES, d='down', toy=Vout.end, label='$R_1$', color='black')
-d.add(e.RES, d='down', toy=gnd1.start, label='$R_2$', color='black')
-gnd2 = d.add(e.GND)
-#---
-#emitter
-d.add(e.RES, d='down', xy=bjt.emitter, toy=gnd1.start, label='$R_E$')
-gnd3 = d.add(e.GND)
-d.add(e.LINE, d='right', xy=bjt.emitter, l=1)
-cap_out = d.add(e.CAP, d='down', toy=gnd1.start)
-gnd4 = d.add(e.GND)
-#emitter output
-d.add(e.LINE, d='right', xy=cap_out.start, l=0.5)
-d.add(e.DOT_OPEN, label='$V_{out}^{E}$')
-#collector output
-d.add(e.LINE, d='right', xy=bjt.collector, l=1)
-d.add(e.DOT_OPEN, label='$V_{out}^{C}$')
-#---
-d.draw()
-#plt.savefig(os.path.join(figure_path,'curvas_transistor.pdf'),bbox_inches="tight")
-d.save(os.path.join(figure_path,'transistor_amplifier.pdf'))
-
-d = schem.Drawing(unit=2.5)
-
-source_color='blue'
-gnd1 = d.add(e.GND,color=source_color)
-#d.add(e.LINE, d='up', l=1)
-d.add(e.SOURCE_SIN, label='$V_{Th}$',color=source_color)
-#d.add(e.LINE, d='right', l=1)
-d.add(e.RES, d='right',label='$R_{Th}$',color=source_color)
-Vout0 = d.add(e.DOT_OPEN,label='$V_{in}$',color=source_color)
-#---
-# anchors = {
-#     'inpt':[0,0],
-#     'F':gnd1.start,
-#     'S':Vout0.end,}
-
-# gp = schem.group_elements(d, anchors=anchors)
-# #---
-#boxsmu(d, S1)
-
-#--
-d.add(e.CAP, d='right',label='$C_{in}$')
-Vout = d.add(e.DOT_OPEN)
-
-
-
-
-#---
-#transistor
-d.add(e.LINE, d='right', xy=Vout.start, l=2)
-bjt = d.add(e.BJT_NPN_C, d='right')
-#----
-#voltage divider
-Rc = d.add(e.RES, d='up', xy=bjt.collector, label='$R_C$')
-d.add(e.LINE, d='left', l=1.5)
-d.add(e.LINE, d='up', l=0.5)
-Vcc = d.add(e.DOT_OPEN, label='$V_{CC}$')
-#d.add(e.LINE, d='left', y=Rc.end)
-d.add(e.LINE, d='down', l=0.5)
-d.add(e.LINE, d='left', tox=Vout.end)
-d.add(e.RES, d='down', toy=Vout.end, label='$R_1$', color='black')
-d.add(e.RES, d='down', toy=gnd1.start, label='$R_2$', color='black')
-gnd2 = d.add(e.GND)
-#---
-#emitter
-d.add(e.RES, d='down', xy=bjt.emitter, toy=gnd1.start, label='$R_E$')
-gnd3 = d.add(e.GND)
-d.add(e.LINE, d='right', xy=bjt.emitter, l=1)
-cap_out = d.add(e.CAP, d='down', toy=gnd1.start)
-gnd4 = d.add(e.GND)
-#emitter output
-d.add(e.LINE, d='right', xy=cap_out.start, l=0.5)
-d.add(e.DOT_OPEN, label='$V_{out}^{E}$')
-#collector output
-d.add(e.LINE, d='right', xy=bjt.collector, l=1)
-d.add(e.DOT_OPEN, label='$V_{out}^{C}$')
-#---
-d.draw()
-d.save('transistor_bias_voltage_divider.pdf')
-
-d = schem.Drawing(unit=2.5)
-
-source_color='blue'
-gnd1 = d.add(e.GND,color=source_color)
-#d.add(e.LINE, d='up', l=1)
-d.add(e.SOURCE_SIN, label='$V_{Th}$',color=source_color)
-#d.add(e.LINE, d='right', l=1)
-d.add(e.RES, d='right',label='$R_{Th}$',color=source_color)
-Vout0 = d.add(e.DOT_OPEN,label='$V_{in}$',color=source_color)
-#---
-# anchors = {
-#     'inpt':[0,0],
-#     'F':gnd1.start,
-#     'S':Vout0.end,}
-
-# gp = schem.group_elements(d, anchors=anchors)
-# #---
-#boxsmu(d, S1)
-
-#--
-d.add(e.CAP, d='right',label='$C_{in}$')
-Vout = d.add(e.DOT_OPEN)
-
-
-
-
-#---
-#transistor
-d.add(e.LINE, d='right', xy=Vout.start, l=2)
-bjt = d.add(e.BJT_NPN_C, d='right')
-#----
-#voltage divider
-Rc = d.add(e.RES, d='up', xy=bjt.collector, label='$R_C$')
-d.add(e.LINE, d='left', l=1.5)
-d.add(e.LINE, d='up', l=0.5)
-Vcc = d.add(e.DOT_OPEN, label='$V_{CC}$')
-#d.add(e.LINE, d='left', y=Rc.end)
-d.add(e.LINE, d='down', l=0.5)
-d.add(e.LINE, d='left', tox=Vout.end)
-d.add(e.RES, d='down', toy=Vout.end, label='$R_1$', color='black')
-d.add(e.RES, d='down', toy=gnd1.start, label='$R_2$', color='black')
-gnd2 = d.add(e.GND)
-#---
-#emitter
-d.add(e.LINE, d='down', xy=bjt.emitter, l=1)
-gnd3 = d.add(e.GND)
-#emitter output
-#collector output
-d.add(e.LINE, d='right', xy=bjt.collector, l=1)
-d.add(e.DOT_OPEN, label='$V_{out}^{C}$')
-#---
-d.draw()
-d.save('transistor_bias_voltage_divider.pdf')
-
-
-d = schem.Drawing(unit=2.5)
-R7 = d.add(e.RES, d='right', botlabel='$R_7$')
-R6 = d.add(e.RES, d='right', botlabel='$R_6$')
-d.add(e.LINE, d='right', l=2)
-d.add(e.LINE, d='right', l=2)
-R5 = d.add(e.RES, d='up' , botlabel='$R_5$')
-R4 = d.add(e.RES, d='up', botlabel='$R_4$')
-d.add(e.LINE, d='left', l=2)
-d.push()
-R3 = d.add(e.RES, d='down', toy=R6.end, botlabel='$R_3$')
-# d.pop()
-# d.add(e.LINE, d='left', l=2)
-# d.push()
-# R2 = d.add(e.RES, d='down', toy=R6.end, botlabel='$R_2$')
-# d.pop()
-# R1 = d.add(e.RES, d='left', tox=R7.start, label='$R_1$')
-# Vt = d.add(e.BATTERY, d='up', xy=R7.start, toy=R1.end, label='$V_t$', lblofst=0.3)
-# d.labelI(Vt, arrowlen=1.5, arrowofst=0.5)
-d.draw()
-d.save('7_resistors_3_loops.png')
-
-
-d = schem.Drawing(inches_per_unit=.5, unit=3)
-D1 = d.add(e.DIODE, theta=-45)
-d.add(e.DOT)
-D2 = d.add(e.DIODE, theta=225, reverse=True)
-d.add(e.DOT)
-D3 = d.add(e.DIODE, theta=135, reverse=True)
-d.add(e.DOT)
-D4 = d.add(e.DIODE, theta=45)
-d.add(e.DOT)
-
-d.add(e.LINE, xy=D3.end, d='left', l=d.unit*1.5)
-d.add(e.DOT_OPEN)
-d.add(e.GAP, d='up', toy=D1.start, label='AC IN')
-d.add(e.LINE, xy=D4.end, d='left', l=d.unit*1.5)
-d.add(e.DOT_OPEN)
-
-top = d.add(e.LINE, xy=D2.end, d='right', l=d.unit*3)
-Q2 = d.add(e.BJT_NPN_C, anchor='collector', d='up', label='Q2\n2n3055')
-d.add(e.LINE, xy=Q2.base, d='down', l=d.unit/2)
-Q2b = d.add(e.DOT)
-d.add(e.LINE, d='left', l=d.unit/3)
-Q1 = d.add(e.BJT_NPN_C, anchor='emitter', d='up', label='Q1\n    2n3054')
-d.add(e.LINE, d='up', xy=Q1.collector, toy=top.center)
-d.add(e.DOT)
-
-d.add(e.LINE, d='down', xy=Q1.base, l=d.unit/2)
-d.add(e.DOT)
-d.add(e.ZENER, d='down', reverse=True, botlabel='D2\n500mA')
-d.add(e.DOT)
-G = d.add(e.GND)
-d.add(e.LINE, d='left')
-d.add(e.DOT)
-d.add(e.CAP_P, botlabel='C2\n100$\mu$F\n50V', d='up', reverse=True)
-d.add(e.DOT)
-d.push()
-d.add(e.LINE, d='right')
-d.pop()
-d.add(e.RES, d='up', toy=top.end, botlabel='R1\n2.2K\n50V')
-d.add(e.DOT)
-
-d.here = [d.here[0]-d.unit, d.here[1]]
-d.add(e.DOT)
-d.add(e.CAP_P, d='down', toy=G.start, label='C1\n 1000$\mu$F\n50V', flip=True)
-d.add(e.DOT)
-d.add(e.LINE, xy=G.start, tox=D4.start, d='left')
-d.add(e.LINE, d='up', toy=D4.start)
-
-d.add(e.RES, d='right', xy=Q2b.center, label='R2', botlabel='56$\Omega$ 1W')
-d.add(e.DOT)
-d.push()
-d.add(e.LINE, d='up', toy=top.start)
-d.add(e.DOT)
-d.add(e.LINE, d='left', tox=Q2.emitter)
-d.pop()
-d.add(e.CAP_P, d='down', toy=G.start, botlabel='C3\n470$\mu$F\n50V')
-d.add(e.DOT)
-d.add(e.LINE, d='left', tox=G.start, move_cur=False)
-d.add(e.LINE, d='right')
-d.add(e.DOT)
-d.add(e.RES, d='up', toy=top.center, botlabel='R3\n10K\n1W')
-d.add(e.DOT)
-d.add(e.LINE, d='left', move_cur=False)
-d.add(e.LINE, d='right')
-d.add(e.DOT_OPEN)
-d.add(e.GAP, d='down', toy=G.start, label='$V_{out}$')
-d.add(e.DOT_OPEN)
-d.add(e.LINE, d='left')
-#d.draw(showplot=True)
-# d.save('powersupply.svg')
-
-d.draw(showplot=True)
-

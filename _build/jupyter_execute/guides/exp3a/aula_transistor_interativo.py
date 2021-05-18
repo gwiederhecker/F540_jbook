@@ -226,7 +226,7 @@ def plot_load_lines_transistor(Vcc=10,Rc=100,Vbb=1,Rb=1000):
     plt.tight_layout()
     return
 
-# interact(plot_load_lines_transistor,Vcc=(1,10,1),Rc=(1,300),Vbb=(0.5,1.5,0.1),Rb=(1e2,5e3,1e2))
+interact(plot_load_lines_transistor,Vcc=(1,10,1),Rc=(1,300),Vbb=(0.5,1.5,0.1),Rb=(1e2,5e3,1e2))
 
 The function above looks a bit complicated, but the idea is the same as in the transistor. The result is that it produces the following plots:
 
