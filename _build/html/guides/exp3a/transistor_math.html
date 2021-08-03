@@ -46,8 +46,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -646,7 +644,7 @@
 <div class="math notranslate nohighlight" id="equation-eq-ic-ib">
 <span class="eqno">(19)<a class="headerlink" href="#equation-eq-ic-ib" title="Permalink to this equation">¶</a></span>\[I_C = \beta I_B\]</div>
 <p>Althout it might seem rather straightforward to solve  <a class="reference internal" href="../transistor_math_old.html#equation-eq-base-kcl">()</a>,<a class="reference internal" href="../transistor_math_old.html#equation-eq-collector-kcl">()</a>, and <code class="xref eq docutils literal notranslate"><span class="pre">eq:ic_bc</span></code> the terms <span class="math notranslate nohighlight">\(V_{BE}(I_B)\)</span> and V_{CE}(I_C)$ are nonlinear functions that turn their solution into a rather complex task.</p>
-<p>One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of <span class="math notranslate nohighlight">\(V_{BE}(I_B)\)</span> and V_{CE}(I_C)$ are given, we can proceed as illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:transistor_gif</span></code>.</p>
+<p>One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of <span class="math notranslate nohighlight">\(V_{BE}(I_B)\)</span> and <span class="math notranslate nohighlight">\(V_{CE}(I_C)\)</span> are given. The essentials of this method are  illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:transistor_gif</span></code>.</p>
 <p>There are two revelant sets of load-lines, one for the base,  <span class="math notranslate nohighlight">\( I_B \)</span> by the base loop circuit,</p>
 <div class="math notranslate nohighlight" id="equation-eq-ib-base">
 <span class="eqno">(20)<a class="headerlink" href="#equation-eq-ib-base" title="Permalink to this equation">¶</a></span>\[I_B(V_BE) = \cfrac{V_{BB}}{R_B} - \cfrac{V_{BE}}{R_B}\]</div>

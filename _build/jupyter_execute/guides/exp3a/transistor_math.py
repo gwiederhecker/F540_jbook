@@ -304,7 +304,7 @@ $$I_C = \beta I_B$$ (eq:ic_ib)
 
 Althout it might seem rather straightforward to solve  {eq}`eq:base_kcl`,{eq}`eq:collector_kcl`, and {eq}`eq:ic_bc` the terms $V_{BE}(I_B)$ and V_{CE}(I_C)$ are nonlinear functions that turn their solution into a rather complex task.
 
-One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of $V_{BE}(I_B)$ and V_{CE}(I_C)$ are given, we can proceed as illustrated in {numref}`fig:transistor_gif`.
+One way to proceed is to rely on graphical solutions, also known as load-lines methods, provided graphs of $V_{BE}(I_B)$ and $V_{CE}(I_C)$ are given. The essentials of this method are  illustrated in {numref}`fig:transistor_gif`.
 
 There are two revelant sets of load-lines, one for the base,  $ I_B $ by the base loop circuit,
 
