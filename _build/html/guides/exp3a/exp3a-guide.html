@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide to Experiment 3a: Transistor characterization &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Guide to Experiment 3b: Transistor-based AC amplifier" href="../exp3b/exp3b-guide.html" />
+    <link rel="prev" title="Background: Solving Kirchhoof’s law for transistors using load lines" href="aula_transistor_interativo.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../examples/Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp1/complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp1/exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp1/exemplo_ajuste_rc.html">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp2/dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Guide to Experiment 3a: Transistor characterization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistor AC amplifier (exp. 3b)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exp3b/exp3b-guide.html">
+   Guide to Experiment 3b: Transistor-based AC amplifier
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/guides/exp3a/exp3a-guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/guides/exp3a/exp3a-guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/exp3a-guide.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#characteristic-curves-i-v-curve">
+   Characteristic curves (I-V curve)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transistor-gain-beta">
+   Transistor  gain
+   <span class="math notranslate nohighlight">
+    \(\beta\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-characterisitic-curves">
+   Measuring characterisitic curves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-transistor-gain">
+   Measuring transistor Gain
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#videos-of-the-experiments">
+     Videos of the experiments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#characteristic-curves">
+       Characteristic curves
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#transistor-gain">
+       Transistor gain
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloadable-dataset">
+     Downloadable dataset
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="guide-to-experiment-3a-transistor-characterization">
+<h1>Guide to Experiment 3a: Transistor characterization<a class="headerlink" href="#guide-to-experiment-3a-transistor-characterization" title="Permalink to this headline">¶</a></h1>
+<p>Métodos da Físcia Experimental I: (F540 2s2020)</p>
+<ul class="simple">
+<li><p>JupyterBook: Gustavo Wiederhecker, Varlei Rodrigues</p></li>
+<li><p>Contributions: Daniel Ugarte, Antônio Riul Junior, Varlei Rodrigues</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#-----------------------------</span>
+<span class="c1">#Pacote para manipular vetores e matrizes</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">#-----------------------------</span>
+<span class="c1">#Pacotes para lidar com unidades</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">un</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">cte</span>
+<span class="c1">#-----------------------------</span>
+<span class="c1">#pacote para gráficos</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="c1">#Comandos opcionais para formatar gráfico</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">12</span><span class="p">}</span>	
+<span class="n">lines</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;linewidth&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">}</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mi">6</span><span class="o">/</span><span class="mf">1.6</span><span class="p">]}</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">figure</span><span class="p">)</span>
+<span class="c1">#-----------------------------</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="c1">#pacote para desenhar circuitos</span>
+<span class="kn">import</span> <span class="nn">SchemDraw</span> <span class="k">as</span> <span class="nn">schem</span>
+<span class="kn">import</span> <span class="nn">SchemDraw.elements</span> <span class="k">as</span> <span class="nn">e</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">schem</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span> <span class="c1"># unit=2.5 determina o tamanho dos componentes</span>
+<span class="c1"># %config InlineBackend.figure_format = &#39;svg&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this experiment, the basic properties of a bipolar junctio transistor will be explored.</p>
+<p>The name transistor (<a class="reference external" href="https://web.archive.org/web/20080528164454/http://users.arczip.com/rmcgarra2/namememo.gif">a combination of transfer + resistor</a>)originates from this device capabiblity of transferring electric signals. It is an <em>active device</em> that amplifies the voltage or current of an input signal, therefore, it is necessary to use a power supply. The transistor is a sandwich of two <em>pn</em> junctions, facing each other, forming a sequence of <span class="math notranslate nohighlight">\( npn \)</span> or <span class="math notranslate nohighlight">\( pnp \)</span> junctions. Each of these parts is called the collector, base and emitter, and the information to be transferred and / or used as a control signal is applied to the base of the transistor.</p>
+<p>To fully appreciate this device, it is desirable that you read an introductory  text on the semiconductors properties and circuit treatment of transistors (Sections 4.1 to 4.3 in <span id="id1">[<a class="reference internal" href="../../intro/references.html#id4"><span>1</span></a>]</span>).</p>
+<div class="tip admonition">
+<p class="admonition-title">Goals</p>
+<ul class="simple">
+<li><p>Measure the characteristic curve of a bipolar junction transistor (BJT).</p></li>
+<li><p>Measure the value of the current gain <span class="math notranslate nohighlight">\( (\beta) \)</span> of the BJT transistor.</p></li>
+</ul>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Items to include in your lab report</p>
+<ol class="simple">
+<li><p>From the experimental data, reconstruct the transistor collector curves (<span class="math notranslate nohighlight">\(I_C(V_{CE})\)</span>). You must generate the graphs, based on the data provided in <a class="reference internal" href="../exp3b/exp3b-guide.html#sec-dataset-transistor-3a"><span class="std std-ref">Downloadable dataset</span></a>.</p>
+<ul class="simple">
+<li><p>Try to add the different traces to a single figure, instead of adding multiple repetitive plots to your report. Consider distinct line colors for each trace.</p></li>
+<li><p>Be carefull to properly convert the voltage measurements into currents using the appropriate values for the resistors.</p></li>
+</ul>
+</li>
+<li><p>Include a graph of <span class="math notranslate nohighlight">\(I_C(I_B)\)</span> and determine the transistor gain.</p>
+<ul class="simple">
+<li><p>Make sure to include the linear fitting you used  to determine <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
+</ul>
+</li>
+<li><p>Provide hyperlinks to your TinkerCAD simulation and upload your QUCS file.</p></li>
+</ol>
+</div>
+<div class="section" id="characteristic-curves-i-v-curve">
+<h2>Characteristic curves (I-V curve)<a class="headerlink" href="#characteristic-curves-i-v-curve" title="Permalink to this headline">¶</a></h2>
+<p>presents characteristic curves for the bipolar junction transistor BD 135, being similar for other junction transistors. For each current value of the base there is a current in the collector, for which the equation below is satisfied:</p>
+<div class="math notranslate nohighlight" id="equation-eq-transitor-ic-ib">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eq-transitor-ic-ib" title="Permalink to this equation">¶</a></span>\[ I_\text{collector} = \beta \times I_\text{base}, \]</div>
+<p>In general, for <a class="reference internal" href="../exp3b/exp3b-guide.html#equation-eq-transitor-ic-ib">(22)</a> to be valid, if (<span class="math notranslate nohighlight">\(V_{CE}\)</span>) is  higher than the <span class="math notranslate nohighlight">\(V_{BE}\)</span> , which is required  to polarize the transistor into the active region. Play around with the background theory notebook ( <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>) to get an insight into the the transistor behavior. An example of the <em>IV</em> curves generated at this notebook are shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:transistor_gif</span></code>:</p>
+<div class="figure align-default" id="fig-transistor-gif">
+<a class="reference internal image-reference" href="../../_images/transistor.gif"><img alt="../../_images/transistor.gif" src="../../_images/transistor.gif" style="width: 650px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Solving the transistor using the load line method for varying values of the base current. In this animation, generated in the notebook <a class="reference internal" href="aula_transistor_interativo.html"><span class="doc">Background: Solving Kirchhoof’s law for transistors using load lines</span></a>, the base voltage <span class="math notranslate nohighlight">\(V_BB\)</span> was varied in the range   <span class="math notranslate nohighlight">\(0.2 V\leq V_B\leq 1.2 V\)</span>.</span><a class="headerlink" href="#fig-transistor-gif" title="Permalink to this image">¶</a></p>
+</div>
+<p>Characteristics curves are often presented in transistor datasheets, such as the example in <a class="reference internal" href="../exp3b/exp3b-guide.html#fig-bjt-sheet"><span class="std std-numref">Fig. 29</span></a></p>
+<div class="figure align-center" id="fig-bjt-sheet">
+<a class="reference internal image-reference" href="../../_images/ic_vce_curve.png"><img alt="../../_images/ic_vce_curve.png" src="../../_images/ic_vce_curve.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Example <a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/figs/BD135_datasheet.pdf?raw=true">datasheet from manufacturer</a> showing transistor gain characterization</span><a class="headerlink" href="#fig-bjt-sheet" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="transistor-gain-beta">
+<h2>Transistor  gain <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#transistor-gain-beta" title="Permalink to this headline">¶</a></h2>
+<p>The gain of a transistor depends on its construction, current range and the frequency of operation of the circuit assembly. For the transistor BD 135, the characteristic curves as a function of the current <span class="math notranslate nohighlight">\( I_B \)</span> are illustrated in <a class="reference internal" href="../exp3b/exp3b-guide.html#fig-ic-ib-bjt"><span class="std std-numref">Fig. 31</span></a></p>
+<div class="figure align-center" id="fig-ic-ib-bjt">
+<a class="reference internal image-reference" href="../../_images/curva2.png"><img alt="../../_images/curva2.png" src="../../_images/curva2.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Example dateset of transistor gain characterization</span><a class="headerlink" href="#fig-ic-ib-bjt" title="Permalink to this image">¶</a></p>
+</div>
+<p>An approximate value of the <span class="math notranslate nohighlight">\( (\beta) \)</span> gain can be obtained on a linear graph of <span class="math notranslate nohighlight">\( I_C \)</span> as a function of <span class="math notranslate nohighlight">\( I_B \)</span>, the gain being given by the slope of the line, as in the example of <a class="reference internal" href="../exp3b/exp3b-guide.html#fig-ic-ib-bjt"><span class="std std-numref">Fig. 31</span></a>.</p>
+</div>
+<div class="section" id="measuring-characterisitic-curves">
+<h2>Measuring characterisitic curves<a class="headerlink" href="#measuring-characterisitic-curves" title="Permalink to this headline">¶</a></h2>
+<p>The characteristic curve of a transistor is the graph of <span class="math notranslate nohighlight">\( I_C \)</span> for <span class="math notranslate nohighlight">\( V_ {CE} \)</span>. The proposed assembly for this measure is illustrated in the figure below.
+Note that the assembly is formed by a voltage divider (resistors <span class="math notranslate nohighlight">\( R2 \)</span> and <span class="math notranslate nohighlight">\( R3 \)</span>) that feeds the base of the transistor through the resistor <span class="math notranslate nohighlight">\( R1 \)</span>, imposing a fixed <span class="math notranslate nohighlight">\( (approximately) \)</span> current of <span class="math notranslate nohighlight">\( I_B \)</span> at the base. After the transistor is polarized, the current in the collector will be given by the golden rule: <span class="math notranslate nohighlight">\( I_ {collector} = \beta \times I_ {base} \)</span>.</p>
+<p>To obtain the value of <span class="math notranslate nohighlight">\( I_B \)</span>, it is necessary to measure the potential drop in the resistance of the base <span class="math notranslate nohighlight">\( (R1) \)</span>. The potential on the transistor, between the collector and the emitter <span class="math notranslate nohighlight">\( (V_{CE}) \)</span>, is measured directly with a voltmeter or with the oscilloscope.</p>
+<p>Only the <span class="math notranslate nohighlight">\( I_C \)</span> measure is missing. Since the power supply is fixed at <span class="math notranslate nohighlight">\( 15 V \)</span>, from the measurement of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> and the resistance value of decades it is possible to calculate the current in the collector, <span class="math notranslate nohighlight">\( I_C \)</span>. Therefore, it is enough to vary the resistance of decades to obtain each curve. Try to obtain a larger number of points in the region where the variation of <span class="math notranslate nohighlight">\( V_ {CE} \)</span> is more abrupt (lower values of voltage <span class="math notranslate nohighlight">\( V_ {CE} \)</span>). 3 <span class="math notranslate nohighlight">\( I_C \)</span> curves must be measured by <span class="math notranslate nohighlight">\( V_ {CE} \)</span>, with <span class="math notranslate nohighlight">\( R_1 \)</span> = 10 k <span class="math notranslate nohighlight">\( \Omega \)</span>, 15 k <span class="math notranslate nohighlight">\( \Omega \)</span> and 18 k <span class="math notranslate nohighlight">\( \Omega \)</span>.</p>
+<div class="figure align-center" id="fig-bjt-setup1">
+<a class="reference internal image-reference" href="../../_images/medida_caracteristica.png"><img alt="../../_images/medida_caracteristica.png" src="../../_images/medida_caracteristica.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Circuit schematic used in the transistor characterization</span><a class="headerlink" href="#fig-bjt-setup1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="measuring-transistor-gain">
+<h2>Measuring transistor Gain<a class="headerlink" href="#measuring-transistor-gain" title="Permalink to this headline">¶</a></h2>
+<p>The gain of the <span class="math notranslate nohighlight">\( (\beta) \)</span> transistor can be obtained simply by the ratio between the current in the collector and the current in the emitter, as previously shown. In a variation of the previous assembly, we can measure the gain of the transistor. We will use the a linear voltage ramp to vary the base voltage and, consequently, the current at the base of the transistor.</p>
+<p>The current <span class="math notranslate nohighlight">\( I_C \)</span> is measured through the resistance <span class="math notranslate nohighlight">\( RC \)</span>, while <span class="math notranslate nohighlight">\( I_B \)</span> is measured against the resistance <span class="math notranslate nohighlight">\(R_B\)</span>.
+By controlling either the base voltage (<span class="math notranslate nohighlight">\(V_{BB}\)</span>), or the base resistace <span class="math notranslate nohighlight">\(R_B\)</span>, it is possible to control <span class="math notranslate nohighlight">\( I_B \)</span>.</p>
+<div class="figure align-center" id="fig-bjt-setup2">
+<a class="reference internal image-reference" href="../../_images/esquema_medida_beta.png"><img alt="../../_images/esquema_medida_beta.png" src="../../_images/esquema_medida_beta.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Circuit schematic used in the transistor gain characterization. The internal resistance of the base voltage source is 50 Ohms.</span><a class="headerlink" href="#fig-bjt-setup2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="videos-of-the-experiments">
+<h3>Videos of the experiments<a class="headerlink" href="#videos-of-the-experiments" title="Permalink to this headline">¶</a></h3>
+<p><strong>You must login with you &#64;m.unicamp.br account to view these videos!</strong></p>
+<div class="section" id="characteristic-curves">
+<h4>Characteristic curves<a class="headerlink" href="#characteristic-curves" title="Permalink to this headline">¶</a></h4>
+<p>This first video illustrate the experimental procedure and data acquisition associated with the characteristic curves.</p>
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/b5122894-1a3c-4a64-92c5-203a3a189128?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
+</div>
+<div class="section" id="transistor-gain">
+<h4>Transistor gain<a class="headerlink" href="#transistor-gain" title="Permalink to this headline">¶</a></h4>
+<p>This second video illustrate the experimental procedure and data acquisition associated with the transistor gain.</p>
+<iframe width="640" height="360" src="https://web.microsoftstream.com/embed/video/1de87b4e-eed9-4e2a-895f-fbfedb97feea?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe><div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Loading dataset with &quot;tab&quot; as separator</span>
+<span class="n">path</span><span class="o">=</span><span class="s1">&#39;dados&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;dados_Vce_Vcc_15p5.csv&#39;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="c1">#DataFrame</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_ic_vce&quot;</span><span class="p">,</span> <span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1">#---</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv&#39;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="c1">#DataFrame</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;df_pandas_beta&quot;</span><span class="p">,</span> <span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rc(Ohm)</th>
+      <th>Vce_rb_10k(V)</th>
+      <th>Vce_rb_12k(V)k</th>
+      <th>Vce_rb_15k(V)</th>
+      <th>Vce_rb_20k(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>13.86</td>
+      <td>14.10</td>
+      <td>14.29</td>
+      <td>14.43</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>200</td>
+      <td>12.82</td>
+      <td>13.22</td>
+      <td>13.61</td>
+      <td>13.89</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>300</td>
+      <td>11.75</td>
+      <td>12.40</td>
+      <td>12.87</td>
+      <td>13.32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>400</td>
+      <td>10.71</td>
+      <td>11.57</td>
+      <td>12.20</td>
+      <td>12.81</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>500</td>
+      <td>9.70</td>
+      <td>10.70</td>
+      <td>11.54</td>
+      <td>12.28</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tempo(s)</th>
+      <th>Vbb(V)</th>
+      <th>Vbe(V)</th>
+      <th>Vce(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0004</td>
+      <td>8.08</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0008</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0012</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0016</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0020</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="downloadable-dataset">
+<span id="sec-dataset-transistor-3a"></span><h3>Downloadable dataset<a class="headerlink" href="#downloadable-dataset" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One (.zip) file: <a class="reference external" href="https://github.com/gwiederhecker/F540_jbook/blob/2021_1s/guides/exp3a/dados/dados_transistor_3a.zip?raw=true">Transistor characterization</a></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.zip</span></code> file contains:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> file corresponding to the characteristic curves (see <a class="reference internal" href="../exp3b/exp3b-guide.html#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 34</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> file corresponding to the <span class="math notranslate nohighlight">\(I_C\)</span> versus <span class="math notranslate nohighlight">\(I_B\)</span> curve. (see <a class="reference internal" href="../exp3b/exp3b-guide.html#tbl-pandas-ic-vce"><span class="std std-numref">Fig. 34</span></a>)</p></li>
+</ul>
+</li>
+<li><p>Images of the protoboard assembly.</p></li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ce10c157-4e57-4529-9ecf-f547548f46a4" name="d62e40df-8f37-4ffe-8ae4-ec0c5d85bac1" type="radio">
+</input><label class="tabbed-label" for="ce10c157-4e57-4529-9ecf-f547548f46a4">
+Characteristic curves</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="tbl-pandas-ic-vce" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rc(Ohm)</th>
+      <th>Vce_rb_10k(V)</th>
+      <th>Vce_rb_12k(V)k</th>
+      <th>Vce_rb_15k(V)</th>
+      <th>Vce_rb_20k(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>13.86</td>
+      <td>14.10</td>
+      <td>14.29</td>
+      <td>14.43</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>200</td>
+      <td>12.82</td>
+      <td>13.22</td>
+      <td>13.61</td>
+      <td>13.89</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>300</td>
+      <td>11.75</td>
+      <td>12.40</td>
+      <td>12.87</td>
+      <td>13.32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>400</td>
+      <td>10.71</td>
+      <td>11.57</td>
+      <td>12.20</td>
+      <td>12.81</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>500</td>
+      <td>9.70</td>
+      <td>10.70</td>
+      <td>11.54</td>
+      <td>12.28</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Vce_Vcc_15p5.csv</span></code> data file, corresponding to the decade resistance  indicated at the column label; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-ic-vce" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<input id="5d7c1add-030d-4692-a9af-92720a1726cc" name="d62e40df-8f37-4ffe-8ae4-ec0c5d85bac1" type="radio">
+</input><label class="tabbed-label" for="5d7c1add-030d-4692-a9af-92720a1726cc">
+Gain characterization</label><div class="tabbed-content docutils">
+<div class="figure align-center" id="tbl-pandas-beta" style="width: 600px">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tempo(s)</th>
+      <th>Vbb(V)</th>
+      <th>Vbe(V)</th>
+      <th>Vce(V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0004</td>
+      <td>8.08</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0008</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0012</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0016</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0020</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>0.24</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Structure of the <code class="docutils literal notranslate"><span class="pre">dados_Ic_vs_Ib_Vbb_Vcc_15p5V.csv</span></code> data file, corresponding to the osciloscope traces measured at distinct point in the circuit; the separator between entries is a <strong>comma (,)</strong>.</span><a class="headerlink" href="#tbl-pandas-beta" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "2021_1s",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/exp3a"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="aula_transistor_interativo.html" title="previous page">Background: Solving Kirchhoof’s law for transistors using load lines</a>
+    <a class='right-next' id="next-link" href="../exp3b/exp3b-guide.html" title="next page">Guide to Experiment 3b: Transistor-based AC amplifier</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploring log scale plots with Python &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Background: Complex impedances" href="../guides/exp1/complex_impedance.html" />
+    <link rel="prev" title="Plotting: Interactive analysis of an RLC ressonant filter" href="Plotting%20-%20Interactive%20Transfer%20function.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exploring log scale plots with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistor AC amplifier (exp. 3b)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3b/exp3b-guide.html">
+   Guide to Experiment 3b: Transistor-based AC amplifier
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/examples/Plotting - Exploring Log scale.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/examples/Plotting - Exploring Log scale.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/examples/Plotting - Exploring Log scale.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-packages">
+   Loading packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-scale">
+   Linear scale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo-em-que-a-escala-linear-e-apropriada">
+     Exemplo em que a escala linear é apropriada:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algumas-dificuldades-em-visualizar-propriedades-com-a-escala-linear">
+   Algumas dificuldades em visualizar propriedades com a escala linear
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparando-quantidade-com-ampla-diferenca">
+     Comparando quantidade com ampla diferença
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eixo-horizontal-cobrindo-ampla-faixa-de-valores">
+     Eixo horizontal cobrindo ampla faixa de valores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fica-ainda-pior-quando-se-tenta-comparar-diferentes-funcoes">
+     Fica ainda pior quando se tenta comparar diferentes funções
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-about-using-the-log-function-to-improve-this-aspect-of-the-visualization">
+   How about using the log function to improve this aspect of the visualization?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-log-function">
+     The log function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-ways-to-plot-in-log-scale">
+     Two ways to plot in log scale:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determining-the-position-of-tickmarks-in-a-log-plot">
+     Determining the position of tickmarks in a log plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-markers-and-annotations">
+     Generating markers and annotations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo-com-eixo-x-using-plt-semilogx">
+     Exemplo com eixo x (using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plt.semilogx()
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo-com-eixo-y-using-plt-semilogy">
+     Exemplo com eixo y (using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plt.semilogy()
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-with-two-axes-x-y-using-plt-loglog">
+     Examples with two axes, x,y (using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plt.loglog()
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearization-examples">
+     Linearization examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-seja-y-x-x-qual-a-inclinacao-da-reta-em-escala-log">
+     a) Seja
+     <span class="math notranslate nohighlight">
+      \(y(x)=x\)
+     </span>
+     . Qual a inclinação da reta em escala log?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-seja-y-x-x-1-qual-a-inclinacao-da-reta-em-escala-log">
+     b) Seja
+     <span class="math notranslate nohighlight">
+      \(y(x)=x^{-1}\)
+     </span>
+     . Qual a inclinação da reta em escala log?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-what-happens-when-the-polynomial-has-other-powers-i-e-y-x-x-n">
+   b) What happens when the polynomial has other powers? i.e.,
+   <span class="math notranslate nohighlight">
+    \( y(x) = x^n \)
+   </span>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exploring-log-scale-plots-with-python">
+<h1>Exploring log scale plots with Python<a class="headerlink" href="#exploring-log-scale-plots-with-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="loading-packages">
+<h2>Loading packages<a class="headerlink" href="#loading-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ajsutando fontes padrão dos gráficos</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="c1">#Ajsutando espessura das linhas padrão dos gráficos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-scale">
+<h2>Linear scale<a class="headerlink" href="#linear-scale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exemplo-em-que-a-escala-linear-e-apropriada">
+<h3>Exemplo em que a escala linear é apropriada:<a class="headerlink" href="#exemplo-em-que-a-escala-linear-e-apropriada" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e1</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_6_0.png" src="../_images/Plotting - Exploring Log scale_6_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="algumas-dificuldades-em-visualizar-propriedades-com-a-escala-linear">
+<h2>Algumas dificuldades em visualizar propriedades com a escala linear<a class="headerlink" href="#algumas-dificuldades-em-visualizar-propriedades-com-a-escala-linear" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comparando-quantidade-com-ampla-diferenca">
+<h3>Comparando quantidade com ampla diferença<a class="headerlink" href="#comparando-quantidade-com-ampla-diferenca" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e1</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_9_0.png" src="../_images/Plotting - Exploring Log scale_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="eixo-horizontal-cobrindo-ampla-faixa-de-valores">
+<h3>Eixo horizontal cobrindo ampla faixa de valores<a class="headerlink" href="#eixo-horizontal-cobrindo-ampla-faixa-de-valores" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e5</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_11_0.png" src="../_images/Plotting - Exploring Log scale_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fica-ainda-pior-quando-se-tenta-comparar-diferentes-funcoes">
+<h3>Fica ainda pior quando se tenta comparar diferentes funções<a class="headerlink" href="#fica-ainda-pior-quando-se-tenta-comparar-diferentes-funcoes" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e5</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_13_0.png" src="../_images/Plotting - Exploring Log scale_13_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-about-using-the-log-function-to-improve-this-aspect-of-the-visualization">
+<h2>How about using the log function to improve this aspect of the visualization?<a class="headerlink" href="#how-about-using-the-log-function-to-improve-this-aspect-of-the-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-log-function">
+<h3>The log function<a class="headerlink" href="#the-log-function" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_16_0.png" src="../_images/Plotting - Exploring Log scale_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="two-ways-to-plot-in-log-scale">
+<h3>Two ways to plot in log scale:<a class="headerlink" href="#two-ways-to-plot-in-log-scale" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>draw an axis with logarithmic spacing: <span class="math notranslate nohighlight">\( x '= \ log10 (x) \)</span></p></li>
+<li><p>perform the variable transformation of the original axis coordinate (<span class="math notranslate nohighlight">\(x\)</span>) to a new coordinate (<span class="math notranslate nohighlight">\(x'\)</span>):</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-eq-log-transformation">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-log-transformation" title="Permalink to this equation">¶</a></span>\[ x = 10 ^ {x '} \]</div>
+</div>
+<div class="section" id="determining-the-position-of-tickmarks-in-a-log-plot">
+<h3>Determining the position of tickmarks in a log plot<a class="headerlink" href="#determining-the-position-of-tickmarks-in-a-log-plot" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="n">xlog_ticks1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xvec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tick position1:&#39;</span><span class="p">,</span><span class="n">xlog_ticks1</span><span class="p">)</span>
+<span class="c1">#------</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">xlog_ticks2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xvec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tick position2:&#39;</span><span class="p">,</span><span class="n">xlog_ticks2</span><span class="p">)</span>
+<span class="c1">#------</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">xlog_ticks3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xvec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tick position3:&#39;</span><span class="p">,</span><span class="n">xlog_ticks3</span><span class="p">)</span>
+<span class="c1">#------</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">xlog_ticks5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xvec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tick position5:&#39;</span><span class="p">,</span><span class="n">xlog_ticks5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tick position1: [-2. -1.  0.  1.  2.]
+tick position2: [-1.69897 -0.69897  0.30103  1.30103]
+tick position3: [-1.52287875 -0.52287875  0.47712125  1.47712125]
+tick position5: [-1.30103 -0.30103  0.69897  1.69897]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#criando grade do gráfico</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="c1"># #pontos na posição dos &quot;ticks&quot; x&#39;=log10(x)</span>
+<span class="c1"># plt.plot(xlog_ticks1,0*xlog_ticks1,&#39;ro&#39;)</span>
+<span class="c1"># #---</span>
+<span class="c1"># #linhas na posição dos &quot;ticks&quot; x&#39;=log10(x)</span>
+<span class="c1"># for x0 in xlog_ticks1:</span>
+<span class="c1">#     plt.axvline(x0,linestyle=&#39;--&#39;,color=&#39;r&#39;)</span>
+<span class="c1"># #---</span>
+<span class="c1"># #refinando os ticks  - multiplos de 2</span>
+<span class="c1"># plt.plot(xlog_ticks2,0*xlog_ticks2,&#39;b*&#39;)    </span>
+<span class="c1"># for x0 in xlog_ticks2:</span>
+<span class="c1">#     plt.axvline(x0,linestyle=&#39;-.&#39;,color=&#39;b&#39;)</span>
+<span class="c1"># #--</span>
+<span class="c1"># #refinando os ticks  - multiplos de 3</span>
+<span class="c1"># plt.plot(xlog_ticks3,0*xlog_ticks3,&#39;g*&#39;)    </span>
+<span class="c1"># for x0 in xlog_ticks3:</span>
+<span class="c1">#     plt.axvline(x0,linestyle=&#39;-.&#39;,color=&#39;g&#39;)</span>
+<span class="c1"># #--</span>
+<span class="c1"># #refinando os ticks  - multiplos de 5</span>
+<span class="c1"># plt.plot(xlog_ticks5,0*xlog_ticks3,&#39;m*&#39;)   </span>
+<span class="c1"># for x0 in xlog_ticks5:</span>
+<span class="c1">#     plt.axvline(x0,linestyle=&#39;-.&#39;,color=&#39;m&#39;)</span>
+<span class="c1">#--------</span>
+<span class="c1">#formatacao</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">xstep</span><span class="p">,</span> <span class="n">ystep</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">xrange</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">xrange</span><span class="o">+</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">yrange</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">yrange</span><span class="o">+</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">xrange</span><span class="p">,</span><span class="n">xrange</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">xstep</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">yrange</span><span class="p">,</span><span class="n">yrange</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ystep</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_20_0.png" src="../_images/Plotting - Exploring Log scale_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="generating-markers-and-annotations">
+<h3>Generating markers and annotations<a class="headerlink" href="#generating-markers-and-annotations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#criando grade do gráfico</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="c1">#pontos na posição dos &quot;ticks&quot; x&#39;=log10(x)</span>
+
+<span class="c1">#---</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="c1">#linhas na posição dos &quot;ticks&quot; x&#39;=log10(x)</span>
+<span class="k">for</span> <span class="n">multiplo</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]:</span>
+    <span class="n">xlog_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span><span class="p">)</span>
+    <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span>
+    <span class="c1">#-verticais</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="c1">#-----------------</span>
+<span class="c1">#decadas de  10</span>
+<span class="k">for</span> <span class="n">multiplo</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,]:</span>
+    <span class="n">xlog_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span><span class="p">)</span>
+    <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span>
+    <span class="c1">#-verticais</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="c1">#-verticais</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:0.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">x0</span><span class="p">)),</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">),)</span> 
+        <span class="n">ann1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Décadas de 10&quot;</span><span class="p">,</span>
+                  <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                  <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round4&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
+                  <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span>
+                                  <span class="n">connectionstyle</span><span class="o">=</span><span class="s2">&quot;arc3,rad=-0.2&quot;</span><span class="p">,</span>
+                                  <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
+                  <span class="p">)</span>
+<span class="c1">#-----------------</span>
+<span class="c1">#decadas de  20</span>
+<span class="k">for</span> <span class="n">multiplo</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,]:</span>
+    <span class="n">xlog_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span><span class="p">)</span>
+    <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="c1">#-verticais</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">ann1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Décadas de 20&quot;</span><span class="p">,</span>
+                  <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                  <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round4&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
+                  <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span>
+                                  <span class="n">connectionstyle</span><span class="o">=</span><span class="s2">&quot;arc3,rad=-0.2&quot;</span><span class="p">,</span>
+                                  <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">),</span>
+                  <span class="p">)</span>
+<span class="c1">#-----------------</span>
+<span class="c1">#decadas de  30</span>
+<span class="k">for</span> <span class="n">multiplo</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,]:</span>
+    <span class="n">xlog_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span><span class="p">)</span>
+    <span class="n">x_ticks</span> <span class="o">=</span> <span class="n">multiplo</span><span class="o">*</span><span class="n">xvec</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+    <span class="c1">#-verticais</span>
+    <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">xlin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlog_ticks</span><span class="p">,</span><span class="n">x_ticks</span><span class="p">):</span>
+        <span class="n">ann1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Décadas de 30&quot;</span><span class="p">,</span>
+                  <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                  <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                  <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round4&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
+                  <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span>
+                                  <span class="n">connectionstyle</span><span class="o">=</span><span class="s2">&quot;arc3,rad=-0.2&quot;</span><span class="p">,</span>
+                                  <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">),</span>
+                  <span class="p">)</span>
+<span class="c1">#--------</span>
+<span class="c1">#formatacao</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">xstep</span><span class="p">,</span> <span class="n">ystep</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">xrange</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">xrange</span><span class="o">+</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">yrange</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">yrange</span><span class="o">+</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">xrange</span><span class="p">,</span><span class="n">xrange</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">xstep</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">yrange</span><span class="p">,</span><span class="n">yrange</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ystep</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_22_0.png" src="../_images/Plotting - Exploring Log scale_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exemplo-com-eixo-x-using-plt-semilogx">
+<h3>Exemplo com eixo x (using <code class="docutils literal notranslate"><span class="pre">plt.semilogx()</span></code>):<a class="headerlink" href="#exemplo-com-eixo-x-using-plt-semilogx" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(x'=\log_{10}(x)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="c1">#---------------------------------</span>
+<span class="c1">#METODO 1, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="mf">1e-1</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="mf">1e2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> 
+    <span class="n">ax0</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#----------------------------------</span>
+<span class="c1">#METODO 2, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x1min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span>
+<span class="n">x1max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1min</span><span class="p">,</span><span class="n">x1max</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado na coordenada x1</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;Both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_25_0.png" src="../_images/Plotting - Exploring Log scale_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exemplo-com-eixo-y-using-plt-semilogy">
+<h3>Exemplo com eixo y (using <code class="docutils literal notranslate"><span class="pre">plt.semilogy()</span></code>)<a class="headerlink" href="#exemplo-com-eixo-y-using-plt-semilogy" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(y'=\log_{10}(y)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1">#---------------------------------</span>
+<span class="c1">#METODO 1, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="mf">1e-1</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="mf">1e2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> 
+    <span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">1e4</span><span class="p">])</span>
+<span class="c1">#----------------------------------</span>
+<span class="c1">#METODO 1, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="c1"># x1min = 10**(xmin)</span>
+<span class="c1"># x1max = 10**(xmax)</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1">#grades</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_27_0.png" src="../_images/Plotting - Exploring Log scale_27_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="examples-with-two-axes-x-y-using-plt-loglog">
+<h3>Examples with two axes, x,y (using <code class="docutils literal notranslate"><span class="pre">plt.loglog()</span></code>):<a class="headerlink" href="#examples-with-two-axes-x-y-using-plt-loglog" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(x'=\log_{10}(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(y'=\log_{10}(y)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1">#---------------------------------</span>
+<span class="c1">#METODO 1, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="mf">1e-1</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="mf">1e2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-1</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> 
+    <span class="n">ax0</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">1e4</span><span class="p">])</span>
+<span class="c1">#----------------------------------</span>
+<span class="c1">#METODO 1, RECOMENDADO, USE AS FUNÇÕES SEMILOGX OU SEMILOGY OU LOGLOG</span>
+<span class="n">npt</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x1min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span>
+<span class="n">x1max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1min</span><span class="p">,</span><span class="n">x1max</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado na coordenada x1</span>
+<span class="n">ax0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="n">n</span><span class="o">*</span><span class="n">x1</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1">#grades</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_29_0.png" src="../_images/Plotting - Exploring Log scale_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="linearization-examples">
+<h3>Linearization examples<a class="headerlink" href="#linearization-examples" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to directly transform the variables to a log scale using  <a class="reference internal" href="#equation-eq-log-transformation">(3)</a> , and use the regular <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> function. It is <strong>important</strong>, however, to pay attention to the following issues:</p>
+<ul class="simple">
+<li><p>Do not take logarithm of null or negative quantities, they will either diverge or result in complex numbers</p></li>
+<li><p>Make sure you have dimensionless quantities before taking the log scale, otherwise you end up with meaningless units, such as <span class="math notranslate nohighlight">\(\log(Hz)\)</span>.</p></li>
+</ul>
+<p>For example, if the axis <span class="math notranslate nohighlight">\(x\)</span> to be transformed is in units of <span class="math notranslate nohighlight">\([m]\)</span>, before using <a class="reference internal" href="#equation-eq-log-transformation">(3)</a> you can pick an appropriate reference value, say <span class="math notranslate nohighlight">\(1 m\)</span> and normalize your axis relative to that: <span class="math notranslate nohighlight">\(x\rightarrow\frac{x}{1m}\)</span>. The label of your axis in this case would be <span class="math notranslate nohighlight">\(\log(\frac{x}{m})\)</span>. For instance, after normalization, if a given point along the transformed axis (<span class="math notranslate nohighlight">\(x`=\log(x)\)</span>) has a value of <span class="math notranslate nohighlight">\(x'=3.2'\)</span>, then <span class="math notranslate nohighlight">\(\frac{x}{m}=10^{3.2}\approx1584.9\)</span> and <span class="math notranslate nohighlight">\(x\approx1584.9m\)</span>.</p>
+</div>
+<div class="section" id="a-seja-y-x-x-qual-a-inclinacao-da-reta-em-escala-log">
+<h3>a) Seja <span class="math notranslate nohighlight">\(y(x)=x\)</span>. Qual a inclinação da reta em escala log?<a class="headerlink" href="#a-seja-y-x-x-qual-a-inclinacao-da-reta-em-escala-log" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="c1">#</span>
+<span class="n">xlog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ylog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="p">,</span><span class="n">ylog</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_32_0.png" src="../_images/Plotting - Exploring Log scale_32_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="b-seja-y-x-x-1-qual-a-inclinacao-da-reta-em-escala-log">
+<h3>b) Seja <span class="math notranslate nohighlight">\(y(x)=x^{-1}\)</span>. Qual a inclinação da reta em escala log?<a class="headerlink" href="#b-seja-y-x-x-1-qual-a-inclinacao-da-reta-em-escala-log" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+<span class="c1">#</span>
+<span class="n">xlog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ylog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="p">,</span><span class="n">ylog</span><span class="p">)</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_34_0.png" src="../_images/Plotting - Exploring Log scale_34_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-what-happens-when-the-polynomial-has-other-powers-i-e-y-x-x-n">
+<h2>b) What happens when the polynomial has other powers? i.e., <span class="math notranslate nohighlight">\( y(x) = x^n \)</span><a class="headerlink" href="#b-what-happens-when-the-polynomial-has-other-powers-i-e-y-x-x-n" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># numero de pontos</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="n">npt</span><span class="p">)</span> <span class="c1">#vetor linearmente espaçado</span>
+<span class="c1">#---</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="n">n</span> <span class="c1"># n é a potência do polinômia</span>
+    <span class="c1">#</span>
+    <span class="n">xlog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ylog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlog</span><span class="p">,</span><span class="n">ylog</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;n=</span><span class="si">{:1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="c1">#grades</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#ajustar a razão de aspecto do eixo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Plotting - Exploring Log scale_37_0.png" src="../_images/Plotting - Exploring Log scale_37_0.png" />
+</div>
+</div>
+<p>É importante usar espaçamento logarítmico dos pontos!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "2021_1s",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Plotting%20-%20Interactive%20Transfer%20function.html" title="previous page">Plotting: Interactive analysis of an RLC ressonant filter</a>
+    <a class='right-next' id="next-link" href="../guides/exp1/complex_impedance.html" title="next page">Background: Complex impedances</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

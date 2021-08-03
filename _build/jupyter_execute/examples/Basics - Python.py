@@ -137,9 +137,6 @@ font = { 'weight' : 'normal',
 plt.rc('font', **font)
 #Ajsutando espessura das linhas padrão dos gráficos
 plt.rcParams['lines.linewidth'] = 2;
-plt.locator_params(nticks=4)
-
-
 
 ## Loading data (Google colab)
 

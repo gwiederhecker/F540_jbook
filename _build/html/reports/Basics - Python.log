@@ -17,49 +17,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#****************************
-# Setting up plot configurations
-# Configurando gráficos
-#****************************
-#Adjusting fonts pattern
-#Ajsutando fontes padrão dos gráficos
-font = { 'weight' : 'normal',
-        'size'   : 12}
-
-plt.rc('font', **font)
-#Ajsutando espessura das linhas padrão dos gráficos
-plt.rcParams['lines.linewidth'] = 2;
-plt.locator_params(nticks=4)
+# Para usuários do Google Cola
+from google.colab import drive
+drive.mount('/content/drive')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-18-c0c524b1c9f2>[0m in [0;36m<module>[0;34m[0m
-[1;32m     11[0m [0;31m#Ajsutando espessura das linhas padrão dos gráficos[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     12[0m [0mplt[0m[0;34m.[0m[0mrcParams[0m[0;34m[[0m[0;34m'lines.linewidth'[0m[0;34m][0m [0;34m=[0m [0;36m2[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 13[0;31m [0mplt[0m[0;34m.[0m[0mlocator_params[0m[0;34m([0m[0mnticks[0m[0;34m=[0m[0;36m4[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py[0m in [0;36mlocator_params[0;34m(axis, tight, **kwargs)[0m
-[1;32m   2742[0m [0;34m@[0m[0m_copy_docstring_and_deprecators[0m[0;34m([0m[0mAxes[0m[0;34m.[0m[0mlocator_params[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2743[0m [0;32mdef[0m [0mlocator_params[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0;34m'both'[0m[0;34m,[0m [0mtight[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 2744[0;31m     [0;32mreturn[0m [0mgca[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlocator_params[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0maxis[0m[0;34m,[0m [0mtight[0m[0;34m=[0m[0mtight[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   2745[0m [0;34m[0m[0m
-[1;32m   2746[0m [0;34m[0m[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-20-c2bf9b53f311>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Para usuários do Google Cola[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mgoogle[0m[0;34m.[0m[0mcolab[0m [0;32mimport[0m [0mdrive[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mdrive[0m[0;34m.[0m[0mmount[0m[0;34m([0m[0;34m'/content/drive'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py[0m in [0;36mlocator_params[0;34m(self, axis, tight, **kwargs)[0m
-[1;32m   3006[0m         [0mupdate_y[0m [0;34m=[0m [0maxis[0m [0;32min[0m [0;34m[[0m[0;34m'y'[0m[0;34m,[0m [0;34m'both'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m   3007[0m         [0;32mif[0m [0mupdate_x[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 3008[0;31m             [0mself[0m[0;34m.[0m[0mxaxis[0m[0;34m.[0m[0mget_major_locator[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_params[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   3009[0m         [0;32mif[0m [0mupdate_y[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   3010[0m             [0mself[0m[0;34m.[0m[0myaxis[0m[0;34m.[0m[0mget_major_locator[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_params[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/ticker.py[0m in [0;36mset_params[0;34m(self, **kwargs)[0m
-[1;32m   2210[0m             [0mkey[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpopitem[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2211[0m             raise TypeError(
-[0;32m-> 2212[0;31m                 f"set_params() got an unexpected keyword argument '{key}'")
-[0m[1;32m   2213[0m [0;34m[0m[0m
-[1;32m   2214[0m     [0;32mdef[0m [0m_raw_ticks[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mvmin[0m[0;34m,[0m [0mvmax[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mTypeError[0m: set_params() got an unexpected keyword argument 'nticks'
-TypeError: set_params() got an unexpected keyword argument 'nticks'
+[0;31mModuleNotFoundError[0m: No module named 'google'
+ModuleNotFoundError: No module named 'google'
 

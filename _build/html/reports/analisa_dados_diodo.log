@@ -1,0 +1,148 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+res_val = np.array([327,327,349,404,505,603,820,993,1185,2640,4640,8880,1e8])
+#----------------
+#mapa de cores
+cm=plt.get_cmap('viridis')
+norm = colors.Normalize(vmin = 330,vmax = 1e4)
+#----------------
+#initialize python lists to store the relevant quantities
+vmax_vec = [] # max voltage
+vmed_vec = [] # mean value
+vrip_vec = [] # ripple voltage
+label_vec = [] # label
+#---
+fig,ax = plt.subplots(1,2,figsize=(10,5), sharey=True)
+for ii,file in enumerate(file_list):#[1:-3]
+    #----
+    df = pd.read_csv(file,sep='\t') # DataFrame segundo Pandasdf
+    df.columns = ['tempo(s)','ch1(V)','ch2(V)']
+    #----
+    V1med = np.mean(df['ch1(V)'])
+    V1max = np.max(df['ch1(V)'])
+    V1min = np.min(df['ch1(V)'])
+    #---
+    V2med = np.mean(df['ch2(V)'])
+    V2max = np.max(df['ch2(V)'])
+    V2min = np.min(df['ch2(V)'])
+    #--
+    vmax_vec.append(V2max)
+    vmed_vec.append(V2med)
+    vrip_vec.append(V2max-V2min)
+    #----
+    #------------------------
+    #grafica apenas o primeiro
+    if ii==0:
+        ax0=ax[0]
+        #--
+        ax0.plot(1e3*df['tempo(s)'],df['ch1(V)'])
+        ax0.axhline(V1med,color='green',linestyle='--',label='$V_{dc}$'+'={:3.2f} V'.format(V1med))
+        ax0.axhline(V1max,color='red',linestyle='--',label='$V_{max}$'+'={:3.2f} V'.format(V1max))
+        ax0.axhline(V1min,color='blue',linestyle='--',label='$V_{min}$'+'={:3.2f} V'.format(V1min))
+        #--
+        ax0.grid(True)
+        ax0.set_xlabel('Tempo (ms)')
+        ax0.set_ylabel('Tensão (V)')
+        ax0.legend(loc='best')
+            
+    #------------------------
+    ax0=ax[1]
+    if ii==0: # different label in this case
+        label_vec.append('sem cap.')
+        ax0.plot(1e3*df['tempo(s)'],df['ch2(V)'], lw=1,ls='--',
+                 color='k',
+                 label=label_vec[ii])
+    elif ii==len(res_val)-1: # different label in this case
+        label_vec.append('aberto (sem res.)')
+        ax0.plot(1e3*df['tempo(s)'],df['ch2(V)'], lw=1,ls='--',
+                 color=cm((norm(res_val[ii])**(0.1))),
+                 label=label_vec[ii])
+    else: # common labels
+        label_vec.append('{:}'.format(res_val[ii]))
+        ax0.plot(1e3*df['tempo(s)'],df['ch2(V)'], lw=1,
+                 color=cm((norm(res_val[ii])**(0.1))),
+                 label=label_vec[ii])
+    #--
+    ax0.grid(True)
+    ax0.set_xlabel('Tempo (ms)')
+    #ax0.set_ylabel('Tensão (V)')
+    ax0.legend(loc='center left',bbox_to_anchor=(1,0.5))
+    #------------------
+plt.tight_layout()
+#----
+st = fig.suptitle('dado: meia onda ')
+# shift subplots down:
+st.set_y(1.02)
+#---
+# plt.savefig('todos_dados_meia_onda'+'_fig.pdf')
+#plt.savefig('todos_dados_onda_completa'+'_fig.pdf')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mUnicodeDecodeError[0m                        Traceback (most recent call last)
+[0;32m<ipython-input-15-de959cbe8f3f>[0m in [0;36m<module>[0;34m[0m
+[1;32m     14[0m [0;32mfor[0m [0mii[0m[0;34m,[0m[0mfile[0m [0;32min[0m [0menumerate[0m[0;34m([0m[0mfile_list[0m[0;34m)[0m[0;34m:[0m[0;31m#[1:-3][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m     [0;31m#----[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 16[0;31m     [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mfile[0m[0;34m,[0m[0msep[0m[0;34m=[0m[0;34m'\t'[0m[0;34m)[0m [0;31m# DataFrame segundo Pandasdf[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     17[0m     [0mdf[0m[0;34m.[0m[0mcolumns[0m [0;34m=[0m [0;34m[[0m[0;34m'tempo(s)'[0m[0;34m,[0m[0;34m'ch1(V)'[0m[0;34m,[0m[0;34m'ch2(V)'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m     [0;31m#----[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py[0m in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)[0m
+[1;32m    684[0m     )
+[1;32m    685[0m [0;34m[0m[0m
+[0;32m--> 686[0;31m     [0;32mreturn[0m [0m_read[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    687[0m [0;34m[0m[0m
+[1;32m    688[0m [0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py[0m in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
+[1;32m    450[0m [0;34m[0m[0m
+[1;32m    451[0m     [0;31m# Create the parser.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 452[0;31m     [0mparser[0m [0;34m=[0m [0mTextFileReader[0m[0;34m([0m[0mfp_or_buf[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    453[0m [0;34m[0m[0m
+[1;32m    454[0m     [0;32mif[0m [0mchunksize[0m [0;32mor[0m [0miterator[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py[0m in [0;36m__init__[0;34m(self, f, engine, **kwds)[0m
+[1;32m    944[0m             [0mself[0m[0;34m.[0m[0moptions[0m[0;34m[[0m[0;34m"has_index_names"[0m[0;34m][0m [0;34m=[0m [0mkwds[0m[0;34m[[0m[0;34m"has_index_names"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    945[0m [0;34m[0m[0m
+[0;32m--> 946[0;31m         [0mself[0m[0;34m.[0m[0m_make_engine[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    947[0m [0;34m[0m[0m
+[1;32m    948[0m     [0;32mdef[0m [0mclose[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py[0m in [0;36m_make_engine[0;34m(self, engine)[0m
+[1;32m   1176[0m     [0;32mdef[0m [0m_make_engine[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mengine[0m[0;34m=[0m[0;34m"c"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1177[0m         [0;32mif[0m [0mengine[0m [0;34m==[0m [0;34m"c"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1178[0;31m             [0mself[0m[0;34m.[0m[0m_engine[0m [0;34m=[0m [0mCParserWrapper[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mf[0m[0;34m,[0m [0;34m**[0m[0mself[0m[0;34m.[0m[0moptions[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1179[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1180[0m             [0;32mif[0m [0mengine[0m [0;34m==[0m [0;34m"python"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/parsers.py[0m in [0;36m__init__[0;34m(self, src, **kwds)[0m
+[1;32m   2006[0m         [0mkwds[0m[0;34m[[0m[0;34m"usecols"[0m[0;34m][0m [0;34m=[0m [0mself[0m[0;34m.[0m[0musecols[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2007[0m [0;34m[0m[0m
+[0;32m-> 2008[0;31m         [0mself[0m[0;34m.[0m[0m_reader[0m [0;34m=[0m [0mparsers[0m[0;34m.[0m[0mTextReader[0m[0;34m([0m[0msrc[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2009[0m         [0mself[0m[0;34m.[0m[0munnamed_cols[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_reader[0m[0;34m.[0m[0munnamed_cols[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2010[0m [0;34m[0m[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader.__cinit__[0;34m()[0m
+
+[0;32mpandas/_libs/parsers.pyx[0m in [0;36mpandas._libs.parsers.TextReader._get_header[0;34m()[0m
+
+[0;31mUnicodeDecodeError[0m: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+

@@ -63,7 +63,7 @@ Assume for a moment that you don't know how to write Ohm's law for the resistor 
 
 $$V_{in} -R_1 I = V_ {out} (I). $$
 
-We have two functions of the chain, one on the left side (LHS) and the other on the right side (RHS). If we  plot both on a $ I \times V $ chart
+We have two functions of the chain, one on the left side (LHS) and the other on the right side (RHS). If we  plot both on a $ I \times V $ chart result in the following,
 
 @interact(Vin=(-5,5),R1=(1,300),R2=(1,300))
 def plot_load_lines(Vin=5,R1=100,R2=100):

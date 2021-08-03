@@ -1,5 +1,5 @@
 - file: README
-# - part: Get started
+# - part: Get started 
 #   chapters:
 #   - file: start/what_you_need_to_know
 #   - file: start/markdown 
@@ -12,6 +12,8 @@
   - file: examples/Basics - Python
   - file: examples/Plotting - AC wave plots
   - file: examples/Sympy - symbolic manipulation
+  - file: examples/Plotting - Interactive Transfer function
+  - file: examples/Plotting - Exploring Log scale
 - part: RC filters (exp. 1)
   chapters:
   - file: guides/exp1/complex_impedance
@@ -21,6 +23,19 @@
 - part: Diodes (exp. 2)
   chapters:
   - file : guides/exp2/diode_background.ipynb
+  - file : guides/exp2/exp2-guide.ipynb
+  - file : guides/exp2/dados/analisa_dados_diodo.ipynb
+- part: Transistors characterization (exp. 3a)
+  chapters:
+  - file : guides/exp3a/transistor_math.ipynb
+  - file : guides/exp3a/aula_transistor_interativo.ipynb
+  - file : guides/exp3a/exp3a-guide.ipynb
+- part: Transistor AC amplifier (exp. 3b)
+  chapters:
+  - file : guides/exp3b/exp3b-guide.ipynb
+- part: References
+  chapters:
+  - file: into/references
 # - part: Diodes (exp. 2)
 # - part: Transistors (exp. 3)
 # - part: Other examples

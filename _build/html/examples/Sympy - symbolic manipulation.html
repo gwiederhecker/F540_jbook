@@ -59,7 +59,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Background: Complex impedances" href="../guides/exp1/complex_impedance.html" />
+    <link rel="next" title="Plotting: Interactive analysis of an RLC ressonant filter" href="Plotting%20-%20Interactive%20Transfer%20function.html" />
     <link rel="prev" title="Basics of AC waves" href="Plotting%20-%20AC%20wave%20plots.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -130,6 +130,16 @@
    Solving Kirchhoff’s law ordinary differential equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -162,6 +172,50 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../guides/exp2/diode_background.html">
    Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistor AC amplifier (exp. 3b)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3b/exp3b-guide.html">
+   Guide to Experiment 3b: Transistor-based AC amplifier
   </a>
  </li>
 </ul>
@@ -229,7 +283,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/master?urlpath=tree/examples/Sympy - symbolic manipulation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/examples/Sympy - symbolic manipulation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -237,7 +291,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/master/examples/Sympy - symbolic manipulation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/examples/Sympy - symbolic manipulation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -313,16 +367,15 @@
 <img alt="../_images/Sympy - symbolic manipulation_3_0.png" src="../_images/Sympy - symbolic manipulation_3_0.png" />
 </div>
 </div>
-<p>Escrevendo a lei de Kirchhoff para o circuito da figura acima,
-$<span class="math notranslate nohighlight">\(
-\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.
-\)</span>$ (eq:kvl)</p>
+<p>Escrevendo a lei de Kirchhoff para o circuito da figura acima,</p>
+<div class="math notranslate nohighlight" id="equation-eq-kvl">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-kvl" title="Permalink to this equation">¶</a></span>\[\frac{dq}{dt}+\frac{1}{\tau}q=\frac{v_{in}(t)}{R}.\]</div>
 <p>Exploraremos o pacote <code class="docutils literal notranslate"><span class="pre">sympy</span></code> para nos ajudar a resolver esta equação diferencial ordinária.</p>
 <div class="section" id="defining-symbols-and-equation-to-be-solved">
 <h2>Defining <strong>symbols</strong> and equation to be solved<a class="headerlink" href="#defining-symbols-and-equation-to-be-solved" title="Permalink to this headline">¶</a></h2>
-<p>A solução tentantiva será na forma,
-$<span class="math notranslate nohighlight">\( q(t)=A \cos(\omega t)+B*\sin(\omega t)
-\)</span>$ (eq:trial)</p>
+<p>A solução tentantiva será na forma,</p>
+<div class="math notranslate nohighlight" id="equation-eq-trial">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trial" title="Permalink to this equation">¶</a></span>\[ q(t)=A \cos(\omega t)+B*\sin(\omega t)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B omega t tau&#39;</span><span class="p">)</span>
@@ -492,18 +545,6 @@ Equivalently we could solve directly for the electric current <span class="math 
 \[\displaystyle \frac{\omega \tau v_{0} \left(\omega \tau \sin{\left(\omega t \right)} - \cos{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}\]</div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_latex</span><span class="p">(</span><span class="n">simplify</span><span class="p">(</span><span class="n">sol</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\frac{\omega \tau v_{0} \left(\omega \tau \sin{\left(\omega t \right)} - \cos{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -512,7 +553,7 @@ Equivalently we could solve directly for the electric current <span class="math 
         requestKernel: true,
         binderOptions: {
             repo: "gwiederhecker/F540_jbook",
-            ref: "master",
+            ref: "2021_1s",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -533,7 +574,7 @@ Equivalently we could solve directly for the electric current <span class="math 
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Plotting%20-%20AC%20wave%20plots.html" title="previous page">Basics of AC waves</a>
-    <a class='right-next' id="next-link" href="../guides/exp1/complex_impedance.html" title="next page">Background: Complex impedances</a>
+    <a class='right-next' id="next-link" href="Plotting%20-%20Interactive%20Transfer%20function.html" title="next page">Plotting: Interactive analysis of an RLC ressonant filter</a>
 
         </div>
         
@@ -543,7 +584,7 @@ Equivalently we could solve directly for the electric current <span class="math 
     <div class="container">
       <p>
         
-          By Varlei Rodrigues & Gustavo Wiederhecker<br/>
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
         
             &copy; Copyright 2020.<br/>
       </p>

@@ -17,47 +17,44 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#****************************
-#GRAFICOS
-#****************************
-#Ajsutando fontes padrão dos gráficos
-font = { 'weight' : 'normal',
-        'size'   : 12}
-
-plt.rc('font', **font)
-#Ajsutando espessura das linhas padrão dos gráficos
-plt.rcParams['lines.linewidth'] = 2;
-plt.locator_params(nticks=4);
+#GRAFICANDO BODE, LR e RL
+fig=fig_bode(freq,[Trldb,Tlrdb],[fase_rc,fase_cr],['L','R']);
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-2-ca101b692973>[0m in [0;36m<module>[0;34m[0m
-[1;32m      9[0m [0;31m#Ajsutando espessura das linhas padrão dos gráficos[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     10[0m [0mplt[0m[0;34m.[0m[0mrcParams[0m[0;34m[[0m[0;34m'lines.linewidth'[0m[0;34m][0m [0;34m=[0m [0;36m2[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 11[0;31m [0mplt[0m[0;34m.[0m[0mlocator_params[0m[0;34m([0m[0mnticks[0m[0;34m=[0m[0;36m4[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-19-ad4efcaf4902>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m#GRAFICANDO BODE, LR e RL[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mfig[0m[0;34m=[0m[0mfig_bode[0m[0;34m([0m[0mfreq[0m[0;34m,[0m[0;34m[[0m[0mTrldb[0m[0;34m,[0m[0mTlrdb[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0mfase_rc[0m[0;34m,[0m[0mfase_cr[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0;34m'L'[0m[0;34m,[0m[0;34m'R'[0m[0;34m][0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/pyplot.py[0m in [0;36mlocator_params[0;34m(axis, tight, **kwargs)[0m
-[1;32m   2742[0m [0;34m@[0m[0m_copy_docstring_and_deprecators[0m[0;34m([0m[0mAxes[0m[0;34m.[0m[0mlocator_params[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2743[0m [0;32mdef[0m [0mlocator_params[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0;34m'both'[0m[0;34m,[0m [0mtight[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 2744[0;31m     [0;32mreturn[0m [0mgca[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mlocator_params[0m[0;34m([0m[0maxis[0m[0;34m=[0m[0maxis[0m[0;34m,[0m [0mtight[0m[0;34m=[0m[0mtight[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   2745[0m [0;34m[0m[0m
-[1;32m   2746[0m [0;34m[0m[0m
+[0;32m<ipython-input-3-93398a12e94a>[0m in [0;36mfig_bode[0;34m(freq, Tdbvec, fasevec, labelvec)[0m
+[1;32m     69[0m     [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0msubplot[0m[0;34m([0m[0;36m212[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     70[0m     [0;32mfor[0m [0mm[0m [0;32min[0m [0mrange[0m[0;34m([0m[0mnp[0m[0;34m.[0m[0mshape[0m[0;34m([0m[0mfasevec[0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 71[0;31m         [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mfreq[0m[0;34m,[0m[0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mfasevec[0m[0;34m)[0m[0;34m[[0m[0mm[0m[0;34m,[0m[0;34m:[0m[0;34m][0m[0;34m,[0m[0;34m'-*'[0m[0;34m,[0m[0mlinewidth[0m[0;34m=[0m[0;36m2[0m[0;34m,[0m[0mlabel[0m[0;34m=[0m[0mlabelvec[0m[0;34m[[0m[0mm[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     72[0m     [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mset_ylim[0m[0;34m([0m[0;34m[[0m[0;34m-[0m[0;36m200[0m[0;34m,[0m[0;36m200[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     73[0m     [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mset_xscale[0m[0;34m([0m[0;34m'log'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py[0m in [0;36mlocator_params[0;34m(self, axis, tight, **kwargs)[0m
-[1;32m   3006[0m         [0mupdate_y[0m [0;34m=[0m [0maxis[0m [0;32min[0m [0;34m[[0m[0;34m'y'[0m[0;34m,[0m [0;34m'both'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m   3007[0m         [0;32mif[0m [0mupdate_x[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 3008[0;31m             [0mself[0m[0;34m.[0m[0mxaxis[0m[0;34m.[0m[0mget_major_locator[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_params[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   3009[0m         [0;32mif[0m [0mupdate_y[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   3010[0m             [0mself[0m[0;34m.[0m[0myaxis[0m[0;34m.[0m[0mget_major_locator[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mset_params[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_axes.py[0m in [0;36mplot[0;34m(self, scalex, scaley, data, *args, **kwargs)[0m
+[1;32m   1741[0m         """
+[1;32m   1742[0m         [0mkwargs[0m [0;34m=[0m [0mcbook[0m[0;34m.[0m[0mnormalize_kwargs[0m[0;34m([0m[0mkwargs[0m[0;34m,[0m [0mmlines[0m[0;34m.[0m[0mLine2D[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1743[0;31m         [0mlines[0m [0;34m=[0m [0;34m[[0m[0;34m*[0m[0mself[0m[0;34m.[0m[0m_get_lines[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0mdata[0m[0;34m=[0m[0mdata[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1744[0m         [0;32mfor[0m [0mline[0m [0;32min[0m [0mlines[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1745[0m             [0mself[0m[0;34m.[0m[0madd_line[0m[0;34m([0m[0mline[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/ticker.py[0m in [0;36mset_params[0;34m(self, **kwargs)[0m
-[1;32m   2210[0m             [0mkey[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mkwargs[0m[0;34m.[0m[0mpopitem[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2211[0m             raise TypeError(
-[0;32m-> 2212[0;31m                 f"set_params() got an unexpected keyword argument '{key}'")
-[0m[1;32m   2213[0m [0;34m[0m[0m
-[1;32m   2214[0m     [0;32mdef[0m [0m_raw_ticks[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mvmin[0m[0;34m,[0m [0mvmax[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py[0m in [0;36m__call__[0;34m(self, data, *args, **kwargs)[0m
+[1;32m    271[0m                 [0mthis[0m [0;34m+=[0m [0margs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    272[0m                 [0margs[0m [0;34m=[0m [0margs[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 273[0;31m             [0;32myield[0m [0;32mfrom[0m [0mself[0m[0;34m.[0m[0m_plot_args[0m[0;34m([0m[0mthis[0m[0;34m,[0m [0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    274[0m [0;34m[0m[0m
+[1;32m    275[0m     [0;32mdef[0m [0mget_next_color[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mTypeError[0m: set_params() got an unexpected keyword argument 'nticks'
-TypeError: set_params() got an unexpected keyword argument 'nticks'
+[0;32m/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_base.py[0m in [0;36m_plot_args[0;34m(self, tup, kwargs)[0m
+[1;32m    397[0m [0;34m[0m[0m
+[1;32m    398[0m         [0;32mif[0m [0mx[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m!=[0m [0my[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 399[0;31m             raise ValueError(f"x and y must have same first dimension, but "
+[0m[1;32m    400[0m                              f"have shapes {x.shape} and {y.shape}")
+[1;32m    401[0m         [0;32mif[0m [0mx[0m[0;34m.[0m[0mndim[0m [0;34m>[0m [0;36m2[0m [0;32mor[0m [0my[0m[0;34m.[0m[0mndim[0m [0;34m>[0m [0;36m2[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: x and y must have same first dimension, but have shapes (200,) and (20,)
+ValueError: x and y must have same first dimension, but have shapes (200,) and (20,)
 

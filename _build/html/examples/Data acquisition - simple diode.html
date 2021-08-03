@@ -1,0 +1,1016 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data acquisiton &#8212; F540 Interactive Book</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">F540 Interactive Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction to F540
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Welcome to F540 Jupyter book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Basics%20-%20Python.html">
+   Python basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20AC%20wave%20plots.html">
+   Basics of AC waves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
+   Plotting: Interactive analysis of an RLC ressonant filter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting%20-%20Exploring%20Log%20scale.html">
+   Exploring log scale plots with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RC filters (exp. 1)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/complex_impedance.html">
+   Background: Complex impedances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exp1-guide.html">
+   Guide to Experiment 1: RC filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp1/exemplo_ajuste_rc.html">
+   Data analysis: Fitting the filter transfer function
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Diodes (exp. 2)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/diode_background.html">
+   Background: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/exp2-guide.html">
+   Guide to Experiment 2: Diodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp2/dados/analisa_dados_diodo.html">
+   Data analysis: Diode full-wave rectification
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistors characterization (exp. 3a)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/transistor_math.html">
+   Transistor math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/aula_transistor_interativo.html">
+   Background: Solving Kirchhoof’s law for transistors using load lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3a/exp3a-guide.html">
+   Guide to Experiment 3a: Transistor characterization
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Transistor AC amplifier (exp. 3b)
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guides/exp3b/exp3b-guide.html">
+   Guide to Experiment 3b: Transistor-based AC amplifier
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/examples/Data acquisition - simple diode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gwiederhecker/F540_jbook/2021_1s?urlpath=tree/examples/Data acquisition - simple diode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gwiederhecker/F540_jbook/blob/2021_1s/examples/Data acquisition - simple diode.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connect-to-instruments">
+   Connect to instruments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#screenshot-e-trace-saving">
+   Screenshot  e trace saving
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sweep-dc-level">
+   Sweep DC level
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dc-level-of-ch2">
+   DC level of ch2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vpp1-vpp2-versus-vdc">
+   Vpp1,Vpp2 versus vdc
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-acquisiton">
+<h1>Data acquisiton<a class="headerlink" href="#data-acquisiton" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pylef</span>   <span class="c1"># importar pylef </span>
+<span class="kn">import</span> <span class="nn">visa</span>    <span class="c1"># importar a bilioteca pyVISA para lidar com virtualização de instrumentos</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># importar a bilioteca pyplot para fazer gráficos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># importar a biblioteca Numpy para lidar com matrizes</span>
+<span class="kn">import</span> <span class="nn">time</span>          <span class="c1"># importar a bilioteca para funções temporais</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># importa bilioteca pandas para  lidar com processamento de dados</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># próxima linha faz plotar o gráfico dentro do notebook</span>
+<span class="c1"># %matplotlib inline   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/visa.py:23: FutureWarning: The visa module provided by PyVISA is being deprecated. You can replace `import visa` by `import pyvisa as visa` to achieve the same effect.
+
+The reason for the deprecation is the possible conflict with the visa package provided by the https://github.com/visa-sdk/visa-python which can result in hard to debug situations.
+  FutureWarning,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="c1">#setting up hardcopy</span>
+<span class="c1">#     scope.instr.timeout = 20000 # set timeout to 10 seconds</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SAVE:IMAGE:FILEFORMAT BMP&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;HARDCOPY:BUTTON PRINTS&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;HARDCopy:PORT&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="c1">#screen shot</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;HARDCOPY START&#39;</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">instr</span><span class="o">.</span><span class="n">read_raw</span><span class="p">()</span> 
+    <span class="n">scope</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">newFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="n">newFileByteArray</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newFileByteArray</span><span class="p">)</span>
+    <span class="n">newFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filename</span><span class="o">+</span><span class="s1">&#39;.bmp&#39;</span><span class="o">+</span> <span class="s1">&#39; saved!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="connect-to-instruments">
+<h2>Connect to instruments<a class="headerlink" href="#connect-to-instruments" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imprime os recursos para ter certeza que os instrumentos estão conectados</span>
+<span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">list_resources</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ASRL1::INSTR&#39;, &#39;ASRL2::INSTR&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">9492673</span><span class="n">a926d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_gen</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">BK4052</span><span class="p">()</span>          <span class="c1"># definição do gerador de funções</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">scope</span> <span class="o">=</span> <span class="n">pylef</span><span class="o">.</span><span class="n">TektronixTBS1062</span><span class="p">()</span>   <span class="c1"># definição do osciloscópio</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">__init__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="bp">self</span><span class="o">.</span><span class="n">id_bk</span> <span class="o">=</span> <span class="s1">&#39;0xF4ED&#39;</span><span class="p">;</span> <span class="c1"># identificador do fabricante BK</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="bp">self</span><span class="o">.</span><span class="n">delay_time</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># time to wait after write and query - BK BUG!</span>
+<span class="ne">--&gt; </span><span class="mi">104</span>         <span class="n">interface_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_interface</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="c1"># instrument initialization</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="bp">self</span><span class="o">.</span><span class="n">instr</span> <span class="o">=</span> <span class="n">visa</span><span class="o">.</span><span class="n">ResourceManager</span><span class="p">()</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>   <span class="c1">## resource name</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pylef/generator.py</span> in <span class="ni">find_interface</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gerador de Funções conectado! Id = &quot;</span> <span class="o">+</span> <span class="n">bk_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="k">if</span> <span class="n">bk_str</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">134</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;O osciloscopio BK scope nao foi identificado:</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">135</span>                          <span class="s1">&#39;Verique se o equipamento está ligado e se o cabo USB </span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="g g-Whitespace">    </span><span class="mi">136</span>                          <span class="s1">&#39;foi conectado. Se o problema persistir, </span><span class="se">\n</span><span class="s1">&#39;</span>\
+
+<span class="ne">ValueError</span>: O osciloscopio BK scope nao foi identificado:
+<span class="n">Verique</span> <span class="n">se</span> <span class="n">o</span> <span class="n">equipamento</span> <span class="n">está</span> <span class="n">ligado</span> <span class="n">e</span> <span class="n">se</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span> 
+<span class="n">foi</span> <span class="n">conectado</span><span class="o">.</span> <span class="n">Se</span> <span class="n">o</span> <span class="n">problema</span> <span class="n">persistir</span><span class="p">,</span> 
+<span class="n">desconecte</span> <span class="n">o</span> <span class="n">cabo</span> <span class="n">USB</span><span class="p">,</span> <span class="n">aguarde</span> <span class="mi">20</span> <span class="n">segundos</span> 
+<span class="n">e</span> <span class="n">conecte</span> <span class="n">novamente</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="screenshot-e-trace-saving">
+<h2>Screenshot  e trace saving<a class="headerlink" href="#screenshot-e-trace-saving" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;diode_resistor_junction_capacitance&#39;</span> <span class="c1">#filename</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">screenshot</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="c1">#save screenshot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;diode_resistor_junction_capacitance.bmp saved!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scope</span><span class="o">.</span><span class="n">save_channels</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... file =&gt; 2021_04_06/diode_resistor_junction_capacitance_17_49_25 saved !!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1.640e-05, -1.636e-05, -1.632e-05, ...,  8.348e-05,  8.352e-05,
+         8.356e-05]),
+ array([0.0496, 0.0496, 0.0496, ..., 0.0496, 0.0496, 0.0496]),
+ array([0.0012, 0.0016, 0.0012, ..., 0.0012, 0.0012, 0.0012]))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sweep-dc-level">
+<h2>Sweep DC level<a class="headerlink" href="#sweep-dc-level" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Pré-aquisição</span>
+<span class="c1"># mude a onda para uma senóide! O que acontece se usarmos a onda triângular?</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_function</span><span class="p">(</span><span class="s1">&#39;sine&#39;</span><span class="p">)</span>
+<span class="c1">## ajuste o trigger externo</span>
+<span class="c1"># func_gen.ch1.sync_on()   # ligar o sync reference ao canal 1</span>
+<span class="c1"># scope.trigger.set_source(&#39;ext&#39;)  # ajusta o trigger para externo no osciloscópio</span>
+<span class="c1">## ajusta média nos canais</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average_number</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>  <span class="c1"># ajusta o número de médias</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average</span><span class="p">()</span>    <span class="c1"># turn average ON</span>
+<span class="c1">#scope.set_sample()       # turn average OFF</span>
+<span class="c1">## parametros de varredura</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;diode_ac_resistance_100mV_300ohms&#39;</span>  <span class="c1"># pasta onde salvar todos os arquivos</span>
+<span class="n">freq0</span> <span class="o">=</span> <span class="mi">60</span><span class="c1">#</span>
+<span class="n">Vpp</span> <span class="o">=</span> <span class="mf">0.05</span>   <span class="c1"># Tensão pico-a-pico na saida do gerador</span>
+<span class="n">vdc0</span><span class="p">,</span><span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span>  <span class="c1"># frequências inicial, final e número de pontos</span>
+<span class="c1">## parâmetros inicias do gerador</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freq0</span><span class="p">)</span> 
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_Vpp</span><span class="p">(</span><span class="n">Vpp</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">vdc0</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_phase</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1">## tenha certeza que o gerador está ligado e que o canal 1 está na escala certa</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>   <span class="c1"># liga o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;path ok&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>path ok
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">109</span><span class="o">-</span><span class="mi">607</span><span class="n">b1c17e4f1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;path ok&#39;</span><span class="p">)</span>
+
+<span class="ne">FileExistsError</span>: [Errno 17] File exists: &#39;diode_ac_resistance_100mV_300ohms&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dc-level-of-ch2">
+<h2>DC level of ch2<a class="headerlink" href="#dc-level-of-ch2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">vdc0</span><span class="p">,</span> <span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">vdcP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vdc</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">vdcP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+      <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+<span class="c1">#     file_sweep_name = &#39;sweep_freq_{:03g}_{:2.2f}_Hz&#39;.format(m,freqP).replace(&#39;.&#39;,&#39;p&#39;)  # nome dos arquivos de sweep</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;sweep_vdc_</span><span class="si">{:03g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="c1">#-----</span>
+<span class="c1">#     screenshot(os.path.join(PATH,&#39;traços-temporal-imagens&#39;,file_sweep_name))</span>
+<span class="c1">#     scope.save_channels(file_sweep_name, PATH = PATH)    </span>
+<span class="c1">#     plt.show()      # impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="c1">#------</span>
+<span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">vdc</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vmean2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH</span><span class="p">,</span><span class="s1">&#39;dados_sweep_vdc_res_dc.csv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vpp1-vpp2-versus-vdc">
+<h2>Vpp1,Vpp2 versus vdc<a class="headerlink" href="#vpp1-vpp2-versus-vdc" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">vdc0</span><span class="p">,</span> <span class="n">vdc1</span><span class="p">,</span> <span class="n">npt</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">vdcP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vdc</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">vdcP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+      <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+<span class="c1">#     file_sweep_name = &#39;sweep_freq_{:03g}_{:2.2f}_Hz&#39;.format(m,freqP).replace(&#39;.&#39;,&#39;p&#39;)  # nome dos arquivos de sweep</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;sweep_vdc_</span><span class="si">{:03g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="c1">#-----</span>
+<span class="c1">#     screenshot(os.path.join(PATH,&#39;traços-temporal-imagens&#39;,file_sweep_name))</span>
+<span class="c1">#     scope.save_channels(file_sweep_name, PATH = PATH)    </span>
+<span class="c1">#     plt.show()      # impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="c1">#------</span>
+<span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">vdc</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH</span><span class="p">,</span><span class="s1">&#39;dados_sweep_vdc_res.csv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV/dados_sweep_vdc_swap.csv&#39;</span><span class="p">)</span>
+<span class="n">Vpp_all1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span>
+<span class="n">Vpp_diode</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV_300ohms/dados_sweep_vdc_res_dc.csv&#39;</span><span class="p">)</span>
+<span class="n">Vpp_all2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span>
+<span class="n">Vpp_res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;Vpp2 (V)&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">110</span><span class="o">-</span><span class="mi">403</span><span class="n">b598968bc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diode_ac_resistance_100mV_300ohms/dados_sweep_vdc_res_dc.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Vpp_all2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Vpp_res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vdc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;vdc (V)&#39;</span><span class="p">]</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2798</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2799</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2800</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2801</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2802</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2648</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maybe_cast_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2649</span>         <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="n">key</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2650</span>         <span class="k">if</span> <span class="n">indexer</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">indexer</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;Vpp2 (V)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vpp_all2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     0.054760
+1     0.054760
+2     0.056371
+3     0.053794
+4     0.053472
+        ...   
+95    0.054760
+96    0.052506
+97    0.052828
+98    0.052828
+99    0.052506
+Name: Vpp1 (V), Length: 100, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ipp</span> <span class="o">=</span> <span class="n">Vpp_res</span><span class="o">/</span><span class="mf">27e3</span>
+<span class="n">vdiode</span> <span class="o">=</span> <span class="n">Vpp_diode</span>
+<span class="n">vdiode2</span> <span class="o">=</span> <span class="n">Vpp_all2</span><span class="o">-</span><span class="n">Vpp_res</span> 
+
+<span class="n">rdiode</span> <span class="o">=</span> <span class="n">vdiode</span><span class="o">/</span><span class="n">ipp</span>
+<span class="n">rdiode2</span> <span class="o">=</span> <span class="n">vdiode2</span><span class="o">/</span><span class="n">ipp</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">ipp</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$i^{(pp)}$ ($\mu$A)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#------------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">vdiode2</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">vdiode</span><span class="p">,</span> <span class="s1">&#39;*-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#------------</span>
+<span class="n">β</span><span class="o">=</span><span class="mf">39.6</span>
+<span class="n">n</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="n">Is</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="mf">1e3</span><span class="o">*</span><span class="mf">1e-12</span>
+<span class="n">Id</span> <span class="o">=</span> <span class="n">Is</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">β</span><span class="o">*</span><span class="n">vdc</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># corrente no diodo</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">rdiode2</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">rdiode</span><span class="p">,</span> <span class="s1">&#39;*-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão   </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">n</span><span class="o">/</span><span class="n">β</span><span class="o">/</span><span class="n">Id</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AC resistance&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#segundo eixo</span>
+<span class="c1"># fig.savefig(PATH + &#39;bode_diag.pdf&#39;, bbox_inches = &#39;tight&#39;)  # salva figura na pasta de trabalho</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data acquisition - simple diode_19_0.png" src="../_images/Data acquisition - simple diode_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vt</span><span class="o">=</span><span class="mf">25.6e-3</span>
+<span class="n">id0</span><span class="o">=</span><span class="mf">1.57</span><span class="o">/</span><span class="mf">27e3</span>
+<span class="n">Vt</span><span class="o">/</span><span class="n">id0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>440.2547770700637
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ipp</span> <span class="o">=</span> <span class="n">Vpp_res</span><span class="o">/</span><span class="mf">27e3</span>
+<span class="n">vdiode</span> <span class="o">=</span> <span class="n">Vpp_diode</span>
+<span class="c1"># vdiode2 = Vpp_all-Vpp2</span>
+
+<span class="n">rdiode</span> <span class="o">=</span> <span class="n">vdiode</span><span class="o">/</span><span class="n">ipp</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">ipp</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$i^{(pp)}$ ($\mu$A)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#------------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">Vpp1</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">Vpp2</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AC resistance&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#------------------</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">vdc</span><span class="p">,</span><span class="n">rdiode</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AC resistance&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="c1">#segundo eixo</span>
+<span class="c1"># fig.savefig(PATH + &#39;bode_diag.pdf&#39;, bbox_inches = &#39;tight&#39;)  # salva figura na pasta de trabalho</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Data acquisition - simple diode_21_0.png" src="../_images/Data acquisition - simple diode_21_0.png" />
+</div>
+</div>
+<p>Diode capacitance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Pré-aquisição</span>
+<span class="c1"># mude a onda para uma senóide! O que acontece se usarmos a onda triângular?</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_function</span><span class="p">(</span><span class="s1">&#39;sine&#39;</span><span class="p">)</span>
+<span class="c1">## ajuste o trigger externo</span>
+<span class="c1"># func_gen.ch1.sync_on()   # ligar o sync reference ao canal 1</span>
+<span class="c1"># scope.trigger.set_source(&#39;ext&#39;)  # ajusta o trigger para externo no osciloscópio</span>
+<span class="c1">## ajusta média nos canais</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average_number</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>  <span class="c1"># ajusta o número de médias</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_average</span><span class="p">()</span>    <span class="c1"># turn average ON</span>
+<span class="c1">#scope.set_sample()       # turn average OFF</span>
+<span class="c1">## parametros de varredura</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;diode_ac_resistance_100mV/&#39;</span>  <span class="c1"># pasta onde salvar todos os arquivos</span>
+<span class="n">Vpp</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># Tensão pico-a-pico na saida do gerador</span>
+<span class="n">vdc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">freq0</span><span class="p">,</span> <span class="n">freq1</span><span class="p">,</span> <span class="n">Nfreq</span> <span class="o">=</span> <span class="mf">5e3</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mi">10</span>  <span class="c1"># frequências inicial, final e número de pontos</span>
+<span class="c1">## parâmetros inicias do gerador</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freq0</span><span class="p">)</span> 
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_Vpp</span><span class="p">(</span><span class="n">Vpp</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">vdc</span><span class="p">)</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_phase</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="c1">## tenha certeza que o gerador está ligado e que o canal 1 está na escala certa</span>
+<span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>   <span class="c1"># liga o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">freq0</span><span class="p">)</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 1</span>
+<span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>  <span class="c1"># rescala o canal 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Aquisição de dados!! ####</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq1</span><span class="p">),</span> <span class="n">Nfreq</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># varredura logaritmica</span>
+<span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="n">phase1</span><span class="p">,</span> <span class="n">phase2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>    <span class="c1"># listas para guardar as variáveis</span>
+<span class="c1">### aquisição de dados no gerador com varredura de frequência</span>
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">freqP</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">freq</span><span class="p">)):</span>  <span class="c1"># loop de aquisição</span>
+    <span class="c1">### ajuste dos instrumentos</span>
+    <span class="n">func_gen</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">set_frequency</span><span class="p">(</span><span class="n">freqP</span><span class="p">)</span>   <span class="c1"># muda a frequência</span>
+    <span class="n">periodP</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">freqP</span>   <span class="c1"># período da onda</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">periodP</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># referência para a escala do gráfico</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">set_horizontal_scale</span><span class="p">(</span><span class="n">periodP</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>  <span class="c1"># escala horizontal = 1/4 período (2.5 oscilações em tela)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>   <span class="c1"># espere 50 microssegundos</span>
+    <span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">set_smart_scale</span><span class="p">()</span>    <span class="c1">#  rescala o canal 2</span>
+    <span class="c1">### aquisição de dados</span>
+    <span class="n">Vpp1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span> <span class="c1"># acumula a medida do Vpp no canal 1</span>
+    <span class="n">phase1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch1</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 1    </span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># wait between the data acquisition</span>
+    <span class="n">Vpp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">Vpp</span><span class="p">())</span>  <span class="c1"># acumula a medida do Vpp no canal 2</span>
+    <span class="n">phase2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scope</span><span class="o">.</span><span class="n">ch2</span><span class="o">.</span><span class="n">measure</span><span class="o">.</span><span class="n">phase</span><span class="p">())</span> <span class="c1"># acumula a medida da fase no canal 2</span>
+    <span class="c1">### salva em arquivo os dados da aquisição</span>
+<span class="c1">#     file_sweep_name = &#39;sweep_freq_{:03g}_{:2.2f}_Hz&#39;.format(m,freqP).replace(&#39;.&#39;,&#39;p&#39;)  # nome dos arquivos de sweep</span>
+    <span class="n">file_sweep_name</span> <span class="o">=</span> <span class="s1">&#39;sweep_freq_</span><span class="si">{:03g}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># nome dos arquivos de sweep</span>
+    <span class="c1">#-----</span>
+<span class="c1">#     screenshot(os.path.join(PATH,&#39;traços-temporal-imagens&#39;,file_sweep_name))</span>
+<span class="c1">#     scope.save_channels(file_sweep_name, PATH = PATH)    </span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>      <span class="c1"># impressão na tela!</span>
+<span class="n">Vpp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">Vpp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vpp2</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase1</span><span class="p">)</span>  <span class="c1"># convete a lista em array</span>
+<span class="n">phase2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">phase2</span><span class="p">)</span>  <span class="c1"># convete a lista em arra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Análise de dados (não mude a variável PATH)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">Vpp2</span><span class="o">/</span><span class="n">Vpp1</span>   <span class="c1"># cálculo da transmissão </span>
+<span class="n">T_dB</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># transmissão em dB</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>   <span class="c1"># inicializa um dataframe do pandas</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;frequencia (Hz)&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">freq</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp1 (V)&#39;</span><span class="p">],</span> <span class="n">dados</span><span class="p">[</span><span class="s1">&#39;Vpp2 (V)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vpp1</span><span class="p">,</span> <span class="n">Vpp2</span>
+<span class="n">dados</span><span class="p">[</span><span class="s1">&#39;fase (rad)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">phase1</span>
+
+<span class="c1"># plota o diagrama de bode para a transmissão e exporta em png</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>   <span class="c1"># define uma figura</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="n">T_dB</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TdB&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="c1">#segundo eixo</span>
+<span class="n">ax0</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">phase1</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>   <span class="c1"># plota a transmissão  </span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>   <span class="c1"># seta a escala de x para logaritmica</span>
+<span class="c1"># Por que não usamos escala log no eixo y também?</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequência (Hz)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo x</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fase(graus)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;bode_diag.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>  <span class="c1"># salva figura na pasta de trabalho</span>
+<span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;dados_sweep_freq.csv&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="n">f77a167233be</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fase(graus)&#39;</span><span class="p">)</span>   <span class="c1"># seta escala do eixo y</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">ax0</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;bode_diag.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>  <span class="c1"># salva figura na pasta de trabalho</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">dados</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="s1">&#39;dados_sweep_freq.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/matplotlib/figure.py</span> in <span class="ni">savefig</span><span class="nt">(self, fname, transparent, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2201</span>             <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="n">frameon</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2202</span> 
+<span class="ne">-&gt; </span><span class="mi">2203</span>         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2204</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2205</span>         <span class="k">if</span> <span class="n">frameon</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/matplotlib/backend_bases.py</span> in <span class="ni">print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2091</span>                     <span class="n">orientation</span><span class="o">=</span><span class="n">orientation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2092</span>                     <span class="n">bbox_inches_restore</span><span class="o">=</span><span class="n">_bbox_inches_restore</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">2093</span>                     <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2094</span>             <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2095</span>                 <span class="k">if</span> <span class="n">bbox_inches</span> <span class="ow">and</span> <span class="n">restore_bbox</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/matplotlib/backends/backend_pdf.py</span> in <span class="ni">print_pdf</span><span class="nt">(self, filename, dpi, bbox_inches_restore, metadata, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2539</span>             <span class="n">file</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">_file</span>
+<span class="g g-Whitespace">   </span><span class="mi">2540</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2541</span>             <span class="n">file</span> <span class="o">=</span> <span class="n">PdfFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2542</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2543</span>             <span class="n">file</span><span class="o">.</span><span class="n">newPage</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/matplotlib/backends/backend_pdf.py</span> in <span class="ni">__init__</span><span class="nt">(self, filename, metadata)</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>         <span class="bp">self</span><span class="o">.</span><span class="n">original_file_like</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span>         <span class="bp">self</span><span class="o">.</span><span class="n">tell_base</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">--&gt; </span><span class="mi">459</span>         <span class="n">fh</span><span class="p">,</span> <span class="n">opened</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">to_filehandle</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">,</span> <span class="n">return_opened</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">opened</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span>             <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.7/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">to_filehandle</span><span class="nt">(fname, flag, return_opened, encoding)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>             <span class="n">fh</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">BZ2File</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">403</span>             <span class="n">fh</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">flag</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>         <span class="n">opened</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;seek&#39;</span><span class="p">):</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;exemplo-pylef/passa-baixas/bode_diag.pdf&#39;
+</pre></div>
+</div>
+<img alt="../_images/Data acquisition - simple diode_25_1.png" src="../_images/Data acquisition - simple diode_25_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "gwiederhecker/F540_jbook",
+            ref: "2021_1s",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Wiederhecker &  Varlei Rodrigues<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
