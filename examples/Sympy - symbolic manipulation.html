@@ -131,6 +131,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="#another-form">
+   Another form….
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
    Plotting: Interactive analysis of an RLC ressonant filter
   </a>
@@ -314,13 +319,25 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#defining-symbols-and-equation-to-be-solved">
-   Defining
-   <strong>
-    symbols
-   </strong>
-   and equation to be solved
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Solving Kirchhoff’s law ordinary differential equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-symbols-and-equation-to-be-solved">
+     Defining
+     <strong>
+      symbols
+     </strong>
+     and equation to be solved
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#another-form">
+   Another form….
   </a>
  </li>
 </ul>
@@ -375,7 +392,7 @@
 <h2>Defining <strong>symbols</strong> and equation to be solved<a class="headerlink" href="#defining-symbols-and-equation-to-be-solved" title="Permalink to this headline">¶</a></h2>
 <p>A solução tentantiva será na forma,</p>
 <div class="math notranslate nohighlight" id="equation-eq-trial">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trial" title="Permalink to this equation">¶</a></span>\[ q(t)=A \cos(\omega t)+B*\sin(\omega t)\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-trial" title="Permalink to this equation">¶</a></span>\[ q(t)=A \cos(\omega t)+B\sin(\omega t)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B omega t tau&#39;</span><span class="p">)</span>
@@ -464,24 +481,33 @@
 </div>
 </div>
 </div>
-<p>Therefore, the solution is:
-$<span class="math notranslate nohighlight">\(q(t) = \frac{\tau v_{0} \left(\omega \tau \cos{\left(\omega t \right)} + \sin{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}
-\)</span>$</p>
-<p>#Another form….
-Equivalently we could solve directly for the electric current <span class="math notranslate nohighlight">\(i=dq/dt\)</span>, $<span class="math notranslate nohighlight">\(\frac{di}{dt}+\frac{1}{\tau}i=\frac{1}{R}\frac{d v_{in}(t)}{dt}\)</span>$</p>
+<p>Therefore, the solution is:</p>
+<div class="math notranslate nohighlight">
+\[q(t) = \frac{\tau v_{0} \left(\omega \tau \cos{\left(\omega t \right)} + \sin{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}
+\]</div>
+</div>
+</div>
+<div class="section" id="another-form">
+<h1>Another form….<a class="headerlink" href="#another-form" title="Permalink to this headline">¶</a></h1>
+<p>Equivalently we could solve directly for the electric current <span class="math notranslate nohighlight">\(i=dq/dt\)</span>, $<span class="math notranslate nohighlight">\(\frac{di}{dt}+\frac{1}{\tau}i=\frac{1}{R}\frac{d v_{in}(t)}{dt}\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B omega t tau&#39;</span><span class="p">)</span>
-<span class="n">itrial</span><span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="n">B</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i0</span> <span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;i0 omega t tau theta&#39;</span><span class="p">)</span>
+<span class="n">itrial</span><span class="o">=</span> <span class="n">i0</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lhs</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">itrial</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">tau</span><span class="o">*</span><span class="n">itrial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lhs</span> <span class="o">=</span> <span class="n">expand_trig</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">itrial</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">tau</span><span class="o">*</span><span class="n">itrial</span><span class="p">)</span>
+<span class="n">lhs</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - i_{0} \omega \left(\sin{\left(\theta \right)} \cos{\left(\omega t \right)} + \sin{\left(\omega t \right)} \cos{\left(\theta \right)}\right) + \frac{i_{0} \left(- \sin{\left(\theta \right)} \sin{\left(\omega t \right)} + \cos{\left(\theta \right)} \cos{\left(\omega t \right)}\right)}{\tau}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -495,32 +521,37 @@ Equivalently we could solve directly for the electric current <span class="math 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq</span> <span class="o">=</span> <span class="n">lhs</span><span class="o">-</span><span class="n">rhs</span>
-<span class="n">simplify</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span>
+<span class="n">eq</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{A \cos{\left(\omega t \right)} + B \sin{\left(\omega t \right)} + \omega \tau \left(- A \sin{\left(\omega t \right)} + B \cos{\left(\omega t \right)}\right)}{\tau}\]</div>
+\[\displaystyle - i_{0} \omega \left(\sin{\left(\theta \right)} \cos{\left(\omega t \right)} + \sin{\left(\omega t \right)} \cos{\left(\theta \right)}\right) + \frac{i_{0} \left(- \sin{\left(\theta \right)} \sin{\left(\omega t \right)} + \cos{\left(\theta \right)} \cos{\left(\omega t \right)}\right)}{\tau} + \frac{\omega v_{0} \sin{\left(\omega t \right)}}{R}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)]</span>
-<span class="n">eqlhs</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">simplify</span><span class="p">(</span><span class="n">eq</span><span class="p">),</span><span class="n">terms</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="p">[</span><span class="n">eqlhs</span><span class="o">.</span><span class="n">coeff</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="p">[</span><span class="n">expand</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span><span class="o">.</span><span class="n">coeff</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">]</span>
 <span class="n">coefs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-A*omega + B/tau + omega*v0/R, A/tau + B*omega]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-i0*omega*cos(theta) - i0*sin(theta)/tau + omega*v0/R,
+ -i0*omega*sin(theta) + i0*cos(theta)/tau]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Eq(-A*omega + B/tau, 0), Eq(A/tau + B*omega - v0/R, 0)]
 </pre></div>
 </div>
 </div>
@@ -528,7 +559,65 @@ Equivalently we could solve directly for the electric current <span class="math 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span> <span class="o">=</span> <span class="p">[</span><span class="n">Eq</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">coef</span> <span class="ow">in</span> <span class="n">coefs</span><span class="p">]</span>
-<span class="n">solution</span><span class="p">,</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">(</span><span class="n">eq2</span><span class="p">,(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">))</span>
+<span class="n">solution</span><span class="p">,</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">(</span><span class="n">eq2</span><span class="p">,(</span><span class="n">i0</span><span class="p">,</span><span class="n">theta</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/polys/polyutils.py</span> in <span class="ni">_parallel_dict_from_expr_if_gens</span><span class="nt">(exprs, opt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span> 
+<span class="ne">--&gt; </span><span class="mi">210</span>                         <span class="n">monom</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">base</span><span class="p">]]</span> <span class="o">=</span> <span class="n">exp</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>                     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: cos(theta)
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">PolynomialError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/solvers/solveset.py</span> in <span class="ni">linsolve</span><span class="nt">(system, *symbols)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2638</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2639</span>                 <span class="n">eqs</span><span class="p">,</span> <span class="n">ring</span> <span class="o">=</span> <span class="n">sympy_eqs_to_ring</span><span class="p">(</span><span class="n">eqs</span><span class="p">,</span> <span class="n">symbols</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2640</span>             <span class="k">except</span> <span class="n">PolynomialError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/polys/solvers.py</span> in <span class="ni">sympy_eqs_to_ring</span><span class="nt">(eqs, symbols)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">128</span>         <span class="n">K</span><span class="p">,</span> <span class="n">eqs_K</span> <span class="o">=</span> <span class="n">sring</span><span class="p">(</span><span class="n">eqs</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="k">except</span> <span class="n">NotInvertible</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/polys/rings.py</span> in <span class="ni">sring</span><span class="nt">(exprs, *symbols, **options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>     <span class="c1"># TODO: rewrite this so that it doesn&#39;t use expand() (see poly()).</span>
+<span class="ne">--&gt; </span><span class="mi">163</span>     <span class="n">reps</span><span class="p">,</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">_parallel_dict_from_expr</span><span class="p">(</span><span class="n">exprs</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/polys/polyutils.py</span> in <span class="ni">_parallel_dict_from_expr</span><span class="nt">(exprs, opt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">gens</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>         <span class="n">reps</span><span class="p">,</span> <span class="n">gens</span> <span class="o">=</span> <span class="n">_parallel_dict_from_expr_if_gens</span><span class="p">(</span><span class="n">exprs</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/polys/polyutils.py</span> in <span class="ni">_parallel_dict_from_expr_if_gens</span><span class="nt">(exprs, opt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>                             <span class="k">raise</span> <span class="n">PolynomialError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> contains an element of &quot;</span>
+<span class="ne">--&gt; </span><span class="mi">216</span>                                                   <span class="s2">&quot;the set of generators.&quot;</span> <span class="o">%</span> <span class="n">factor</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> 
+
+<span class="ne">PolynomialError</span>: cos(theta) contains an element of the set of generators.
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">NonlinearError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">6</span><span class="n">ed066c8a656</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">eq2</span> <span class="o">=</span> <span class="p">[</span><span class="n">Eq</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">coef</span> <span class="ow">in</span> <span class="n">coefs</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">solution</span><span class="p">,</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">(</span><span class="n">eq2</span><span class="p">,(</span><span class="n">i0</span><span class="p">,</span><span class="n">theta</span><span class="p">))</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sympy-1.7.1-py3.7.egg/sympy/solvers/solveset.py</span> in <span class="ni">linsolve</span><span class="nt">(system, *symbols)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2640</span>             <span class="k">except</span> <span class="n">PolynomialError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2641</span>                 <span class="c1"># e.g. cos(x) contains an element of the set of generators</span>
+<span class="ne">-&gt; </span><span class="mi">2642</span>                 <span class="k">raise</span> <span class="n">NonlinearError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2643</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2644</span>             <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">NonlinearError</span>: cos(theta) contains an element of the set of generators.
 </pre></div>
 </div>
 </div>
@@ -545,7 +634,7 @@ Equivalently we could solve directly for the electric current <span class="math 
 \[\displaystyle \frac{\omega \tau v_{0} \left(\omega \tau \sin{\left(\omega t \right)} - \cos{\left(\omega t \right)}\right)}{R \left(\omega^{2} \tau^{2} + 1\right)}\]</div>
 </div>
 </div>
-</div>
+<p>We can write the solution above in a simpler form by noting</p>
 </div>
 
     <script type="text/x-thebe-config">

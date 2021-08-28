@@ -131,6 +131,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Sympy%20-%20symbolic%20manipulation.html#another-form">
+   Another form….
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Plotting%20-%20Interactive%20Transfer%20function.html">
    Plotting: Interactive analysis of an RLC ressonant filter
   </a>
@@ -461,8 +466,8 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$y_0(t)$&#39;</span><span class="p">)</span>
 <span class="c1"># ax.plot(t, y0**2, linestyle=&#39;--&#39;,label = &#39;$y_0(t)^2$&#39;)</span>
 <span class="c1">#--</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">yrms</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymean</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;_</span><span class="si">{rms}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">yrms</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;_</span><span class="si">{rms}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymean</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$&lt;</span><span class="si">{y}</span><span class="s1">&gt;$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="c1"># ax.axhline(-v0)</span>
@@ -479,7 +484,7 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc2b9151990&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff44ca6fe10&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_9_1.png" src="../_images/Plotting - AC wave plots_9_1.png" />
@@ -496,20 +501,20 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 <span class="c1">#------------------------</span>
 <span class="c1"># plt.xkcd()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
 <span class="c1">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Defasagem entre funções senoidais&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;tempo (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;tensão (V)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]))</span>
-<span class="c1">#plt.legend(iter(fig1), (&#39;-pi/6 (atr.)&#39;, &#39;0&#39;,&#39;+pi/6 (adi.)&#39;),loc=&#39;upper right&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">fig1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;-pi/6 (atr.)&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;+pi/6 (adi.)&#39;</span><span class="p">),</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="c1">#------------------------------------</span>
 <span class="c1">#fig.savefig(&#39;defasagem1.pdf&#39;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1, 1.1)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff44ce27fd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_10_1.png" src="../_images/Plotting - AC wave plots_10_1.png" />
@@ -538,7 +543,7 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc2b92a7c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff44cb94c10&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_11_1.png" src="../_images/Plotting - AC wave plots_11_1.png" />
@@ -567,7 +572,7 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc2b98177d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff44d09a810&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_12_1.png" src="../_images/Plotting - AC wave plots_12_1.png" />
@@ -633,7 +638,7 @@ $<span class="math notranslate nohighlight">\(y(t)=v_{dc}+v_0 \cos(\omega t +\ph
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc2b99726d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff44cb9b9d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/Plotting - AC wave plots_15_1.png" src="../_images/Plotting - AC wave plots_15_1.png" />
