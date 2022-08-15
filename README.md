@@ -1,5 +1,6 @@
 # Syllabus
 Jupyter book for the F540 course at Unicamp (2021_1s): Methods on Experimental Physics 1 - Electronics
+[https://gwiederhecker.github.io/F540_jbook/README.html]
 
 
 Syllabus
